@@ -1,0 +1,2008 @@
+# PD59: the playtest log's pattern on the 5-player Balloon Battle character page, RR's settings as they ship: P1-4
+# confirm, unconfirm and change skin every few frames, interleaved, so confirms restart voices still playing and
+# skin changes reload them; P5 only cycles skins, so the page never leaves. Ends on the page.
+wait 900
+press 1 a 5        # title
+wait 175
+press 1 a 5        # license
+wait 240
+press 1 right 5        # main menu: 2 Players
+wait 60
+press 1 right 5        # main menu: 3 Players
+wait 60
+press 1 right 5        # main menu: 4 Players
+wait 60
+press 1 right 5        # main menu: 5 Players
+wait 60
+wait 120
+press 1 a 5        # 5 Players
+wait 360
+press 2 a 5        # join P2
+wait 120
+press 3 a 5        # join P3
+wait 120
+press 4 a 5        # join P4
+wait 120
+press 5 a 5        # join P5
+wait 120
+wait 120
+press 1 a 5        # ConfirmPads: OK
+wait 300
+press 1 down 5        # multiplayer menu: Battle
+wait 60
+press 1 a 5
+wait 360
+press 1 a 5        # Balloon Battle -> the character page
+wait 300
+press 1 r 3
+wait 8
+press 1 r 3
+wait 8
+press 2 r 3
+wait 8
+press 2 r 3
+wait 8
+press 3 r 3
+wait 8
+press 4 r 3
+wait 8
+press 4 r 3
+wait 8
+press 4 r 3
+wait 8
+press 4 r 3
+wait 8
+press 5 r 3
+wait 8
+press 5 r 3
+wait 8
+wait 60
+press 2 a 3
+wait 4
+press 2 b 3
+wait 3
+press 1 a 3
+wait 4
+press 3 a 3
+wait 5
+press 1 b 3
+wait 6
+press 1 a 3
+wait 4
+press 3 b 3
+wait 3
+press 3 a 3
+wait 6
+press 5 l 3
+wait 6
+press 1 b 3
+wait 4
+press 2 r 3
+wait 4
+press 5 r 3
+wait 4
+press 1 a 3
+wait 3
+press 3 b 3
+wait 2
+press 2 a 3
+wait 2
+press 3 a 3
+wait 6
+press 1 b 3
+wait 6
+press 3 b 3
+wait 5
+press 3 r 3
+wait 5
+press 1 l 3
+wait 6
+press 5 l 3
+wait 5
+press 5 r 3
+wait 2
+press 2 b 3
+wait 5
+press 2 r 3
+wait 2
+press 4 a 3
+wait 5
+press 1 r 3
+wait 3
+press 1 a 3
+wait 4
+press 3 r 3
+wait 3
+press 4 b 3
+wait 2
+press 2 a 3
+wait 3
+press 2 b 3
+wait 2
+press 4 r 3
+wait 6
+press 4 r 3
+wait 5
+press 5 r 3
+wait 6
+press 1 b 3
+wait 5
+press 4 a 3
+wait 4
+press 2 a 3
+wait 6
+press 1 a 3
+wait 2
+press 3 a 3
+wait 2
+press 2 b 3
+wait 2
+press 3 b 3
+wait 6
+press 3 a 3
+wait 3
+press 1 b 3
+wait 2
+press 4 b 3
+wait 4
+press 2 a 3
+wait 6
+press 1 a 3
+wait 2
+press 3 b 3
+wait 2
+press 1 b 3
+wait 2
+press 4 a 3
+wait 5
+press 2 b 3
+wait 2
+press 5 r 3
+wait 2
+press 4 b 3
+wait 5
+press 1 r 3
+wait 5
+press 1 a 3
+wait 5
+press 4 r 3
+wait 2
+press 1 b 3
+wait 2
+press 3 l 3
+wait 4
+press 1 r 3
+wait 6
+press 1 r 3
+wait 2
+press 1 a 3
+wait 2
+press 4 a 3
+wait 5
+press 4 b 3
+wait 5
+press 5 r 3
+wait 3
+press 2 l 3
+wait 2
+press 3 a 3
+wait 2
+press 3 b 3
+wait 6
+press 5 l 3
+wait 4
+press 1 b 3
+wait 6
+press 1 r 3
+wait 6
+press 3 l 3
+wait 5
+press 4 a 3
+wait 6
+press 4 b 3
+wait 5
+press 3 r 3
+wait 5
+press 5 r 3
+wait 3
+press 2 r 3
+wait 4
+press 4 l 3
+wait 3
+press 4 a 3
+wait 6
+press 1 a 3
+wait 2
+press 2 a 3
+wait 2
+press 2 b 3
+wait 2
+press 2 a 3
+wait 4
+press 5 r 3
+wait 4
+press 3 a 3
+wait 6
+press 5 r 3
+wait 4
+press 1 b 3
+wait 3
+press 5 l 3
+wait 4
+press 1 r 3
+wait 2
+press 2 b 3
+wait 4
+press 1 a 3
+wait 4
+press 2 r 3
+wait 4
+press 3 b 3
+wait 3
+press 4 b 3
+wait 4
+press 3 r 3
+wait 5
+press 1 b 3
+wait 3
+press 5 r 3
+wait 6
+press 2 a 3
+wait 5
+press 1 a 3
+wait 3
+press 2 b 3
+wait 3
+press 4 a 3
+wait 6
+press 3 r 3
+wait 3
+press 3 r 3
+wait 4
+press 3 a 3
+wait 2
+press 2 r 3
+wait 6
+press 4 b 3
+wait 5
+press 5 r 3
+wait 5
+press 4 a 3
+wait 5
+press 2 l 3
+wait 2
+press 2 r 3
+wait 2
+press 4 b 3
+wait 6
+press 4 a 3
+wait 4
+press 3 b 3
+wait 2
+press 3 a 3
+wait 4
+press 5 r 3
+wait 6
+press 4 b 3
+wait 4
+press 3 b 3
+wait 5
+press 5 l 3
+wait 3
+press 3 a 3
+wait 5
+press 5 r 3
+wait 4
+press 4 a 3
+wait 3
+press 5 r 3
+wait 4
+press 1 b 3
+wait 6
+press 4 b 3
+wait 6
+press 5 r 3
+wait 4
+press 4 a 3
+wait 4
+press 2 a 3
+wait 3
+press 2 b 3
+wait 5
+press 2 l 3
+wait 3
+press 1 a 3
+wait 6
+press 1 b 3
+wait 2
+press 3 b 3
+wait 6
+press 4 b 3
+wait 5
+press 3 l 3
+wait 4
+press 1 r 3
+wait 4
+press 3 a 3
+wait 3
+press 5 l 3
+wait 3
+press 2 r 3
+wait 5
+press 3 b 3
+wait 3
+press 2 a 3
+wait 4
+press 4 a 3
+wait 4
+press 2 b 3
+wait 3
+press 3 a 3
+wait 2
+press 2 r 3
+wait 6
+press 5 r 3
+wait 4
+press 3 b 3
+wait 2
+press 4 b 3
+wait 5
+press 1 r 3
+wait 6
+press 5 r 3
+wait 3
+press 2 a 3
+wait 6
+press 2 b 3
+wait 2
+press 2 a 3
+wait 3
+press 4 a 3
+wait 2
+press 4 b 3
+wait 5
+press 3 l 3
+wait 2
+press 4 r 3
+wait 2
+press 5 r 3
+wait 4
+press 2 b 3
+wait 2
+press 4 a 3
+wait 4
+press 3 a 3
+wait 5
+press 4 b 3
+wait 3
+press 2 r 3
+wait 3
+press 1 l 3
+wait 5
+press 1 l 3
+wait 4
+press 1 r 3
+wait 6
+press 4 a 3
+wait 3
+press 4 b 3
+wait 5
+press 3 b 3
+wait 3
+press 2 a 3
+wait 4
+press 2 b 3
+wait 2
+press 4 a 3
+wait 6
+press 4 b 3
+wait 3
+press 1 l 3
+wait 4
+press 1 a 3
+wait 5
+press 2 a 3
+wait 3
+press 2 b 3
+wait 3
+press 2 a 3
+wait 3
+press 3 r 3
+wait 6
+press 4 a 3
+wait 2
+press 2 b 3
+wait 3
+press 1 b 3
+wait 3
+press 2 a 3
+wait 3
+press 2 b 3
+wait 4
+press 1 a 3
+wait 4
+press 3 a 3
+wait 3
+press 4 b 3
+wait 3
+press 3 b 3
+wait 3
+press 2 r 3
+wait 3
+press 1 b 3
+wait 6
+press 4 a 3
+wait 4
+press 2 r 3
+wait 2
+press 1 a 3
+wait 6
+press 4 b 3
+wait 5
+press 3 a 3
+wait 3
+press 5 r 3
+wait 3
+press 2 r 3
+wait 3
+press 2 l 3
+wait 5
+press 4 a 3
+wait 6
+press 5 r 3
+wait 3
+press 3 b 3
+wait 4
+press 2 a 3
+wait 2
+press 5 r 3
+wait 6
+press 1 b 3
+wait 2
+press 1 a 3
+wait 6
+press 3 r 3
+wait 5
+press 5 l 3
+wait 2
+press 2 b 3
+wait 2
+press 4 b 3
+wait 6
+press 2 r 3
+wait 6
+press 3 r 3
+wait 2
+press 3 r 3
+wait 4
+press 2 a 3
+wait 4
+press 2 b 3
+wait 4
+press 2 r 3
+wait 4
+press 1 b 3
+wait 5
+press 5 l 3
+wait 3
+press 2 a 3
+wait 3
+press 3 r 3
+wait 2
+press 2 b 3
+wait 5
+press 4 r 3
+wait 2
+press 2 a 3
+wait 2
+press 4 r 3
+wait 3
+press 5 l 3
+wait 5
+press 5 r 3
+wait 5
+press 3 r 3
+wait 5
+press 2 b 3
+wait 5
+press 2 a 3
+wait 4
+press 2 b 3
+wait 4
+press 1 a 3
+wait 4
+press 1 b 3
+wait 5
+press 1 a 3
+wait 2
+press 4 r 3
+wait 3
+press 1 b 3
+wait 5
+press 3 a 3
+wait 4
+press 4 r 3
+wait 2
+press 2 r 3
+wait 5
+press 5 l 3
+wait 3
+press 3 b 3
+wait 6
+press 2 a 3
+wait 2
+press 5 r 3
+wait 2
+press 3 r 3
+wait 2
+press 2 b 3
+wait 3
+press 5 l 3
+wait 3
+press 5 l 3
+wait 3
+press 2 a 3
+wait 4
+press 1 r 3
+wait 4
+press 1 a 3
+wait 4
+press 3 r 3
+wait 6
+press 3 a 3
+wait 3
+press 1 b 3
+wait 3
+press 1 l 3
+wait 2
+press 3 b 3
+wait 6
+press 3 a 3
+wait 4
+press 5 l 3
+wait 4
+press 5 l 3
+wait 2
+press 4 l 3
+wait 5
+press 4 r 3
+wait 6
+press 1 l 3
+wait 6
+press 5 l 3
+wait 3
+press 1 r 3
+wait 5
+press 1 a 3
+wait 4
+press 3 b 3
+wait 2
+press 3 a 3
+wait 6
+press 1 b 3
+wait 5
+press 1 a 3
+wait 2
+press 2 b 3
+wait 3
+press 1 b 3
+wait 2
+press 3 b 3
+wait 4
+press 3 l 3
+wait 6
+press 4 a 3
+wait 2
+press 2 a 3
+wait 4
+press 5 r 3
+wait 3
+press 4 b 3
+wait 6
+press 4 a 3
+wait 2
+press 4 b 3
+wait 5
+press 2 b 3
+wait 6
+press 3 a 3
+wait 5
+press 3 b 3
+wait 4
+press 5 r 3
+wait 3
+press 4 a 3
+wait 5
+press 1 a 3
+wait 3
+press 1 b 3
+wait 6
+press 5 l 3
+wait 3
+press 3 r 3
+wait 2
+press 3 r 3
+wait 5
+press 1 a 3
+wait 4
+press 3 a 3
+wait 6
+press 2 l 3
+wait 3
+press 2 a 3
+wait 5
+press 3 b 3
+wait 6
+press 3 a 3
+wait 3
+press 2 b 3
+wait 5
+press 1 b 3
+wait 4
+press 5 l 3
+wait 3
+press 4 b 3
+wait 3
+press 2 l 3
+wait 3
+press 1 l 3
+wait 6
+press 5 r 3
+wait 6
+press 2 r 3
+wait 5
+press 2 a 3
+wait 4
+press 3 b 3
+wait 4
+press 1 l 3
+wait 3
+press 3 a 3
+wait 4
+press 5 l 3
+wait 4
+press 2 b 3
+wait 3
+press 4 a 3
+wait 2
+press 2 l 3
+wait 5
+press 1 a 3
+wait 3
+press 5 r 3
+wait 6
+press 4 b 3
+wait 2
+press 3 b 3
+wait 3
+press 3 a 3
+wait 4
+press 2 r 3
+wait 4
+press 2 a 3
+wait 2
+press 4 a 3
+wait 5
+press 4 b 3
+wait 6
+press 3 b 3
+wait 2
+press 3 a 3
+wait 4
+press 2 b 3
+wait 4
+press 5 r 3
+wait 2
+press 5 r 3
+wait 3
+press 4 a 3
+wait 6
+press 2 a 3
+wait 3
+press 3 b 3
+wait 4
+press 4 b 3
+wait 2
+press 5 r 3
+wait 6
+press 1 b 3
+wait 2
+press 1 a 3
+wait 3
+press 1 b 3
+wait 3
+press 1 a 3
+wait 2
+press 2 b 3
+wait 2
+press 1 b 3
+wait 4
+press 4 a 3
+wait 5
+press 1 a 3
+wait 2
+press 4 b 3
+wait 2
+press 3 a 3
+wait 6
+press 2 r 3
+wait 2
+press 3 b 3
+wait 3
+press 1 b 3
+wait 2
+press 2 r 3
+wait 5
+press 5 r 3
+wait 6
+press 1 r 3
+wait 3
+press 3 r 3
+wait 2
+press 2 r 3
+wait 3
+press 1 r 3
+wait 6
+press 1 a 3
+wait 2
+press 4 r 3
+wait 3
+press 1 b 3
+wait 2
+press 1 r 3
+wait 3
+press 2 a 3
+wait 2
+press 2 b 3
+wait 5
+press 1 a 3
+wait 3
+press 3 a 3
+wait 3
+press 5 r 3
+wait 6
+press 2 a 3
+wait 4
+press 1 b 3
+wait 3
+press 5 l 3
+wait 6
+press 2 b 3
+wait 2
+press 5 r 3
+wait 3
+press 2 a 3
+wait 3
+press 1 r 3
+wait 3
+press 2 b 3
+wait 6
+press 4 a 3
+wait 3
+press 5 r 3
+wait 4
+press 4 b 3
+wait 3
+press 4 a 3
+wait 5
+press 3 b 3
+wait 5
+press 2 a 3
+wait 3
+press 1 r 3
+wait 4
+press 1 l 3
+wait 3
+press 4 b 3
+wait 4
+press 3 a 3
+wait 3
+press 4 a 3
+wait 5
+press 2 b 3
+wait 2
+press 4 b 3
+wait 2
+press 5 l 3
+wait 3
+press 5 r 3
+wait 5
+press 2 l 3
+wait 2
+press 3 b 3
+wait 4
+press 3 a 3
+wait 3
+press 3 b 3
+wait 5
+press 1 a 3
+wait 2
+press 1 b 3
+wait 5
+press 3 a 3
+wait 2
+press 1 r 3
+wait 6
+press 4 a 3
+wait 6
+press 4 b 3
+wait 3
+press 2 a 3
+wait 2
+press 2 b 3
+wait 4
+press 3 b 3
+wait 2
+press 5 r 3
+wait 5
+press 4 a 3
+wait 2
+press 5 r 3
+wait 2
+press 2 a 3
+wait 3
+press 3 l 3
+wait 3
+press 5 r 3
+wait 4
+press 4 b 3
+wait 4
+press 3 a 3
+wait 4
+press 1 a 3
+wait 2
+press 5 r 3
+wait 5
+press 4 r 3
+wait 5
+press 4 r 3
+wait 5
+press 1 b 3
+wait 6
+press 1 a 3
+wait 5
+press 3 b 3
+wait 6
+press 4 a 3
+wait 4
+press 2 b 3
+wait 5
+press 2 r 3
+wait 5
+press 4 b 3
+wait 5
+press 3 r 3
+wait 4
+press 4 a 3
+wait 4
+press 3 a 3
+wait 4
+press 3 b 3
+wait 4
+press 2 a 3
+wait 4
+press 2 b 3
+wait 2
+press 1 b 3
+wait 2
+press 4 b 3
+wait 6
+press 3 a 3
+wait 4
+press 4 r 3
+wait 3
+press 4 r 3
+wait 2
+press 5 r 3
+wait 5
+press 1 a 3
+wait 3
+press 1 b 3
+wait 4
+press 4 a 3
+wait 2
+press 4 b 3
+wait 4
+press 3 b 3
+wait 3
+press 2 r 3
+wait 4
+press 2 r 3
+wait 3
+press 4 a 3
+wait 5
+press 3 l 3
+wait 4
+press 4 b 3
+wait 2
+press 3 l 3
+wait 4
+press 5 r 3
+wait 5
+press 3 a 3
+wait 5
+press 3 b 3
+wait 4
+press 1 a 3
+wait 3
+press 3 r 3
+wait 6
+press 3 a 3
+wait 4
+press 1 b 3
+wait 5
+press 1 a 3
+wait 4
+press 3 b 3
+wait 6
+press 5 l 3
+wait 5
+press 4 r 3
+wait 3
+press 1 b 3
+wait 4
+press 5 r 3
+wait 2
+press 1 a 3
+wait 4
+press 2 a 3
+wait 3
+press 4 a 3
+wait 5
+press 2 b 3
+wait 6
+press 2 r 3
+wait 4
+press 2 l 3
+wait 4
+press 1 b 3
+wait 2
+press 2 r 3
+wait 6
+press 2 a 3
+wait 3
+press 4 b 3
+wait 6
+press 3 a 3
+wait 4
+press 2 b 3
+wait 5
+press 3 b 3
+wait 6
+press 2 a 3
+wait 3
+press 3 a 3
+wait 5
+press 1 a 3
+wait 2
+press 4 r 3
+wait 5
+press 1 b 3
+wait 6
+press 1 a 3
+wait 4
+press 4 a 3
+wait 3
+press 3 b 3
+wait 6
+press 4 b 3
+wait 4
+press 2 b 3
+wait 4
+press 4 a 3
+wait 4
+press 1 b 3
+wait 5
+press 1 r 3
+wait 3
+press 3 l 3
+wait 3
+press 4 b 3
+wait 4
+press 2 r 3
+wait 6
+press 5 l 3
+wait 2
+press 1 l 3
+wait 5
+press 5 r 3
+wait 2
+press 1 a 3
+wait 5
+press 1 b 3
+wait 3
+press 1 a 3
+wait 4
+press 4 l 3
+wait 2
+press 3 r 3
+wait 3
+press 3 a 3
+wait 2
+press 4 a 3
+wait 5
+press 2 r 3
+wait 2
+press 1 b 3
+wait 4
+press 1 a 3
+wait 4
+press 3 b 3
+wait 5
+press 5 r 3
+wait 5
+press 2 a 3
+wait 2
+press 2 b 3
+wait 6
+press 1 b 3
+wait 3
+press 1 a 3
+wait 6
+press 3 a 3
+wait 6
+press 5 r 3
+wait 2
+press 1 b 3
+wait 3
+press 3 b 3
+wait 4
+press 4 b 3
+wait 6
+press 3 r 3
+wait 5
+press 3 a 3
+wait 6
+press 1 r 3
+wait 6
+press 3 b 3
+wait 6
+press 2 l 3
+wait 2
+press 1 a 3
+wait 4
+press 1 b 3
+wait 2
+press 4 a 3
+wait 2
+press 4 b 3
+wait 5
+press 3 r 3
+wait 2
+press 3 r 3
+wait 2
+press 3 l 3
+wait 2
+press 4 a 3
+wait 6
+press 4 b 3
+wait 4
+press 4 a 3
+wait 4
+press 1 l 3
+wait 4
+press 2 a 3
+wait 6
+press 1 r 3
+wait 5
+press 2 b 3
+wait 5
+press 4 b 3
+wait 5
+press 4 a 3
+wait 6
+press 3 r 3
+wait 3
+press 5 r 3
+wait 4
+press 2 a 3
+wait 2
+press 2 b 3
+wait 5
+press 3 r 3
+wait 4
+press 4 b 3
+wait 4
+press 1 r 3
+wait 5
+press 3 r 3
+wait 2
+press 2 r 3
+wait 4
+press 1 a 3
+wait 6
+press 4 l 3
+wait 4
+press 4 a 3
+wait 2
+press 1 b 3
+wait 4
+press 5 l 3
+wait 4
+press 4 b 3
+wait 5
+press 4 a 3
+wait 4
+press 5 r 3
+wait 2
+press 1 a 3
+wait 2
+press 1 b 3
+wait 3
+press 1 a 3
+wait 3
+press 4 b 3
+wait 4
+press 4 r 3
+wait 2
+press 5 l 3
+wait 2
+press 2 r 3
+wait 5
+press 2 a 3
+wait 3
+press 3 a 3
+wait 5
+press 1 b 3
+wait 3
+press 3 b 3
+wait 2
+press 2 b 3
+wait 4
+press 2 a 3
+wait 4
+press 4 l 3
+wait 5
+press 2 b 3
+wait 5
+press 3 r 3
+wait 4
+press 2 a 3
+wait 5
+press 2 b 3
+wait 6
+press 2 r 3
+wait 3
+press 4 a 3
+wait 5
+press 1 a 3
+wait 6
+press 2 r 3
+wait 5
+press 5 l 3
+wait 3
+press 3 a 3
+wait 5
+press 3 b 3
+wait 6
+press 1 b 3
+wait 3
+press 2 a 3
+wait 6
+press 1 a 3
+wait 4
+press 3 a 3
+wait 2
+press 1 b 3
+wait 3
+press 5 l 3
+wait 6
+press 3 b 3
+wait 6
+press 1 r 3
+wait 3
+press 5 r 3
+wait 6
+press 2 b 3
+wait 6
+press 5 l 3
+wait 4
+press 3 r 3
+wait 3
+press 3 l 3
+wait 4
+press 4 b 3
+wait 6
+press 5 r 3
+wait 4
+press 1 l 3
+wait 2
+press 3 l 3
+wait 4
+press 1 l 3
+wait 4
+press 3 l 3
+wait 2
+press 3 a 3
+wait 6
+press 1 l 3
+wait 2
+press 5 l 3
+wait 4
+press 3 b 3
+wait 4
+press 2 a 3
+wait 2
+press 1 r 3
+wait 4
+press 2 b 3
+wait 6
+press 5 r 3
+wait 5
+press 2 a 3
+wait 3
+press 3 r 3
+wait 2
+press 4 r 3
+wait 3
+press 5 r 3
+wait 3
+press 5 r 3
+wait 5
+press 1 l 3
+wait 2
+press 2 b 3
+wait 2
+press 1 a 3
+wait 6
+press 2 r 3
+wait 2
+press 4 a 3
+wait 6
+press 3 a 3
+wait 3
+press 3 b 3
+wait 2
+press 5 r 3
+wait 5
+press 4 b 3
+wait 5
+press 4 a 3
+wait 6
+press 1 b 3
+wait 6
+press 4 b 3
+wait 2
+press 5 r 3
+wait 6
+press 3 a 3
+wait 2
+press 3 b 3
+wait 5
+press 1 a 3
+wait 4
+press 1 b 3
+wait 6
+press 3 r 3
+wait 5
+press 4 a 3
+wait 3
+press 5 r 3
+wait 2
+press 4 b 3
+wait 5
+press 4 a 3
+wait 4
+press 1 a 3
+wait 6
+press 4 b 3
+wait 3
+press 5 l 3
+wait 4
+press 3 l 3
+wait 4
+press 3 a 3
+wait 6
+press 4 a 3
+wait 3
+press 3 b 3
+wait 4
+press 1 b 3
+wait 5
+press 1 a 3
+wait 6
+press 4 b 3
+wait 4
+press 3 r 3
+wait 6
+press 3 a 3
+wait 4
+press 1 b 3
+wait 3
+press 1 a 3
+wait 3
+press 3 b 3
+wait 6
+press 2 r 3
+wait 4
+press 1 b 3
+wait 2
+press 4 a 3
+wait 2
+press 4 b 3
+wait 4
+press 4 a 3
+wait 6
+press 4 b 3
+wait 3
+press 4 a 3
+wait 2
+press 3 a 3
+wait 3
+press 3 b 3
+wait 5
+press 1 r 3
+wait 2
+press 3 a 3
+wait 3
+press 4 b 3
+wait 5
+press 4 a 3
+wait 4
+press 3 b 3
+wait 2
+press 4 b 3
+wait 6
+press 1 r 3
+wait 2
+press 5 r 3
+wait 6
+press 3 a 3
+wait 4
+press 3 b 3
+wait 2
+press 2 a 3
+wait 5
+press 5 l 3
+wait 6
+press 1 r 3
+wait 3
+press 4 a 3
+wait 6
+press 1 a 3
+wait 2
+press 3 r 3
+wait 2
+press 1 b 3
+wait 2
+press 4 b 3
+wait 2
+press 1 r 3
+wait 3
+press 3 a 3
+wait 2
+press 3 b 3
+wait 4
+press 2 b 3
+wait 4
+press 3 a 3
+wait 5
+press 1 a 3
+wait 3
+press 1 b 3
+wait 6
+press 5 l 3
+wait 5
+press 1 r 3
+wait 6
+press 3 b 3
+wait 6
+press 1 a 3
+wait 5
+press 4 a 3
+wait 4
+press 1 b 3
+wait 6
+press 2 l 3
+wait 4
+press 5 r 3
+wait 3
+press 4 b 3
+wait 6
+press 2 l 3
+wait 6
+press 2 a 3
+wait 6
+press 4 a 3
+wait 4
+press 2 b 3
+wait 3
+press 2 r 3
+wait 2
+press 1 a 3
+wait 2
+press 3 r 3
+wait 4
+press 3 a 3
+wait 4
+press 2 l 3
+wait 5
+press 5 r 3
+wait 3
+press 4 b 3
+wait 4
+press 5 r 3
+wait 5
+press 3 b 3
+wait 5
+press 1 b 3
+wait 4
+press 1 a 3
+wait 5
+press 2 a 3
+wait 4
+press 3 a 3
+wait 3
+press 1 b 3
+wait 3
+press 1 r 3
+wait 5
+press 2 b 3
+wait 5
+press 4 a 3
+wait 6
+press 4 b 3
+wait 2
+press 4 r 3
+wait 2
+press 1 r 3
+wait 5
+press 1 a 3
+wait 2
+press 1 b 3
+wait 6
+press 4 a 3
+wait 3
+press 2 a 3
+wait 3
+press 4 b 3
+wait 6
+press 1 a 3
+wait 5
+press 1 b 3
+wait 6
+press 2 b 3
+wait 3
+press 4 a 3
+wait 4
+press 2 l 3
+wait 2
+press 1 r 3
+wait 3
+press 4 b 3
+wait 5
+press 1 r 3
+wait 6
+press 3 b 3
+wait 5
+press 4 a 3
+wait 5
+press 2 a 3
+wait 5
+press 5 r 3
+wait 4
+press 4 b 3
+wait 6
+press 4 a 3
+wait 6
+press 2 b 3
+wait 4
+press 2 a 3
+wait 3
+press 4 b 3
+wait 4
+press 3 a 3
+wait 6
+press 3 b 3
+wait 2
+press 4 r 3
+wait 5
+press 4 a 3
+wait 4
+press 3 r 3
+wait 3
+press 1 l 3
+wait 5
+press 3 a 3
+wait 5
+press 1 a 3
+wait 4
+press 3 b 3
+wait 6
+press 1 b 3
+wait 4
+press 5 r 3
+wait 5
+press 4 b 3
+wait 6
+press 1 a 3
+wait 4
+press 1 b 3
+wait 5
+press 2 b 3
+wait 6
+press 1 a 3
+wait 5
+press 2 a 3
+wait 5
+press 3 l 3
+wait 2
+press 3 a 3
+wait 6
+press 1 b 3
+wait 5
+press 3 b 3
+wait 4
+press 2 b 3
+wait 6
+press 3 a 3
+wait 2
+press 3 b 3
+wait 6
+press 4 r 3
+wait 2
+press 3 r 3
+wait 3
+press 1 a 3
+wait 6
+press 5 r 3
+wait 4
+press 3 l 3
+wait 3
+press 4 a 3
+wait 6
+press 4 b 3
+wait 5
+press 4 a 3
+wait 3
+press 1 b 3
+wait 3
+press 3 a 3
+wait 3
+press 2 r 3
+wait 4
+press 4 b 3
+wait 5
+press 4 r 3
+wait 5
+press 3 b 3
+wait 6
+press 3 l 3
+wait 5
+press 1 a 3
+wait 2
+press 5 l 3
+wait 6
+press 2 a 3
+wait 6
+press 4 a 3
+wait 6
+press 5 l 3
+wait 5
+press 3 r 3
+wait 5
+press 4 b 3
+wait 6
+press 1 b 3
+wait 5
+press 4 a 3
+wait 5
+press 2 b 3
+wait 6
+press 4 b 3
+wait 2
+press 2 r 3
+wait 3
+press 1 l 3
+wait 3
+press 4 a 3
+wait 2
+press 2 a 3
+wait 5
+press 4 b 3
+wait 4
+press 1 l 3
+wait 4
+press 2 b 3
+wait 5
+press 3 l 3
+wait 4
+press 5 l 3
+wait 5
+press 5 r 3
+wait 6
+press 2 a 3
+wait 4
+press 2 b 3
+wait 5
+press 3 a 3
+wait 4
+press 5 l 3
+wait 5
+press 5 r 3
+wait 3
+press 4 l 3
+wait 2
+press 4 a 3
+wait 2
+press 1 l 3
+wait 3
+press 4 b 3
+wait 3
+press 3 b 3
+wait 6
+press 4 l 3
+wait 4
+press 4 r 3
+wait 5
+press 2 r 3
+wait 4
+press 2 a 3
+wait 2
+press 1 l 3
+wait 4
+press 1 a 3
+wait 2
+press 3 a 3
+wait 4
+press 1 b 3
+wait 2
+press 2 b 3
+wait 3
+press 3 b 3
+wait 4
+press 1 r 3
+wait 2
+press 1 r 3
+wait 5
+press 2 a 3
+wait 5
+press 3 a 3
+wait 6
+press 2 b 3
+wait 4
+press 4 r 3
+wait 2
+press 4 a 3
+wait 6
+press 4 b 3
+wait 5
+press 4 r 3
+wait 3
+press 2 a 3
+wait 3
+press 3 b 3
+wait 5
+press 3 r 3
+wait 6
+press 2 b 3
+wait 5
+press 2 a 3
+wait 2
+press 2 b 3
+wait 4
+press 1 l 3
+wait 6
+press 4 r 3
+wait 6
+press 3 a 3
+wait 5
+press 1 a 3
+wait 3
+press 1 b 3
+wait 6
+press 4 r 3
+wait 6
+press 4 r 3
+wait 5
+press 2 a 3
+wait 5
+press 3 b 3
+wait 4
+press 3 a 3
+wait 4
+press 5 l 3
+wait 2
+press 2 b 3
+wait 6
+press 1 r 3
+wait 3
+press 3 b 3
+wait 5
+press 4 a 3
+wait 3
+press 3 a 3
+wait 5
+press 3 b 3
+wait 2
+press 5 r 3
+wait 6
+press 1 r 3
+wait 5
+press 3 r 3
+wait 3
+press 4 b 3
+wait 5
+press 1 l 3
+wait 3
+press 1 r 3
+wait 4
+press 3 r 3
+wait 4
+press 3 r 3
+wait 3
+press 4 r 3
+wait 3
+press 3 r 3
+wait 6
+press 3 a 3
+wait 3
+press 4 l 3
+wait 6
+press 2 l 3
+wait 4
+press 4 r 3
+wait 2
+press 3 b 3
+wait 4
+press 3 r 3
+wait 6
+press 1 r 3
+wait 4
+press 3 r 3
+wait 3
+press 5 r 3
+wait 2
+press 4 a 3
+wait 6
+press 2 a 3
+wait 2
+press 2 b 3
+wait 6
+press 4 b 3
+wait 5
+press 1 a 3
+wait 6
+press 3 a 3
+wait 3
+press 3 b 3
+wait 4
+press 5 r 3
+wait 5
+press 4 r 3
+wait 6
+press 3 r 3
+wait 2
+press 4 a 3
+wait 2
+press 4 b 3
+wait 2
+press 1 b 3
+wait 4
+press 5 r 3
+wait 5
+press 2 r 3
+wait 4
+press 1 r 3
+wait 5
+press 2 r 3
+wait 5
+press 4 a 3
+wait 5
+press 3 r 3
+wait 6
+press 1 a 3
+wait 2
+press 3 l 3
+wait 4
+press 1 b 3
+wait 2
+press 2 a 3
+wait 3
+press 5 r 3
+wait 6
+press 1 l 3
+wait 4
+press 3 a 3
+wait 6
+press 2 b 3
+wait 6
+press 2 a 3
+wait 6
+press 2 b 3
+wait 4
+press 1 r 3
+wait 2
+press 2 r 3
+wait 3
+press 3 b 3
+wait 3
+press 5 r 3
+wait 2
+press 4 b 3
+wait 3
+press 1 l 3
+wait 5
+press 3 a 3
+wait 4
+press 1 a 3
+wait 4
+press 2 a 3
+wait 2
+press 4 a 3
+wait 2
+press 1 b 3
+wait 6
+press 2 b 3
+wait 5
+press 3 b 3
+wait 4
+press 3 r 3
+wait 4
+press 3 a 3
+wait 2
+press 2 a 3
+wait 3
+press 2 b 3
+wait 6
+press 3 b 3
+wait 2
+press 4 b 3
+wait 2
+press 4 r 3
+wait 4
+press 1 a 3
+wait 4
+press 5 r 3
+wait 2
+press 2 a 3
+wait 5
+press 3 a 3
+wait 5
+press 4 r 3
+wait 2
+press 3 b 3
+wait 5
+press 1 b 3
+wait 3
+press 1 r 3
+wait 2
+press 4 r 3
+wait 3
+press 2 b 3
+wait 2
+press 4 l 3
+wait 6
+press 3 a 3
+wait 6
+press 4 r 3
+wait 5
+press 1 l 3
+wait 5
+press 5 l 3
+wait 4
+press 3 b 3
+wait 5
+press 4 r 3
+wait 6
+press 3 r 3
+wait 5
+press 5 l 3
+wait 4
+press 1 r 3
+wait 4
+press 2 a 3
+wait 5
+press 4 a 3
+wait 4
+press 2 b 3
+wait 2
+press 4 b 3
+wait 2
+press 4 l 3
+wait 6
+press 1 a 3
+wait 6
+press 2 a 3
+wait 6
+press 3 r 3
+wait 2
+press 3 a 3
+wait 6
+press 1 b 3
+wait 2
+press 1 r 3
+wait 5
+press 5 r 3
+wait 6
+press 2 b 3
+wait 5
+press 1 a 3
+wait 5
+press 2 a 3
+wait 2
+press 2 b 3
+wait 2
+press 2 r 3
+wait 2
+press 4 a 3
+wait 2
+press 4 b 3
+wait 5
+press 1 b 3
+wait 3
+press 4 l 3
+wait 5
+press 4 a 3
+wait 4
+press 3 b 3
+wait 3
+press 2 r 3
+wait 6
+press 2 a 3
+wait 2
+press 2 b 3
+wait 3
+press 5 l 3
+wait 2
+press 5 l 3
+wait 6
+press 2 a 3
+wait 3
+press 1 l 3
+wait 2
+press 4 b 3
+wait 6
+press 5 l 3
+wait 5
+press 2 b 3
+wait 4
+press 4 a 3
+wait 2
+press 3 a 3
+wait 3
+press 3 b 3
+wait 2
+press 5 r 3
+wait 4
+press 3 r 3
+wait 3
+press 2 a 3
+wait 2
+press 1 a 3
+wait 6
+press 3 l 3
+wait 3
+press 4 b 3
+wait 2
+press 1 b 3
+wait 4
+press 4 a 3
+wait 4
+press 4 b 3
+wait 3
+press 4 l 3
+wait 6
+press 1 a 3
+wait 5
+press 5 l 3
+wait 3
+press 1 b 3
+wait 5
+press 1 a 3
+wait 6
+press 4 a 3
+wait 6
+press 2 b 3
+wait 5
+press 2 a 3
+wait 5
+press 2 b 3
+wait 3
+press 3 a 3
+wait 3
+press 1 b 3
+wait 3
+press 5 r 3
+wait 4
+wait 600

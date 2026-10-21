@@ -1,0 +1,103 @@
+name: Bug report
+description: Something in SplitScreen8 or its setup does not work as it should.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. One bug per issue, please. A photo or a short video of the screen helps more than anything else.
+  - type: input
+    id: version
+    attributes:
+      label: SplitScreen8 version
+      description: The version in the zip's name, for example 1.0.0.
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    id: build
+    attributes:
+      label: Build
+      options:
+        - Retro Rewind
+        - Mario Kart Wii
+        - Both
+        - The setup, before playing
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Where you play
+      multiple: true
+      options:
+        - Dolphin
+        - WiiCompiled
+        - A Wii (USB Loader GX)
+    validations:
+      required: true
+  - type: dropdown
+    id: players
+    attributes:
+      label: Local players
+      options: ["1", "2", "3", "4", "5", "6", "7", "8"]
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Where it happens
+      options:
+        - Menus (join, character, kart, course pages)
+        - VS race
+        - Team VS
+        - Battle
+        - KO, Lap KO, Battle Royale or Elimination
+        - Results or awards
+        - Setup or install
+        - Somewhere else
+    validations:
+      required: true
+  - type: input
+    id: track
+    attributes:
+      label: Track or arena
+      placeholder: Baby Park
+  - type: textarea
+    id: controllers
+    attributes:
+      label: Controllers
+      description: Which controller each player used, and any adapter (for example "P1-4 GameCube on a Mayflash adapter, P5-8 Wii Remotes").
+  - type: dropdown
+    id: retro-rewind
+    attributes:
+      label: Does it also happen in Retro Rewind itself, with the same players and mode?
+      description: With 1 to 4 players, the Retro Rewind build plays as Retro Rewind does. A bug Retro Rewind has too belongs to Retro Rewind.
+      options:
+        - "No"
+        - "Yes"
+        - Not checked, or it needs 5 to 8 players
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to make it happen again
+      placeholder: |
+        1. 8 Players, VS, 150cc
+        2. Pick Baby Park
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots, video or logs
+      description: Drag files in here. For a setup problem, paste what the setup printed.

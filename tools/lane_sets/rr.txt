@@ -1,0 +1,131 @@
+# RR's full menu-script set: lane.py batch tools/lane_sets/rr.txt --slots 4, on the 8P root and slots 1-3. The batch
+# builds ss8-menu once. Session 63's set (build/s63/full2.txt) and the lanes added since; --fast except the sound lanes,
+# 4p-team-back-ref and the re-entry lanes, which shoot at real speed. The boot cases are smoke_8p.py --slots 4 --fast.
+# Long lanes first
+ss8-menu 8p-ko-series --past-race --total 2400 --fast
+ss8-menu 4p-ko-series-ref --past-race --total 2400 --fast
+ss8-menu 8p-battle-asis --past-race --total 1500 --fast
+ss8-menu 6p-coin-asis --past-race --total 1500 --fast
+ss8-menu 8p-ffa-asis --past-race --total 1500 --fast
+ss8-menu 6p-ffa-asis --past-race --total 1500 --fast
+ss8-menu 6p-ffa-coin --past-race --total 1500 --fast
+ss8-menu 8p-ffa-coin --past-race --total 1500 --fast
+ss8-menu 4p-battle-ref --past-race --total 1500 --fast
+ss8-menu 4p-coin-ref --past-race --total 1500 --fast
+ss8-menu 2p-ffa-ref --past-race --total 1500 --fast
+ss8-menu 8p-royale-finish --past-race --total 1500 --fast
+ss8-menu 8p-next-race-hold --past-race --total 1500 --fast
+ss8-menu 6p-vs-series --past-race --total 1500 --fast
+ss8-menu 8p-vs-series --past-race --total 1500 --fast
+ss8-menu 4p-team-ref --past-race --total 1500 --fast
+ss8-menu 8p-team --past-race --total 1500 --fast
+ss8-menu 4p-vs-series-ref --past-race --total 1200 --fast
+ss8-menu 6p-elim --past-race --total 900 --fast
+ss8-menu 8p-elim --past-race --total 900 --fast
+ss8-menu 6p-battle-quit --past-race --total 900 --fast
+ss8-menu 6p-battle-pause-quit --past-race --total 900 --fast
+ss8-menu 8p-royale --past-race --total 700 --fast
+ss8-menu 6p-royale --past-race --total 600 --fast
+ss8-menu 2p-elim-ref --past-race --total 600 --fast
+ss8-menu 6p-lapko --past-race --total 600 --fast
+ss8-menu 8p-lapko --past-race --total 600 --fast
+ss8-menu 4p-lapko-ref --past-race --total 600 --fast
+ss8-menu 6p-then-2p-ko --past-race --total 600 --fast
+ss8-menu 6p-battle-requit --past-race --total 600 --fast
+ss8-menu 6p-battle-quit-8 --past-race --total 600 --fast
+ss8-menu 6p-battle-quit-5 --past-race --total 600 --fast
+ss8-menu 8p-vs-race --past-race --total 300 --fast
+ss8-menu 8p-unplug --past-race --fast
+ss8-menu 4p-unplug --past-race --fast
+# Real speed: the sound lanes, and the re-entry and team-Back shots on the page as it opens
+ss8-menu 1p-skin-voice-birdo
+ss8-menu 2p-same-voice-race
+ss8-menu 4p-team-back-ref "ss8 menu: step 17 frame@2" "ss8 menu: step 19 frame@2" "ss8 menu: step 21 frame@4" "ss8 menu: step 26 frame@1" "ss8 menu: step 30 frame@4" "ss8 menu: step 31 frame@4"
+ss8-menu 8p-rejoin-ready --past-race --total 480 "step 62 frame@9" "step 73 frame@3"
+ss8-menu 8p-rejoin-back "step 18 frame@5" "step 18 frame@9"
+ss8-menu 4p-rejoin-ref --past-race --total 420 "step 38 frame@5" "step 38 frame@9"
+ss8-menu 4p-rejoin-back-ref "step 10 frame@5" "step 10 frame@9"
+# To a page or a race's start
+ss8-menu 8p-team-back --fast
+ss8-menu 1p-kart-voice --fast
+ss8-menu 1p-skin-voice-own --fast
+ss8-menu 1p-skin-voice --fast
+ss8-menu 1p-skin --fast
+ss8-menu 2p-back --fast
+ss8-menu 2p-classic-register --fast
+ss8-menu 2p-cycle --fast
+ss8-menu 2p-icon-fallback --fast
+ss8-menu 2p-icon-race --fast
+ss8-menu 2p-icon --fast
+ss8-menu 2p-ko-ref --fast
+ss8-menu 2p-lapko-ref --fast
+ss8-menu 2p-mii --fast
+ss8-menu 2p-ott-ref --fast
+ss8-menu 2p-random --fast
+ss8-menu 2p-royale-course-ref --fast
+ss8-menu 2p-royale-ref --fast
+ss8-menu 2p-royale-settings --fast
+ss8-menu 2p-same-voice --fast
+ss8-menu 2p-skin-voice --fast
+ss8-menu 2p-skins --fast
+ss8-menu 2p-team-voice --fast
+ss8-menu 2p-toadette --fast
+ss8-menu 2p-voice-mm --fast
+ss8-menu 2p-voice-vm --fast
+ss8-menu 3p-same-driver --fast
+ss8-menu 3p-voice --fast
+ss8-menu 4p-back --fast
+ss8-menu 4p-battle-back-ref --fast
+ss8-menu 4p-icon-race --fast
+ss8-menu 4p-register-tour --fast
+ss8-menu 4p-same-driver --fast
+ss8-menu 4p-vs-settings --fast
+ss8-menu 5p-join --fast
+ss8-menu 6p-chars --fast
+ss8-menu 6p-cup-karts --fast
+ss8-menu 6p-ko --fast
+ss8-menu 6p-mii --fast
+ss8-menu 6p-random --fast
+ss8-menu 6p-royale-course --fast
+ss8-menu 6p-royale-settings --fast
+ss8-menu 6p-settings-asis --fast
+ss8-menu 6p-vs-settings --fast
+ss8-menu 8p-back-every --fast
+ss8-menu 8p-battle-back --fast
+ss8-menu 8p-chars-back --fast
+ss8-menu 8p-chars --fast
+ss8-menu 8p-course-hold --fast
+ss8-menu 8p-cup-back --fast
+ss8-menu 8p-cup-karts --fast
+ss8-menu 5p-cup-arrows --fast
+ss8-menu 6p-cup-arrows --fast
+ss8-menu 7p-cup-arrows --fast
+ss8-menu 8p-cup-arrows --fast
+ss8-menu 8p-drift --fast
+ss8-menu 8p-icon-race --fast
+ss8-menu 8p-join-back --fast
+ss8-menu 8p-karts-back --fast
+ss8-menu 8p-karts --fast
+ss8-menu 8p-look --fast
+ss8-menu 8p-mii-back --fast
+ss8-menu 8p-mii-c --fast
+ss8-menu 8p-mii-previews --fast
+ss8-menu 8p-mii-skins --fast
+ss8-menu 8p-mii --fast
+ss8-menu 8p-ott --fast
+ss8-menu 8p-pages-back --fast
+ss8-menu 8p-pages --fast
+ss8-menu 8p-previews --fast
+ss8-menu 8p-random-back --fast
+ss8-menu 8p-random-back10 --fast
+ss8-menu 8p-random-mii --fast
+ss8-menu 8p-random --fast
+ss8-menu 8p-royale-course --fast
+ss8-menu 8p-royale-settings --fast
+ss8-menu 8p-skin-voice --fast
+ss8-menu 8p-skins --fast
+ss8-menu 8p-then-2p --fast
+ss8-menu 8p-vs-course --fast
+ss8-menu 8p-variant-back --fast
+ss8-menu 4p-variant-back-ref --fast
+ss8-menu main-menu-offline --fast

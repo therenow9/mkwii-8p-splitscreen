@@ -1,0 +1,31 @@
+# Build output
+build/
+dist/
+
+# Local toolchains (proprietary or downloaded; never committed)
+tools/cw/
+tools/cw-wii17/
+tools/kamek/
+tools/.venv*/
+__pycache__/
+
+# Nintendo / Retro Rewind game data must never be committed
+*.dol
+*.rel
+*.szs
+*.u8
+*.arc
+*.brres
+*.brlyt
+*.brlan
+*.brctr
+*.bmg
+*.tpl
+*.rvz
+*.iso
+*.wbfs
+Code.pul
+Loader.pul
+
+# Local configuration
+.env

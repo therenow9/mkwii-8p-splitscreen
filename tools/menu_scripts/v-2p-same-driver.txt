@@ -1,0 +1,42 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu): same-character select in 2P. P2 moves from Luigi onto P1's Mario
+# and confirms, so both OK markers show on one button, each a half; then P1 confirms and both race on Mario.
+# GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in 4 of 4 runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 180
+press 1 a        # 2 Players
+wait 600         # an A in the registration page's fade-in is lost
+press 2 a        # controller registration: P2
+wait 240
+press 1 a        # OK
+wait 400
+press 1 a        # VS
+wait 400
+press 1 a        # Solo Race
+wait 400
+press 2 left     # character select: P2 onto Mario
+wait 120
+press 2 a        # P2 confirms on Mario
+wait 120
+press 1 a        # P1 confirms on Mario: two markers on one button
+wait 400
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 400
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 400
+press 1 a        # cup
+wait 300
+press 1 a        # course
+wait 300
+press 1 a        # Start Race, if the game asks
+wait 1800

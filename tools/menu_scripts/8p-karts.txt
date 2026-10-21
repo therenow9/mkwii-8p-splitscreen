@@ -1,0 +1,149 @@
+# M4 C5a's kart page: 8 Players, P2-8 join, VS, everyone confirms their first
+# character, then on the kart page P1, P3 and P5-8 change karts (P5-8's previews unpack one archive at a
+# time, D126), P2 and P6 press the skin toggle buttons, which leave the kart (D149), P4 chooses and takes it back, before
+# everyone readies, then the transmission page, the drift page, cup select and a race whose players 0-7 carry those karts.
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 360         # the kart page: P1-4's and P5-8's karts load
+press 5 right
+wait 30
+press 6 right
+wait 30
+press 6 right
+wait 30
+press 7 left
+wait 30
+press 8 right
+wait 30
+press 8 right
+wait 30
+press 8 right
+wait 30
+press 1 right
+wait 30
+press 3 left
+wait 30
+press 5 right
+wait 30
+press 2 r        # the skin toggle buttons do nothing on the kart page (D149): R on GC, L on Classic
+wait 30
+press 6 l
+wait 30
+press 4 a        # P4 chooses, then takes it back
+wait 60
+press 4 b
+wait 60
+wait 300
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the transmission page
+wait 20
+wait 220
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 20
+wait 220
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 20
+wait 340
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 900

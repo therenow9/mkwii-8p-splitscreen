@@ -1,0 +1,160 @@
+# Re-entering after a 5-8 Battle's Quit Game (the 2026-10-15 can't-rejoin line): 6p-battle-quit's team Coin
+# Runners round, Quit Game on BattleEnd (0x23) and Yes (0x2C) to the main menu (section 0x41),
+# then 6 Players again: the join page should open on P1-6 kept, OK selected (D219); OK, Battle and every player's A
+# on the character page, P5-6's on their kept Classics
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+autodrive
+setting SETTING_BATTLETEAMS BATTLE_FFA_ENABLED  # RR's teams: value 1 leaves PULSAR_FFA off (PulsarSystem.cpp)
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+wait 120
+press 1 a        # 6 Players
+wait 360
+press 2 a        # join page: P2
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 120
+press 6 a
+wait 120
+wait 120
+press 1 a        # OK
+wait 300
+press 1 down     # multiplayer menu: Battle
+wait 60
+press 1 a
+wait 360
+press 1 down     # Coin Runners
+wait 60
+press 1 a        # Coin Runners
+wait 360
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 300
+wait 240         # the team page
+press 3 right
+wait 30
+press 4 left
+wait 30
+wait 120
+press 1 a        # every team confirmed
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 300
+wait 60
+press 1 a        # cup
+wait 240
+press 1 a        # arena
+wait 240
+press 1 a        # Start: OK
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 240
+wait 11800       # round 1's end: the scoreboards, untouched
+press 1 a        # the total scoreboard -> the round's menu (Next Battle, Quit Game)
+wait 300
+press 1 down     # Quit Game
+wait 60
+press 1 a
+wait 120
+press 1 up       # "Are you sure?" (0x2C) starts on No
+wait 60
+press 1 a
+wait 900
+press 1 a        # 6 Players
+wait 960
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 down     # multiplayer menu: Battle
+wait 60
+press 1 a
+wait 360
+press 1 a        # the Battle page's first button
+wait 360
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 600

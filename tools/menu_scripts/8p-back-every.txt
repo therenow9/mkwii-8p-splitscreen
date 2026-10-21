@@ -1,0 +1,322 @@
+# Back from every step: 8 Players, P2-8 join, VS. On the character, kart, transmission and
+# drift pages: P2-8 press B before choosing (nothing happens), choose, press B (each takes it back), choose again,
+# then P1 moves on. Cup select: P1 B back to the drift page, everyone chooses again; course select: P1 B back to cup
+# select; then a race. The log names every confirm, unconfirm and page. Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 2 b        # character page: B before choosing does nothing
+wait 20
+press 3 b
+wait 20
+press 4 b
+wait 20
+press 5 b
+wait 20
+press 6 b
+wait 20
+press 7 b
+wait 20
+press 8 b
+wait 20
+wait 60
+press 2 a        # everyone but P1 chooses
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 60
+press 2 b        # each takes it back
+wait 20
+press 3 b
+wait 20
+press 4 b
+wait 20
+press 5 b
+wait 20
+press 6 b
+wait 20
+press 7 b
+wait 20
+press 8 b
+wait 20
+wait 60
+press 2 a        # and chooses again
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 60
+press 1 a        # P1: the kart page
+wait 360
+press 2 b        # kart page: B before choosing does nothing
+wait 20
+press 3 b
+wait 20
+press 4 b
+wait 20
+press 5 b
+wait 20
+press 6 b
+wait 20
+press 7 b
+wait 20
+press 8 b
+wait 20
+wait 60
+press 2 a        # everyone but P1 chooses
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 60
+press 2 b        # each takes it back
+wait 20
+press 3 b
+wait 20
+press 4 b
+wait 20
+press 5 b
+wait 20
+press 6 b
+wait 20
+press 7 b
+wait 20
+press 8 b
+wait 20
+wait 60
+press 2 a        # and chooses again
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 60
+press 1 a        # P1: the transmission page
+wait 300
+press 2 b        # transmission page: B before choosing does nothing
+wait 20
+press 3 b
+wait 20
+press 4 b
+wait 20
+press 5 b
+wait 20
+press 6 b
+wait 20
+press 7 b
+wait 20
+press 8 b
+wait 20
+wait 60
+press 2 a        # everyone but P1 chooses
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 60
+press 2 b        # each takes it back
+wait 20
+press 3 b
+wait 20
+press 4 b
+wait 20
+press 5 b
+wait 20
+press 6 b
+wait 20
+press 7 b
+wait 20
+press 8 b
+wait 20
+wait 60
+press 2 a        # and chooses again
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 60
+press 1 a        # P1: the drift page
+wait 300
+press 2 b        # drift page: B before choosing does nothing
+wait 20
+press 3 b
+wait 20
+press 4 b
+wait 20
+press 5 b
+wait 20
+press 6 b
+wait 20
+press 7 b
+wait 20
+press 8 b
+wait 20
+wait 60
+press 2 a        # everyone but P1 chooses
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 60
+press 2 b        # each takes it back
+wait 20
+press 3 b
+wait 20
+press 4 b
+wait 20
+press 5 b
+wait 20
+press 6 b
+wait 20
+press 7 b
+wait 20
+press 8 b
+wait 20
+wait 60
+press 2 a        # and chooses again
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 60
+press 1 a        # P1: cup select
+wait 300
+press 1 b        # cup select: B, back to the drift page
+wait 300
+press 1 a        # everyone chooses again; cup select
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 340
+press 1 a        # cup
+wait 240
+press 1 b        # course select: B, back to cup select
+wait 240
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 900

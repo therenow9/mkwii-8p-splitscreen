@@ -1,0 +1,64 @@
+# M4 C4b's previews on the 8-player character page: 8 Players, P2-8 join, VS,
+# then eight previews; P5 moves onto P1's Mario and confirms (only P5's preview posed), P1 confirms (both),
+# both un-confirm (both idle), then P3 and P7 each hold a direction for 10 s (P7's: a model load per move).
+# Launch with install_8p.py dolphin --unattended --wiimotes. Logs "ss8 menu: step" lines to shoot by.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300         # eight previews
+press 5 down     # P5 from Baby Daisy to Dry Bones
+wait 30
+press 5 down     # Daisy
+wait 30
+press 5 right    # wraps to Mario: P1 and P5 on Mario
+wait 300
+press 5 a        # P5 confirms: only P5's preview posed
+wait 600
+press 1 a        # P1 confirms: both posed
+wait 300
+press 1 b        # both un-confirm: both idle
+wait 30
+press 5 b
+wait 300
+press 3 down 600 # P3, then P7, holds a direction for 10 s: a model load on each of P7's moves
+press 7 right 600
+wait 60
+press 8 left     # the last step, to shoot by
+wait 300

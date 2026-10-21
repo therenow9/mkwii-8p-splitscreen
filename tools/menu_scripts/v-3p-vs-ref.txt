@@ -1,0 +1,50 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu), the 3P reference: 3 Players, VS, Solo Race, every page on its
+# default, cup and course, to a 3-screen race. GC ports 1-3.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 180
+press 1 a        # 3 Players
+wait 600         # an A in the controller registration's fade-in is lost
+press 2 a        # controller registration: P2
+wait 120
+press 3 a
+wait 240
+press 1 a        # OK
+wait 400
+press 1 a        # multiplayer menu: VS
+wait 400
+press 1 a        # Solo Race
+wait 400
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 1 a        # character
+wait 400
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 1 a        # kart
+wait 400
+press 1 a        # drift
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 400
+press 1 a        # cup
+wait 300
+press 1 a        # course
+wait 300
+press 1 a        # Start: OK
+wait 240
+wait 1800

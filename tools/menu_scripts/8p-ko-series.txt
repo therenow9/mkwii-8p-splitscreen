@@ -1,0 +1,521 @@
+# RR's KO through an 8-player series (M5, D198): KO on, 2 out a race, 8 Players, P2-8 join, Solo Race, every page
+# confirmed, cup and course, then autodrive and A on each port in turn, 2 s in every 10 s, through every race, the
+# awards and where the series lands. Each race's "ss8 race player" lines give the locals left and their slots, and
+# "ss8 holder" each holder's pad. Launch with install_8p.py dolphin --unattended --wiimotes.
+setting SETTING_KOENABLED KOSETTING_ENABLED
+setting SETTING_KOPERRACE KOSETTING_KOPERRACE_2
+setting SETTING_RACESPERKO KOSETTING_RACESPERKO_1
+autodrive
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+wait 60
+press 1 a        # Solo Race -> the 8-player character page
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+wait 60
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+mash 1 a 120     # each port in turn, for 33 minutes: the race scene answers the first survivor's pad
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480
+mash 1 a 120
+wait 480
+mash 2 a 120
+wait 480
+mash 3 a 120
+wait 480
+mash 4 a 120
+wait 480
+mash 5 a 120
+wait 480
+mash 6 a 120
+wait 480
+mash 7 a 120
+wait 480
+mash 8 a 120
+wait 480

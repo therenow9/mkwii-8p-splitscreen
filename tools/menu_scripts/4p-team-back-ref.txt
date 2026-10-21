@@ -1,0 +1,69 @@
+# The vanilla reference for Team VS's Back (normal build): 4 Players, Team Race, everyone confirms on the character
+# page. Team select: P2 presses B before choosing, chooses, presses B, chooses again; P1's B back to the character page;
+# everyone confirms again, character and team; the teams page; kart select: P1's B. It ends there: vanilla's pages log
+# nothing, so a shot after each B shows where it landed. GC ports 1-4.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 right    # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 down     # Team Race
+wait 60
+press 1 a
+wait 360
+press 2 a        # character select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 360
+press 2 b        # team select: P2's B before choosing
+wait 180
+press 2 a        # P2 chooses
+wait 120
+press 2 b        # P2's B after choosing
+wait 180
+press 2 a        # and chooses again
+wait 120
+press 1 b        # P1's B before choosing
+wait 360
+press 2 a        # character select again
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 360
+press 1 a        # team select: everyone confirms
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # the teams page
+wait 360
+press 1 b        # kart select: P1's B before choosing
+wait 600

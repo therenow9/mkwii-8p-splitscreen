@@ -1,0 +1,103 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu): team Balloon Battle with 6 players: 6 Players, P2-6 join, Battle,
+# Balloon Battle, the 8-player pages on their defaults (the game's own teams), cup and arena, then every local's kart
+# to the AI and port 1's A once a second through a round and its scoreboards. Launch with install_8p.py --vanilla
+# dolphin --unattended --wiimotes.
+autodrive
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 180
+press 1 a        # 6 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 down     # multiplayer menu: Battle
+wait 60
+press 1 a
+wait 360
+press 1 a        # Balloon Battle
+wait 360
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 300
+press 1 a        # team page: the game's own teams
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # arena
+wait 240
+press 1 a        # Start: OK
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 240
+mash 1 a 21600   # A once a second for 6 minutes of game time: a round, its scoreboards, the next round

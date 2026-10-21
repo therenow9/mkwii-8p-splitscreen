@@ -1,0 +1,38 @@
+# The menu voice of a skin with its own recordings in another character's layout: P1 picks R.O.B. (Funky Kong
+# skin 5, whose files use Donkey Kong's layout) at the Grand Prix character select and confirms it, then the
+# kart. Both confirms should say one of R.O.B.'s own trick lines; stock RR says Funky Kong's. GC port 1.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 a        # main menu: Single Player
+wait 240
+press 1 a        # Grand Prix
+wait 240
+press 1 a        # 50cc
+wait 300
+press 1 down     # character select: Mario -> Yoshi
+wait 30
+press 1 down     # Wario
+wait 30
+press 1 down     # King Boo
+wait 30
+press 1 right    # Rosalina
+wait 30
+press 1 right    # Funky Kong
+wait 120
+press 1 r        # skins 1-5: R.O.B. is 5
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 180
+press 1 a        # confirm R.O.B.: the select voice
+wait 360
+press 1 a        # kart select: confirm (Funky Kong has no kart line, so the select line plays again)
+wait 600

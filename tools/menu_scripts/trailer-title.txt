@@ -1,0 +1,4 @@
+# Trailer take: the title screen with no input for 2 minutes, for the title theme's audio
+# dump (it is no stream file on the disc). Shoot with lane.py run ss8-menu trailer-title --footage.
+wait 7200        # the title, untouched
+press 1 x        # one harmless press, so the script has a step

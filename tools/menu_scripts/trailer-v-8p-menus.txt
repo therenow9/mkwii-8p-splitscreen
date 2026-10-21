@@ -1,0 +1,275 @@
+# Trailer take, the vanilla build (vanilla-menu): 8 Players through every menu to Coconut Mall,
+# eight different drivers (vanilla has no skins), each class's second bike, every local's kart to the AI. Shoot with
+# lane.py run vanilla-menu trailer-v-8p-menus --past-race --res 4 --footage.
+autodrive
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs
+wait 200
+press 1 a        # license
+wait 600
+press 1 right    # main menu: 2 Players
+wait 60
+press 1 right    # main menu: 3 Players
+wait 60
+press 1 right    # main menu: 4 Players
+wait 60
+press 1 right    # main menu: 5 Players
+wait 60
+press 1 right    # main menu: 6 Players
+wait 60
+press 1 right    # main menu: 7 Players
+wait 60
+press 1 right    # main menu: 8 Players
+wait 60
+wait 120
+press 1 a        # 8 Players
+wait 600
+press 2 a        # join: P2
+wait 120
+press 3 a        # join: P3
+wait 120
+press 4 a        # join: P4
+wait 120
+press 5 a        # join: P5
+wait 120
+press 6 a        # join: P6
+wait 120
+press 7 a        # join: P7
+wait 120
+press 8 a        # join: P8
+wait 120
+wait 120
+press 1 a        # OK
+wait 300
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 420
+press 1 down
+wait 20
+press 1 down
+wait 20
+press 1 down
+wait 20
+press 1 right
+wait 20
+press 1 right
+wait 20
+press 2 down
+wait 20
+press 2 down
+wait 20
+press 2 right
+wait 20
+press 2 right
+wait 20
+press 4 down
+wait 20
+press 4 down
+wait 20
+press 5 down
+wait 20
+press 5 down
+wait 20
+press 6 left
+wait 20
+press 7 down
+wait 20
+press 7 down
+wait 20
+press 7 down
+wait 20
+press 7 right
+wait 20
+press 7 right
+wait 20
+press 8 down
+wait 20
+press 8 down
+wait 20
+wait 240
+press 1 a        # Funky Kong
+wait 24
+press 2 a        # Bowser
+wait 24
+press 3 a        # Yoshi
+wait 24
+press 4 a        # Donkey Kong
+wait 24
+press 5 a        # Daisy
+wait 24
+press 6 a        # Koopa Troopa
+wait 24
+press 7 a        # Diddy Kong
+wait 24
+press 8 a        # Waluigi
+wait 24
+wait 420
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+wait 120
+press 1 a        # each class's second bike
+wait 24
+press 2 a
+wait 24
+press 3 a
+wait 24
+press 4 a
+wait 24
+press 5 a
+wait 24
+press 6 a
+wait 24
+press 7 a
+wait 24
+press 8 a
+wait 24
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 480
+press 1 right    # cup page: Flower Cup
+wait 120
+press 1 a        # Flower Cup
+wait 240
+press 1 down     # Coconut Mall
+wait 90
+press 1 a        # Coconut Mall
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 12000   # the race

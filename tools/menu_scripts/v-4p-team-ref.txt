@@ -1,0 +1,83 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu), the 4P Team VS reference: 4 Players, VS, Team Race, P1 and P2
+# on Red, P3 and P4 on Blue, the teams page, every other page on its default, then the series as v-4p-vs-series-ref
+# runs it. GC ports 1-4.
+autodrive
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 180
+press 1 a        # 4 Players
+wait 600         # an A in the controller registration's fade-in is lost
+press 2 a        # controller registration: P2
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 240
+press 1 a        # OK
+wait 400
+press 1 a        # multiplayer menu: VS
+wait 400
+press 1 down     # Team Race
+wait 60
+press 1 a
+wait 400
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a        # character
+wait 400
+wait 240
+press 1 left    # team page: the first half to Red, the rest to Blue
+wait 30
+press 2 left
+wait 30
+press 3 right
+wait 30
+press 4 right
+wait 30
+press 1 a
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # the teams page (Check Teams)
+wait 400
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a        # kart
+wait 400
+press 1 a        # drift
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 400
+press 1 a        # cup
+wait 300
+press 1 a        # course
+wait 300
+press 1 a        # Start: OK
+wait 240
+mash 1 a 30000   # A once a second for 8 minutes of game time: results, next races, awards, landing

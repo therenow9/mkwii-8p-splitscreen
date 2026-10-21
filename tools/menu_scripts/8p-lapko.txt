@@ -1,0 +1,120 @@
+# RR's LapKO in an 8-player VS race (M5, D198): LapKO on (a setting line), then 8 Players, P2-8 join, Solo Race and
+# every page confirmed, then every local's kart to the AI for 3 minutes of the race: the "ss8 context" line reads
+# lapko 1, and the lane's shots catch an elimination. Launch with install_8p.py dolphin --unattended --wiimotes.
+setting SETTING_KOENABLED KOSETTING_LAPBASED
+autodrive
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+wait 60
+press 1 a        # Solo Race -> the 8-player character page
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+wait 60
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 10800      # 3 minutes of the race

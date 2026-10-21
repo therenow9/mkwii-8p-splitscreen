@@ -1,0 +1,83 @@
+# The reconnect box with 4 players (normal build), unchanged by D69: 4 Players, VS; on the character page P3's GC pad
+# is unplugged for 10 s, P1's Right does nothing under the box, P3's A closes it; then everyone confirms each page
+# and a race, where P3's pad is out for 5 s and P3's A closes vanilla's box. GC ports 1-4.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 right    # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+unplug 3 600     # P3's pad out for 10 s: the box
+wait 180
+press 1 right    # under the box: P1 stays on Mario
+wait 600
+press 3 a        # P3's A: the box closes
+wait 240
+press 2 a        # character
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+press 1 a
+wait 60
+wait 300
+press 2 a        # kart
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+press 1 a
+wait 60
+wait 300
+press 2 a        # transmission
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+press 1 a
+wait 60
+wait 300
+press 2 a        # drift
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+press 1 a
+wait 60
+wait 300
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 900
+wait 600
+unplug 3 300     # race: P3's GC pad out for 5 s, vanilla's box
+wait 420
+press 3 a        # P3's A closes it
+wait 120
+press 3 a 240    # P3 accelerates
+wait 360

@@ -1,0 +1,84 @@
+# M4 C4c's P5-8 Mii previews: 8 Players, P2-8 join, VS, then P5-8 move onto the Mii row
+# (P5 and P7 Mii A, P6 Mii B, P8 Mii A) and P8 switches between Mii A and B eight times, each a new body with the
+# player's one head moved onto it: the ss8 preview lines give each load's kept bytes and the free MEM1 and MEM2
+# after it, so a leak shows as falling free memory. Ends on the character page.
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 5 left     # P5 from Baby Daisy to Baby Peach
+wait 30
+press 5 left     # Baby Luigi
+wait 30
+press 5 up       # Mii A
+wait 60
+press 6 left     # P6 from Dry Bones to Koopa Troopa
+wait 30
+press 6 up       # Baby Peach
+wait 30
+press 6 up       # Mii B
+wait 60
+press 7 right    # P7 from Baby Mario to Baby Luigi
+wait 30
+press 7 up       # Mii A
+wait 60
+press 8 up       # P8 from Luigi to Toadette
+wait 30
+press 8 up       # Baby Luigi
+wait 30
+press 8 up       # Mii A
+wait 300
+press 8 right    # Mii B
+wait 60
+press 8 left     # Mii A
+wait 60
+press 8 right
+wait 60
+press 8 left
+wait 60
+press 8 right
+wait 60
+press 8 left
+wait 60
+press 8 right
+wait 60
+press 8 left
+wait 600

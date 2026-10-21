@@ -1,0 +1,154 @@
+# M4 C4a's character page: 8 Players, P2-8 join, VS, then each player moves
+# and picks on the 8-player grid: three players on one button (P2, P6, P8 on Luigi), P3 holds down
+# (moves at +0, +15 and +30 frames, wrapping off the bottom), P5 wraps off the right, P4 goes once
+# round the rows and the columns (wrapping off the top and the left), P2 and P8 confirm
+# Luigi, P7 confirms, un-confirms and picks again, P1 confirms last. Then the kart and drift pages,
+# cup select and a race whose players 0-7 are the picks. Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 6 down     # P6 from Dry Bones to Daisy
+wait 30
+press 6 left     # Peach (P4's)
+wait 30
+press 6 left     # Luigi: P2, P6 and P8 on one button
+wait 120
+press 3 down 40  # P3 holds down: Yoshi -> Wario -> King Boo -> Baby Mario
+wait 60
+press 5 right    # P5 wraps from Baby Daisy to Baby Mario
+wait 60
+press 4 up       # P4 goes once round the 6 rows, wrapping off the top, back to Peach
+wait 20
+press 4 up
+wait 20
+press 4 up
+wait 20
+press 4 up
+wait 20
+press 4 up
+wait 20
+press 4 up
+wait 20
+press 4 left     # and once round the 4 columns, wrapping off the left
+wait 20
+press 4 left
+wait 20
+press 4 left
+wait 20
+press 4 left
+wait 20
+wait 40
+press 2 a        # P2 and P8 confirm Luigi: two markers, top and bottom rows
+wait 30
+press 8 a
+wait 60
+press 7 a        # P7 confirms Baby Mario, un-confirms, moves to Baby Luigi and confirms
+wait 30
+press 7 b
+wait 30
+press 7 right
+wait 30
+press 7 a
+wait 30
+press 3 a        # P3 and P5 on Baby Mario, P4 on Peach, P6 on Luigi
+wait 30
+press 4 a
+wait 30
+press 5 a
+wait 30
+press 6 a
+wait 240
+press 1 a        # P1 confirms Mario last: the kart page
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the transmission page
+wait 240
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 900

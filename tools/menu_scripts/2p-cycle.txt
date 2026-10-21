@@ -1,0 +1,68 @@
+# Memory with an own preview in 2P: P2 (on Luigi) joins P1's Mario and cycles through every Mario skin twice,
+# 300 frames apart so each slot gets a heap tick; then P1 backs out to the main menu, both come back in and P2
+# joins Mario again. Free bytes at the same skin should match on each pass and after the way back. GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 left     # character select, step 8: P2 onto P1's Mario (own preview)
+wait 300
+press 2 r        # steps 9-22: P2 cycles Mario's skins twice
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 2 r
+wait 300
+press 1 b        # step 23: back to Solo/Team
+wait 360
+press 1 b        # step 24: back to VS/Battle
+wait 360
+press 1 b        # step 25: back to the main menu
+wait 600
+press 1 a        # step 26: 2 Players again
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 left     # step 31: P2 onto Mario again (its last skin)
+wait 900

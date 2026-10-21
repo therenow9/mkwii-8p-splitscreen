@@ -1,0 +1,303 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu): Back from every 5-8 page: 8 Players; on the join page P8 presses
+# B and joins again; Team Race; on the character, team, kart and drift pages P2-8 press B before choosing (nothing
+# happens), choose, press B (each takes it back), choose again, then P1 moves on. Cup select: B back to the drift page,
+# everyone chooses again; course select: B back to cup select. Then P1's B from the course page through every page
+# to the main menu, 8 Players again (P2-8 still joined), Solo Race and a race. Launch with install_8p.py --vanilla dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 120
+press 8 b        # P8 leaves
+wait 120
+press 8 a        # P8 joins again; ConfirmPads opens, OK selected
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 down     # Team Race
+wait 60
+press 1 a
+wait 300
+press 2 b        # character page: B before choosing does nothing
+press 3 b
+press 4 b
+press 5 b
+press 6 b
+press 7 b
+press 8 b
+wait 60
+press 2 a        # everyone but P1 chooses
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 60
+press 2 b        # each takes it back
+press 3 b
+press 4 b
+press 5 b
+press 6 b
+press 7 b
+press 8 b
+wait 60
+press 2 a        # and chooses again
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 60
+press 1 a        # P1: the team page
+wait 360
+press 2 b        # team page: B before choosing does nothing
+press 3 b
+press 4 b
+press 5 b
+press 6 b
+press 7 b
+press 8 b
+wait 60
+press 2 a        # everyone but P1 chooses
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 60
+press 2 b        # each takes it back
+press 3 b
+press 4 b
+press 5 b
+press 6 b
+press 7 b
+press 8 b
+wait 60
+press 2 a        # and chooses again
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 60
+press 1 a        # P1: the kart page
+wait 360
+press 2 b        # kart page: B before choosing does nothing
+press 3 b
+press 4 b
+press 5 b
+press 6 b
+press 7 b
+press 8 b
+wait 60
+press 2 a        # everyone but P1 chooses
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 60
+press 2 b        # each takes it back
+press 3 b
+press 4 b
+press 5 b
+press 6 b
+press 7 b
+press 8 b
+wait 60
+press 2 a        # and chooses again
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 60
+press 1 a        # P1: the drift page
+wait 360
+press 2 b        # drift page: B before choosing does nothing
+press 3 b
+press 4 b
+press 5 b
+press 6 b
+press 7 b
+press 8 b
+wait 60
+press 2 a        # everyone but P1 chooses
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 60
+press 2 b        # each takes it back
+press 3 b
+press 4 b
+press 5 b
+press 6 b
+press 7 b
+press 8 b
+wait 60
+press 2 a        # and chooses again
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 60
+press 1 a        # P1: cup select
+wait 360
+press 1 b        # cup select: B, back to the drift page
+wait 360
+press 1 a        # everyone chooses again; cup select
+press 2 a
+press 3 a
+press 4 a
+press 5 a
+press 6 a
+press 7 a
+press 8 a
+wait 360
+press 1 a        # cup
+wait 300
+press 1 b        # course select: B, back to cup select
+wait 300
+press 1 a        # cup
+wait 300
+press 1 b        # B from each page, back to the main menu
+wait 400
+press 1 b
+wait 400
+press 1 b
+wait 400
+press 1 b
+wait 400
+press 1 b
+wait 400
+press 1 b
+wait 400
+press 1 b
+wait 400
+press 1 b
+wait 400
+press 1 b
+wait 400
+wait 400         # the main menu
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 1 a        # ConfirmPads: OK, P2-8 still joined
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 1 a        # character page: everyone on their default
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the kart page
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 300
+press 1 a        # course
+wait 300
+press 1 a        # Start: OK
+wait 240
+wait 900

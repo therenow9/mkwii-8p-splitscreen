@@ -1,0 +1,53 @@
+# Name balloon fallback in 2P: P1 on Mario skin 3 (ships a race portrait), P2 on skin 6 (ships none; one L
+# from stock wraps to the last skin), into a VS race; P2's balloon should keep Mario's portrait. GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 2 left     # character select: P2 (on Luigi) onto P1's Mario
+wait 120
+press 1 r        # P1: Mario skin 1, 2, 3
+wait 120
+press 1 r
+wait 120
+press 1 r
+wait 120
+press 2 l        # P2: Mario's last skin (6)
+wait 300
+press 2 a        # P2 confirms
+wait 300
+press 1 a        # P1 confirms; kart select
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 1800

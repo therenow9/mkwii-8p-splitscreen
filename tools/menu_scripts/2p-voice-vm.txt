@@ -1,0 +1,52 @@
+# D77 in 2P: P1 on Mario's default skin (Mario's own voices) and P2 on Mario skin 4 (loose voices), into
+# a race. Mario's PC voice group stays unpatched for P1; P2 takes a lent group with skin 4's voices,
+# though P1 is the first local. GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 2 left     # character select: P2 (on Luigi) onto P1's Mario
+wait 120
+press 2 r        # P2: Mario skins 1 to 4
+wait 60
+press 2 r
+wait 60
+press 2 r
+wait 60
+press 2 r
+wait 300
+press 2 a        # P2 confirms
+wait 300
+press 1 a        # P1 confirms; kart select
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 300
+press 1 a        # transmission select (RR 6.13.1's MultiTransmissionSelect, before drift)
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 1800

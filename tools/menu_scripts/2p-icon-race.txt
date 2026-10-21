@@ -1,0 +1,59 @@
+# Name balloon icons in 2P: P1 and P2 both on Mario in skins that ship a race portrait (mr-3, mr-4), into a
+# VS race; at the start line each sees the other's balloon, whose icon should be that player's skin. GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 2 left     # character select: P2 (on Luigi) onto P1's Mario
+wait 120
+press 1 r        # P1: Mario skin 1, 2, 3
+wait 120
+press 1 r
+wait 120
+press 1 r
+wait 120
+press 2 r        # P2: Mario skin 1, 2, 3, 4
+wait 120
+press 2 r
+wait 120
+press 2 r
+wait 120
+press 2 r
+wait 300
+press 2 a        # P2 confirms
+wait 300
+press 1 a        # P1 confirms; kart select
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 1800

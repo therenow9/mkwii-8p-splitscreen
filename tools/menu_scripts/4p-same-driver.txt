@@ -1,0 +1,73 @@
+# Same-character select in 4P: P2 (on Luigi), P3 (on Yoshi) and P4 (on Peach) move onto P1's Mario and confirm,
+# so three OK markers show on one button; then P1 confirms and all four race on Mario. GC ports 1-4.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 right    # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 left     # character select, step 12: P2 onto Mario
+wait 60
+press 3 up       # P3 onto Mario
+wait 60
+press 4 left     # P4 onto Luigi, then Mario
+wait 60
+press 4 left
+wait 300
+press 2 a        # step 16: P2, P3 and P4 confirm
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 360
+press 1 a        # step 19: P1 confirms; kart select
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 1800

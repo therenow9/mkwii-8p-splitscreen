@@ -1,0 +1,115 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu): 8 Players, P2-8 join, Solo Race, then the 8-player character
+# page with P5 and P6 on Miis (the game's Mii row: Mii A under Baby Peach, Mii B under Baby Daisy, no Mii C), P7 on
+# Baby Mario, P8 with P2 on Luigi; the kart and drift pages (no transmission page), cup select and an 8-local race.
+# Launch with install_8p.py --vanilla dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8; ConfirmPads opens, OK selected
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 5 up       # P5 from Baby Daisy wraps past the hidden Mii C onto Mii B
+wait 30
+press 6 left     # P6 from Dry Bones to Koopa Troopa
+wait 30
+press 6 up       # Baby Peach
+wait 30
+press 6 up       # Mii A
+wait 90
+press 5 a 1      # P5 opens MiiSelect on Mii B
+wait 240
+press 5 a        # picks the Mii it starts on
+wait 240
+press 6 a 1      # P6 opens MiiSelect on Mii A
+wait 240
+press 6 right    # the 2nd Mii
+wait 60
+press 6 a        # picks it
+wait 240
+press 2 a        # P2 and P8 on Luigi, P3 on Yoshi, P4 on Peach, P7 on Baby Mario
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 7 a
+wait 30
+press 8 a
+wait 240
+press 1 a        # P1 confirms Mario last: the kart page
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 900

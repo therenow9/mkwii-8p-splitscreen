@@ -1,0 +1,145 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu): Team VS with 8 players: 8 Players, P2-8 join, Team Race, the
+# character page, then the team page: P3, P4, P7 and P8 to Blue, P1, P2, P5 on Red and P3 on Blue confirmed, then P3,
+# P4 and P6 to Red so Red holds six and P7's and P8's Red fades; P7 and P8 confirm Blue. Every later page confirmed,
+# cup and course, then every local's kart to the AI and port 1's A once a second through the series. Launch with install_8p.py --vanilla dolphin --unattended --wiimotes.
+autodrive
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8; ConfirmPads opens, OK selected
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 down     # Team Race
+wait 60
+press 1 a
+wait 300
+press 1 a        # character page: everyone on their default
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the team page
+wait 300
+wait 240         # the team page
+press 3 right
+wait 30
+press 4 right
+wait 30
+press 7 right
+wait 30
+press 8 right
+wait 30
+wait 300         # browsing
+press 2 left     # P2 starts on Blue, as the game's second player
+wait 30
+press 1 a
+wait 30
+press 2 a
+wait 30
+press 5 a
+wait 30
+press 3 a
+wait 30
+wait 300         # four confirmed
+press 3 b
+wait 30
+press 3 left
+wait 30
+press 3 a
+wait 30
+press 4 left
+wait 30
+press 4 a
+wait 30
+press 6 left
+wait 30
+press 6 a
+wait 30
+wait 300         # six on Red: P7's and P8's Red faded, their cursors on Blue
+press 7 a
+wait 30
+press 8 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 300
+press 1 a        # course
+wait 300
+press 1 a        # Start: OK
+wait 240
+mash 1 a 30000   # A once a second for 8 minutes of game time: results, next races, awards, landing

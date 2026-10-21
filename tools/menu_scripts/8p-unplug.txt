@@ -1,0 +1,157 @@
+# D69: a 5-8 player game's P5-8 get the reconnect box on the 8-player pages. 8 Players,
+# P2-8 join, VS. Character page: P5's Classic is unplugged for 10 s; P1's and P6's Right do nothing under the box;
+# P5's A closes it. Then P8's for 5 s and P2's GC pad for 5 s; P6's on the kart page and P7's on the drift page, each
+# closed by its A. Each box shows its player's colour and the lamp of the controller's channel or port.
+# Everyone confirms each page, then cup select and a race (D153): P6's Classic out for 5 s pauses it under P6's box,
+# P6's A closes it and P6 drives on; then P2's GC pad, vanilla's box. Launch with install_8p.py dolphin --unattended
+# --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+unplug 5 600     # character page: P5's Classic out for 10 s
+wait 180
+press 1 right    # under the box: P1 stays on Mario
+wait 120
+press 6 right    # P6 stays put too
+wait 420         # P5's Classic back
+press 5 a        # P5's A: the box closes
+wait 180
+unplug 8 300     # P8's out for 5 s
+wait 420
+press 8 a        # P8's A: the box closes
+wait 180
+unplug 2 300     # P2's GC pad out for 5 s: P2's own colour after P5's and P8's boxes
+wait 420
+press 2 a        # P2's A: the box closes
+wait 180
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # everyone confirms; the kart page
+wait 20
+wait 360
+unplug 6 300     # kart page: P6's out for 5 s
+wait 420
+press 6 a        # P6's A: the box closes
+wait 180
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the transmission page
+wait 20
+wait 240
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 20
+wait 240
+unplug 7 300     # drift page: P7's out for 5 s
+wait 420
+press 7 a        # P7's A: the box closes
+wait 180
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 20
+wait 340
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 900
+wait 600
+unplug 6 300     # race: P6's out for 5 s; the race pauses under P6's box
+wait 420
+press 6 a        # P6's A: the box closes, the race goes on
+wait 120
+press 6 a 240    # P6 accelerates on the same controller
+wait 360
+unplug 2 300     # P2's GC pad: vanilla's box, in a 5-8 race
+wait 420
+press 2 a        # P2's A closes it
+wait 300

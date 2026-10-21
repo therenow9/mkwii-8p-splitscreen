@@ -1,0 +1,1915 @@
+# PD65: the vanilla 8-player kart page under kart spam with the owner's pads (seeded random, seed 87): P2-4 join on
+# Wii channels 1-3 and P5-7 on GC ports 2-4 (P8 Wii channel 4), on v-8p-chars' characters (P5, P6 Miis, P7 Baby Mario,
+# P8 Luigi); then P5 alone, P7 alone, then P5-8 together cycle karts every 4-14 frames, and the game races.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 5 a        # join page: P2 on Wii channel 1
+wait 120
+press 6 a        # P3
+wait 120
+press 7 a        # P4
+wait 120
+press 2 a        # P5 on GC port 2
+wait 120
+press 3 a        # P6
+wait 120
+press 4 a        # P7
+wait 120
+press 8 a        # P8; ConfirmPads opens, OK selected
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 2 up       # P5 from Baby Daisy wraps past the hidden Mii C onto Mii B
+wait 30
+press 3 left     # P6 from Dry Bones to Koopa Troopa
+wait 30
+press 3 up       # Baby Peach
+wait 30
+press 3 up       # Mii A
+wait 90
+press 2 a 1      # P5 opens MiiSelect on Mii B
+wait 240
+press 2 a        # picks the Mii it starts on
+wait 240
+press 3 a 1      # P6 opens MiiSelect on Mii A
+wait 240
+press 3 right    # the 2nd Mii
+wait 60
+press 3 a        # picks it
+wait 240
+press 5 a        # P2 and P8 on Luigi, P3 on Yoshi, P4 on Peach, P7 on Baby Mario
+wait 30
+press 6 a
+wait 30
+press 7 a
+wait 30
+press 4 a
+wait 30
+press 8 a
+wait 240
+press 1 a        # P1 confirms Mario last: the kart page
+wait 300
+press 2 left 3
+wait 12
+press 2 up 3
+wait 9
+press 2 right 3
+wait 9
+press 2 up 3
+wait 10
+press 2 down 3
+wait 12
+press 2 left 3
+wait 8
+press 2 right 3
+wait 8
+press 2 up 3
+wait 10
+press 2 up 3
+wait 14
+press 2 left 3
+wait 14
+press 2 left 3
+wait 13
+press 2 up 3
+wait 4
+press 2 right 3
+wait 8
+press 2 right 3
+wait 14
+press 2 down 3
+wait 13
+press 2 right 3
+wait 12
+press 2 right 3
+wait 8
+press 2 left 3
+wait 14
+press 2 up 3
+wait 4
+press 2 left 3
+wait 10
+press 2 up 3
+wait 10
+press 2 left 3
+wait 9
+press 2 up 3
+wait 7
+press 2 right 3
+wait 8
+press 2 up 3
+wait 7
+press 2 down 3
+wait 8
+press 2 down 3
+wait 12
+press 2 up 3
+wait 4
+press 2 up 3
+wait 6
+press 2 right 3
+wait 6
+press 2 right 3
+wait 11
+press 2 up 3
+wait 8
+press 2 up 3
+wait 13
+press 2 up 3
+wait 10
+press 2 right 3
+wait 6
+press 2 left 3
+wait 10
+press 2 down 3
+wait 14
+press 2 up 3
+wait 14
+press 2 left 3
+wait 6
+press 2 down 3
+wait 8
+press 2 down 3
+wait 8
+press 2 right 3
+wait 8
+press 2 down 3
+wait 5
+press 2 down 3
+wait 5
+press 2 right 3
+wait 5
+press 2 down 3
+wait 8
+press 2 right 3
+wait 6
+press 2 left 3
+wait 7
+press 2 up 3
+wait 14
+press 2 down 3
+wait 8
+press 2 right 3
+wait 10
+press 2 up 3
+wait 7
+press 2 down 3
+wait 13
+press 2 right 3
+wait 13
+press 2 left 3
+wait 12
+press 2 left 3
+wait 10
+press 2 left 3
+wait 5
+press 2 right 3
+wait 14
+press 2 right 3
+wait 7
+press 2 left 3
+wait 5
+press 2 left 3
+wait 12
+press 2 left 3
+wait 13
+press 2 down 3
+wait 4
+press 2 down 3
+wait 7
+press 2 left 3
+wait 5
+press 2 down 3
+wait 12
+press 2 right 3
+wait 9
+press 2 right 3
+wait 14
+press 2 up 3
+wait 10
+press 2 right 3
+wait 14
+press 2 right 3
+wait 11
+press 2 up 3
+wait 5
+press 2 left 3
+wait 4
+press 2 left 3
+wait 5
+press 2 right 3
+wait 12
+press 2 left 3
+wait 14
+press 2 left 3
+wait 6
+press 2 left 3
+wait 11
+press 2 right 3
+wait 13
+press 2 down 3
+wait 12
+press 2 left 3
+wait 11
+press 2 left 3
+wait 8
+press 2 right 3
+wait 12
+press 2 down 3
+wait 4
+press 2 left 3
+wait 9
+press 2 up 3
+wait 8
+press 2 down 3
+wait 8
+press 2 left 3
+wait 9
+press 2 up 3
+wait 14
+press 2 left 3
+wait 14
+press 2 down 3
+wait 12
+press 2 up 3
+wait 12
+press 2 up 3
+wait 5
+press 2 right 3
+wait 10
+press 2 down 3
+wait 14
+press 2 right 3
+wait 11
+press 2 down 3
+wait 5
+press 2 up 3
+wait 7
+press 2 right 3
+wait 5
+press 2 up 3
+wait 8
+press 2 right 3
+wait 13
+press 2 up 3
+wait 11
+press 2 up 3
+wait 10
+press 2 right 3
+wait 12
+press 2 right 3
+wait 7
+press 2 right 3
+wait 4
+press 2 left 3
+wait 12
+press 2 down 3
+wait 12
+press 2 up 3
+wait 13
+press 2 left 3
+wait 6
+press 2 up 3
+wait 13
+press 2 right 3
+wait 8
+press 2 down 3
+wait 13
+press 2 left 3
+wait 7
+press 2 up 3
+wait 4
+press 2 down 3
+wait 11
+press 2 up 3
+wait 9
+press 2 down 3
+wait 9
+press 2 left 3
+wait 12
+press 2 down 3
+wait 8
+press 2 up 3
+wait 6
+press 2 right 3
+wait 4
+press 2 left 3
+wait 13
+press 2 right 3
+wait 11
+press 2 down 3
+wait 6
+press 2 up 3
+wait 13
+press 2 up 3
+wait 12
+press 2 up 3
+wait 6
+press 2 down 3
+wait 4
+press 2 left 3
+wait 9
+press 2 up 3
+wait 5
+press 2 down 3
+wait 12
+press 2 up 3
+wait 12
+press 2 left 3
+wait 5
+press 2 right 3
+wait 4
+press 2 left 3
+wait 5
+press 2 down 3
+wait 10
+press 2 up 3
+wait 12
+press 2 right 3
+wait 9
+press 2 down 3
+wait 9
+press 2 down 3
+wait 5
+press 2 up 3
+wait 6
+press 2 down 3
+wait 12
+press 2 right 3
+wait 10
+press 2 down 3
+wait 11
+press 2 left 3
+wait 6
+press 2 down 3
+wait 8
+press 2 left 3
+wait 7
+press 2 up 3
+wait 5
+press 2 up 3
+wait 6
+press 2 down 3
+wait 13
+press 2 up 3
+wait 13
+press 2 left 3
+wait 4
+press 2 up 3
+wait 4
+press 2 right 3
+wait 7
+press 2 left 3
+wait 9
+press 2 up 3
+wait 5
+press 2 up 3
+wait 9
+press 2 up 3
+wait 7
+press 2 right 3
+wait 7
+press 2 right 3
+wait 4
+press 2 right 3
+wait 14
+press 2 up 3
+wait 5
+press 2 left 3
+wait 13
+press 2 right 3
+wait 7
+press 2 up 3
+wait 13
+press 2 up 3
+wait 13
+press 2 right 3
+wait 6
+press 2 down 3
+wait 5
+press 2 left 3
+wait 7
+press 2 up 3
+wait 10
+press 2 left 3
+wait 14
+press 2 up 3
+wait 7
+press 2 left 3
+wait 12
+press 2 left 3
+wait 9
+press 2 up 3
+wait 5
+press 2 left 3
+wait 10
+press 2 up 3
+wait 7
+press 2 down 3
+wait 4
+press 2 right 3
+wait 5
+press 2 left 3
+wait 10
+press 2 down 3
+wait 8
+press 2 up 3
+wait 8
+press 2 down 3
+wait 6
+press 2 left 3
+wait 4
+press 2 up 3
+wait 6
+press 2 up 3
+wait 13
+press 2 right 3
+wait 4
+press 2 up 3
+wait 6
+press 2 right 3
+wait 10
+press 2 down 3
+wait 6
+press 2 up 3
+wait 12
+press 2 right 3
+wait 13
+press 2 up 3
+wait 5
+press 2 down 3
+wait 11
+press 2 down 3
+wait 5
+press 2 up 3
+wait 7
+press 2 left 3
+wait 9
+press 2 up 3
+wait 11
+press 2 up 3
+wait 14
+press 2 right 3
+wait 12
+press 2 up 3
+wait 6
+press 2 down 3
+wait 6
+press 2 left 3
+wait 7
+press 2 right 3
+wait 13
+press 2 left 3
+wait 9
+press 2 left 3
+wait 10
+press 2 right 3
+wait 6
+press 2 down 3
+wait 12
+press 2 up 3
+wait 12
+press 2 left 3
+wait 7
+press 2 right 3
+wait 6
+press 2 down 3
+wait 13
+press 2 left 3
+wait 14
+press 2 down 3
+wait 13
+press 2 down 3
+wait 5
+press 2 up 3
+wait 13
+press 2 left 3
+wait 9
+press 2 down 3
+wait 7
+press 2 down 3
+wait 14
+press 2 down 3
+wait 5
+press 2 right 3
+wait 5
+press 2 left 3
+wait 7
+press 2 left 3
+wait 14
+press 2 left 3
+wait 5
+press 2 down 3
+wait 13
+press 2 right 3
+wait 9
+press 2 right 3
+wait 11
+press 2 up 3
+wait 12
+press 2 up 3
+wait 13
+press 2 right 3
+wait 10
+press 2 left 3
+wait 10
+press 2 right 3
+wait 13
+press 2 right 3
+wait 13
+press 2 right 3
+wait 14
+press 2 down 3
+wait 11
+press 2 left 3
+wait 4
+press 2 right 3
+wait 5
+press 2 left 3
+wait 5
+press 2 up 3
+wait 11
+press 2 left 3
+wait 5
+press 2 right 3
+wait 9
+press 2 up 3
+wait 4
+press 2 left 3
+wait 12
+press 2 right 3
+wait 8
+press 2 right 3
+wait 7
+press 2 left 3
+wait 9
+press 2 left 3
+wait 12
+press 2 left 3
+wait 14
+press 2 right 3
+wait 6
+press 2 down 3
+wait 5
+press 2 down 3
+wait 8
+press 2 left 3
+wait 9
+press 2 right 3
+wait 14
+press 2 down 3
+wait 13
+press 2 right 3
+wait 7
+press 2 right 3
+wait 6
+press 2 left 3
+wait 9
+press 2 down 3
+wait 8
+press 2 up 3
+wait 11
+press 2 down 3
+wait 4
+press 2 up 3
+wait 4
+press 2 right 3
+wait 9
+press 2 up 3
+wait 6
+press 2 up 3
+wait 13
+press 2 left 3
+wait 9
+press 2 up 3
+wait 12
+press 2 right 3
+wait 14
+press 2 right 3
+wait 4
+press 2 right 3
+wait 4
+press 2 down 3
+wait 4
+press 2 left 3
+wait 7
+press 2 left 3
+wait 4
+press 2 up 3
+wait 5
+press 2 down 3
+wait 8
+press 2 down 3
+wait 11
+press 2 up 3
+wait 7
+press 2 left 3
+wait 10
+press 2 right 3
+wait 14
+press 2 right 3
+wait 14
+press 2 left 3
+wait 12
+press 2 up 3
+wait 6
+press 2 right 3
+wait 8
+press 2 up 3
+wait 8
+press 2 left 3
+wait 13
+press 2 right 3
+wait 11
+press 2 up 3
+wait 11
+press 2 down 3
+wait 13
+press 2 left 3
+wait 9
+press 2 right 3
+wait 6
+press 2 up 3
+wait 11
+press 2 down 3
+wait 6
+press 2 right 3
+wait 8
+press 2 down 3
+wait 14
+press 2 left 3
+wait 11
+press 2 up 3
+wait 14
+press 2 down 3
+wait 14
+press 2 down 3
+wait 11
+press 2 right 3
+wait 10
+press 2 down 3
+wait 12
+press 4 up 3
+wait 14
+press 4 down 3
+wait 5
+press 4 left 3
+wait 11
+press 4 down 3
+wait 5
+press 4 left 3
+wait 11
+press 4 down 3
+wait 7
+press 4 down 3
+wait 14
+press 4 left 3
+wait 14
+press 4 up 3
+wait 5
+press 4 right 3
+wait 10
+press 4 left 3
+wait 12
+press 4 right 3
+wait 13
+press 4 left 3
+wait 10
+press 4 up 3
+wait 5
+press 4 down 3
+wait 13
+press 4 down 3
+wait 12
+press 4 down 3
+wait 14
+press 4 down 3
+wait 11
+press 4 left 3
+wait 5
+press 4 up 3
+wait 7
+press 4 left 3
+wait 4
+press 4 right 3
+wait 13
+press 4 left 3
+wait 14
+press 4 up 3
+wait 7
+press 4 up 3
+wait 6
+press 4 up 3
+wait 6
+press 4 left 3
+wait 7
+press 4 right 3
+wait 10
+press 4 down 3
+wait 11
+press 4 left 3
+wait 11
+press 4 left 3
+wait 14
+press 4 right 3
+wait 14
+press 4 left 3
+wait 12
+press 4 up 3
+wait 9
+press 4 up 3
+wait 6
+press 4 right 3
+wait 6
+press 4 down 3
+wait 4
+press 4 down 3
+wait 14
+press 4 left 3
+wait 14
+press 4 up 3
+wait 6
+press 4 up 3
+wait 14
+press 4 down 3
+wait 5
+press 4 up 3
+wait 9
+press 4 up 3
+wait 14
+press 4 right 3
+wait 8
+press 4 up 3
+wait 5
+press 4 up 3
+wait 11
+press 4 down 3
+wait 13
+press 4 up 3
+wait 9
+press 4 left 3
+wait 10
+press 4 right 3
+wait 4
+press 4 up 3
+wait 13
+press 4 up 3
+wait 4
+press 4 left 3
+wait 11
+press 4 right 3
+wait 7
+press 4 left 3
+wait 4
+press 4 right 3
+wait 14
+press 4 down 3
+wait 6
+press 4 down 3
+wait 13
+press 4 down 3
+wait 6
+press 4 right 3
+wait 4
+press 4 right 3
+wait 6
+press 4 left 3
+wait 10
+press 4 down 3
+wait 5
+press 4 up 3
+wait 8
+press 4 up 3
+wait 12
+press 4 up 3
+wait 7
+press 4 right 3
+wait 13
+press 4 right 3
+wait 13
+press 4 left 3
+wait 8
+press 4 down 3
+wait 9
+press 4 right 3
+wait 4
+press 4 right 3
+wait 11
+press 4 up 3
+wait 13
+press 4 left 3
+wait 4
+press 4 up 3
+wait 12
+press 4 left 3
+wait 14
+press 4 left 3
+wait 13
+press 4 left 3
+wait 12
+press 4 left 3
+wait 6
+press 4 left 3
+wait 5
+press 4 up 3
+wait 14
+press 4 down 3
+wait 14
+press 4 left 3
+wait 12
+press 4 up 3
+wait 13
+press 4 down 3
+wait 8
+press 4 right 3
+wait 4
+press 4 right 3
+wait 10
+press 4 left 3
+wait 11
+press 4 right 3
+wait 13
+press 4 down 3
+wait 11
+press 4 down 3
+wait 8
+press 4 down 3
+wait 11
+press 4 down 3
+wait 11
+press 4 down 3
+wait 9
+press 4 up 3
+wait 8
+press 4 left 3
+wait 8
+press 4 right 3
+wait 5
+press 4 down 3
+wait 8
+press 4 up 3
+wait 6
+press 4 up 3
+wait 6
+press 4 right 3
+wait 13
+press 4 left 3
+wait 7
+press 4 down 3
+wait 10
+press 4 down 3
+wait 8
+press 4 right 3
+wait 6
+press 4 up 3
+wait 10
+press 4 left 3
+wait 5
+press 4 right 3
+wait 7
+press 4 down 3
+wait 12
+press 4 right 3
+wait 8
+press 4 left 3
+wait 6
+press 4 down 3
+wait 4
+press 4 right 3
+wait 6
+press 4 right 3
+wait 6
+press 4 left 3
+wait 12
+press 4 up 3
+wait 10
+press 4 up 3
+wait 5
+press 4 down 3
+wait 7
+press 4 right 3
+wait 6
+press 4 right 3
+wait 10
+press 4 down 3
+wait 11
+press 4 down 3
+wait 9
+press 4 left 3
+wait 12
+press 4 left 3
+wait 8
+press 4 up 3
+wait 6
+press 4 up 3
+wait 9
+press 4 left 3
+wait 4
+press 4 down 3
+wait 9
+press 4 up 3
+wait 14
+press 4 left 3
+wait 7
+press 4 down 3
+wait 14
+press 4 right 3
+wait 13
+press 4 right 3
+wait 6
+press 4 left 3
+wait 14
+press 4 left 3
+wait 6
+press 4 up 3
+wait 10
+press 4 right 3
+wait 10
+press 4 right 3
+wait 8
+press 4 right 3
+wait 13
+press 4 left 3
+wait 8
+press 4 down 3
+wait 6
+press 4 left 3
+wait 6
+press 4 up 3
+wait 11
+press 4 up 3
+wait 14
+press 4 left 3
+wait 4
+press 4 left 3
+wait 9
+press 4 left 3
+wait 7
+press 4 down 3
+wait 6
+press 4 left 3
+wait 5
+press 4 left 3
+wait 4
+press 4 down 3
+wait 8
+press 4 right 3
+wait 13
+press 4 right 3
+wait 6
+press 4 left 3
+wait 9
+press 4 right 3
+wait 6
+press 4 left 3
+wait 5
+press 4 left 3
+wait 5
+press 4 up 3
+wait 4
+press 4 down 3
+wait 7
+press 4 down 3
+wait 12
+press 4 up 3
+wait 8
+press 4 down 3
+wait 11
+press 4 right 3
+wait 5
+press 4 down 3
+wait 8
+press 4 left 3
+wait 5
+press 4 down 3
+wait 11
+press 4 left 3
+wait 10
+press 4 right 3
+wait 10
+press 4 left 3
+wait 9
+press 4 right 3
+wait 12
+press 4 down 3
+wait 7
+press 4 left 3
+wait 7
+press 4 left 3
+wait 14
+press 4 up 3
+wait 14
+press 4 down 3
+wait 6
+press 4 left 3
+wait 6
+press 4 right 3
+wait 14
+press 4 up 3
+wait 13
+press 4 left 3
+wait 6
+press 4 up 3
+wait 9
+press 4 down 3
+wait 5
+press 4 up 3
+wait 9
+press 4 down 3
+wait 14
+press 4 left 3
+wait 5
+press 4 down 3
+wait 9
+press 4 down 3
+wait 12
+press 4 down 3
+wait 8
+press 4 down 3
+wait 5
+press 4 left 3
+wait 14
+press 4 down 3
+wait 14
+press 4 left 3
+wait 4
+press 4 up 3
+wait 10
+press 4 up 3
+wait 13
+press 4 right 3
+wait 9
+press 4 left 3
+wait 7
+press 4 up 3
+wait 13
+press 4 down 3
+wait 4
+press 4 left 3
+wait 5
+press 4 left 3
+wait 8
+press 4 down 3
+wait 14
+press 4 down 3
+wait 11
+press 4 down 3
+wait 10
+press 4 up 3
+wait 13
+press 4 right 3
+wait 10
+press 4 left 3
+wait 6
+press 4 up 3
+wait 8
+press 4 left 3
+wait 13
+press 4 right 3
+wait 12
+press 4 down 3
+wait 12
+press 4 right 3
+wait 5
+press 4 left 3
+wait 8
+press 4 left 3
+wait 7
+press 4 down 3
+wait 9
+press 4 up 3
+wait 6
+press 4 up 3
+wait 4
+press 4 left 3
+wait 12
+press 4 down 3
+wait 8
+press 4 down 3
+wait 9
+press 4 up 3
+wait 6
+press 4 left 3
+wait 5
+press 4 right 3
+wait 13
+press 4 down 3
+wait 13
+press 4 left 3
+wait 8
+press 4 down 3
+wait 6
+press 4 down 3
+wait 10
+press 4 down 3
+wait 6
+press 4 down 3
+wait 6
+press 4 up 3
+wait 8
+press 4 down 3
+wait 9
+press 4 right 3
+wait 13
+press 4 down 3
+wait 7
+press 4 down 3
+wait 10
+press 4 left 3
+wait 14
+press 4 up 3
+wait 8
+press 4 down 3
+wait 4
+press 4 up 3
+wait 14
+press 4 down 3
+wait 6
+press 4 right 3
+wait 14
+press 4 down 3
+wait 7
+press 4 left 3
+wait 13
+press 4 up 3
+wait 10
+press 4 right 3
+wait 10
+press 4 up 3
+wait 7
+press 4 left 3
+wait 14
+press 4 up 3
+wait 6
+press 4 left 3
+wait 14
+press 4 down 3
+wait 11
+press 4 down 3
+wait 11
+press 4 left 3
+wait 10
+press 4 left 3
+wait 9
+press 4 right 3
+wait 8
+press 4 up 3
+wait 4
+press 4 right 3
+wait 12
+press 4 down 3
+wait 13
+press 4 down 3
+wait 10
+press 4 down 3
+wait 8
+press 4 down 3
+wait 12
+press 4 up 3
+wait 10
+press 4 left 3
+wait 12
+press 4 right 3
+wait 6
+press 4 left 3
+wait 11
+press 4 down 3
+wait 11
+press 4 right 3
+wait 8
+press 4 left 3
+wait 11
+press 4 right 3
+wait 4
+press 4 left 3
+wait 8
+press 4 down 3
+wait 11
+press 4 right 3
+wait 4
+press 4 left 3
+wait 11
+press 4 up 3
+wait 13
+press 4 down 3
+wait 9
+press 4 right 3
+wait 10
+press 4 down 3
+wait 4
+press 4 up 3
+wait 7
+press 4 right 3
+wait 7
+press 4 left 3
+wait 5
+press 4 left 3
+wait 5
+press 4 right 3
+wait 14
+press 4 down 3
+wait 5
+press 4 down 3
+wait 11
+press 4 left 3
+wait 11
+press 4 down 3
+wait 4
+press 4 right 3
+wait 5
+press 4 down 3
+wait 13
+press 4 up 3
+wait 8
+press 4 up 3
+wait 14
+press 4 left 3
+wait 14
+press 4 down 3
+wait 7
+press 4 right 3
+wait 14
+press 4 right 3
+wait 10
+press 4 down 3
+wait 4
+press 4 right 3
+wait 14
+press 4 down 3
+wait 12
+press 4 right 3
+wait 9
+press 4 right 3
+wait 10
+press 4 right 3
+wait 9
+press 4 left 3
+wait 10
+press 4 down 3
+wait 13
+press 4 down 3
+wait 11
+press 4 right 3
+wait 9
+press 8 down 3
+wait 4
+press 4 down 3
+wait 4
+press 3 up 3
+wait 9
+press 2 down 3
+wait 8
+press 2 down 3
+wait 9
+press 2 right 3
+wait 11
+press 4 left 3
+wait 11
+press 2 left 3
+wait 6
+press 3 right 3
+wait 5
+press 2 down 3
+wait 10
+press 3 left 3
+wait 7
+press 8 left 3
+wait 12
+press 8 down 3
+wait 5
+press 4 up 3
+wait 10
+press 4 down 3
+wait 9
+press 3 down 3
+wait 10
+press 4 left 3
+wait 13
+press 2 left 3
+wait 8
+press 4 right 3
+wait 9
+press 3 right 3
+wait 13
+press 4 down 3
+wait 12
+press 8 down 3
+wait 4
+press 2 down 3
+wait 11
+press 8 up 3
+wait 5
+press 8 left 3
+wait 13
+press 4 left 3
+wait 11
+press 8 left 3
+wait 9
+press 8 left 3
+wait 13
+press 8 left 3
+wait 6
+press 4 left 3
+wait 4
+press 8 right 3
+wait 10
+press 3 right 3
+wait 4
+press 4 down 3
+wait 12
+press 8 right 3
+wait 10
+press 3 right 3
+wait 10
+press 4 right 3
+wait 7
+press 2 left 3
+wait 13
+press 8 up 3
+wait 6
+press 3 up 3
+wait 9
+press 4 up 3
+wait 5
+press 3 up 3
+wait 8
+press 4 right 3
+wait 10
+press 4 up 3
+wait 11
+press 4 down 3
+wait 8
+press 2 down 3
+wait 8
+press 4 up 3
+wait 6
+press 3 right 3
+wait 13
+press 8 right 3
+wait 14
+press 8 up 3
+wait 4
+press 2 left 3
+wait 6
+press 8 right 3
+wait 4
+press 2 up 3
+wait 6
+press 8 right 3
+wait 7
+press 4 down 3
+wait 6
+press 3 right 3
+wait 13
+press 8 up 3
+wait 14
+press 3 down 3
+wait 4
+press 8 up 3
+wait 8
+press 3 right 3
+wait 11
+press 2 up 3
+wait 5
+press 8 up 3
+wait 13
+press 4 down 3
+wait 11
+press 8 down 3
+wait 12
+press 4 down 3
+wait 5
+press 2 up 3
+wait 9
+press 3 left 3
+wait 11
+press 8 up 3
+wait 5
+press 2 left 3
+wait 7
+press 4 right 3
+wait 12
+press 4 down 3
+wait 11
+press 3 right 3
+wait 14
+press 3 down 3
+wait 8
+press 2 left 3
+wait 5
+press 4 left 3
+wait 12
+press 8 up 3
+wait 7
+press 8 up 3
+wait 12
+press 4 left 3
+wait 13
+press 4 up 3
+wait 11
+press 8 right 3
+wait 4
+press 4 right 3
+wait 12
+press 8 left 3
+wait 14
+press 8 right 3
+wait 8
+press 8 down 3
+wait 6
+press 2 left 3
+wait 7
+press 2 right 3
+wait 6
+press 4 down 3
+wait 6
+press 3 left 3
+wait 10
+press 8 right 3
+wait 12
+press 8 right 3
+wait 14
+press 8 down 3
+wait 8
+press 2 left 3
+wait 4
+press 4 down 3
+wait 9
+press 4 left 3
+wait 6
+press 4 left 3
+wait 9
+press 3 left 3
+wait 6
+press 3 left 3
+wait 7
+press 3 right 3
+wait 10
+press 2 up 3
+wait 8
+press 3 left 3
+wait 12
+press 3 up 3
+wait 6
+press 2 left 3
+wait 12
+press 4 down 3
+wait 11
+press 8 right 3
+wait 7
+press 2 down 3
+wait 13
+press 4 down 3
+wait 11
+press 2 down 3
+wait 4
+press 2 down 3
+wait 4
+press 2 right 3
+wait 13
+press 2 right 3
+wait 6
+press 3 down 3
+wait 13
+press 2 left 3
+wait 6
+press 3 up 3
+wait 4
+press 3 down 3
+wait 13
+press 8 right 3
+wait 5
+press 8 down 3
+wait 10
+press 4 down 3
+wait 10
+press 2 right 3
+wait 12
+press 4 left 3
+wait 13
+press 4 down 3
+wait 7
+press 2 right 3
+wait 13
+press 3 right 3
+wait 9
+press 2 right 3
+wait 10
+press 8 up 3
+wait 4
+press 3 right 3
+wait 14
+press 3 right 3
+wait 13
+press 4 left 3
+wait 8
+press 4 left 3
+wait 14
+press 8 right 3
+wait 13
+press 8 right 3
+wait 9
+press 8 right 3
+wait 13
+press 4 up 3
+wait 4
+press 4 up 3
+wait 12
+press 3 down 3
+wait 11
+press 3 down 3
+wait 4
+press 8 up 3
+wait 14
+press 2 left 3
+wait 13
+press 2 right 3
+wait 13
+press 3 left 3
+wait 5
+press 3 down 3
+wait 9
+press 8 left 3
+wait 8
+press 8 right 3
+wait 13
+press 4 left 3
+wait 4
+press 2 left 3
+wait 10
+press 4 left 3
+wait 4
+press 4 up 3
+wait 9
+press 3 right 3
+wait 9
+press 4 right 3
+wait 8
+press 4 left 3
+wait 13
+press 8 down 3
+wait 8
+press 3 left 3
+wait 13
+press 3 left 3
+wait 9
+press 3 right 3
+wait 5
+press 4 down 3
+wait 7
+press 4 down 3
+wait 8
+press 4 up 3
+wait 14
+press 3 up 3
+wait 13
+press 8 left 3
+wait 6
+press 2 up 3
+wait 5
+press 8 right 3
+wait 7
+press 8 up 3
+wait 4
+press 2 left 3
+wait 11
+press 8 right 3
+wait 6
+press 8 left 3
+wait 13
+press 2 down 3
+wait 10
+press 4 right 3
+wait 14
+press 4 right 3
+wait 13
+press 3 up 3
+wait 5
+press 2 left 3
+wait 4
+press 8 left 3
+wait 6
+press 2 up 3
+wait 14
+press 8 down 3
+wait 6
+press 4 up 3
+wait 5
+press 4 right 3
+wait 14
+press 3 down 3
+wait 7
+press 3 up 3
+wait 13
+press 3 down 3
+wait 13
+press 8 left 3
+wait 9
+press 4 left 3
+wait 9
+press 4 up 3
+wait 4
+press 4 right 3
+wait 10
+press 4 right 3
+wait 10
+press 2 left 3
+wait 10
+press 3 up 3
+wait 8
+press 8 up 3
+wait 10
+press 4 down 3
+wait 13
+press 3 left 3
+wait 10
+press 4 left 3
+wait 8
+press 3 right 3
+wait 7
+press 8 up 3
+wait 4
+press 2 down 3
+wait 11
+press 4 right 3
+wait 4
+press 3 right 3
+wait 5
+press 8 up 3
+wait 4
+press 3 up 3
+wait 8
+press 4 up 3
+wait 6
+press 2 left 3
+wait 10
+press 3 down 3
+wait 8
+press 8 up 3
+wait 12
+press 3 down 3
+wait 7
+press 8 down 3
+wait 8
+press 2 left 3
+wait 5
+press 2 right 3
+wait 4
+press 2 down 3
+wait 7
+press 4 left 3
+wait 12
+press 3 up 3
+wait 13
+press 3 up 3
+wait 7
+press 8 left 3
+wait 10
+press 4 right 3
+wait 11
+press 2 right 3
+wait 14
+press 3 up 3
+wait 4
+press 3 right 3
+wait 13
+press 4 down 3
+wait 10
+press 8 right 3
+wait 4
+press 8 up 3
+wait 14
+press 2 right 3
+wait 6
+press 4 down 3
+wait 12
+press 2 right 3
+wait 9
+press 2 left 3
+wait 5
+press 2 down 3
+wait 10
+press 4 down 3
+wait 6
+press 3 up 3
+wait 12
+press 2 right 3
+wait 7
+press 8 up 3
+wait 10
+press 2 right 3
+wait 12
+press 2 up 3
+wait 10
+press 2 down 3
+wait 10
+press 8 down 3
+wait 7
+press 3 left 3
+wait 5
+press 8 up 3
+wait 9
+press 2 down 3
+wait 7
+press 2 right 3
+wait 7
+press 8 right 3
+wait 9
+press 3 right 3
+wait 4
+press 2 down 3
+wait 10
+press 4 up 3
+wait 12
+press 8 down 3
+wait 6
+press 8 down 3
+wait 13
+press 8 up 3
+wait 4
+press 8 right 3
+wait 11
+press 3 right 3
+wait 10
+press 8 right 3
+wait 11
+press 3 right 3
+wait 11
+press 4 up 3
+wait 6
+press 4 left 3
+wait 8
+press 4 left 3
+wait 12
+press 3 right 3
+wait 7
+press 4 left 3
+wait 11
+press 3 left 3
+wait 10
+press 8 right 3
+wait 6
+press 3 down 3
+wait 7
+press 2 down 3
+wait 7
+press 3 right 3
+wait 4
+press 3 right 3
+wait 6
+press 4 up 3
+wait 6
+press 8 down 3
+wait 9
+press 3 up 3
+wait 10
+press 8 up 3
+wait 6
+press 4 down 3
+wait 12
+press 3 left 3
+wait 7
+press 4 up 3
+wait 4
+press 3 down 3
+wait 9
+press 8 right 3
+wait 7
+press 2 left 3
+wait 7
+press 3 down 3
+wait 5
+press 4 up 3
+wait 7
+press 4 left 3
+wait 12
+press 4 down 3
+wait 7
+press 3 down 3
+wait 13
+press 3 right 3
+wait 14
+press 8 up 3
+wait 10
+press 8 right 3
+wait 10
+press 4 up 3
+wait 14
+press 3 left 3
+wait 6
+press 8 left 3
+wait 6
+press 2 up 3
+wait 12
+press 2 left 3
+wait 4
+press 4 left 3
+wait 10
+press 2 down 3
+wait 4
+press 4 right 3
+wait 14
+press 4 right 3
+wait 4
+press 3 left 3
+wait 11
+press 2 right 3
+wait 6
+press 3 down 3
+wait 5
+press 2 left 3
+wait 10
+press 8 down 3
+wait 8
+press 3 up 3
+wait 7
+press 4 left 3
+wait 9
+press 4 down 3
+wait 11
+press 4 left 3
+wait 5
+press 3 left 3
+wait 8
+press 3 down 3
+wait 9
+press 3 up 3
+wait 13
+press 4 left 3
+wait 11
+press 3 down 3
+wait 6
+press 8 up 3
+wait 10
+press 2 left 3
+wait 11
+press 4 right 3
+wait 9
+press 3 up 3
+wait 5
+press 4 down 3
+wait 12
+wait 300
+press 1 a        # kart page
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 8 a        # the drift page
+wait 300
+press 1 a        # drift page
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 900

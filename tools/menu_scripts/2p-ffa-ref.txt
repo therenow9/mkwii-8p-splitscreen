@@ -1,0 +1,63 @@
+# RR's FFA Balloon Battle (M4 E1, normal build): RR's settings as they ship (Battle Teams off: ffa 1), 2 Players,
+# Battle, Balloon Battle, every page confirmed, cup and arena, the rounds. RR races FFA in VS's sections. GC ports 1-2.
+autodrive
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+wait 120
+press 1 a        # 2 Players
+wait 360
+press 2 a        # controller registration: P2
+wait 120
+wait 120
+press 1 a        # OK
+wait 300
+press 1 down     # multiplayer menu: Battle
+wait 60
+press 1 a
+wait 360
+press 1 a        # Balloon Battle
+wait 360
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+wait 300
+wait 240         # the team page
+wait 120
+press 1 a        # every team confirmed
+wait 20
+press 2 a
+wait 20
+wait 300
+press 1 a        # the teams page (Check Teams)
+wait 360
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+wait 300
+wait 60
+press 1 a        # cup
+wait 240
+press 1 a        # arena
+wait 240
+press 1 a        # Start: OK
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 240
+mash 1 a 54000   # A once a second for 15 minutes of game time: scoreboards, next rounds, landing

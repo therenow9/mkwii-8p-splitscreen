@@ -1,0 +1,85 @@
+# D77 in 3P: P1 on Mario skin 4, P2 and P3 on Mario skin 5, into a race. P1 keeps Mario's PC voice group;
+# P2 and P3 share one lent group with skin 5's voices. GC ports 1-3.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 2 left     # character select: P2 (on Luigi) onto Mario
+wait 30
+press 3 up       # P3 (on Yoshi) onto Mario
+wait 120
+press 1 r        # P1: Mario skins 1 to 4
+wait 60
+press 1 r
+wait 60
+press 1 r
+wait 60
+press 1 r
+wait 120
+press 2 r        # P2: Mario skins 1 to 5
+wait 60
+press 2 r
+wait 60
+press 2 r
+wait 60
+press 2 r
+wait 60
+press 2 r
+wait 120
+press 3 r        # P3: Mario skins 1 to 5
+wait 60
+press 3 r
+wait 60
+press 3 r
+wait 60
+press 3 r
+wait 60
+press 3 r
+wait 300
+press 3 a        # P3, P2, P1 confirm; kart select
+wait 120
+press 2 a
+wait 120
+press 1 a
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 300
+press 1 a        # transmission select (RR 6.13.1's MultiTransmissionSelect, before drift)
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 1800

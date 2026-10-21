@@ -1,0 +1,105 @@
+# M4 C4d's Randomize Combo and Back: 8 Players, P1's START rolls all 8, the kart
+# page's roulette confirms everyone, B on the transmission page and then the kart page returns to the character page (nobody confirmed, the cursors on the rolls), and START rolls
+# again, four rolls in all; the race has the fourth roll. PD14's repro: until C4e, P5-8 previews fail to
+# load by the later rolls and a late Mii head can crash the page (D117).
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 1 start    # the first roll
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # the second roll
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # the third roll
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # the fourth roll (D115: four rolls in a row, every skin loading)
+wait 400
+wait 200         # the kart page's roulette confirms everyone (D151), then the transmission page
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 1800

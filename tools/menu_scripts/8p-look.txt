@@ -1,0 +1,86 @@
+# M4 C4d's render pass for the owner's look at the whole 8-player page (launch with
+# install_8p.py dolphin --unattended --wiimotes --gdb and run dolphin_gdb.py serve, so the game runs at about
+# 7 fps and the one-second roulette can be shot): the page as it opens, P2, P6 and P8 on Luigi, four skins on
+# the plates, P5-8 on the Mii row with their Mii previews, then P1's START and all 8 confirmed. Ends on the page.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+wait 300         # the page as it opens: 8 cursors on their starting characters, Mii C a "?"
+press 6 down     # P6 from Dry Bowser to Daisy
+wait 30
+press 6 left     # Peach (P4's)
+wait 30
+press 6 left     # Luigi: P2, P6 and P8 on one button, its colours in turn (D79)
+wait 300
+press 1 r        # skins: P1, P3, P5 and P7 one slot on (RR's toggle), the plates naming them
+wait 20
+press 3 r
+wait 20
+press 5 r
+wait 20
+press 7 r
+wait 300
+press 5 left     # P5-8 onto the Mii row: their Mii previews
+wait 30
+press 5 left
+wait 30
+press 5 up
+wait 30
+press 6 up
+wait 30
+press 6 up
+wait 30
+press 6 up
+wait 30
+press 6 right    # Mii B
+wait 30
+press 7 right
+wait 30
+press 7 up
+wait 30
+press 8 up
+wait 30
+press 8 up
+wait 30
+press 8 up
+wait 400
+press 1 start    # the roll: the roulette, then all 8 confirmed (D112)
+wait 900

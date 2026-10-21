@@ -1,0 +1,39 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu), the 1P Battle reference: Single Player, Battle, Balloon Battle,
+# every page on its default, cup and arena, then the kart to the AI and port 1's A once a second through the round
+# and its scoreboards. GC port 1.
+autodrive
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 a        # main menu: Single Player
+wait 400
+press 1 down     # Grand Prix -> Time Trials
+wait 60
+press 1 down     # VS Race
+wait 60
+press 1 down     # Battle
+wait 60
+press 1 a
+wait 400
+press 1 a        # Balloon Battle
+wait 400
+press 1 a        # character
+wait 400
+press 1 a        # kart
+wait 400
+press 1 a        # drift
+wait 30
+wait 400
+press 1 a        # cup
+wait 300
+press 1 a        # arena
+wait 300
+press 1 a        # Start: OK
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 240
+mash 1 a 14400   # A once a second for 4 minutes of game time: the round and its scoreboards

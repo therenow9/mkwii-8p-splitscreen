@@ -1,0 +1,84 @@
+# 2p-same-voice carried into a race: the menu confirms (each skin's own trick line, from the sound heap) set
+# the sound archive before the boot's first race, so RR's voice assignments can be made in the menu; the race's
+# "ss8 race player" lines should still lend P1 and P2 a voice each (voice >= 0). GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 1 down     # character select: P1 Mario -> Yoshi, Wario, King Boo, Rosalina, Funky Kong
+wait 30
+press 1 down
+wait 30
+press 1 down
+wait 30
+press 1 right
+wait 30
+press 1 right
+wait 60
+press 2 down     # P2 Luigi -> Birdo, Waluigi, Rosalina, Funky Kong
+wait 30
+press 2 down
+wait 30
+press 2 down
+wait 30
+press 2 right
+wait 120
+press 1 r        # P1: skins 1-5, R.O.B.
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 90
+press 2 r        # P2: skins 1-6, Jaxi
+wait 90
+press 2 r
+wait 90
+press 2 r
+wait 90
+press 2 r
+wait 90
+press 2 r
+wait 90
+press 2 r
+wait 240
+press 2 a        # P2 confirms: Jaxi's trick line
+wait 240
+press 1 a        # P1 confirms: R.O.B.'s trick line
+wait 360
+press 2 a        # kart select: P2
+wait 180
+press 1 a        # P1
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 1800

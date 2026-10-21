@@ -1,0 +1,146 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu): the Random course rule with 8 players: 8 Players,
+# P2-8 join, VS, the Rules page's Course on Random, Solo Race, the 8-player pages on their defaults; the drift page
+# draws the courses and asks Start? as the game's does, B there brings everyone back to choosing, the drift page again,
+# Start? OK, and port 1's A once a second through the 2-race series to the menus. Launch with install_8p.py --vanilla
+# dolphin --unattended --wiimotes.
+autodrive
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8; ConfirmPads opens, OK selected
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 480
+press 1 up       # Solo Race -> the Rules button (top right)
+wait 60
+press 1 a        # Rules: the cursor on Class
+wait 600
+press 1 down     # CPU
+wait 60
+press 1 down     # Vehicles
+wait 60
+press 1 down     # Course
+wait 60
+press 1 right    # the cursor onto Random
+wait 60
+press 1 a        # Random (Right moves the cursor; A picks the value)
+wait 60
+press 1 down     # Items
+wait 60
+press 1 down     # Races
+wait 60
+press 1 down     # OK
+wait 60
+press 1 a        # OK: the license keeps Random (lane.py puts the save back)
+wait 480
+press 1 down     # the Rules button -> the first mode button
+wait 60
+press 1 a        # Solo Race -> the 8-player character page
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 300
+press 1 b        # Start?: Back, everyone chooses again
+wait 300
+press 1 a        # drift page again
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 300
+press 1 a        # Start?: OK
+wait 240
+mash 1 a 25200   # A once a second: race 1, Next Race, race 2, the awards, the menus

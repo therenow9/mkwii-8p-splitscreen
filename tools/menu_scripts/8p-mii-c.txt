@@ -1,0 +1,143 @@
+# M4 C4c's Mii C: the script opens Mii C whatever the license's VR (the 8P copy's is
+# under RR's 300). 8 Players, P2-8 join, VS, then P5, P7 and P2 (a game slot) move onto Mii C, each preview an
+# outfit C body through RR's loader with the player's head on it; each picks the Mii it starts on in MiiSelect,
+# the rest confirm drivers, and the race has three outfit C Miis.
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+open-mii-c
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 5 up       # P5 from Baby Daisy wraps onto Mii C
+wait 30
+press 7 right    # P7 from Baby Mario to Baby Luigi
+wait 30
+press 7 right    # Baby Peach
+wait 30
+press 7 right    # Baby Daisy
+wait 30
+press 7 up       # Mii C
+wait 30
+press 2 right    # P2 from Luigi to Peach
+wait 30
+press 2 right    # Daisy
+wait 30
+press 2 up       # Dry Bones
+wait 30
+press 2 up       # Baby Daisy
+wait 30
+press 2 up       # Mii C
+wait 300
+press 5 a 1      # P5 picks the Mii it starts on
+wait 240
+press 5 a
+wait 240
+press 7 a 1      # P7
+wait 240
+press 7 a
+wait 240
+press 2 a 1      # P2
+wait 240
+press 2 a
+wait 240
+press 3 a        # the rest confirm their drivers, P1 last
+wait 30
+press 4 a
+wait 30
+press 6 a
+wait 30
+press 8 a
+wait 240
+press 1 a        # P1 confirms Mario last: the kart page
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the transmission page
+wait 240
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 1800

@@ -1,0 +1,74 @@
+# Phase B's reset lane: 8 Players and all eight join, P1 presses OK, backs out of the multiplayer menu
+# to the join page (its OK/Change page opens again, as vanilla's does) and from it to the main menu;
+# then 2 Players registers as vanilla (P2 on GC port 2), Revise registers P1 and P2 again as vanilla's
+# does, and the multiplayer menu reads "(2P)" with Battle shown.
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2-4 on GC ports 2-4, P5-8 on Wii channels 1-4's Classics
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 120
+press 6 a
+wait 120
+press 7 a
+wait 120
+press 8 a
+wait 240
+press 1 a        # ConfirmPads opens once all are in (D66): OK, selected first
+wait 300
+press 1 b        # multiplayer menu: B back to the join page, all eight still in
+wait 300
+press 1 b        # the OK/Change page's B: P1 backs out to the main menu
+wait 420
+press 1 left     # main menu, back on 8 Players: left to 2 Players
+wait 60
+press 1 left
+wait 60
+press 1 left
+wait 60
+press 1 left
+wait 60
+press 1 left
+wait 60
+press 1 left
+wait 180
+press 1 a        # 2 Players
+wait 360
+press 2 a        # vanilla registration: P2 on GC port 2
+wait 240
+press 1 down     # vanilla's OK/Change page: Revise
+wait 60
+press 1 a        # RegisterPad asks for Player 1 again
+wait 240
+press 1 a
+wait 120
+press 2 a
+wait 240
+press 1 a        # OK
+wait 360
+press 1 down     # multiplayer menu: Battle is there
+wait 240

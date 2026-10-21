@@ -1,0 +1,50 @@
+# D72 in 2P: P1 and P2 both on Mario with their own skins, then into a race.
+# P2 joins P1's Mario (P2 gets its own preview model), P1 picks skin 1 on the shared model, P2 skin 2 on
+# its own; P2 confirms first, so only P2's preview takes the confirmed pose. GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 2 left     # character select, step 8: P2 (on Luigi) onto P1's Mario
+wait 120
+press 1 r        # P1: Mario skin 1
+wait 120
+press 2 r        # P2: Mario skin 1, then 2
+wait 60
+press 2 r
+wait 300
+press 2 a        # step 12: P2 confirms
+wait 300
+press 1 a        # step 13: P1 confirms; kart select
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 300
+press 1 a        # transmission select (RR 6.13.1's MultiTransmissionSelect, before drift)
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 900

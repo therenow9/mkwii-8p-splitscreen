@@ -1,0 +1,32 @@
+# The menu voice of a skin with its own recordings and no layout suffix: P1 picks Funky Kong skin 2 (Chain
+# Chomp) at the Grand Prix character select and confirms it, then the kart. Both confirms should say one of
+# Chain Chomp's own trick lines; stock RR says Funky Kong's select line. GC port 1.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 a        # main menu: Single Player
+wait 240
+press 1 a        # Grand Prix
+wait 240
+press 1 a        # 50cc
+wait 300
+press 1 down     # character select: Mario -> Yoshi
+wait 30
+press 1 down     # Wario
+wait 30
+press 1 down     # King Boo
+wait 30
+press 1 right    # Rosalina
+wait 30
+press 1 right    # Funky Kong
+wait 120
+press 1 r        # skins: Chain Chomp is 2
+wait 90
+press 1 r
+wait 180
+press 1 a        # confirm Chain Chomp: the select voice
+wait 360
+press 1 a        # kart select: confirm
+wait 600

@@ -1,0 +1,236 @@
+# RR's offline KO through a 4P series (M5, D201; the 1-4P reference for the pads following the player): KO on, 1
+# out a race, 4 Players, Solo Race, P3 on a skin and another transmission, then autodrive and A on each port in
+# turn, 10 s in every 30 s, through every race, the awards and where the series lands. Each race's "ss8 race player"
+# lines give every local's hud, channel, character and skin, and "ss8 holder" each holder's pad and transmission.
+# GC ports 1-4.
+setting SETTING_KOENABLED KOSETTING_ENABLED
+setting SETTING_KOPERRACE KOSETTING_KOPERRACE_1
+setting SETTING_RACESPERKO KOSETTING_RACESPERKO_1
+autodrive
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 right    # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 3 r        # character select: P3's skin
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 360
+press 2 a        # kart select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 30
+press 3 right    # P3's other transmission
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+mash 1 a 600     # each port in turn, for 40 minutes: a knocked-out port may drive nothing
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200
+mash 1 a 600
+wait 1200
+mash 2 a 600
+wait 1200
+mash 3 a 600
+wait 1200
+mash 4 a 600
+wait 1200

@@ -1,0 +1,61 @@
+# Menu voices of a skin with its own voice and a silent skin in 2P VS: P1 picks R.O.B. (Funky Kong skin 5),
+# P2 Baby Luigi skin 4 (silent in races). P2 confirms first, then P1, then both karts. P2's confirms should
+# be silent and P1's say R.O.B.'s own trick lines; stock RR says Baby Luigi's and Funky Kong's.
+# GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 1 down     # character select: P1 Mario -> Yoshi, Wario, King Boo, Rosalina, Funky Kong
+wait 30
+press 1 down
+wait 30
+press 1 down
+wait 30
+press 1 right
+wait 30
+press 1 right
+wait 60
+press 2 up       # P2 Luigi -> Toadette -> Baby Luigi
+wait 30
+press 2 up
+wait 120
+press 1 r        # P1: skins 1-5, R.O.B.
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 90
+press 2 r        # P2: skins 1-4, the silent one
+wait 90
+press 2 r
+wait 90
+press 2 r
+wait 90
+press 2 r
+wait 240
+press 2 a        # P2 confirms: silent after the fix
+wait 240
+press 1 a        # P1 confirms: R.O.B.'s trick line after the fix
+wait 360
+press 2 a        # kart select: P2 (Baby Luigi has a kart line; silent after the fix)
+wait 180
+press 1 a        # P1
+wait 600

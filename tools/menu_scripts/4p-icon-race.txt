@@ -1,0 +1,101 @@
+# Name balloon icons in 4P: all four on Mario; the script steps P1 to skin 3, P2 to 4, P3 to 5 and P4 to 1. P3 and P4 do
+# not reach their skins today (issues inbox, 2026-10-11), so their balloons show Mario's portrait. GC ports 1-4.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 right    # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 left     # character select: P2 onto Mario
+wait 60
+press 3 up       # P3 onto Mario
+wait 60
+press 4 left     # P4 onto Luigi, then Mario
+wait 60
+press 4 left
+wait 300
+press 1 r        # P1: Mario skin 1, 2, 3
+wait 120
+press 1 r
+wait 120
+press 1 r
+wait 120
+press 2 r        # P2: Mario skin 1, 2, 3, 4
+wait 120
+press 2 r
+wait 120
+press 2 r
+wait 120
+press 2 r
+wait 120
+press 3 r        # P3: Mario skin 1 to 5
+wait 120
+press 3 r
+wait 120
+press 3 r
+wait 120
+press 3 r
+wait 120
+press 3 r
+wait 120
+press 4 r        # P4: Mario skin 1
+wait 300
+press 2 a        # P2, P3 and P4 confirm
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 360
+press 1 a        # P1 confirms; kart select
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 1800

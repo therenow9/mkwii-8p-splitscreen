@@ -1,0 +1,95 @@
+# M4 C4d's Randomize Combo for 8: 8 Players, P2-8 join, VS, P2 and P5 confirm,
+# then P1's START rolls a character, skin and kart for all 8 (D108) with RR's 60-frame roulette, P1's B
+# and P3's A during it doing nothing; all 8 confirm at its end (D112). Then the kart page's roulette (D151),
+# the transmission and drift pages, cup select and a race whose players 0-7 have the rolled characters and karts (D110).
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 2 a        # P2 confirms Luigi, P5 Baby Daisy
+wait 30
+press 5 a
+wait 120
+press 1 start    # P1's START: everyone rolls, P2 and P5 un-confirmed
+wait 15
+press 1 b        # mid-roulette: P1's B and P3's A do nothing
+wait 5
+press 3 a
+wait 400        # the roulette, every player confirmed at its end, the OK wait, then the kart page
+wait 200         # the kart page's roulette, everyone confirmed at its end, then the transmission page
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 1800

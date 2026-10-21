@@ -1,0 +1,78 @@
+# RR's settings in an 8-player game (M5, D198; every row open since PD27's fix): 8 Players, P2-8 join, the multiplayer
+# menu's Settings button to RR's page select (a shot: Knockout open), Race -> Menu -> Sound -> Down (a shot: the
+# cursor on Knockout), back to Race, then Battle -> Royale and its page (a shot: the Battle Royale rows open),
+# Up from Save (a shot: the cursor on Starting Lives), Back, Battle's page (a shot: Elimination open),
+# Up from Save (a shot: the cursor on the row above Save) and Back twice: every row as 6p-royale-settings draws it. Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 480
+press 1 up       # multiplayer menu: VS -> the Settings button (top right)
+wait 120
+press 1 a        # Settings
+wait 600         # page select, held for its shot
+press 1 right    # Race -> Menu
+wait 60
+press 1 right    # -> Sound
+wait 60
+press 1 down     # -> Knockout
+wait 300         # held for its shot
+press 1 up       # back to Sound from either
+wait 60
+press 1 left     # -> Menu
+wait 60
+press 1 left     # -> Race
+wait 60
+press 1 down     # -> Battle
+wait 60
+press 1 down     # -> Royale
+wait 60
+press 1 a        # the Royale page
+wait 600         # held for its shot
+press 1 up       # the row above Save: Starting Lives, or All Items Can Land where the Battle Royale rows are greyed
+wait 300         # held for its shot
+press 1 b        # back to page select
+wait 300
+press 1 down     # page select starts on Race again: -> Battle
+wait 60
+press 1 a        # the Battle page: Elimination open
+wait 300         # held for its shot
+press 1 up       # the page opens on Save: -> the row above it
+wait 300         # held for its shot
+press 1 b        # back to page select
+wait 300
+press 1 b        # back to the multiplayer menu
+wait 300

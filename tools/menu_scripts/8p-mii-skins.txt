@@ -1,0 +1,169 @@
+# M4 C4c's memory case: P1-4 on 8p-skins' heavy skins (P1-3 three Mario skins, P4
+# Peach's first) while P5-8 stand on the Mii row with their own Mii bodies and heads (P5, P7 and P8 Mii A,
+# P6 Mii B); P7 holds right for 10 s along the Mii row, a new Mii body per move with its one head moved onto it;
+# P5 and P6 then pick other Miis in MiiSelect, P7 and P8 pick theirs, and everyone confirms through to a race
+# with four Miis.
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 1 r        # P1: Mario's first skin, on the shared model
+wait 30
+press 2 left     # P2 from Luigi to Mario, its own preview
+wait 30
+press 2 r        # Mario's 2nd skin
+wait 30
+press 2 r
+wait 30
+press 3 up       # P3 from Yoshi to Mario, its own preview
+wait 30
+press 3 l        # Mario's last skin
+wait 30
+press 4 r        # P4: Peach's first skin, on the shared model
+wait 30
+press 5 left     # P5 from Baby Daisy to Baby Peach
+wait 30
+press 5 left     # Baby Luigi
+wait 30
+press 5 up       # Mii A
+wait 30
+press 6 left     # P6 from Dry Bones to Koopa Troopa
+wait 30
+press 6 up       # Baby Peach
+wait 30
+press 6 up       # Mii B
+wait 30
+press 7 right    # P7 from Baby Mario to Baby Luigi
+wait 30
+press 7 up       # Mii A
+wait 30
+press 8 up       # P8 from Luigi to Toadette
+wait 30
+press 8 up       # Baby Luigi
+wait 30
+press 8 up       # Mii A
+wait 300         # every preview loaded
+press 7 right 600 # P7 holds right for 10 s along the Mii row (C locked, column 0 empty: A and B in turn)
+wait 60
+press 5 a 1      # P5 picks the 2nd Mii
+wait 240
+press 5 right
+wait 60
+press 5 a
+wait 240
+press 6 a 1      # P6 picks the 3rd Mii
+wait 240
+press 6 right
+wait 60
+press 6 right
+wait 60
+press 6 a
+wait 240
+press 7 a 1      # P7 and P8 keep the Mii they start on
+wait 240
+press 7 a
+wait 240
+press 8 a 1
+wait 240
+press 8 a
+wait 240
+press 2 a        # P1-4 confirm, P1 last
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the transmission page
+wait 240
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 900

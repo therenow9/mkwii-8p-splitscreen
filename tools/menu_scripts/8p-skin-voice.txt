@@ -1,0 +1,176 @@
+# P5-8's menu voices on the 8-player page: 8p-skins with P5 on Daisy skin 4, whose
+# own voice files use Bowser Jr.'s layout, so P5's confirm should say that skin's trick line; the others' skins
+# have no voice files and keep their base lines. Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 1 r        # P1: Mario's first skin, on the shared model
+wait 30
+press 2 left     # P2 from Luigi to Mario, its own preview
+wait 30
+press 2 r        # Mario's 2nd skin
+wait 30
+press 2 r
+wait 30
+press 3 up       # P3 from Yoshi to Mario, its own preview
+wait 30
+press 3 l        # Mario's last skin
+wait 30
+press 4 r        # P4: Peach's first skin, on the shared model
+wait 30
+press 5 down     # P5 from Baby Daisy to Dry Bones
+wait 30
+press 5 down     # Daisy
+wait 30
+press 5 r        # Daisy's skins 1-4: 4 has its own voice
+wait 30
+press 5 r
+wait 30
+press 5 r
+wait 30
+press 5 r
+wait 30
+press 6 down     # P6 from Dry Bones to Daisy
+wait 30
+press 6 r        # Daisy's first skin
+wait 30
+press 7 down     # P7 from Baby Mario to Toad
+wait 30
+press 7 down     # Mario
+wait 30
+press 7 right    # Luigi
+wait 30
+press 7 right    # Peach
+wait 30
+press 7 r        # Peach's skins 1 to 4
+wait 30
+press 7 r
+wait 30
+press 7 r
+wait 30
+press 7 r
+wait 30
+press 8 down     # P8 from Luigi to Birdo
+wait 30
+press 8 down     # Waluigi
+wait 30
+press 8 down     # Rosalina
+wait 30
+press 8 l        # Rosalina's last skin
+wait 300         # every preview reloaded
+press 7 right 600 # P7 holds right for 10 s: a model per move
+wait 60
+press 7 left     # P7 back to Peach (its 4th skin, kept)
+wait 300
+press 1 a        # everyone confirms
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 5 a
+wait 30
+press 6 a
+wait 30
+press 7 a
+wait 30
+press 8 a
+wait 30
+press 1 b        # P1 un-confirms inside the OK animation (the page stays) and confirms again
+wait 30
+press 1 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the transmission page
+wait 240
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 900

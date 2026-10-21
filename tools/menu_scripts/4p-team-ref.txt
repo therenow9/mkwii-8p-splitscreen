@@ -1,0 +1,85 @@
+# The vanilla reference for Team VS (M4 D1, normal build): 4 Players, Team Race, everyone confirms, team select
+# with P3 and P4 pressing toward Blue (each player starts on their last team, so the race lines' "team" is what was
+# picked), the teams page, then kart, transmission and drift, cup and course, and the series as 4p-vs-series-ref
+# runs it. The race lines' "team" and "ext" show whether RR's offline teams keep the picks. GC ports 1-4.
+autodrive
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 right    # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 down     # Team Race
+wait 60
+press 1 a
+wait 360
+press 2 a        # character select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 360
+press 3 right    # team select: P3 and P4 to Blue
+wait 30
+press 4 right
+wait 60
+press 1 a        # everyone confirms
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # the teams page
+wait 360
+press 2 a        # kart select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+mash 1 a 30000   # A once a second for 8 minutes of game time: results, next races, awards, landing

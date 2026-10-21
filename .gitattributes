@@ -1,0 +1,18 @@
+# Line endings are LF in the repository and the working tree. Git for Windows defaults to
+# core.autocrlf=true, and a CRLF round-trip shows up as a whole-file diff.
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.ps1 text eol=lf
+
+# Binary. Never touched, never diffed as text.
+*.png binary
+*.jpg binary
+*.exe binary
+*.dll binary
+*.bin binary
+*.pul binary
+*.szs binary
+*.brctr binary
+*.brlyt binary
+*.brlan binary

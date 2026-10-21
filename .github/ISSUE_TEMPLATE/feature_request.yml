@@ -1,0 +1,32 @@
+name: Feature request
+description: An idea for SplitScreen8.
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What should SplitScreen8 do, and for how many players?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What it would make better, or what you can't do today.
+    validations:
+      required: true
+  - type: dropdown
+    id: build
+    attributes:
+      label: Build
+      options:
+        - Retro Rewind
+        - Mario Kart Wii
+        - Both
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else
+      description: Mockups, screenshots, or how another game does it.

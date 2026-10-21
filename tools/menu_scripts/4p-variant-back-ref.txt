@@ -1,0 +1,102 @@
+# PD66's reference: RR's own 4-player version page, opened, Back, opened again, as 8p-variant-back does at 8.
+# Shots on its step lines.
+autodrive
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 right    # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 a        # character select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 360
+press 2 a        # kart select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+wait 300
+wait 60
+press 1 right    # cup page: eleven cups on from Dreamer's (0x87)
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 left     # off the right arrow onto the cup it shows (GCN Luigi Circuit, Peach Beach, Baby Park, Dry Dry Desert)
+wait 120
+press 1 a
+wait 360         # its course page
+press 1 down     # GCN Peach Beach, row 1
+wait 120
+press 1 a        # the version page
+wait 480
+press 1 b        # back to the course page
+wait 480
+press 1 a        # the version page again
+wait 480
+press 1 a        # the first version (GCN Peach Beach)
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 900

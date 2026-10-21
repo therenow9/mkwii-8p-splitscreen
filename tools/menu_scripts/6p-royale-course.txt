@@ -1,0 +1,128 @@
+# D260 with 6 players and Battle Royale on: 6p-royale's route to the cup page, then 8p-royale-course's cups
+# (archives above 9.0 MiB greyed: the same buttons there) and Wii U Ribbon Road's variant page, then a race.
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+setting SETTING_KOROYALEENABLED KOROYALESETTING_ENABLED
+autodrive
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 180
+press 1 a        # 6 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page for 6
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 240
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 360
+press 1 a        # Dreamer's cup (0x87), where the cup page opens
+wait 360         # its course page: Dreamer (0x21d) greyed in a 5-8 Royale
+press 1 b        # back to the cup page
+wait 240
+press 1 right    # the next cup (0x89)
+wait 120
+press 1 a
+wait 360         # its course page: Promise of Annalise (0x224) and Citro's Wedding Altar (0x227) greyed in a 5-8 Royale
+press 1 b
+wait 240
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 right
+wait 120
+press 1 left     # off the right arrow onto the cup it shows: Wii U Ribbon Road's (0x4c)
+wait 120
+press 1 a
+wait 360         # its course page
+press 1 down     # GBA / Wii U Ribbon Road (0x131), row 1
+wait 120
+press 1 a        # the variant page: the second variant (Wii U Ribbon Road, 11.21 MiB) greyed in a 5-8 Royale
+wait 480
+press 1 a        # the first variant (GBA Ribbon Road), selected
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 900

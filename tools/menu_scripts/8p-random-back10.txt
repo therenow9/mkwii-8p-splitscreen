@@ -1,0 +1,141 @@
+# M4 C4e's stress case: 8p-random-back with ten rolls in a row, each followed by B on the
+# transmission page and the kart page, back to the character page; the race has the tenth roll. Every P5-8 load must find its arena
+# (D118) and every head was built as the page opened (D119); P1-4's skin models are flushed before each roll's loads (D122).
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 1 start    # roll 1
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 2
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 3
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 4
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 5
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 6
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 7
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 8
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 9
+wait 400
+press 1 b        # transmission page: back to the kart page
+wait 240
+press 1 b        # kart page: back to the character page
+wait 360
+press 1 start    # roll 10
+wait 400
+wait 400
+wait 200         # the kart page's roulette confirms everyone (D151), then the transmission page
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 1800

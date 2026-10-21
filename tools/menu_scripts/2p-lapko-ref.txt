@@ -1,0 +1,44 @@
+# RR's LapKO in a 2P VS race (M4 D1's 1-4P reference for the KO gate): LapKO on (a setting line), then a 2P Solo Race to its
+# start; the race's "ss8 context" line should read lapko 1 before and after the gate. GC ports 1-2.
+setting SETTING_KOENABLED KOSETTING_LAPBASED
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 2 a        # character select
+wait 30
+press 1 a
+wait 360
+press 2 a        # kart select
+wait 30
+press 1 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 900

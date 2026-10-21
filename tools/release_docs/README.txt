@@ -1,0 +1,160 @@
+SplitScreen8
+5 to 8 player local splitscreen for Mario Kart Wii
+====================================================
+
+SplitScreen8 lets 5, 6, 7 or 8 people race on one screen, on Retro Rewind and on
+Mario Kart Wii without it. It plays in Dolphin, in WiiCompiled, and on a real Wii.
+
+Two builds come in this zip:
+
+  Retro Rewind     Retro Rewind with SplitScreen8 added. Offline only.
+  Mario Kart Wii   The original game with SplitScreen8 and nothing else,
+                   everything unlocked.
+
+With 1 to 4 players, the Retro Rewind build plays as Retro Rewind does, offline.
+The Mario Kart Wii build plays as the original game, offline, with everything
+unlocked, and with two players allowed to pick the same character.
+
+
+PAL ONLY
+--------
+
+SplitScreen8 works only with the PAL (European) Mario Kart Wii, game ID RMCP01.
+
+The USA (RMCE01), Japanese (RMCJ01) and Korean (RMCK01) versions do not work,
+even though Retro Rewind itself runs on them. SplitScreen8's code is built for the
+PAL game only.
+
+To see your disc image's game ID, look at the ID column in Dolphin's game list, or
+right-click the game and open Properties, then Info.
+
+The setup checks the ID before it does anything else. If it is not RMCP01, the
+setup stops and says so, and nothing is installed or changed.
+
+
+WHAT YOU NEED
+-------------
+
+- Windows.
+- Your own Mario Kart Wii disc image: the PAL (European) version, game ID RMCP01
+  (see PAL ONLY above). No game files come in this zip; the setup makes everything
+  from yours.
+- For the Retro Rewind build: Retro Rewind 6.13.3, its RetroRewind6 folder with the
+  riivolution folder beside it, as Wheel Wizard or Retro Rewind's own download
+  puts them. If you have none, or yours is another version (6.13.4, say), leave
+  "Download Retro Rewind 6.13.3 for me" ticked: the setup downloads it (about 2 GB)
+  into the install folder, and your own Retro Rewind stays as it is.
+- To play in Dolphin: Dolphin.
+- Wheel Wizard is optional. With it, the setup fills in your disc, Retro Rewind and
+  Dolphin by itself; without it, you pick each with Browse.
+- Disk space: the Retro Rewind copy is about 2.2 GB, each WiiCompiled copy about
+  5 GB, and each Wii image 2.5 to 5 GB; downloading Retro Rewind takes about 4 GB
+  more. The setup checks the space before it starts.
+
+Your own Retro Rewind, its saves and online play are never changed. The setup only
+reads them. Each build installs as its own separate copy.
+
+
+INSTALL
+-------
+
+1. Unzip this zip close to the root of a drive, for example C:\SS8.
+   A long folder path makes the setup fail to start.
+
+2. Open the mkwii-8p-splitscreen-<version> folder it makes, then its
+   "MKWii 8P Splitscreen Setup" folder, and run "MKWii 8P Splitscreen Setup.exe".
+
+   If Windows says "Windows protected your PC", click More info, then Run anyway.
+   The setup is not signed, so Windows does not know it yet.
+
+3. The setup's window shows what it found on this PC: your disc, Retro Rewind
+   and Dolphin. Anything missing or wrong is marked with a cross and says why, and
+   a build or a place to play it cannot use is greyed out.
+
+   Tick the builds and where to play: Dolphin, WiiCompiled, or A real Wii
+   (images for USB Loader GX). The folder both copies go in is Documents\MKWii 8 Player
+   unless you pick another. Then click Install.
+
+4. Wait. A WiiCompiled copy takes a few minutes to set up, and a Wii image a few more.
+   If the setup stops, it says why: fix that and click Install again.
+
+You get one folder per build, "Retro Rewind" and "Mario Kart Wii", inside the
+folder you picked.
+
+
+PLAY ON PC
+----------
+
+Open a build's folder and run:
+
+  "Play (Dolphin).cmd"       to play in Dolphin
+  "Play (WiiCompiled).cmd"   to play in WiiCompiled
+
+From the main menu, pick Multiplayer, then 2 to 8 Players.
+
+
+CONTROLLERS IN WIICOMPILED
+--------------------------
+
+Press F10 to open the controller settings. Players 1 to 4 are "GC 1" to "GC 4",
+players 5 to 8 are "Wii 1" to "Wii 4". Assign each controller once with
+"Assign connected controller".
+
+A pad on a Wii slot plays as a Classic Controller, with buttons by position. On a
+GameCube controller, that makes X the A button.
+
+If a GameCube adapter shows nothing, or the game crashes as it starts:
+
+- Look for an environment variable named SDL_JOYSTICK_HIDAPI_GAMECUBE
+  (Settings > System > About > Advanced system settings > Environment Variables).
+  If it is there, delete it and start the game again.
+- With a Mayflash adapter in PC mode, uninstall Mayflash's vibration driver.
+- An adapter in Wii U mode needs the WinUSB driver (Zadig, "WUP-028"), as for
+  Dolphin. Plug it in before starting the game. For rumble, plug in both USB plugs.
+
+If a controller stops working after you replug it, plug your controllers in in the
+same order each time, or assign the empty slot again in F10.
+
+Close every other copy of the game before you start one: two copies fight over the
+controllers.
+
+
+PLAY ON A WII
+-------------
+
+This needs a Wii with USB Loader GX and a USB drive. Tick "A real Wii" when you
+install (see INSTALL).
+
+1. Copy the folders inside each build's Wii\wbfs\ folder into the wbfs folder on
+   your USB Loader GX drive.
+2. Start USB Loader GX from its channel on the Wii Menu, not from the Homebrew
+   Channel, which leaves the game too little memory.
+3. In USB Loader GX, set each game's Aspect Ratio to Force 16:9, and put your TV
+   on its Full, Wide or Stretch mode. At 4:3 the 8 player pages are too crowded.
+
+Each image has its own save, apart from your own Retro Rewind's.
+
+On a Wii, connect up to 4 GameCube controllers and 4 Wii Remotes. Any player, 1 to 8,
+can use either kind.
+
+
+GOOD TO KNOW
+------------
+
+- Each copy is a snapshot of your Retro Rewind. When Retro Rewind updates, wait for
+  a new SplitScreen8 release; the setup refuses a Retro Rewind it was not built for.
+- The Retro Rewind build is offline only. Play online from your own Retro Rewind.
+- In the Retro Rewind build with 5 to 8 players, Mystic Tangle is left out, and
+  Battle Royale leaves out the biggest tracks. They show greyed out.
+- On a window wider than 16:9, a splitscreen race fills the whole window. If you
+  move or resize the window during a race, the HUDs and the lines between the
+  screens stay where they were until the next race. Size the window before a
+  race starts.
+
+
+LICENCE AND SOURCE
+------------------
+
+SplitScreen8 is free software under the GNU General Public License, version 3.
+LICENSES\ holds the licence of every part shipped in this zip. SOURCE.txt lists
+where the source of each part is, at the exact version built.

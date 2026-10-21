@@ -1,0 +1,101 @@
+# Phase B's 5-player lane, with a leave: 5 Players, P2-4 join on GC ports 2-4 and P5 on Wii channel
+# 1's Classic (port 5); P3, then P5, leave with B and join again; Change on the OK/Change page resets
+# every pad, as vanilla's does, and P1-5 join again; P1 presses OK, VS, the 8-player select pages, every player
+# confirming, then a race with 5 locals (6 screens). Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 180
+press 1 a        # 5 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 180
+press 3 b        # P3 leaves; the page asks for Player 3 again
+wait 180
+press 3 a        # P3 joins again
+wait 180
+press 5 b        # P5 leaves through its own holder (holder 4); the page asks for Player 5 again
+wait 180
+press 5 a        # P5 joins again; ConfirmPads opens (D66), OK selected
+wait 180
+press 1 down     # Change
+wait 60
+press 1 a        # Change: every pad resets and the join page asks for Player 1 again
+wait 240
+press 1 a        # P1-5 join again
+wait 120
+press 2 a
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 240
+press 1 a        # ConfirmPads opens once all are in (D66): OK, selected first
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 5 locals
+wait 900

@@ -1,0 +1,85 @@
+# The vanilla reference for re-entering N Players (normal build): 4 Players, P2-4 join on GC ports 2-4, a Solo Race,
+# P1 quits it from the pause menu (main menu, section 0x41), then 4 Players again: the pads page as it opens, P1-4
+# still registered (the last step's shot). Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 180
+press 1 a        # 4 Players
+wait 360
+press 2 a  # join page
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+wait 120
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+wait 60
+press 1 a        # Solo Race
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 300
+wait 60
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 1500
+press 1 start    # the race's pause menu
+wait 60
+press 1 down
+wait 60
+press 1 down     # Quit
+wait 60
+press 1 a
+wait 60
+press 1 up       # "Are you sure?" starts on No
+wait 60
+press 1 a
+wait 900
+press 1 a        # main menu, back on 4 Players
+wait 960

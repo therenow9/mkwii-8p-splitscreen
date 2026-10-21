@@ -1,0 +1,60 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu): the game's own Random course rule in 2P, the reference for
+# v-8p-vs-random: VS, the Rules page's Course on Random, Solo Race, the game's 2P pages on their defaults, then
+# whatever the game shows after the drift page, OK, a race. GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in 4 of 4 runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 180
+press 1 a        # 2 Players
+wait 600         # an A in the registration page's fade-in is lost
+press 2 a        # controller registration: P2
+wait 240
+press 1 a        # OK
+wait 400
+press 1 a        # VS
+wait 400
+press 1 up       # Solo Race -> the Rules button (top right)
+wait 60
+press 1 a        # Rules: the cursor on Class
+wait 600
+press 1 down     # CPU
+wait 60
+press 1 down     # Vehicles
+wait 60
+press 1 down     # Course
+wait 60
+press 1 right    # the cursor onto Random
+wait 60
+press 1 a        # Random (Right moves the cursor; A picks the value)
+wait 60
+press 1 down     # Items
+wait 60
+press 1 down     # Races
+wait 60
+press 1 down     # OK
+wait 60
+press 1 a        # OK: the license keeps Random (lane.py puts the save back)
+wait 480
+press 1 down     # the Rules button -> the first mode button
+wait 60
+press 1 a        # Solo Race
+wait 400
+press 1 a        # character select
+wait 30
+press 2 a
+wait 400
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 400
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 600
+press 1 a        # Start?: OK, if the game asks
+wait 1800

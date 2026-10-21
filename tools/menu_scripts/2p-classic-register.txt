@@ -1,0 +1,25 @@
+# The Wii-channel lane: P2 registers and picks a driver on Wii channel 1's Classic Controller (port 5).
+# Launch with install_8p.py dolphin --unattended --wiimotes. Frames are 1/60 s from boot.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 5 a        # controller registration: P2 on the Classic Controller
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 1 a        # character select: P1 confirms Mario
+wait 120
+press 5 right    # P2's cursor moves right
+wait 60
+press 5 a        # P2 confirms
+wait 300

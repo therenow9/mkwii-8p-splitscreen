@@ -1,0 +1,2036 @@
+# PD59: 5-player character page spam (seeded random): every player cycles skins (R/L), steps the D-pad, confirms
+# and takes it back in short bursts; whenever all confirm the page leaves and P1's B on the kart page brings
+# everyone back. Then everyone confirms and the game races.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right        # main menu: 2 Players
+wait 60
+press 1 right        # main menu: 3 Players
+wait 60
+press 1 right        # main menu: 4 Players
+wait 60
+press 1 right        # main menu: 5 Players
+wait 60
+wait 120
+press 1 a        # 5 Players
+wait 360
+press 2 a        # join P2
+wait 120
+press 3 a        # join P3
+wait 120
+press 4 a        # join P4
+wait 120
+press 5 a        # join P5
+wait 120
+wait 120
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page
+wait 300
+press 3 r 3
+wait 5
+press 2 a 3
+wait 6
+press 2 r 3
+wait 11
+wait 3
+press 4 r 3
+wait 12
+wait 5
+wait 7
+press 4 a 3
+wait 5
+press 3 l 3
+wait 6
+press 4 b 3
+wait 11
+wait 8
+press 4 a 3
+wait 4
+press 3 a 3
+wait 7
+wait 5
+wait 10
+press 5 r 3
+wait 6
+wait 7
+wait 12
+press 3 l 3
+wait 5
+press 5 right 3
+wait 12
+press 2 b 3
+wait 8
+press 2 r 3
+wait 10
+press 4 r 3
+wait 9
+press 1 r 3
+wait 10
+wait 5
+wait 7
+press 3 r 3
+wait 8
+press 5 a 3
+wait 5
+press 5 r 3
+wait 10
+wait 3
+wait 3
+wait 12
+press 3 r 3
+wait 6
+press 2 a 3
+wait 11
+wait 5
+press 1 left 3
+wait 10
+wait 11
+press 1 r 3
+wait 7
+press 1 l 3
+wait 7
+wait 4
+wait 3
+press 1 r 3
+wait 5
+wait 11
+press 5 b 3
+wait 6
+press 2 r 3
+wait 3
+wait 5
+press 2 r 3
+wait 6
+wait 6
+wait 12
+wait 8
+press 4 r 3
+wait 9
+press 4 r 3
+wait 3
+wait 7
+wait 11
+press 4 l 3
+wait 7
+press 5 right 3
+wait 5
+press 1 r 3
+wait 5
+press 2 r 3
+wait 12
+press 4 r 3
+wait 8
+press 2 r 3
+wait 10
+wait 12
+press 4 r 3
+wait 11
+press 3 r 3
+wait 3
+press 3 r 3
+wait 11
+press 2 b 3
+wait 6
+press 2 r 3
+wait 8
+press 1 l 3
+wait 6
+press 1 a 3
+wait 6
+press 5 a 3
+wait 10
+press 2 left 3
+wait 11
+press 1 r 3
+wait 5
+wait 8
+press 5 l 3
+wait 5
+press 5 r 3
+wait 4
+press 3 r 3
+wait 3
+press 2 a 3
+wait 4
+wait 260
+press 1 b        # kart page: back to the character page (trip 1)
+wait 200
+press 5 a 3
+wait 4
+press 3 a 3
+wait 9
+press 2 a 3
+wait 7
+press 1 r 3
+wait 7
+wait 10
+press 4 r 3
+wait 5
+press 4 r 3
+wait 11
+press 1 up 3
+wait 8
+press 2 b 3
+wait 6
+press 3 l 3
+wait 10
+press 4 r 3
+wait 10
+press 5 b 3
+wait 11
+press 4 r 3
+wait 9
+wait 3
+wait 10
+press 5 r 3
+wait 4
+press 1 up 3
+wait 4
+press 4 left 3
+wait 6
+press 4 r 3
+wait 11
+press 1 a 3
+wait 5
+press 3 b 3
+wait 5
+wait 9
+press 3 r 3
+wait 3
+press 5 r 3
+wait 8
+press 5 down 3
+wait 8
+press 2 down 3
+wait 6
+press 5 a 3
+wait 4
+wait 10
+wait 8
+press 2 a 3
+wait 12
+press 1 r 3
+wait 5
+wait 12
+press 1 r 3
+wait 5
+wait 3
+wait 9
+wait 10
+wait 4
+press 4 up 3
+wait 8
+press 4 a 3
+wait 6
+press 3 l 3
+wait 4
+press 4 b 3
+wait 7
+press 1 b 3
+wait 10
+press 4 l 3
+wait 12
+press 1 r 3
+wait 6
+press 1 r 3
+wait 8
+wait 11
+wait 11
+press 3 r 3
+wait 4
+press 1 a 3
+wait 4
+press 5 l 3
+wait 6
+press 3 r 3
+wait 3
+wait 3
+press 1 r 3
+wait 12
+wait 9
+wait 11
+press 2 r 3
+wait 8
+press 5 r 3
+wait 11
+press 2 r 3
+wait 9
+press 3 right 3
+wait 7
+press 3 a 3
+wait 11
+wait 7
+press 2 r 3
+wait 4
+press 2 r 3
+wait 4
+press 3 r 3
+wait 6
+press 5 r 3
+wait 4
+press 4 left 3
+wait 3
+wait 5
+press 4 r 3
+wait 8
+press 3 r 3
+wait 10
+wait 7
+press 4 r 3
+wait 5
+wait 5
+press 2 l 3
+wait 9
+press 4 r 3
+wait 8
+wait 6
+press 1 r 3
+wait 5
+press 5 r 3
+wait 9
+wait 12
+press 4 a 3
+wait 10
+wait 260
+press 1 b        # kart page: back to the character page (trip 2)
+wait 200
+press 4 right 3
+wait 12
+press 4 a 3
+wait 9
+press 4 l 3
+wait 9
+press 4 r 3
+wait 11
+press 2 l 3
+wait 12
+press 5 r 3
+wait 10
+press 4 r 3
+wait 11
+wait 11
+press 1 right 3
+wait 3
+wait 3
+press 4 r 3
+wait 9
+press 1 a 3
+wait 6
+press 4 l 3
+wait 12
+press 2 right 3
+wait 9
+press 5 l 3
+wait 9
+press 4 r 3
+wait 6
+wait 6
+press 1 r 3
+wait 3
+wait 12
+press 4 l 3
+wait 11
+wait 10
+wait 10
+press 5 a 3
+wait 4
+wait 11
+press 1 r 3
+wait 10
+press 2 r 3
+wait 4
+wait 11
+press 2 left 3
+wait 9
+press 1 r 3
+wait 10
+press 5 b 3
+wait 5
+press 2 a 3
+wait 3
+wait 7
+wait 6
+press 4 r 3
+wait 6
+wait 4
+wait 4
+wait 5
+wait 3
+press 1 l 3
+wait 6
+wait 8
+wait 12
+press 2 b 3
+wait 6
+press 5 left 3
+wait 11
+wait 5
+wait 6
+press 3 r 3
+wait 3
+wait 10
+press 2 a 3
+wait 5
+press 3 r 3
+wait 10
+wait 12
+wait 12
+wait 12
+wait 6
+press 4 r 3
+wait 9
+press 3 r 3
+wait 3
+press 3 left 3
+wait 4
+press 1 b 3
+wait 4
+press 5 a 3
+wait 5
+wait 12
+wait 3
+wait 3
+press 5 l 3
+wait 8
+wait 9
+press 1 up 3
+wait 5
+press 1 left 3
+wait 9
+press 5 r 3
+wait 10
+press 3 a 3
+wait 9
+wait 4
+wait 7
+press 1 r 3
+wait 10
+wait 3
+wait 10
+press 5 r 3
+wait 4
+wait 8
+press 1 r 3
+wait 10
+press 1 a 3
+wait 11
+wait 260
+press 1 b        # kart page: back to the character page (trip 3)
+wait 200
+press 3 r 3
+wait 7
+press 4 r 3
+wait 9
+press 2 a 3
+wait 9
+press 1 l 3
+wait 5
+press 3 a 3
+wait 9
+press 2 r 3
+wait 11
+press 4 r 3
+wait 4
+press 3 b 3
+wait 3
+press 2 r 3
+wait 8
+wait 11
+press 3 r 3
+wait 6
+wait 4
+press 5 a 3
+wait 6
+press 2 r 3
+wait 9
+press 4 a 3
+wait 8
+press 5 r 3
+wait 9
+press 3 a 3
+wait 9
+press 1 right 3
+wait 4
+press 1 r 3
+wait 8
+press 2 r 3
+wait 4
+press 3 l 3
+wait 6
+wait 4
+press 1 a 3
+wait 9
+wait 260
+press 1 b        # kart page: back to the character page (trip 4)
+wait 200
+press 4 a 3
+wait 9
+press 4 r 3
+wait 12
+wait 7
+press 3 a 3
+wait 9
+wait 11
+wait 4
+wait 12
+press 1 a 3
+wait 8
+wait 9
+press 5 l 3
+wait 5
+wait 9
+press 5 r 3
+wait 6
+wait 9
+wait 11
+press 2 l 3
+wait 4
+wait 10
+press 1 l 3
+wait 6
+wait 7
+press 2 l 3
+wait 7
+press 3 b 3
+wait 7
+press 2 r 3
+wait 4
+wait 7
+wait 8
+wait 5
+press 5 l 3
+wait 9
+wait 4
+press 1 b 3
+wait 5
+press 2 a 3
+wait 3
+press 1 r 3
+wait 6
+press 2 b 3
+wait 10
+wait 8
+press 1 down 3
+wait 11
+press 1 r 3
+wait 12
+wait 3
+press 4 b 3
+wait 4
+press 5 r 3
+wait 6
+press 1 left 3
+wait 10
+wait 10
+press 2 l 3
+wait 6
+press 5 r 3
+wait 10
+wait 8
+press 3 l 3
+wait 8
+press 5 r 3
+wait 10
+wait 11
+press 3 l 3
+wait 12
+press 2 l 3
+wait 3
+press 4 l 3
+wait 12
+press 1 a 3
+wait 8
+wait 7
+wait 4
+press 5 r 3
+wait 6
+press 2 r 3
+wait 10
+press 1 r 3
+wait 10
+press 2 r 3
+wait 4
+wait 11
+press 2 r 3
+wait 7
+wait 12
+wait 10
+press 1 r 3
+wait 6
+press 1 b 3
+wait 10
+press 3 a 3
+wait 10
+press 5 r 3
+wait 5
+press 1 r 3
+wait 8
+press 5 left 3
+wait 7
+press 2 r 3
+wait 12
+press 4 l 3
+wait 6
+wait 8
+press 3 r 3
+wait 5
+press 1 r 3
+wait 11
+wait 12
+wait 10
+press 3 r 3
+wait 3
+press 5 a 3
+wait 4
+press 3 b 3
+wait 4
+press 4 a 3
+wait 12
+press 3 r 3
+wait 12
+press 1 a 3
+wait 5
+wait 7
+press 2 r 3
+wait 7
+press 3 l 3
+wait 11
+press 4 r 3
+wait 4
+press 2 a 3
+wait 6
+press 5 b 3
+wait 5
+press 5 r 3
+wait 8
+press 2 b 3
+wait 8
+wait 12
+press 5 up 3
+wait 11
+press 5 l 3
+wait 6
+wait 9
+press 5 r 3
+wait 5
+press 3 left 3
+wait 3
+press 5 l 3
+wait 6
+wait 4
+press 1 r 3
+wait 10
+press 2 a 3
+wait 9
+wait 7
+wait 11
+press 5 a 3
+wait 3
+press 1 l 3
+wait 10
+wait 7
+press 5 r 3
+wait 10
+wait 7
+press 5 r 3
+wait 8
+press 3 a 3
+wait 10
+wait 260
+press 1 b        # kart page: back to the character page (trip 5)
+wait 200
+press 2 r 3
+wait 5
+wait 6
+press 3 a 3
+wait 8
+press 4 r 3
+wait 11
+wait 3
+press 4 l 3
+wait 8
+press 4 down 3
+wait 3
+wait 4
+press 5 down 3
+wait 4
+wait 4
+press 4 r 3
+wait 9
+press 5 r 3
+wait 3
+wait 8
+press 4 a 3
+wait 3
+press 5 r 3
+wait 8
+press 1 a 3
+wait 7
+press 2 down 3
+wait 6
+press 2 r 3
+wait 12
+press 2 r 3
+wait 12
+press 5 right 3
+wait 8
+wait 4
+press 3 r 3
+wait 3
+wait 6
+wait 4
+press 3 b 3
+wait 3
+press 5 a 3
+wait 11
+press 1 r 3
+wait 4
+press 2 r 3
+wait 10
+press 2 l 3
+wait 4
+wait 9
+wait 6
+press 5 l 3
+wait 5
+press 5 r 3
+wait 8
+press 2 left 3
+wait 12
+press 1 r 3
+wait 10
+wait 4
+press 3 r 3
+wait 10
+press 4 b 3
+wait 5
+press 3 a 3
+wait 11
+press 2 a 3
+wait 8
+press 5 b 3
+wait 10
+press 1 b 3
+wait 4
+wait 10
+press 5 left 3
+wait 6
+press 3 r 3
+wait 10
+press 4 a 3
+wait 6
+wait 3
+wait 8
+wait 12
+press 2 b 3
+wait 3
+wait 6
+press 2 a 3
+wait 11
+press 1 r 3
+wait 12
+press 5 a 3
+wait 4
+wait 7
+press 5 b 3
+wait 5
+press 4 l 3
+wait 9
+press 3 b 3
+wait 5
+press 1 l 3
+wait 7
+press 1 r 3
+wait 10
+press 5 down 3
+wait 6
+press 5 r 3
+wait 5
+press 3 r 3
+wait 5
+press 1 down 3
+wait 8
+press 4 r 3
+wait 11
+press 2 r 3
+wait 11
+press 2 r 3
+wait 6
+press 2 l 3
+wait 8
+press 4 b 3
+wait 10
+press 5 a 3
+wait 11
+wait 11
+press 2 r 3
+wait 7
+press 3 left 3
+wait 4
+wait 12
+press 3 r 3
+wait 7
+press 3 a 3
+wait 10
+press 5 l 3
+wait 3
+wait 8
+press 1 up 3
+wait 9
+press 2 r 3
+wait 8
+press 4 r 3
+wait 11
+press 4 a 3
+wait 4
+press 4 r 3
+wait 12
+wait 10
+press 2 b 3
+wait 3
+wait 3
+press 2 up 3
+wait 5
+press 2 r 3
+wait 4
+press 1 r 3
+wait 9
+wait 8
+press 3 l 3
+wait 3
+press 2 l 3
+wait 12
+press 2 a 3
+wait 9
+press 3 b 3
+wait 4
+press 2 r 3
+wait 10
+wait 11
+press 5 r 3
+wait 6
+press 4 l 3
+wait 4
+press 1 a 3
+wait 7
+press 1 r 3
+wait 12
+press 5 r 3
+wait 6
+press 5 r 3
+wait 12
+wait 11
+press 2 b 3
+wait 9
+press 4 l 3
+wait 10
+wait 10
+wait 12
+press 1 r 3
+wait 3
+wait 12
+press 4 b 3
+wait 3
+press 3 l 3
+wait 12
+press 1 b 3
+wait 7
+press 4 l 3
+wait 11
+press 4 l 3
+wait 12
+press 3 up 3
+wait 6
+press 5 l 3
+wait 8
+press 5 r 3
+wait 9
+press 1 right 3
+wait 6
+wait 10
+press 1 up 3
+wait 8
+wait 5
+wait 6
+press 3 a 3
+wait 12
+press 4 left 3
+wait 9
+press 2 r 3
+wait 10
+wait 10
+press 3 b 3
+wait 4
+press 3 r 3
+wait 9
+wait 6
+press 4 up 3
+wait 10
+press 5 r 3
+wait 6
+press 5 r 3
+wait 7
+wait 5
+press 5 r 3
+wait 8
+press 3 a 3
+wait 4
+wait 9
+press 4 a 3
+wait 6
+wait 4
+wait 4
+wait 11
+press 2 r 3
+wait 8
+wait 10
+press 5 r 3
+wait 5
+press 4 r 3
+wait 12
+wait 12
+press 5 r 3
+wait 6
+press 3 l 3
+wait 3
+press 5 l 3
+wait 8
+press 3 r 3
+wait 9
+press 4 r 3
+wait 8
+press 1 right 3
+wait 10
+press 3 l 3
+wait 5
+press 2 r 3
+wait 7
+wait 6
+press 1 r 3
+wait 11
+wait 8
+wait 11
+press 2 left 3
+wait 7
+press 1 r 3
+wait 5
+press 1 r 3
+wait 11
+wait 9
+press 3 r 3
+wait 10
+press 3 r 3
+wait 9
+wait 12
+press 3 b 3
+wait 9
+press 2 r 3
+wait 11
+press 3 up 3
+wait 7
+wait 9
+press 1 r 3
+wait 3
+wait 5
+press 1 a 3
+wait 3
+press 3 r 3
+wait 9
+wait 10
+press 5 r 3
+wait 3
+press 1 b 3
+wait 12
+press 1 r 3
+wait 9
+press 4 b 3
+wait 4
+press 5 r 3
+wait 5
+press 1 r 3
+wait 5
+press 3 r 3
+wait 11
+press 3 l 3
+wait 9
+press 4 r 3
+wait 10
+press 5 r 3
+wait 9
+press 2 left 3
+wait 8
+wait 11
+press 3 r 3
+wait 11
+press 5 r 3
+wait 6
+wait 7
+press 3 r 3
+wait 9
+wait 6
+press 4 down 3
+wait 4
+press 3 down 3
+wait 9
+press 2 down 3
+wait 6
+press 1 r 3
+wait 10
+press 2 r 3
+wait 6
+press 4 a 3
+wait 4
+press 5 r 3
+wait 6
+wait 11
+wait 3
+press 2 up 3
+wait 4
+press 3 a 3
+wait 9
+press 2 up 3
+wait 5
+wait 7
+press 1 l 3
+wait 8
+press 4 b 3
+wait 3
+press 4 up 3
+wait 4
+press 3 b 3
+wait 4
+press 5 r 3
+wait 3
+press 2 a 3
+wait 6
+press 1 a 3
+wait 6
+press 2 r 3
+wait 6
+press 2 b 3
+wait 5
+press 4 r 3
+wait 11
+press 4 up 3
+wait 11
+press 2 r 3
+wait 10
+press 2 r 3
+wait 8
+press 4 r 3
+wait 11
+press 4 left 3
+wait 6
+press 1 r 3
+wait 8
+wait 4
+press 1 r 3
+wait 4
+press 4 up 3
+wait 4
+press 2 r 3
+wait 12
+press 2 l 3
+wait 5
+wait 4
+press 3 r 3
+wait 3
+press 2 a 3
+wait 4
+wait 6
+press 4 up 3
+wait 8
+wait 10
+press 4 l 3
+wait 8
+wait 5
+wait 12
+press 5 l 3
+wait 8
+wait 6
+press 4 r 3
+wait 12
+press 4 left 3
+wait 8
+press 4 l 3
+wait 4
+press 5 r 3
+wait 11
+wait 8
+press 5 r 3
+wait 7
+wait 11
+press 5 b 3
+wait 11
+wait 9
+press 2 b 3
+wait 4
+press 3 a 3
+wait 5
+wait 5
+press 4 a 3
+wait 3
+press 2 a 3
+wait 3
+wait 9
+press 1 l 3
+wait 7
+wait 5
+press 4 r 3
+wait 4
+wait 4
+press 3 l 3
+wait 8
+press 2 l 3
+wait 12
+press 3 b 3
+wait 5
+wait 4
+wait 12
+press 3 r 3
+wait 7
+wait 10
+press 5 r 3
+wait 11
+wait 7
+press 5 r 3
+wait 6
+press 2 r 3
+wait 11
+press 1 b 3
+wait 12
+press 5 left 3
+wait 8
+wait 9
+press 5 r 3
+wait 12
+press 5 down 3
+wait 10
+wait 11
+press 5 down 3
+wait 11
+press 1 r 3
+wait 10
+press 5 r 3
+wait 5
+press 5 a 3
+wait 10
+wait 5
+press 3 r 3
+wait 11
+press 1 r 3
+wait 4
+wait 9
+press 4 r 3
+wait 5
+wait 11
+press 2 l 3
+wait 9
+wait 8
+wait 10
+press 2 r 3
+wait 3
+press 5 r 3
+wait 10
+press 5 l 3
+wait 3
+press 1 down 3
+wait 10
+press 3 r 3
+wait 10
+press 4 r 3
+wait 11
+wait 9
+wait 7
+press 3 r 3
+wait 11
+press 1 l 3
+wait 12
+press 4 r 3
+wait 7
+press 3 r 3
+wait 3
+press 2 b 3
+wait 7
+press 1 r 3
+wait 8
+press 4 r 3
+wait 10
+press 1 l 3
+wait 6
+wait 4
+wait 11
+press 4 b 3
+wait 3
+wait 12
+press 1 r 3
+wait 4
+press 2 right 3
+wait 12
+press 4 up 3
+wait 8
+press 5 l 3
+wait 12
+press 1 up 3
+wait 6
+press 1 a 3
+wait 5
+press 2 r 3
+wait 7
+press 3 r 3
+wait 9
+press 5 r 3
+wait 6
+wait 10
+wait 6
+wait 3
+press 1 r 3
+wait 8
+press 4 right 3
+wait 10
+press 1 b 3
+wait 10
+wait 6
+press 2 r 3
+wait 4
+press 5 r 3
+wait 7
+press 4 a 3
+wait 10
+press 2 r 3
+wait 9
+press 3 a 3
+wait 8
+wait 6
+press 3 r 3
+wait 10
+wait 3
+press 2 r 3
+wait 12
+press 1 l 3
+wait 9
+wait 5
+press 3 l 3
+wait 12
+press 1 up 3
+wait 11
+press 1 left 3
+wait 11
+press 1 down 3
+wait 9
+press 2 r 3
+wait 7
+wait 10
+press 5 r 3
+wait 6
+wait 6
+press 5 r 3
+wait 4
+press 1 down 3
+wait 3
+press 4 r 3
+wait 5
+wait 7
+press 4 r 3
+wait 3
+press 5 r 3
+wait 10
+wait 3
+press 5 l 3
+wait 12
+wait 9
+press 4 r 3
+wait 8
+press 4 r 3
+wait 11
+press 4 b 3
+wait 12
+press 3 b 3
+wait 11
+press 1 r 3
+wait 8
+press 4 left 3
+wait 7
+press 3 a 3
+wait 9
+press 2 a 3
+wait 3
+press 5 l 3
+wait 8
+press 1 l 3
+wait 6
+wait 10
+press 1 a 3
+wait 7
+wait 11
+press 2 l 3
+wait 4
+wait 7
+press 5 b 3
+wait 9
+press 4 a 3
+wait 3
+press 1 r 3
+wait 10
+wait 8
+wait 3
+press 1 r 3
+wait 12
+press 1 r 3
+wait 4
+press 4 b 3
+wait 6
+wait 12
+press 2 l 3
+wait 10
+press 4 r 3
+wait 4
+press 4 left 3
+wait 9
+press 1 r 3
+wait 11
+press 3 r 3
+wait 5
+press 4 r 3
+wait 11
+press 1 r 3
+wait 4
+wait 5
+press 5 r 3
+wait 5
+press 5 r 3
+wait 7
+press 2 r 3
+wait 6
+press 5 a 3
+wait 4
+press 5 r 3
+wait 10
+press 2 r 3
+wait 3
+press 2 r 3
+wait 12
+press 3 r 3
+wait 5
+press 4 up 3
+wait 7
+press 2 r 3
+wait 7
+wait 3
+press 1 r 3
+wait 8
+wait 4
+press 4 r 3
+wait 4
+press 1 r 3
+wait 9
+wait 12
+wait 9
+press 1 b 3
+wait 5
+press 1 r 3
+wait 7
+wait 9
+press 3 r 3
+wait 4
+press 1 r 3
+wait 6
+press 3 b 3
+wait 10
+press 4 left 3
+wait 7
+press 1 up 3
+wait 12
+press 5 r 3
+wait 6
+press 1 r 3
+wait 9
+press 3 a 3
+wait 12
+press 2 r 3
+wait 3
+press 3 r 3
+wait 5
+press 4 l 3
+wait 9
+wait 4
+press 4 r 3
+wait 6
+press 5 r 3
+wait 8
+wait 5
+press 2 l 3
+wait 10
+wait 3
+press 1 down 3
+wait 10
+wait 10
+wait 3
+press 1 down 3
+wait 12
+wait 7
+wait 10
+wait 3
+wait 9
+press 2 b 3
+wait 10
+press 4 up 3
+wait 8
+wait 12
+press 2 r 3
+wait 11
+press 4 r 3
+wait 9
+press 5 r 3
+wait 4
+press 2 r 3
+wait 8
+press 2 up 3
+wait 10
+wait 11
+press 1 up 3
+wait 4
+press 4 r 3
+wait 10
+press 4 r 3
+wait 7
+press 1 a 3
+wait 8
+press 4 r 3
+wait 11
+wait 6
+wait 5
+press 5 b 3
+wait 12
+wait 7
+press 4 r 3
+wait 7
+press 2 a 3
+wait 5
+press 4 a 3
+wait 7
+wait 4
+wait 5
+wait 10
+wait 5
+press 2 r 3
+wait 6
+press 3 b 3
+wait 7
+press 2 r 3
+wait 7
+press 3 r 3
+wait 11
+wait 8
+press 4 b 3
+wait 12
+press 2 l 3
+wait 4
+wait 7
+press 4 r 3
+wait 5
+press 3 r 3
+wait 4
+press 5 r 3
+wait 12
+press 5 up 3
+wait 10
+wait 4
+press 4 r 3
+wait 12
+press 2 l 3
+wait 12
+press 3 a 3
+wait 11
+press 4 a 3
+wait 12
+wait 4
+press 4 l 3
+wait 11
+press 5 r 3
+wait 5
+press 4 b 3
+wait 11
+press 2 b 3
+wait 3
+press 5 a 3
+wait 4
+wait 3
+press 1 l 3
+wait 7
+wait 6
+press 3 b 3
+wait 5
+wait 11
+press 3 r 3
+wait 12
+press 3 r 3
+wait 3
+press 5 b 3
+wait 4
+press 5 r 3
+wait 6
+press 3 down 3
+wait 4
+wait 3
+press 5 r 3
+wait 9
+press 4 a 3
+wait 8
+press 5 r 3
+wait 6
+press 4 b 3
+wait 4
+press 3 right 3
+wait 4
+wait 9
+press 4 r 3
+wait 9
+press 1 r 3
+wait 8
+press 4 r 3
+wait 3
+press 4 right 3
+wait 7
+press 3 r 3
+wait 10
+press 2 l 3
+wait 4
+press 4 r 3
+wait 12
+wait 9
+wait 6
+wait 11
+press 2 r 3
+wait 4
+press 1 l 3
+wait 11
+press 4 left 3
+wait 10
+wait 7
+wait 3
+press 3 a 3
+wait 9
+press 2 r 3
+wait 11
+wait 8
+press 2 right 3
+wait 11
+press 5 r 3
+wait 3
+press 3 l 3
+wait 5
+press 2 a 3
+wait 10
+wait 9
+wait 12
+press 2 r 3
+wait 10
+press 4 a 3
+wait 7
+press 1 l 3
+wait 8
+press 2 r 3
+wait 9
+press 5 left 3
+wait 7
+wait 12
+wait 11
+wait 8
+press 4 b 3
+wait 5
+wait 12
+wait 3
+press 1 l 3
+wait 10
+wait 12
+press 2 r 3
+wait 9
+press 3 b 3
+wait 12
+press 1 l 3
+wait 5
+wait 9
+wait 12
+press 1 r 3
+wait 3
+press 1 b 3
+wait 9
+press 5 a 3
+wait 3
+press 1 right 3
+wait 10
+press 4 a 3
+wait 9
+press 5 r 3
+wait 3
+press 2 r 3
+wait 10
+press 2 l 3
+wait 10
+press 3 a 3
+wait 9
+press 1 down 3
+wait 6
+press 5 r 3
+wait 10
+wait 9
+press 2 l 3
+wait 10
+press 1 a 3
+wait 3
+wait 260
+press 1 b        # kart page: back to the character page (trip 6)
+wait 200
+press 1 l 3
+wait 4
+press 3 a 3
+wait 7
+press 1 r 3
+wait 5
+press 4 left 3
+wait 3
+press 4 up 3
+wait 12
+press 3 r 3
+wait 5
+wait 10
+press 5 r 3
+wait 12
+press 4 down 3
+wait 11
+press 1 a 3
+wait 8
+wait 8
+press 1 b 3
+wait 5
+wait 8
+press 1 a 3
+wait 8
+press 3 r 3
+wait 7
+press 5 r 3
+wait 11
+press 1 r 3
+wait 3
+press 3 b 3
+wait 10
+wait 3
+press 4 l 3
+wait 6
+press 4 r 3
+wait 11
+press 2 r 3
+wait 5
+press 2 right 3
+wait 9
+press 1 r 3
+wait 9
+wait 5
+press 4 a 3
+wait 5
+press 3 l 3
+wait 12
+wait 11
+wait 5
+wait 6
+press 3 a 3
+wait 3
+press 2 r 3
+wait 11
+press 5 r 3
+wait 6
+wait 9
+press 5 r 3
+wait 8
+wait 8
+press 5 r 3
+wait 9
+press 5 a 3
+wait 10
+press 1 r 3
+wait 10
+press 2 l 3
+wait 7
+press 2 r 3
+wait 6
+press 2 right 3
+wait 8
+wait 3
+press 2 l 3
+wait 11
+wait 5
+press 3 b 3
+wait 9
+press 3 r 3
+wait 12
+wait 10
+press 4 l 3
+wait 3
+press 3 r 3
+wait 10
+press 2 a 3
+wait 8
+press 5 r 3
+wait 3
+press 4 r 3
+wait 6
+wait 3
+wait 10
+press 4 r 3
+wait 10
+wait 7
+wait 6
+press 1 b 3
+wait 5
+press 2 r 3
+wait 5
+press 3 r 3
+wait 3
+wait 6
+wait 11
+press 4 r 3
+wait 9
+wait 7
+press 5 r 3
+wait 3
+wait 11
+press 5 r 3
+wait 7
+press 5 r 3
+wait 4
+press 3 a 3
+wait 8
+press 5 l 3
+wait 11
+wait 4
+press 3 b 3
+wait 6
+press 2 b 3
+wait 9
+press 1 a 3
+wait 12
+press 3 r 3
+wait 8
+press 2 r 3
+wait 7
+wait 8
+press 3 r 3
+wait 10
+press 3 right 3
+wait 4
+press 2 r 3
+wait 7
+wait 12
+wait 11
+press 5 r 3
+wait 5
+press 2 left 3
+wait 5
+press 2 l 3
+wait 10
+press 1 r 3
+wait 4
+press 5 b 3
+wait 5
+press 3 a 3
+wait 9
+press 4 l 3
+wait 8
+wait 6
+press 1 r 3
+wait 5
+press 1 r 3
+wait 3
+press 5 left 3
+wait 11
+wait 10
+wait 5
+press 2 r 3
+wait 12
+press 1 b 3
+wait 3
+press 1 r 3
+wait 5
+press 3 b 3
+wait 7
+press 3 a 3
+wait 12
+wait 8
+press 1 a 3
+wait 12
+press 2 r 3
+wait 10
+wait 5
+wait 3
+press 1 r 3
+wait 5
+press 5 l 3
+wait 12
+press 5 down 3
+wait 3
+press 5 a 3
+wait 3
+wait 10
+wait 11
+wait 8
+press 2 r 3
+wait 3
+wait 6
+wait 6
+press 5 b 3
+wait 7
+press 5 down 3
+wait 12
+press 5 a 3
+wait 6
+press 3 r 3
+wait 7
+press 5 l 3
+wait 10
+press 2 up 3
+wait 7
+wait 10
+press 3 l 3
+wait 3
+press 4 r 3
+wait 12
+press 4 b 3
+wait 11
+press 5 l 3
+wait 6
+press 2 r 3
+wait 11
+press 4 up 3
+wait 8
+wait 11
+press 2 right 3
+wait 4
+wait 6
+press 1 r 3
+wait 12
+press 1 r 3
+wait 8
+press 2 right 3
+wait 12
+press 2 r 3
+wait 4
+wait 11
+press 3 r 3
+wait 7
+press 3 r 3
+wait 4
+wait 8
+press 3 l 3
+wait 6
+press 1 r 3
+wait 7
+press 1 r 3
+wait 4
+press 4 r 3
+wait 3
+wait 6
+press 5 r 3
+wait 7
+press 1 l 3
+wait 12
+press 1 b 3
+wait 12
+press 5 b 3
+wait 3
+press 3 r 3
+wait 12
+press 1 l 3
+wait 5
+press 1 left 3
+wait 5
+press 2 r 3
+wait 3
+press 3 b 3
+wait 6
+wait 10
+press 1 r 3
+wait 12
+press 2 r 3
+wait 5
+press 5 r 3
+wait 6
+press 5 r 3
+wait 10
+press 2 l 3
+wait 7
+press 3 down 3
+wait 5
+press 4 a 3
+wait 8
+press 5 r 3
+wait 5
+wait 8
+press 5 up 3
+wait 10
+press 1 r 3
+wait 11
+press 5 left 3
+wait 11
+wait 5
+press 3 r 3
+wait 12
+press 4 b 3
+wait 12
+press 4 left 3
+wait 11
+press 5 r 3
+wait 6
+wait 7
+wait 6
+wait 11
+press 2 right 3
+wait 6
+press 4 right 3
+wait 6
+press 5 left 3
+wait 9
+press 5 r 3
+wait 5
+press 5 a 3
+wait 3
+press 4 r 3
+wait 7
+wait 8
+press 2 down 3
+wait 11
+press 3 a 3
+wait 6
+press 4 r 3
+wait 10
+press 2 up 3
+wait 11
+press 2 r 3
+wait 4
+wait 9
+press 2 a 3
+wait 9
+press 5 r 3
+wait 5
+wait 3
+press 2 b 3
+wait 9
+press 2 r 3
+wait 12
+press 3 l 3
+wait 9
+wait 11
+wait 12
+press 4 l 3
+wait 8
+wait 11
+press 5 b 3
+wait 6
+press 1 a 3
+wait 11
+press 2 a 3
+wait 12
+wait 3
+press 5 a 3
+wait 6
+press 3 r 3
+wait 3
+press 4 r 3
+wait 12
+press 4 r 3
+wait 4
+wait 7
+press 4 a 3
+wait 6
+wait 260
+press 1 b        # kart page: back to the character page (trip 7)
+wait 200
+wait 9
+wait 7
+press 2 r 3
+wait 11
+wait 6
+press 1 l 3
+wait 5
+press 5 l 3
+wait 7
+press 3 r 3
+wait 12
+press 5 a 3
+wait 6
+press 5 r 3
+wait 5
+press 1 r 3
+wait 8
+press 4 r 3
+wait 10
+wait 7
+wait 4
+press 2 r 3
+wait 7
+press 3 a 3
+wait 10
+press 5 b 3
+wait 11
+press 4 r 3
+wait 9
+press 5 r 3
+wait 9
+wait 120
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+wait 300
+wait 60
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 900

@@ -1,0 +1,64 @@
+# The Mii button with same-character select in 2P: P2 (on Luigi) moves down to its Mii button and opens the Mii
+# select, which the still-held A answers with the first Mii (stock RR does the same); P2 then presses B, joins
+# P1's Mario, and both confirm and race. GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 down     # character select, step 8: P2 from Luigi down to the Mii button
+wait 40
+press 2 down
+wait 40
+press 2 down
+wait 40
+press 2 down
+wait 180
+press 2 a        # step 12: P2 opens the Mii select
+wait 300
+press 2 b        # step 13: back to the character select
+wait 300
+press 2 up       # step 14: P2 back up to Luigi, then onto Mario
+wait 40
+press 2 up
+wait 40
+press 2 up
+wait 40
+press 2 up
+wait 60
+press 2 left
+wait 300
+press 2 a        # step 19: P2 confirms
+wait 300
+press 1 a        # P1 confirms; kart select
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 1500

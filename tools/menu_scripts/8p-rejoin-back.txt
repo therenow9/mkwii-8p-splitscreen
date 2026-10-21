@@ -1,0 +1,43 @@
+# Re-entering 8 Players after Back (M5a, the owner's ready-up item): 8 Players, P2-8 join, P1's B on the OK/Change
+# page back to the main menu, then 8 Players again: the join page as it opens, as 4p-rejoin-back-ref's (the last
+# step's shot). Launch with install_8p.py dolphin --unattended --wiimotes.
+# page, P5-8's on their kept Classics. Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a  # join page
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 120
+press 6 a
+wait 120
+press 7 a
+wait 120
+press 8 a
+wait 120
+press 1 b        # the OK page's B: back to the main menu
+wait 360
+press 1 a        # main menu, back on 8 Players
+wait 600

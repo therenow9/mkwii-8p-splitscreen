@@ -1,0 +1,28 @@
+# The menu voice of a skin whose files use Birdo's layout (the trick line is wave sound 6, not 9): P1 picks
+# Birdo skin 3 at the Grand Prix character select and confirms it, then the kart. Both confirms should say
+# one of the skin's own trick lines; stock RR says Birdo's select line. GC port 1.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 a        # main menu: Single Player
+wait 240
+press 1 a        # Grand Prix
+wait 240
+press 1 a        # 50cc
+wait 300
+press 1 down     # character select: Mario -> Yoshi
+wait 30
+press 1 right    # Birdo
+wait 120
+press 1 r        # skins: 3
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 180
+press 1 a        # confirm the skin: the select voice
+wait 360
+press 1 a        # kart select: confirm
+wait 600

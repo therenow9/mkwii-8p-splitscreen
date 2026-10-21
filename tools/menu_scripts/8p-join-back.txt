@@ -1,0 +1,54 @@
+# The join page's Back and a pad lost there (normal build): 8 Players, P2-5 join; P5's Classic is unplugged for 5 s,
+# the join page asks for Player 5 again (its own handling, no reconnect box) and P5 joins again with A; P6 joins;
+# P1's B goes back to the main menu; 5 Players finds P1-5 still registered (ConfirmPads open at once, as vanilla's
+# after Back), OK, and the multiplayer menu (by design no race).
+# Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 180
+unplug 5 300     # P5's Classic out for 5 s: the page asks for Player 5 again
+wait 420
+press 5 a        # P5 joins again
+wait 180
+press 6 a        # P6
+wait 180
+press 1 b        # the join page: P1's B, back to the main menu
+wait 360
+press 1 left     # main menu: 8 Players -> 7
+wait 60
+press 1 left     # 6
+wait 60
+press 1 left     # 5
+wait 180
+press 1 a        # 5 Players
+wait 960         # ConfirmPads opens as the page does; an A in its fade-in is lost
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 600

@@ -1,0 +1,108 @@
+# M4 C4c's Mii row with 6 players: 6 Players, P2-6 join, VS, then on the _Multi6
+# buttons P5 picks the 2nd Mii on Mii A and P6 the Mii it starts on, on Mii B; the rest confirm drivers and a
+# race has six locals, P5 and P6 as Miis. Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 180
+press 1 a        # 6 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page for 6
+wait 300
+press 5 left     # P5 from Baby Daisy to Baby Peach
+wait 30
+press 5 left     # Baby Luigi
+wait 30
+press 5 up       # Mii A
+wait 30
+press 6 left     # P6 from Dry Bones to Koopa Troopa
+wait 30
+press 6 up       # Baby Peach
+wait 30
+press 6 up       # Mii B
+wait 90
+press 5 a 1      # P5 opens MiiSelect
+wait 240
+press 5 right
+wait 60
+press 5 a        # picks the 2nd Mii
+wait 240
+press 6 a 1      # P6 opens MiiSelect
+wait 240
+press 6 a        # keeps the Mii it starts on
+wait 240
+press 2 a        # P1-4 confirm, P1 last
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a        # the transmission page
+wait 240
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 6 locals
+wait 900

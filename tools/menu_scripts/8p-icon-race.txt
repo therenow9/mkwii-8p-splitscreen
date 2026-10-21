@@ -1,0 +1,178 @@
+# Name balloon portraits in 8P, as 4p-icon-race: every local on a skin RR 6.13.1 ships a portrait for. P1-3 on Mario
+# 3, 4, 5; P4 on Peach 5; P5 on Daisy 4; P6 on Dry Bones 2; P7 on Baby Mario 1; P8 on Luigi 3. The race's
+# "ss8 balloon: read" lines (a probe) and the start-line shot show each portrait. Launch with --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300
+press 1 r        # P1: Mario skins 1 to 3
+wait 30
+press 1 r
+wait 30
+press 1 r
+wait 30
+press 2 left     # P2 from Luigi to Mario
+wait 30
+press 2 r        # Mario skins 1 to 4
+wait 30
+press 2 r
+wait 30
+press 2 r
+wait 30
+press 2 r
+wait 30
+press 3 up       # P3 from Yoshi to Mario
+wait 30
+press 3 r        # Mario skins 1 to 5
+wait 30
+press 3 r
+wait 30
+press 3 r
+wait 30
+press 3 r
+wait 30
+press 3 r
+wait 30
+press 4 r        # P4: Peach skins 1 to 5
+wait 30
+press 4 r
+wait 30
+press 4 r
+wait 30
+press 4 r
+wait 30
+press 4 r
+wait 30
+press 5 down     # P5 from Baby Daisy to Dry Bones
+wait 30
+press 5 down     # Daisy
+wait 30
+press 5 r        # Daisy skins 1 to 4
+wait 30
+press 5 r
+wait 30
+press 5 r
+wait 30
+press 5 r
+wait 30
+press 6 r        # P6: Dry Bones skins 1 and 2
+wait 30
+press 6 r
+wait 30
+press 7 r        # P7: Baby Mario skin 1
+wait 30
+press 8 r        # P8: Luigi skins 1 to 3
+wait 30
+press 8 r
+wait 30
+press 8 r
+wait 300         # every preview reloaded
+press 1 a        # everyone confirms
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 5 a
+wait 30
+press 6 a
+wait 30
+press 7 a
+wait 30
+press 8 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the transmission page
+wait 240
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # the drift page
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a        # cup select
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK; the race loads with 8 locals
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 1800

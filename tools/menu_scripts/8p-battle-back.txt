@@ -1,0 +1,262 @@
+# Back from every step of a 5-8 Battle (M4 E4): RR's Battle Teams on, 8 Players, P2-8 join.
+# BattleModeSelect's B back to the multiplayer menu, Battle again; its Rules page (0x77) and B; Balloon Battle; the character page's P1 B back to
+# BattleModeSelect (the log's "character page -> 0x75"), Balloon again. Team page: P2's B before choosing (nothing),
+# choose, B (unready); P1's B back to the character page. Then each page's P1 B in turn (kart to team, transmission to
+# kart, drift to transmission, cup to drift, arena to cup), every page confirmed again, to the race. The log names
+# every page. Launch with install_8p.py dolphin --unattended --wiimotes.
+autodrive
+setting SETTING_BATTLETEAMS BATTLE_FFA_ENABLED  # RR's teams: value 1 leaves PULSAR_FFA off (PulsarSystem.cpp)
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a
+wait 120
+press 7 a
+wait 120
+press 8 a
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 down     # multiplayer menu: Battle
+wait 60
+press 1 a
+wait 360
+press 1 b        # BattleModeSelect: B back to the multiplayer menu
+wait 360
+press 1 a        # Battle again
+wait 480
+press 1 up       # Battle: Balloon Battle -> the Rules button (top right)
+wait 60
+press 1 a        # Battle settings (0x77)
+wait 600
+press 1 b        # back to Battle
+wait 300
+press 1 down     # Rules -> Balloon Battle
+wait 60
+press 1 a        # Balloon Battle -> the 8-player character page
+wait 360
+press 1 b        # character page: P1's B before confirming, back to BattleModeSelect
+wait 360
+press 1 a        # Balloon Battle again
+wait 360
+press 1 a        # character page: everyone confirms
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+wait 240         # the team page
+press 2 b        # P2's B before choosing does nothing
+wait 60
+press 2 a        # P2 chooses
+wait 60
+press 2 b        # and takes it back
+wait 60
+press 1 b        # P1's B before choosing: back to the character page
+wait 360
+press 1 a        # character page: everyone confirms again
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+wait 240         # the team page: P3 to Blue, P4 to Red (4 a side), everyone confirms
+press 3 right
+wait 30
+press 4 left
+wait 30
+wait 120
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 360
+press 1 b        # kart page: P1's B, back to the team page
+wait 360
+press 1 a        # the team page again: everyone confirms
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 360
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 b        # transmission page: P1's B, back to the kart page
+wait 360
+press 1 a        # kart page again
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 b        # drift page: P1's B, back to the transmission page
+wait 360
+press 1 a        # transmission page again
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 360
+press 1 b        # cup page: B back to the drift page
+wait 360
+press 1 a        # drift page again
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 b        # arena page: B back to the cup page
+wait 240
+press 1 a        # cup
+wait 240
+press 1 a        # arena
+wait 240
+press 1 a        # Start: OK; the round loads with 8 locals
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 900

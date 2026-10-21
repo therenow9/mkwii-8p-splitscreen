@@ -1,0 +1,9 @@
+[submodule "external/rr-pulsar"]
+	path = external/rr-pulsar
+	url = https://github.com/therenow9/rr-pulsar.git
+[submodule "external/Wiicompiled"]
+	path = external/Wiicompiled
+	url = https://github.com/therenow9/Wiicompiled.git
+[submodule "external/wuj5"]
+	path = external/wuj5
+	url = https://github.com/stblr/wuj5.git

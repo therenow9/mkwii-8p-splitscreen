@@ -1,0 +1,105 @@
+# The vanilla reference for Back from every step (normal build): 4 Players, VS. On the character, kart, transmission
+# and drift pages P2 presses B before choosing, chooses, presses B, then P2-4 and P1 choose. Cup select: P1 B back
+# to the drift page, everyone chooses again; course select: P1 B back to cup select; then a race. GC ports 1-4.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 right    # 3 Players
+wait 40
+press 1 right    # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 b        # character: P2's B before choosing
+wait 180
+press 2 a        # P2 chooses
+wait 120
+press 2 b        # P2's B after choosing
+wait 180
+press 2 a
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+press 1 a        # P1: kart select
+wait 360
+press 2 b        # kart: P2's B before choosing
+wait 180
+press 2 a        # P2 chooses
+wait 120
+press 2 b        # P2's B after choosing
+wait 180
+press 2 a
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+press 1 a        # P1: transmission select
+wait 360
+press 2 b        # transmission: P2's B before choosing
+wait 180
+press 2 a        # P2 chooses
+wait 120
+press 2 b        # P2's B after choosing
+wait 180
+press 2 a
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+press 1 a        # P1: drift select
+wait 360
+press 2 b        # drift: P2's B before choosing
+wait 180
+press 2 a        # P2 chooses
+wait 120
+press 2 b        # P2's B after choosing
+wait 180
+press 2 a
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+press 1 a        # P1: cup select
+wait 360
+press 1 b        # cup select: B, back to drift select
+wait 360
+press 1 a
+wait 60
+press 2 a
+wait 60
+press 3 a
+wait 60
+press 4 a
+wait 60
+wait 300
+press 1 a        # cup
+wait 240
+press 1 b        # course select: B, back to cup select
+wait 240
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 900

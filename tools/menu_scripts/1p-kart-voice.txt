@@ -1,0 +1,27 @@
+# The kart select's voice for a skin with its own voice: P1 picks Wario skin 3 (its files use Mario's layout)
+# and confirms it and a kart. Both should be the skin's own trick lines; stock RR says Wario's. GC port 1.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 a        # main menu: Single Player
+wait 240
+press 1 a        # Grand Prix
+wait 240
+press 1 a        # 50cc
+wait 300
+press 1 down     # character select: Mario -> Yoshi
+wait 30
+press 1 down     # Wario
+wait 120
+press 1 r        # skins 1-3
+wait 90
+press 1 r
+wait 90
+press 1 r
+wait 180
+press 1 a        # confirm Wario skin 3: the select voice
+wait 360
+press 1 a        # kart select: confirm, the kart voice
+wait 600

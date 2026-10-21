@@ -1,0 +1,156 @@
+# Re-entering 8 Players after a game (M5a, the owner's ready-up item): 8 Players, P2-8 join, a Solo Race, P1 quits it
+# from the pause menu (main menu, section 0x41), then 8 Players again: the join page as it opens, P1-8 still
+# registered as 4p-rejoin-ref's P1-4 are (step 62's shot); then OK, Solo Race and every player's A on the character
+# page, P5-8's on their kept Classics. Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 60
+press 1 right    # 7
+wait 60
+press 1 right    # 8
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a  # join page
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 120
+press 6 a
+wait 120
+press 7 a
+wait 120
+press 8 a
+wait 120
+wait 120
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+wait 60
+press 1 a        # Solo Race
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 300
+wait 60
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the fade-in
+wait 1500
+press 1 start    # the race's pause menu
+wait 60
+press 1 down
+wait 60
+press 1 down     # Quit
+wait 60
+press 1 a
+wait 60
+press 1 up       # "Are you sure?" starts on No
+wait 60
+press 1 a
+wait 900
+press 1 a        # main menu, back on 8 Players
+wait 960
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 420
+press 1 a        # Solo Race
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 600

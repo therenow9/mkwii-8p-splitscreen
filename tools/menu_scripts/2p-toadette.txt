@@ -1,0 +1,30 @@
+# D72 in 2P on Toadette, whose preview carries a separate hair model: P1 takes Toadette's shared model,
+# P2 joins it on its own stock preview (slot 0, the menu archive's BRRES), then P2 and P1 each pick
+# skin 1. Ends at the character select; shoot after steps 9, 10 and 11. GC ports 1-2.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 1 up       # character select, step 7: P1 from Mario to Toad
+wait 60
+press 1 right    # step 8: P1 onto Toadette (the shared model)
+wait 120
+press 2 up       # step 9: P2 from Luigi onto Toadette (its own stock preview)
+wait 300
+press 2 r        # step 10: P2's own preview takes Toadette skin 1
+wait 300
+press 1 r        # step 11: the shared model takes skin 1 for P1
+wait 600

@@ -1,0 +1,339 @@
+# Trailer take: Coin Runners with 8, free-for-all as RR ships it. The owner's eight drivers on their class's second bike,
+# every local's kart to the AI. Shoot with lane.py run ss8-menu trailer-8p-coin --past-race --res 4 --footage.
+autodrive
+wait 900
+press 1 a   # title
+wait 175
+press 1 a   # license
+wait 240
+press 1 right   # main menu: 2 Players
+wait 60
+press 1 right   # main menu: 3 Players
+wait 60
+press 1 right   # main menu: 4 Players
+wait 60
+press 1 right   # main menu: 5 Players
+wait 60
+press 1 right   # main menu: 6 Players
+wait 60
+press 1 right   # main menu: 7 Players
+wait 60
+press 1 right   # main menu: 8 Players
+wait 60
+wait 120
+press 1 a   # 8 Players
+wait 360
+press 2 a   # join: P2
+wait 75
+press 3 a   # join: P3
+wait 75
+press 4 a   # join: P4
+wait 75
+press 5 a   # join: P5
+wait 75
+press 6 a   # join: P6
+wait 75
+press 7 a   # join: P7
+wait 75
+press 8 a   # join: P8
+wait 75
+wait 120
+press 1 a   # OK
+wait 300
+press 1 down
+wait 60
+press 1 a   # Battle
+wait 420
+press 1 down
+wait 60
+press 1 a   # Coin Runners
+wait 420
+press 1 down
+wait 20
+press 1 down
+wait 20
+press 1 down
+wait 20
+press 1 right
+wait 20
+press 1 right
+wait 20
+press 2 down
+wait 20
+press 2 down
+wait 20
+press 2 down
+wait 20
+press 2 right
+wait 20
+press 2 r
+wait 20
+press 2 r
+wait 20
+press 2 r
+wait 20
+press 2 r
+wait 20
+press 2 r
+wait 20
+press 3 r
+wait 20
+press 3 r
+wait 20
+press 3 r
+wait 20
+press 4 down
+wait 20
+press 4 down
+wait 20
+press 4 r
+wait 20
+press 4 r
+wait 20
+press 4 r
+wait 20
+press 4 r
+wait 20
+press 4 r
+wait 20
+press 5 down
+wait 20
+press 5 down
+wait 20
+press 6 left
+wait 20
+press 6 r
+wait 20
+press 6 r
+wait 20
+press 7 down
+wait 20
+press 7 down
+wait 20
+press 7 down
+wait 20
+press 7 right
+wait 20
+press 7 right
+wait 20
+press 7 r
+wait 20
+press 7 r
+wait 20
+press 7 r
+wait 20
+press 7 r
+wait 20
+press 7 r
+wait 20
+press 8 down
+wait 20
+press 8 down
+wait 20
+press 8 r
+wait 20
+press 8 r
+wait 20
+press 8 r
+wait 20
+press 8 r
+wait 20
+press 8 r
+wait 20
+wait 240
+press 1 a   # Funky Kong
+wait 24
+press 2 a   # R.O.B.
+wait 24
+press 3 a   # Piranha Plant
+wait 24
+press 4 a   # K. Rool
+wait 24
+press 5 a   # Daisy
+wait 24
+press 6 a   # Lakitu
+wait 24
+press 7 a   # Fox
+wait 24
+press 8 a   # Captain Falcon
+wait 24
+wait 420
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+press 1 right
+wait 3
+press 2 right
+wait 3
+press 3 right
+wait 3
+press 4 right
+wait 3
+press 5 right
+wait 3
+press 6 right
+wait 3
+press 7 right
+wait 3
+press 8 right
+wait 3
+wait 40
+wait 120
+press 1 a
+wait 24
+press 2 a
+wait 24
+press 3 a
+wait 24
+press 4 a
+wait 24
+press 5 a
+wait 24
+press 6 a
+wait 24
+press 7 a
+wait 24
+press 8 a
+wait 24
+wait 300
+press 1 a   # transmission
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 300
+press 1 a   # drift
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 480
+press 1 a   # the cup the page opens on
+wait 240
+press 1 a   # its first course or arena
+wait 240
+press 1 a   # Start: OK
+wait 240
+press 1 a   # again, if the first landed in the fade-in
+wait 14400   # four minutes of it

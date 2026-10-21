@@ -1,0 +1,27 @@
+# The vanilla reference for re-entering N Players after Back (normal build): 4 Players, P2-4 join on GC ports 2-4,
+# P1's B on the OK/Revise page back to the main menu, then 4 Players again: the pads page as it opens (the last
+# step's shot). Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 180
+press 1 a        # 4 Players
+wait 360
+press 2 a  # join page
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+wait 120
+press 1 b        # the OK page's B: back to the main menu
+wait 360
+press 1 a        # main menu, back on 4 Players
+wait 600

@@ -1,0 +1,33 @@
+# The full vanilla lane set: lane.py batch tools/lane_sets/vanilla.txt --slots 4, on install_8p.py's
+# --vanilla root and slots 1-3. The batch builds vanilla-menu once. The sweep is smoke_8p.py --vanilla --sweep, the boot
+# cases smoke_8p.py --vanilla, and 1-4P parity tools/dtm.py parity.
+# 1-4 players, the game's own pages
+vanilla-menu v-1p-vs-ref --fast --total 300
+vanilla-menu v-1p-battle-ref --past-race --fast --total 600
+vanilla-menu v-2p-same-driver --fast --total 300
+vanilla-menu v-2p-vs-random --past-race --fast --total 300
+vanilla-menu v-2p-battle-ref --past-race --fast --total 600
+vanilla-menu v-3p-vs-ref --fast --total 300
+vanilla-menu v-4p-vs-series-ref --past-race --fast --total 900
+vanilla-menu v-4p-team-ref --past-race --fast --total 900
+vanilla-menu v-4p-coin-ref --past-race --fast --total 900
+vanilla-menu v-4p-back-ref --fast --total 500
+vanilla-menu v-4p-quit-ref --past-race --fast --total 400
+# 5-8 players
+vanilla-menu v-5p-join --fast --total 400
+vanilla-menu v-6p-battle --fast --total 400
+vanilla-menu v-6p-battle-random --past-race --fast --total 400
+vanilla-menu v-6p-vs-series --past-race --fast --total 1200
+vanilla-menu v-6p-coin --past-race --fast --total 900
+vanilla-menu v-8p-chars --fast --total 400
+vanilla-menu v-8p-kart-spam-gc --wiimotes --past-race --fast --total 900
+vanilla-menu v-8p-vs-race --past-race --fast --total 700
+vanilla-menu v-8p-vs-random --past-race --fast --total 700
+vanilla-menu v-8p-battle --fast --total 400
+vanilla-menu v-8p-coin --past-race --fast --total 1200
+vanilla-menu v-8p-team --past-race --fast --total 1200
+vanilla-menu v-8p-back-every --fast --total 600
+vanilla-menu v-8p-moonview-quit --past-race --fast --total 500
+# Real-speed renders: the kart and drift rows clear the bottom bar (D252), eight karts on the Battle cup and arena pages (D253)
+vanilla-menu v-8p-chars "ss8 select: kart page, 8 players@2" "ss8 select: drift page, 8 players@2" --name v-8p-chars-shots --total 400
+vanilla-menu v-8p-battle "drift page -> 0x78@2" "ss8 menu: step 54 @3" --name v-8p-battle-shots --total 400

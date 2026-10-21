@@ -1,0 +1,31 @@
+# Mario Kart Wii without Retro Rewind (vanilla-menu), the 1P reference: Single Player, VS Race, through the game's own
+# pages to a race. GC port 1.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in 4 of 4 runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 a        # main menu: Single Player
+wait 400
+press 1 down     # Grand Prix -> Time Trials
+wait 60
+press 1 down     # VS Race
+wait 60
+press 1 a        # VS Race
+wait 400
+press 1 a        # Solo Race (VS takes its class from the rules)
+wait 400
+press 1 a        # character
+wait 400
+press 1 a        # kart
+wait 400
+press 1 a        # drift
+wait 400
+press 1 a        # cup
+wait 300
+press 1 a        # course
+wait 300
+press 1 a        # Start Race: OK
+wait 1800

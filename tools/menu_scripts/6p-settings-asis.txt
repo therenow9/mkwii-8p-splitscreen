@@ -1,0 +1,37 @@
+# RR's settings in a 6-player game as they stand (M4 D1): 6 Players, P2-6 join, then the
+# multiplayer menu's Settings button to RR's settings page select, where it stops. The KO and Royale pages and Back
+# are not scripted. Launch with install_8p.py dolphin --unattended --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 180
+press 1 a        # 6 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 480
+press 1 up       # multiplayer menu: VS -> the Settings button (top right)
+wait 120
+press 1 a        # Settings
+wait 360
+wait 300
