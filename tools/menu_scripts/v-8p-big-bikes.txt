@@ -1,0 +1,297 @@
+# v-5p-big-bikes at 8 players: P1-4 Bowser, Wario, Dry Bowser, Waluigi; P5-8 Dry Bowser, Bowser, King Boo, Funky Kong.
+# P5-8 step together to their class's second bike, hold, then lap all 12 vehicles back onto it; each build is logged.
+# Launch with lane.py run vanilla-menu v-8p-big-bikes "ss8 menu: step 85 @5" "ss8 menu: step 133 @5".
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs
+wait 200
+press 1 a        # license
+wait 600
+press 1 right    # main menu: 2 Players
+wait 60
+press 1 right    # main menu: 3 Players
+wait 60
+press 1 right    # main menu: 4 Players
+wait 60
+press 1 right    # main menu: 5 Players
+wait 60
+press 1 right    # main menu: 6 Players
+wait 60
+press 1 right    # main menu: 7 Players
+wait 60
+press 1 right    # main menu: 8 Players
+wait 60
+wait 120
+press 1 a        # 8 Players
+wait 600
+press 2 a        # join: P2
+wait 120
+press 3 a        # join: P3
+wait 120
+press 4 a        # join: P4
+wait 120
+press 5 a        # join: P5
+wait 120
+press 6 a        # join: P6
+wait 120
+press 7 a        # join: P7
+wait 120
+press 8 a        # join: P8
+wait 120
+wait 120
+press 1 a        # OK
+wait 300
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 420
+press 1 down
+wait 20
+press 1 down
+wait 20
+press 1 left
+wait 20
+press 2 down
+wait 20
+press 2 down
+wait 20
+press 2 left
+wait 20
+press 3 down
+wait 20
+press 3 down
+wait 20
+press 3 left
+wait 20
+press 4 down
+wait 20
+press 4 down
+wait 20
+press 4 left
+wait 20
+press 5 down
+wait 20
+press 5 down
+wait 20
+press 5 down
+wait 20
+press 5 down
+wait 20
+press 5 down
+wait 20
+press 6 down
+wait 20
+press 6 down
+wait 20
+press 6 down
+wait 20
+press 7 down
+wait 20
+press 7 down
+wait 20
+press 7 down
+wait 20
+press 7 down
+wait 20
+press 7 down
+wait 20
+press 8 down
+wait 20
+press 8 down
+wait 20
+press 8 down
+wait 20
+press 8 right
+wait 20
+wait 90
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 400
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 30
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 30
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 30
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 30
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 30
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 30
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 30
+wait 400
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+press 5 right
+wait 10
+press 6 right
+wait 10
+press 7 right
+wait 10
+press 8 right
+wait 10
+wait 100
+wait 400

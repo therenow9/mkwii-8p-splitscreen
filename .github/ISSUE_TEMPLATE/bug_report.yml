@@ -1,5 +1,5 @@
 name: Bug report
-description: Something in SplitScreen8 or its setup does not work as it should.
+description: Something in MKWii 8P Splitscreen or its setup does not work as it should.
 title: "[Bug] "
 labels: ["bug"]
 body:
@@ -10,7 +10,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: SplitScreen8 version
+      label: MKWii 8P Splitscreen version
       description: The version in the zip's name, for example 1.0.0.
       placeholder: 1.0.0
     validations:

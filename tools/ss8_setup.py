@@ -47,6 +47,7 @@ RR_ZIPS = "https://cdn.update.rwfc.net/RetroRewind/zip/"
 TITLE = "MKWii 8P Splitscreen Setup"
 # WiiCompiled's own build files sit 200 characters below the folder, near Windows' 260, so the name stays short.
 DEFAULT_ROOT = Path.home() / "Documents" / "MKWii 8 Player"
+WC_MARK = "ss8-installer.sha256"  # in a copy's WiiCompiled Install: the installer it came from, which WiiCompiled does not record
 
 
 def picks(picked: str, allowed, flag: str) -> list[str]:
@@ -178,6 +179,20 @@ def fetch_rr(folder: Path, version: str) -> None:
         z.unlink()
 
 
+def wc_current(layout, release: dict) -> bool:
+    mark = layout.wc_install / WC_MARK
+    return mark.exists() and mark.read_text(encoding="utf-8").strip() == release["files"]["WiiCompiled-Setup.exe"]
+
+
+def drop_old_installs(i8, layout) -> None:
+    for old in layout.wc_install.parent.glob("Install-v*"):
+        if old.name.removeprefix("Install-v").replace(".", "").isdigit():  # upgrade_wiicompiled's, not a renamed one
+            try:  # the old one sits 7 characters deeper than WiiCompiled wrote it, past 260 on a long root
+                shutil.rmtree("\\\\?\\" + str(i8.guard(layout, old)))
+            except OSError as e:
+                print(f"[setup] {old} was not deleted ({e}); delete it to free about 5 GB")
+
+
 def install(args: argparse.Namespace) -> int:
     payload, release, i8 = load(args)
     dolphin = i8.dolphin_exe()
@@ -229,7 +244,9 @@ def install(args: argparse.Namespace) -> int:
     if "rr" in builds and not layouts["rr"].dolphin.exists() and not fetch:
         need += sum(f.stat().st_size for f in i8.RR_SRC.rglob("*") if f.is_file())
     if "wiicompiled" in targets:
-        need += WC_NEED * sum(not (l.wc_install / "install-state.json").exists() for l in layouts.values())
+        installed = [(l.wc_install / "install-state.json").exists() for l in layouts.values()]
+        upgrades = any(i and not wc_current(l, release) for i, l in zip(installed, layouts.values()))
+        need += WC_NEED * (installed.count(False) + upgrades)  # an upgrade drops the old install before the next
     if "wii" in targets:
         need += WII_IMAGE * len(layouts) + WII_WORK
     existing = next(p for p in (root, *root.parents) if p.exists())
@@ -256,10 +273,20 @@ def install(args: argparse.Namespace) -> int:
                 i8.copy_file(layout, step.src.with_name(pul), layout.rr / "Binaries" / pul)
             if (layout.backup / "shortcuts.json").exists():
                 i8.restore_shortcuts(layout)  # a setup stopped before it put your shortcuts back
-            log = "repair" if (layout.wc_install / "install-state.json").exists() else "setup"
-            if i8.repair_wiicompiled(layout) if log == "repair" else i8.install_wiicompiled(layout, payload / "WiiCompiled-Setup.exe"):
+            drop_old_installs(i8, layout)  # an upgrade stopped before it dropped the old one would block this one
+            installer = payload / "WiiCompiled-Setup.exe"
+            if not (layout.wc_install / "install-state.json").exists():
+                log, rc = "setup", i8.install_wiicompiled(layout, installer)
+            elif wc_current(layout, release):
+                log, rc = "repair", i8.repair_wiicompiled(layout)
+            else:  # installed by another release's installer
+                log, rc = "setup", i8.upgrade_wiicompiled(layout, installer)
+            if rc:
                 sys.exit(f"WiiCompiled's setup failed for {folder}; its log is %TEMP%\\WiiCompiled-{log}.log")
+            i8.guard(layout, layout.wc_install / WC_MARK).write_text(release["files"][installer.name], encoding="utf-8")
+            drop_old_installs(i8, layout)
             i8.copy_file(layout, i8.ROOT / "tools" / "release_docs" / "wii-wheel.rgba", layout.wc_userdata / "window-icon.rgba")
+            i8.guard(layout, layout.wc_userdata / "window-title.txt").write_text(f"{folder} - 8 Player Splitscreen", encoding="utf-8")
             plays["Play (WiiCompiled).cmd"] = f'"{layout.wc_install / "WiiCompiled-Setup.exe"}" --launch-retro'
         print(f"[step] {folder}, menus and code")
         i8.cmd_code(layout, step)

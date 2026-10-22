@@ -39,10 +39,10 @@ WHAT YOU NEED
 - Your own Mario Kart Wii disc image: the PAL (European) version, game ID RMCP01
   (see PAL ONLY above). No game files come in this zip; the setup makes everything
   from yours.
-- For the Retro Rewind build: Retro Rewind 6.13.3, its RetroRewind6 folder with the
+- For the Retro Rewind build: Retro Rewind 6.13.4, its RetroRewind6 folder with the
   riivolution folder beside it, as Wheel Wizard or Retro Rewind's own download
-  puts them. If you have none, or yours is another version (6.13.4, say), leave
-  "Download Retro Rewind 6.13.3 for me" ticked: the setup downloads it (about 2 GB)
+  puts them. If you have none, or yours is another version (6.13.5, say), leave
+  "Download Retro Rewind 6.13.4 for me" ticked: the setup downloads it (about 2 GB)
   into the install folder, and your own Retro Rewind stays as it is.
 - To play in Dolphin: Dolphin.
 - Wheel Wizard is optional. With it, the setup fills in your disc, Retro Rewind and
@@ -141,11 +141,22 @@ can use either kind.
 GOOD TO KNOW
 ------------
 
-- Each copy is a snapshot of your Retro Rewind. When Retro Rewind updates, wait for
-  a new SplitScreen8 release; the setup refuses a Retro Rewind it was not built for.
+- This release is built on Retro Rewind 6.13.4, and later Retro Rewind versions may
+  not get a release of their own. The setup makes its copy from 6.13.4, downloading
+  it when yours is another version, so your own Retro Rewind can keep updating.
 - The Retro Rewind build is offline only. Play online from your own Retro Rewind.
-- In the Retro Rewind build with 5 to 8 players, Mystic Tangle is left out, and
-  Battle Royale leaves out the biggest tracks. They show greyed out.
+- In the Retro Rewind build with 5 to 8 players, some tracks need more memory than
+  the game has left, so they show greyed out and random picks skip them:
+  - Mystic Tangle, always.
+  - With Battle Royale on, at 5 to 8 players: 3DS Rosalina's Ice World, Call of the
+    Glassheart, Citro's Wedding Altar, Cubing Conundrum, Darkest Night, Dreamer,
+    GP Bowser's Castle, GP Diamond City, Luigi's Island, Promise of Annalise, SW Peach
+    Gardens (DS Peach Gardens' second version), SW2 Toad's Factory (Wii Toad's
+    Factory's second version), The Frozen Lakes of Steleah, Tour Vancouver Velocity,
+    Wii U Ribbon Road (GBA Ribbon Road's second version), Wii U Sunshine Airport,
+    Wii U Super Bell Subway and Wii U Twisted Mansion.
+  - With Battle Royale on, at 7 or 8 players, also: Botania, Good Egg Drive,
+    Honeybee Hideout, Tour Athens Dash and Wii U Electrodrome.
 - On a window wider than 16:9, a splitscreen race fills the whole window. If you
   move or resize the window during a race, the HUDs and the lines between the
   screens stay where they were until the next race. Size the window before a

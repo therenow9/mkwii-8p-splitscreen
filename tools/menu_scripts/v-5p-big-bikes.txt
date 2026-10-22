@@ -1,0 +1,120 @@
+# The vanilla kart page at 5 players as a player's report had it: P1-4 Bowser, Wario, Dry Bowser, Waluigi, P5 Dry Bowser
+# (P5 standing, no vehicle, on Bowser Bike).
+# P5 steps to Bowser Bike, holds, then laps all 12 vehicles back onto it; each P5-8 kart build or failure is logged.
+# Launch with lane.py run vanilla-menu v-5p-big-bikes "ss8 menu: step 43 @5" "ss8 menu: step 55 @5".
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in 4 of 4 runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+wait 600         # the game's main menu opens later than RR's
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 180
+press 1 a        # 5 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic; ConfirmPads opens, OK selected
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 900
+wait 300
+press 1 down     # the report's P1-4: P1 from Mario to Bowser
+wait 20
+press 1 down
+wait 20
+press 1 left
+wait 20
+press 2 down     # P2 from Luigi to Wario
+wait 20
+press 2 down
+wait 20
+press 2 left
+wait 20
+press 3 down     # P3 from Yoshi to Dry Bowser
+wait 20
+press 3 down
+wait 20
+press 3 left
+wait 20
+press 4 down     # P4 from Peach to Waluigi
+wait 20
+press 4 down
+wait 20
+press 4 left
+wait 20
+press 5 down     # P5 from Baby Daisy: Dry Bones
+wait 30
+press 5 down     # Daisy
+wait 30
+press 5 down     # Bowser Jr.
+wait 30
+press 5 down     # Bowser
+wait 30
+press 5 down     # Dry Bowser
+wait 90
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a        # P5 on Dry Bowser: the kart page
+wait 360
+press 5 right
+wait 40
+press 5 right
+wait 40
+press 5 right
+wait 40
+press 5 right
+wait 40
+press 5 right
+wait 40
+press 5 right
+wait 40
+press 5 right    # Bowser Bike
+wait 360
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right
+wait 90
+press 5 right    # Bowser Bike again
+wait 360
+press 5 left     # Standard Bike L
+wait 120

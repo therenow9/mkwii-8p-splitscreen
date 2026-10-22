@@ -1,5 +1,5 @@
 name: Feature request
-description: An idea for SplitScreen8.
+description: An idea for MKWii 8P Splitscreen.
 title: "[Idea] "
 labels: ["enhancement"]
 body:
@@ -7,7 +7,7 @@ body:
     id: idea
     attributes:
       label: The idea
-      description: What should SplitScreen8 do, and for how many players?
+      description: What should MKWii 8P Splitscreen do, and for how many players?
     validations:
       required: true
   - type: textarea

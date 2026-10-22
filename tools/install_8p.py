@@ -229,7 +229,7 @@ def sha256(path: Path) -> str:
 
 
 def code_pul_commit(path: Path) -> str:
-    """The commit a Code.pul names (Version.cpp's GIT_COMMIT, UTF-16BE): f1c9208a for RR's release, <sha>-ss8 for ours."""
+    """The commit a Code.pul names (Version.cpp's GIT_COMMIT, UTF-16BE): 52f23582 for RR's release, <sha>-ss8 for ours."""
     found = {m.group().decode("utf-16-be").strip("\0")
              for m in re.finditer(rb"(?:\x00[0-9a-f]){8}(?:\x00[-a-z0-9])*\x00\x00", path.read_bytes())}
     if len(found) != 1:

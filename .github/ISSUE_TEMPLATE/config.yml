@@ -2,7 +2,7 @@ blank_issues_enabled: false
 contact_links:
   - name: A bug Retro Rewind has too
     url: https://github.com/Retro-Rewind-Team/rr-pulsar/issues
-    about: If it happens in Retro Rewind itself, without SplitScreen8, report it to Retro Rewind.
+    about: If it happens in Retro Rewind itself, without MKWii 8P Splitscreen, report it to Retro Rewind.
   - name: A bug WiiCompiled has too
     url: https://github.com/patchzyy/Wiicompiled/issues
     about: If it happens in WiiCompiled with an unmodded game, report it to WiiCompiled.
