@@ -96,9 +96,10 @@ From the main menu, pick Multiplayer, then 2 to 8 Players.
 CONTROLLERS IN WIICOMPILED
 --------------------------
 
-Press F10 to open the controller settings. Players 1 to 4 are "GC 1" to "GC 4",
-players 5 to 8 are "Wii 1" to "Wii 4". Assign each controller once with
-"Assign connected controller".
+Press F10 to open the controller settings, and assign each controller once with
+"Assign connected controller" to one of the eight slots, "GC 1" to "GC 4" and
+"Wii 1" to "Wii 4". Any kind of controller works in any slot, and once they are
+all assigned, the order they are in does not matter.
 
 A pad on a Wii slot plays as a Classic Controller, with buttons by position. On a
 GameCube controller, that makes X the A button.
@@ -161,6 +162,17 @@ GOOD TO KNOW
   move or resize the window during a race, the HUDs and the lines between the
   screens stay where they were until the next race. Size the window before a
   race starts.
+- Extra custom characters and character packs are not recommended. With 5 to 8
+  players the menus have little memory to spare, and the setup copies your Retro
+  Rewind folder as it is, mods included. Too many can leave players 5 to 8 with
+  no character shown on the character page, and skins that will not change.
+
+
+THANKS
+------
+
+Thanks to Duke Inferno's Biggest Fan, on Discord, for reporting the memory leak
+on the character page that 1.0.2 fixes.
 
 
 LICENCE AND SOURCE

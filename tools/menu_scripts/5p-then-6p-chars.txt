@@ -1,0 +1,162 @@
+# PD72's return visit: 5 Players with skins chosen (P5 on Baby Daisy's skins), a VS race quit from the pause menu,
+# then 6 Players and the character page, where every player cycles skins. The 6-player page's "ss8 preview" lines
+# should show P5 and P6 built and no "failed" or "not built". Launch with --wiimotes --past-race.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 180
+press 1 a        # 5 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page for 5
+wait 300
+press 1 r        # P1: Mario's first skin
+wait 30
+press 2 left     # P2 from Luigi to Mario
+wait 30
+press 2 r        # Mario's 2nd skin
+wait 30
+press 2 r
+wait 30
+press 3 up       # P3 from Yoshi to Mario
+wait 30
+press 3 l        # Mario's last skin
+wait 30
+press 4 r        # P4: Peach's first skin
+wait 30
+press 5 r        # P5: Baby Daisy's skins
+wait 30
+press 5 r
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 300
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 240
+press 1 a        # transmission page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 240
+press 1 a        # drift page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 1500
+press 1 start    # the 5P race's pause menu
+wait 60
+press 1 down
+wait 60
+press 1 down     # Quit
+wait 60
+press 1 a
+wait 60
+press 1 up       # "Are you sure?" starts on No
+wait 60
+press 1 a
+wait 900
+press 1 right    # main menu, back on 5 Players: 6 Players
+wait 180
+press 1 a
+wait 360
+press 2 a        # join page
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 120
+press 6 a        # P6
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page for 6
+wait 300
+press 1 r        # every player cycles skins
+wait 30
+press 2 r
+wait 30
+press 3 r
+wait 30
+press 4 r
+wait 30
+press 5 r
+wait 30
+press 6 r
+wait 60
+press 1 r
+wait 30
+press 2 r
+wait 30
+press 3 r
+wait 30
+press 4 r
+wait 30
+press 5 r
+wait 30
+press 6 r
+wait 60
+press 1 r
+wait 30
+press 4 r
+wait 30
+press 5 r
+wait 30
+press 6 r
+wait 300

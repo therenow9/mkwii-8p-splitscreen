@@ -1,0 +1,192 @@
+# PD72 and the 2026-10-20 inbox line: on a fresh 6-player character page every player presses R one frame apart, as
+# controllers linked together would, eight times, then L eight times. Every "skin" line should load, none "failed".
+# Launch with --wiimotes.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 right    # main menu: Multiplayer, 2 Players
+wait 60
+press 1 right    # 3
+wait 60
+press 1 right    # 4
+wait 60
+press 1 right    # 5
+wait 60
+press 1 right    # 6
+wait 180
+press 1 a        # 6 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page for 6
+wait 900
+press 1 left     # main menu, back on 6 Players: left to 2 Players
+wait 60
+press 1 left
+wait 60
+press 1 left
+wait 60
+press 1 left
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 2 a        # character select
+wait 30
+press 1 a
+wait 360
+press 2 a        # kart select
+wait 30
+press 1 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 900
+wait 300
+press 1 r 1
+press 2 r 1
+press 3 r 1
+press 4 r 1
+press 5 r 1
+press 6 r 1
+wait 45
+press 1 r 1
+press 2 r 1
+press 3 r 1
+press 4 r 1
+press 5 r 1
+press 6 r 1
+wait 45
+press 1 r 1
+press 2 r 1
+press 3 r 1
+press 4 r 1
+press 5 r 1
+press 6 r 1
+wait 45
+press 1 r 1
+press 2 r 1
+press 3 r 1
+press 4 r 1
+press 5 r 1
+press 6 r 1
+wait 45
+press 1 r 1
+press 2 r 1
+press 3 r 1
+press 4 r 1
+press 5 r 1
+press 6 r 1
+wait 45
+press 1 r 1
+press 2 r 1
+press 3 r 1
+press 4 r 1
+press 5 r 1
+press 6 r 1
+wait 45
+press 1 r 1
+press 2 r 1
+press 3 r 1
+press 4 r 1
+press 5 r 1
+press 6 r 1
+wait 45
+press 1 r 1
+press 2 r 1
+press 3 r 1
+press 4 r 1
+press 5 r 1
+press 6 r 1
+wait 45
+press 1 l 1
+press 2 l 1
+press 3 l 1
+press 4 l 1
+press 5 l 1
+press 6 l 1
+wait 45
+press 1 l 1
+press 2 l 1
+press 3 l 1
+press 4 l 1
+press 5 l 1
+press 6 l 1
+wait 45
+press 1 l 1
+press 2 l 1
+press 3 l 1
+press 4 l 1
+press 5 l 1
+press 6 l 1
+wait 45
+press 1 l 1
+press 2 l 1
+press 3 l 1
+press 4 l 1
+press 5 l 1
+press 6 l 1
+wait 45
+press 1 l 1
+press 2 l 1
+press 3 l 1
+press 4 l 1
+press 5 l 1
+press 6 l 1
+wait 45
+press 1 l 1
+press 2 l 1
+press 3 l 1
+press 4 l 1
+press 5 l 1
+press 6 l 1
+wait 45
+press 1 l 1
+press 2 l 1
+press 3 l 1
+press 4 l 1
+press 5 l 1
+press 6 l 1
+wait 45
+press 1 l 1
+press 2 l 1
+press 3 l 1
+press 4 l 1
+press 5 l 1
+press 6 l 1
+wait 45
+wait 300
