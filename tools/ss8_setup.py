@@ -48,6 +48,8 @@ TITLE = "MKWii 8P Splitscreen Setup"
 # WiiCompiled's own build files sit 200 characters below the folder, near Windows' 260, so the name stays short.
 DEFAULT_ROOT = Path.home() / "Documents" / "MKWii 8 Player"
 WC_MARK = "ss8-installer.sha256"  # in a copy's WiiCompiled Install: the installer it came from, which WiiCompiled does not record
+MODS_NOTE = ("Custom characters or other mods were found in this Retro Rewind ({}). 5-8 players don't have the memory "
+             "for them, so they won't be copied to the 8-player copy. Your own Retro Rewind keeps them.")
 
 
 def picks(picked: str, allowed, flag: str) -> list[str]:
@@ -103,6 +105,10 @@ def rr_problem(i8, release: dict) -> str | None:
         return (f"this SplitScreen8 is built for Retro Rewind {release['rr_version']} ({release['rr_commit']}); "
                 f"that folder has {version} ({commit})")
     return None
+
+
+def rr_mods(i8) -> list[str]:
+    return [name for name in i8.RR_MODS if any(f.is_file() for f in (i8.RR_SRC / name).rglob("*"))]
 
 
 def download(url: str, dest: Path | None = None) -> bytes | None:
@@ -224,6 +230,8 @@ def install(args: argparse.Namespace) -> int:
         sys.exit(f"{root} overlaps your Retro Rewind {mine}: install somewhere else")
     if "rr" in builds and not fetch and (problem := rr_problem(i8, release)):
         sys.exit(problem)
+    if "rr" in builds and (mods := rr_mods(i8)):
+        print(f"[setup] {MODS_NOTE.format(' and '.join(mods))}")
     if "mkw" in builds and "wiicompiled" not in targets and not has_dolphin_tool:
         sys.exit("the Mario Kart Wii build without WiiCompiled reads the disc with DolphinTool.exe, which comes with "
                  "Dolphin: pick your Dolphin.exe")
@@ -242,7 +250,8 @@ def install(args: argparse.Namespace) -> int:
     layouts = {b: i8.Layout(root / BUILDS[b][0], BUILDS[b][1]) for b in builds}
     need = (300 << 20) + RR_FETCH * fetch
     if "rr" in builds and not layouts["rr"].dolphin.exists() and not fetch:
-        need += sum(f.stat().st_size for f in i8.RR_SRC.rglob("*") if f.is_file())
+        need += sum(f.stat().st_size for f in i8.RR_SRC.rglob("*")
+                    if f.is_file() and f.relative_to(i8.RR_SRC).parts[0].casefold() not in map(str.casefold, i8.RR_MODS))
     if "wiicompiled" in targets:
         installed = [(l.wc_install / "install-state.json").exists() for l in layouts.values()]
         upgrades = any(i and not wc_current(l, release) for i, l in zip(installed, layouts.values()))
@@ -337,6 +346,7 @@ def window(args: argparse.Namespace) -> int:
     style.configure("Ok.TLabel", foreground="#1a7f37", font=("Segoe UI", 10, "bold"))
     style.configure("Bad.TLabel", foreground="#cf222e", font=("Segoe UI", 10, "bold"))
     style.configure("Error.TLabel", foreground="#cf222e")
+    style.configure("Warn.TLabel", foreground="#bc4c00")
     f = ttk.Frame(win, padding=(20, 16, 20, 16))
     f.grid(sticky="nsew")
     ttk.Label(f, text=f"MKWii 8P Splitscreen {release['version']}", style="Head.TLabel").grid(row=0, column=0, sticky="w")
@@ -382,6 +392,14 @@ def window(args: argparse.Namespace) -> int:
                 widget.grid()
             else:
                 widget.grid_remove()
+        if key == "rr":
+            # In fetch_box's row, which shows only when this folder cannot be used.
+            mods = [] if probs[key] else rr_mods(i8)
+            mods_note.configure(text=f"⚠ {MODS_NOTE.format(' and '.join(mods))}")
+            if mods:
+                mods_note.grid()
+            else:
+                mods_note.grid_remove()
         bad = probs[key] and not (key == "rr" and fetch_rr.get())
         if key in boxes:
             if bad and key not in dead:
@@ -413,6 +431,8 @@ def window(args: argparse.Namespace) -> int:
                                 variable=fetch_rr, command=lambda: check("rr"))
     fetch_box.grid(row=4 * list(fields).index("rr") + 4, column=1, columnspan=2, sticky="w")
     controls.append(fetch_box)
+    mods_note = ttk.Label(files, style="Warn.TLabel", wraplength=480)
+    mods_note.grid(row=4 * list(fields).index("rr") + 4, column=1, columnspan=2, sticky="w")
 
     def group(row: int, title: str, items) -> None:
         frame = ttk.LabelFrame(f, text=title, padding=(10, 6))

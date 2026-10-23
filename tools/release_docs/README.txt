@@ -162,17 +162,20 @@ GOOD TO KNOW
   move or resize the window during a race, the HUDs and the lines between the
   screens stay where they were until the next race. Size the window before a
   race starts.
-- Extra custom characters and character packs are not recommended. With 5 to 8
-  players the menus have little memory to spare, and the setup copies your Retro
-  Rewind folder as it is, mods included. Too many can leave players 5 to 8 with
-  no character shown on the character page, and skins that will not change.
+- Custom characters and other mods are not supported. With 5 to 8 players the
+  menus have little memory to spare, and mods can leave players 5 to 8 with no
+  character shown on the character page, and skins that will not change. So the
+  setup leaves your Retro Rewind's mod folders, Patches (where Wheel Wizard puts
+  mods) and MyStuff, out of the 8-player copy, and an update removes them from a
+  copy made by 1.0.2 or earlier. Your own Retro Rewind keeps them.
 
 
 THANKS
 ------
 
-Thanks to Duke Inferno's Biggest Fan, on Discord, for reporting the memory leak
-on the character page that 1.0.2 fixes.
+Thanks to Duke Inferno's Biggest Fan, on Discord, for reporting the character
+page's memory problem that 1.0.2 and 1.0.3 fix, and for finding that custom
+characters caused it.
 
 
 LICENCE AND SOURCE

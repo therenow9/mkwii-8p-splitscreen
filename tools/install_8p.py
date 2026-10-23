@@ -96,6 +96,9 @@ DOLPHIN_USER_SRC = Path(ww_config().get("UserFolderPath") or next(
 WW_RIIVO = DOLPHIN_USER_SRC / "Load" / "Riivolution" / "WheelWizard"
 RR_SRC = WW_RIIVO / "RetroRewind6"
 RR_XML_SRC = WW_RIIVO / "riivolution" / "RetroRewind6.xml"
+# A player's mods, never copied: Wheel Wizard fills Patches, which RR loads itself, and a few character packs leave
+# 5-8 players' menus 2 MB short of MEM2. MyStuff is Riivolution's older mod folder.
+RR_MODS = ("Patches", "MyStuff")
 RECOMP_SRC = CT_MKWII / "Recomp"
 # The installed WiiCompiled-Setup.exe has no payload; a fresh install needs the full installer that
 # Wheel Wizard keeps in its cache.
@@ -204,13 +207,15 @@ def copy_file(layout: Layout, src: Path, dst: Path) -> None:
     shutil.copy2(src, dst)
 
 
-def sync_tree(layout: Layout, src: Path, dst: Path, owned_elsewhere: frozenset[str] = frozenset()) -> int:
+def sync_tree(layout: Layout, src: Path, dst: Path, owned_elsewhere: frozenset[str] = frozenset(),
+              left_out: tuple[str, ...] = ()) -> int:
     copied = 0
     for s in src.rglob("*"):
-        if s.is_dir():
+        rel = s.relative_to(src)
+        if s.is_dir() or rel.parts[0].casefold() in map(str.casefold, left_out):
             continue
-        d = dst / s.relative_to(src)
-        if s.relative_to(src).as_posix() in owned_elsewhere and d.exists():
+        d = dst / rel
+        if rel.as_posix() in owned_elsewhere and d.exists():
             continue
         st = s.stat()
         if d.exists() and d.stat().st_size == st.st_size and int(d.stat().st_mtime) == int(st.st_mtime):
@@ -354,7 +359,12 @@ def cmd_prepare(layout: Layout, args) -> None:
         print(f"[prepare] RR copy {RR_SRC} -> {layout.rr}")
         # `code` owns these two once it has run; re-copying them would put release code under its label.
         owned = frozenset({"Binaries/Code.pul", "UI/MenuMulti.szs"})
-        print(f"[prepare]   {sync_tree(layout, RR_SRC, layout.rr, owned)} files copied")
+        print(f"[prepare]   {sync_tree(layout, RR_SRC, layout.rr, owned, RR_MODS)} files copied")
+        for name in RR_MODS:
+            if (layout.rr / name).exists():
+                # A mod file copied read-only would stop rmtree on Windows.
+                shutil.rmtree(guard(layout, layout.rr / name), onexc=lambda f, p, _: (os.chmod(p, 0o666), f(p)))
+                print(f"[prepare]   removed {layout.rr / name}")
         copy_file(layout, RR_XML_SRC, layout.xml)
 
     config = layout.dolphin / "Config"
