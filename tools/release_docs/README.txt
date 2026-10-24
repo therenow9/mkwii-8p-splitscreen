@@ -105,13 +105,24 @@ CONTROLLERS IN WIICOMPILED
 --------------------------
 
 Press F10 to open the controller settings, and assign each controller once to one
-of the eight rows, "Player 1" to "Player 4" and "Wii 1" to "Wii 4", by picking it
-from the row's list. Any kind of controller works in any row, and once they are
-all assigned, the order they are in does not matter. A real Wii Remote can play
-on a Wii row too (F10, Use Wii Remotes).
+of the eight rows, "Player 1" to "Player 8", by picking it from the row's list.
+Any kind of controller works in any row, and once they are all assigned, the order
+they are in does not matter.
 
-A pad on a Wii slot plays as a Classic Controller, with buttons by position. On a
-GameCube controller, that makes X the A button.
+Players 5 to 8 are Wii Remotes to the game. A pad on one of those rows plays as a
+Classic Controller, with buttons by position: on a GameCube controller, that makes
+X the A button.
+
+A real Wii Remote plays as player 5 to 8 too, held sideways or with a Nunchuk or a
+Classic Controller. To pair one, press F10, open "Wii Remote setup (Bluetooth)",
+click "Pair a Wii Remote" and press the red SYNC button under the remote's battery
+cover (1 and 2 together only connects it until you close the game). After that,
+any button connects it. A real Wii Remote plays instead of a pad on the same row.
+F10 also shows a Wii Remote under Player 1 to 4 when that row has no pad: with 1
+to 4 players it can be any player, as on a Wii.
+
+To use a Wii U Pro Controller or a Mayflash DolphinBar as an ordinary pad, untick
+"Use Wii Remotes" in F10 and start the game again.
 
 If a GameCube adapter shows nothing, or the game crashes as it starts:
 
