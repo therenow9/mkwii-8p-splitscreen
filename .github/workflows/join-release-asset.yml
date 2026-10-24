@@ -1,0 +1,54 @@
+# Joins a release asset uploaded in parts (NAME.part01, NAME.part02, ...) into NAME on GitHub's side, for a connection that
+# corrupts large uploads. Run by hand; it checks the joined file against the sha256 given and deletes the parts.
+name: Join release asset
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_id:
+        description: Release id (gh api repos/OWNER/REPO/releases)
+        required: true
+      name:
+        description: Asset name, without the .partNN suffix
+        required: true
+      sha256:
+        description: sha256 of the whole file
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  join:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      ID: ${{ inputs.release_id }}
+      NAME: ${{ inputs.name }}
+      SHA256: ${{ inputs.sha256 }}
+    steps:
+      - name: Download the parts
+        run: |
+          gh api "repos/$REPO/releases/$ID/assets?per_page=100" --jq '.[] | select(.name | startswith(env.NAME + ".part")) | "\(.id) \(.name)"' | sort -k2 > parts.txt
+          test -s parts.txt
+          cat parts.txt
+          while read -r id part; do
+            gh api -H "Accept: application/octet-stream" "repos/$REPO/releases/assets/$id" > "$part"
+          done < parts.txt
+      - name: Join and check
+        run: |
+          cut -d' ' -f2 parts.txt | xargs cat > "$NAME"
+          echo "$SHA256  $NAME" | sha256sum -c -
+      - name: Upload the whole file
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Content-Type: application/zip" \
+            --data-binary @"$NAME" "https://uploads.github.com/repos/$REPO/releases/$ID/assets?name=$NAME" > uploaded.json
+          jq -e '.state == "uploaded"' uploaded.json
+          echo "size $(jq .size uploaded.json), expected $(stat -c %s "$NAME")"
+          test "$(jq .size uploaded.json)" = "$(stat -c %s "$NAME")"
+      - name: Delete the parts
+        run: |
+          while read -r id part; do
+            gh api -X DELETE "repos/$REPO/releases/assets/$id"
+          done < parts.txt
