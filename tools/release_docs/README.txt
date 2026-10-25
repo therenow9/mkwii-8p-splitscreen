@@ -105,20 +105,29 @@ CONTROLLERS IN WIICOMPILED
 --------------------------
 
 Press F10 to open the controller settings, and assign each controller once to one
-of the eight rows, "Player 1" to "Player 8", by picking it from the row's list.
-Any kind of controller works in any row, and once they are all assigned, the order
-they are in does not matter.
+of the eight rows by picking it from the row's list. The row is what the game sees:
+"GameCube 1" to "GameCube 4" are its GameCube controller ports, and "Wii Remote 1"
+to "Wii Remote 4" its Wii Remotes, so up to 4 of each. Any kind of controller works
+in any row. Which player each one plays is the order you join in the game's menus,
+as on a Wii, so any player can use either kind.
 
-Players 5 to 8 are Wii Remotes to the game. A pad on one of those rows plays as a
-Classic Controller, with buttons by position: on a GameCube controller, that makes
-X the A button.
+A GameCube adapter shows up as four controllers with the same name. To find yours,
+hold a button on it while the row's list is open: its entry says "pressing".
 
-A real Wii Remote plays as player 5 to 8 too, held sideways or with a Nunchuk or a
-Classic Controller. To pair one, press F10, open "Wii Remote setup (Bluetooth)",
+A pad on a Wii Remote row plays as a Wii Remote with a Classic Controller, with
+buttons by position unless you change them: on a GameCube controller, that makes X
+the A button.
+
+Each row has its own buttons: pick the row, then "Customize buttons", a GameCube
+layout on the GameCube rows and a Classic Controller layout on the Wii Remote rows.
+A Wii U Pro Controller keeps its own fixed layout.
+
+A real Wii Remote works too, held sideways or with a Nunchuk or a Classic
+Controller. To pair one, press F10, open "Wii Remote setup (Bluetooth)",
 click "Pair a Wii Remote" and press the red SYNC button under the remote's battery
 cover (1 and 2 together only connects it until you close the game). After that,
 any button connects it. A real Wii Remote plays instead of a pad on the same row.
-F10 also shows a Wii Remote under Player 1 to 4 when that row has no pad: with 1
+F10 also shows a Wii Remote under GameCube 1 to 4 when that row has no pad: with 1
 to 4 players it can be any player, as on a Wii.
 
 To use a Wii U Pro Controller or a Mayflash DolphinBar as an ordinary pad, untick
