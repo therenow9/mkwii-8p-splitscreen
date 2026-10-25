@@ -80,7 +80,7 @@ INSTALL
    (images for USB Loader GX). The folder both copies go in is Documents\MKWii 8 Player
    unless you pick another. Then click Install.
 
-4. Wait. A WiiCompiled copy took about 3 minutes to set up on a fast PC, and can
+4. Wait. A WiiCompiled copy took under 2 minutes to set up on a fast PC, and can
    take much longer on a slower one; a Wii image takes a few minutes more. The
    window shows how far WiiCompiled has got. If the setup stops, it says
    why: fix that and click Install again.
