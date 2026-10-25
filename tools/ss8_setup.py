@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import ctypes
+import functools
 import http.client
 import json
 import os
@@ -38,10 +39,13 @@ from tkinter import filedialog, messagebox, ttk
 # name, folder, vanilla, install_8p.py variant (which picks the menu archive's generator)
 BUILDS = {"rr": ("Retro Rewind", False, "ss8"), "mkw": ("Mario Kart Wii", True, "vanilla")}
 TARGETS = ("dolphin", "wiicompiled", "wii")
-WC_NEED = 6 << 30  # a WiiCompiled copy: its install measured 4.9 GB, and the installer wants 2 GiB of scratch
-WII_IMAGE = 6 << 30  # a Wii image kept: the RR one measured 5.1 GB, Mario Kart Wii's 2.6 GB
+WC_COPY = 5 << 30  # a WiiCompiled copy kept: the RR one measured 4.98 GB, Mario Kart Wii's 4.85 GB
+WC_WORK = 23 << 30  # while one builds: its staged payload (2 GiB), then its own check for 5 + 14 + 2 GiB more
+WC_REPAIR = 16 << 30  # while one is repaired: its own check for 14 + 2 GiB
+WII_IMAGE = {"rr": 5 << 30, "mkw": 3 << 30}  # a Wii image kept: the RR one measured 5.1 GB, Mario Kart Wii's 2.6 GB
 WII_WORK = 10 << 30  # one image's work at a time: the disc's files (2.6 GB) beside its ISO (4.7 GB) or the image
-RR_FETCH = 7 << 30  # Retro Rewind's full zip (1.9 GB) unpacked beside it (2.2 GB), then copied into the build
+RR_COPY = 5 << 29  # Retro Rewind kept, as downloaded or as copied into the build: 2.2 GB
+RR_ZIP = 2 << 30  # Retro Rewind's full zip (1.9 GB) beside what it unpacks, until version.txt is written
 RR_SERVER = "https://update.rwfc.net/RetroRewind/"  # Wheel Wizard's; the version and delete lists live here
 RR_ZIPS = "https://cdn.update.rwfc.net/RetroRewind/zip/"
 TITLE = "MKWii 8P Splitscreen Setup"
@@ -199,6 +203,39 @@ def drop_old_installs(i8, layout) -> None:
                 print(f"[setup] {old} was not deleted ({e}); delete it to free about 5 GB")
 
 
+@functools.cache
+def rr_size(src: Path, mods: tuple) -> int:
+    return sum(f.stat().st_size for f in src.rglob("*")
+               if f.is_file() and f.relative_to(src).parts[0].casefold() not in map(str.casefold, mods))
+
+
+def space(i8, release: dict, layouts: dict, targets, fetch: bool) -> tuple[int, int]:
+    """The free space an install needs at its fullest moment, in install()'s order, and what its copies take when done."""
+    held = peak = done = 0  # what this install has added so far, its most during a step, the copies' size
+
+    def step(work: int, kept: int, size: int) -> None:  # work: a step's most at once, what it keeps included
+        nonlocal held, peak, done
+        peak = max(peak, held + work)
+        held += kept
+        done += size
+
+    if fetch:
+        step(RR_ZIP + RR_COPY, RR_COPY, RR_COPY)
+    for b, layout in layouts.items():
+        if b == "rr":  # the Mario Kart Wii copy outside WiiCompiled is a few MB
+            copy = RR_COPY if fetch else rr_size(i8.RR_SRC, i8.RR_MODS)
+            new = 0 if layout.dolphin.exists() else copy
+            step(new, new, copy)
+        if "wiicompiled" in targets:
+            fresh = not (layout.wc_install / "install-state.json").exists()
+            upgrade = not fresh and not wc_current(layout, release)
+            step(WC_WORK if fresh or upgrade else WC_REPAIR, WC_COPY * (fresh or upgrade), WC_COPY)
+            held -= WC_COPY * upgrade  # the old install, dropped once the new one runs
+        if "wii" in targets:
+            step(WII_WORK, WII_IMAGE[b], WII_IMAGE[b])
+    return (300 << 20) + peak, done
+
+
 def install(args: argparse.Namespace) -> int:
     payload, release, i8 = load(args)
     dolphin = i8.dolphin_exe()
@@ -248,16 +285,7 @@ def install(args: argparse.Namespace) -> int:
         if i8.sha256(payload / name) != digest:
             sys.exit(f"{payload / name} is not the file this release shipped: download the release again")
     layouts = {b: i8.Layout(root / BUILDS[b][0], BUILDS[b][1]) for b in builds}
-    need = (300 << 20) + RR_FETCH * fetch
-    if "rr" in builds and not layouts["rr"].dolphin.exists() and not fetch:
-        need += sum(f.stat().st_size for f in i8.RR_SRC.rglob("*")
-                    if f.is_file() and f.relative_to(i8.RR_SRC).parts[0].casefold() not in map(str.casefold, i8.RR_MODS))
-    if "wiicompiled" in targets:
-        installed = [(l.wc_install / "install-state.json").exists() for l in layouts.values()]
-        upgrades = any(i and not wc_current(l, release) for i, l in zip(installed, layouts.values()))
-        need += WC_NEED * (installed.count(False) + upgrades)  # an upgrade drops the old install before the next
-    if "wii" in targets:
-        need += WII_IMAGE * len(layouts) + WII_WORK
+    need, _ = space(i8, release, layouts, targets, fetch)
     existing = next(p for p in (root, *root.parents) if p.exists())
     if shutil.disk_usage(existing).free < need:
         sys.exit(f"{existing} has {shutil.disk_usage(existing).free >> 20} MB free; the setup needs {need >> 20} MB")
@@ -276,7 +304,7 @@ def install(args: argparse.Namespace) -> int:
         i8.cmd_prepare(layout, step)
         plays = {}
         if "wiicompiled" in targets:
-            print(f"[step] {folder}, WiiCompiled (a few minutes)")
+            print(f"[step] {folder}, WiiCompiled (it can take a while: hang tight)")
             # WiiCompiled translates the pack's Code.pul; code then takes the vanilla MenuMulti.szs from the disc it extracted.
             for pul in ["Code.pul"] + (["Loader.pul"] if vanilla else []):
                 i8.copy_file(layout, step.src.with_name(pul), layout.rr / "Binaries" / pul)
@@ -444,10 +472,28 @@ def window(args: argparse.Namespace) -> int:
             ttk.Label(frame, text=note, style="Sub.TLabel").grid(row=i, column=1, sticky="w")
             controls.append(boxes[key])
 
+    def fetching(builds) -> bool:
+        return "rr" in builds and bool(probs.get("rr")) and fetch_rr.get()
+
     def refresh() -> None:
-        ready = (not probs.get("disc") and any(checks[b].get() for b in BUILDS) and any(checks[t].get() for t in TARGETS)
-                 and root_var.get().strip())
+        builds = [b for b in BUILDS if checks[b].get()]
+        targets = [t for t in TARGETS if checks[t].get()]
+        ready = not probs.get("disc") and builds and targets and root_var.get().strip()
         go.state(["!disabled"] if ready else ["disabled"])
+        space_note.configure(text="")
+        if not ready:
+            return
+        try:
+            root = Path(root_var.get().strip()).resolve()
+            need, done = space(i8, release, {b: i8.Layout(root / BUILDS[b][0], BUILDS[b][1]) for b in builds}, targets,
+                               fetching(builds))
+            drive = next(p for p in (root, *root.parents) if p.exists())
+            free = shutil.disk_usage(drive).free
+        except (OSError, SystemExit, StopIteration):
+            return
+        space_note.configure(text=f"Needs about {need / (1 << 30):.0f} GB free on {drive.drive or drive} while installing "
+                                  f"({free / (1 << 30):.0f} GB free now); the copies take about {done / (1 << 30):.0f} GB "
+                                  "when done.", style="Error.TLabel" if free < need else "Sub.TLabel")
 
     group(3, "Builds", [("rr", "Retro Rewind", f"Retro Rewind {release['rr_version']} with SplitScreen8, offline", True),
                         ("mkw", "Mario Kart Wii", "the original game, everything unlocked", True)])
@@ -462,6 +508,8 @@ def window(args: argparse.Namespace) -> int:
     browse = ttk.Button(dest, text="Browse…", command=lambda: (p := filedialog.askdirectory(
         parent=win, initialdir=root_var.get())) and root_var.set(os.path.normpath(p)))
     browse.grid(row=0, column=1)
+    space_note = ttk.Label(dest, style="Sub.TLabel", wraplength=520)
+    space_note.grid(row=1, column=0, columnspan=2, sticky="w", pady=(4, 0))
     controls += [entry, browse]
     root_var.trace_add("write", lambda *_: refresh())
 
@@ -486,14 +534,14 @@ def window(args: argparse.Namespace) -> int:
         cmd = [sys.executable, *([] if getattr(sys, "frozen", False) else [__file__]), "--payload", str(payload)]
         cmd += ["--builds", ",".join(builds), "--targets", ",".join(targets), "--root", str(root), "--yes"]
         cmd += [a for key in fields if field(key) for a in (f"--{key}", field(key))]
-        fetch = "rr" in builds and bool(probs.get("rr")) and fetch_rr.get()
+        fetch = fetching(builds)
         cmd += ["--fetch-rr"] * fetch
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
                                 encoding="utf-8", errors="replace", creationflags=subprocess.CREATE_NO_WINDOW)
         for c in [*controls, go]:
             c.state(["disabled"])
         close.state(["disabled"])
-        state.update(proc=proc, root=root, targets=targets, last="", step=0)
+        state.update(proc=proc, root=root, targets=targets, last="", step=0, what="")
         if "frame" in state:
             state["frame"].destroy()
         prog = state["frame"] = ttk.LabelFrame(f, text="Installing", padding=(10, 6))
@@ -534,7 +582,16 @@ def window(args: argparse.Namespace) -> int:
             if line.startswith("[step] "):
                 state["bar"].configure(value=state["step"])
                 state["step"] += 1
-                state["status"].configure(text=f"Step {state['step']} of {int(state['bar']['maximum'])}: {line[7:]}")
+                state["what"] = f"Step {state['step']} of {int(state['bar']['maximum'])}: {line[7:]}"
+                state["status"].configure(text=state["what"])
+            elif line.startswith('{"type":"progress"'):  # WiiCompiled's installer, run with --progress-json
+                try:
+                    progress = json.loads(line)
+                    percent = min(max(float(progress["percent"]), 0), 100)
+                except (ValueError, KeyError, TypeError):
+                    continue
+                state["bar"].configure(value=state["step"] - 1 + percent / 100)
+                state["status"].configure(text=f"{state['what']}\n{progress.get('message', '')} ({percent:.0f}%)")
         state["text"].see("end")
         win.after(100, poll)
 

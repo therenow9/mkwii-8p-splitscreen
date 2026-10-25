@@ -49,9 +49,12 @@ WHAT YOU NEED
 - To play in Dolphin: Dolphin.
 - Wheel Wizard is optional. With it, the setup fills in your disc, Retro Rewind and
   Dolphin by itself; without it, you pick each with Browse.
-- Disk space: the Retro Rewind copy is about 2.2 GB, each WiiCompiled copy about
-  5 GB, and each Wii image 2.5 to 5 GB; downloading Retro Rewind takes about 4 GB
-  more. The setup checks the space before it starts.
+- Disk space: when done, the Retro Rewind copy takes about 2.2 GB, each WiiCompiled
+  copy about 5 GB, each Wii image 2.5 to 5 GB, and a downloaded Retro Rewind 2.2 GB.
+  While it installs it needs more: WiiCompiled builds each copy with about 23 GB
+  free, and a Wii image needs about 10 GB while it is made. The setup's window
+  shows how much your picks need and how much the drive has, under "Install to",
+  and the setup checks the space before it starts.
 
 Your own Retro Rewind, its saves and online play are never changed. The setup only
 reads them. Each build installs as its own separate copy.
@@ -77,8 +80,13 @@ INSTALL
    (images for USB Loader GX). The folder both copies go in is Documents\MKWii 8 Player
    unless you pick another. Then click Install.
 
-4. Wait. A WiiCompiled copy takes a few minutes to set up, and a Wii image a few more.
-   If the setup stops, it says why: fix that and click Install again.
+4. Wait. A WiiCompiled copy took about 3 minutes to set up on a fast PC, and can
+   take much longer on a slower one; a Wii image takes a few minutes more. The
+   window shows how far WiiCompiled has got. If the setup stops, it says
+   why: fix that and click Install again.
+
+   If it stops moving for more than 15 minutes, close it and run it again: it
+   carries on where it was. A "Cygwin" warning in its details is harmless.
 
 You get one folder per build, "Retro Rewind" and "Mario Kart Wii", inside the
 folder you picked.
@@ -129,6 +137,19 @@ cover (1 and 2 together only connects it until you close the game). After that,
 any button connects it. A real Wii Remote plays instead of a pad on the same row.
 F10 also shows a Wii Remote under GameCube 1 to 4 when that row has no pad: with 1
 to 4 players it can be any player, as on a Wii.
+
+Holding the Wii Remote sideways, and the Nunchuk, need a real Wii Remote. Any other
+controller on a Wii Remote row always plays as a Classic Controller.
+
+Windows gives Xbox-style controllers (XInput) only 4 places, so a 5th and 6th Xbox
+controller may not show up in WiiCompiled at all. Past 4 players, use a GameCube
+adapter (it uses none of those places) or PlayStation or Switch controllers, or mix
+them with up to 4 Xbox controllers. If you only have Xbox controllers, you can try
+an environment variable (Settings > System > About > Advanced system settings >
+Environment Variables, under your user): add SDL_JOYSTICK_RAWINPUT with the value
+1 and start the game again. It lets WiiCompiled's controller library, SDL, see
+more than 4, though the triggers of the 5th and later may not work separately.
+This is SDL's own setting, not tested with this release.
 
 To use a Wii U Pro Controller or a Mayflash DolphinBar as an ordinary pad, untick
 "Use Wii Remotes" in F10 and start the game again.
@@ -197,6 +218,39 @@ GOOD TO KNOW
   setup leaves your Retro Rewind's mod folders, Patches (where Wheel Wizard puts
   mods) and MyStuff, out of the 8-player copy, and an update removes them from a
   copy made by 1.0.2 or earlier. Your own Retro Rewind keeps them.
+- WiiCompiled's graphics thread is off in both builds: with it on, race audio
+  crackles with 4 players and more, and on our PC the frame rate was the same
+  without it. To try it anyway, add gx_worker = true under [video] in the copy's
+  WiiCompiled\UserData\Config.toml.
+
+
+A NOTE FROM THE DEVELOPER ABOUT FUTURE UPDATES
+----------------------------------------------
+
+I'm very happy with how this project has turned out. But this is the last major
+feature update for some time, because I can't keep pace on my own with Retro
+Rewind and WiiCompiled, both made by extraordinary teams and both moving fast.
+
+Retro Rewind is already a memory-hungry pack, and with 8 players on top the game
+runs very close to its limit: some tracks are already greyed out at 5-8 players.
+Retro Rewind is built mostly for one player and some local play, and each of its
+updates changes how it hooks into the game and manages memory, so bringing this
+mod along takes many hours of rework. WiiCompiled is the same: each update can
+bring new glitches and breaks, and needs hours of testing and troubleshooting to
+rule them out. This last WiiCompiled update was meant to take 2 to 3 hours to
+bring in and lightly test; it took more than 12.
+
+Unless one of those projects adopts the mod officially, which I doubt given how
+niche it is, I can't keep up with them alone. So the 8 player mod stays on Retro
+Rewind 6.13.4 and WiiCompiled v0.9.2. I'll still gladly put out a hotfix for any
+game-breaking bug or crash.
+
+And I believe it is complete as it is. Retro Rewind 6.13.4 is feature rich and
+mature: nearly every track from every Mario Kart game, custom tracks, custom
+characters with their own voices, and many extra features and modes. The Mario
+Kart Wii build now runs at 60 fps in Dolphin too, and WiiCompiled runs both builds
+at a smooth 60 fps. Chasing every new version would risk more breakage than it
+would add.
 
 
 THANKS

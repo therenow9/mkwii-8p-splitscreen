@@ -15,6 +15,28 @@ wrote most of the code, build tools, tests and documentation, and did much of th
 my direction and guardrails.  Despite being AI assisted the project was still well over 100 hours of hard work from planning, testing, bug fixes,
 packaging, and release
 
+## A note from the developer about future updates
+
+I'm very happy with how this project has turned out. But this is the last major feature update for some time,
+because I can't keep pace on my own with Retro Rewind and WiiCompiled, both made by extraordinary teams and both
+moving fast.
+
+Retro Rewind is already a memory-hungry pack, and with 8 players on top the game runs very close to its limit: some
+tracks are already greyed out at 5-8 players. Retro Rewind is built mostly for one player and some local play, and
+each of its updates changes how it hooks into the game and manages memory, so bringing this mod along takes many
+hours of rework. WiiCompiled is the same: each update can bring new glitches and breaks, and needs hours of testing
+and troubleshooting to rule them out. This last WiiCompiled update was meant to take 2 to 3 hours to bring in and
+lightly test; it took more than 12.
+
+Unless one of those projects adopts the mod officially, which I doubt given how niche it is, I can't keep up with
+them alone. So the 8 player mod stays on Retro Rewind 6.13.4 and WiiCompiled v0.9.2. I'll still gladly put out a
+hotfix for any game-breaking bug or crash.
+
+And I believe it is complete as it is. Retro Rewind 6.13.4 is feature rich and mature: nearly every track from
+every Mario Kart game, custom tracks, custom characters with their own voices, and many extra features and modes.
+The Mario Kart Wii build now runs at 60 fps in Dolphin too, and WiiCompiled runs both builds at a smooth 60 fps.
+Chasing every new version would risk more breakage than it would add.
+
 ## What it is
 
 MKWii 8P Splitscreen lets 5, 6, 7 or 8 people race on one screen, on
