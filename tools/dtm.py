@@ -76,7 +76,7 @@ def header(layout, polls: int, frames: int) -> bytes:
 
     h = bytearray(HEADER_SIZE)
     h[0x00:0x04] = b"DTM\x1a"
-    h[0x04:0x0a] = b"RMCP01"
+    h[0x04:0x0a] = install_8p.game_id(layout.disc).encode()
     h[0x0a] = 1  # bWii
     h[0x0b] = 0x0f  # GC ports 1-4, no Wii Remotes
     struct.pack_into("<QQ", h, 0x0d, frames, polls * 4)  # frameCount (shown only), inputCount
@@ -151,7 +151,7 @@ def play(args, from_pad_init: bool = False) -> tuple[str, Path]:
     for name, copy in kept.items():
         if (layout.dolphin / name).exists():
             shutil.copytree(layout.dolphin / name, copy)
-    title_data = Path("title") / "00010004" / "524d4350" / "data"
+    title_data = Path("title") / "00010004" / layout.title / "data"
     plain_save = install_8p.slot_root(0, True) / "dtm" / "plain-save"
     shots = layout.root / "shots" / "dtm" / stamp
     stopped = ""

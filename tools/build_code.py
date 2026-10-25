@@ -244,7 +244,7 @@ def main() -> int:
         if src.suffix not in (".cpp", ".S"):
             continue
         rel = src.relative_to(engine).as_posix()
-        if vanilla and not (rel.startswith("SplitScreen8/") or rel == "UI/SameCharacterSelect.cpp"):
+        if vanilla and not (rel.startswith("SplitScreen8/") or rel in ("UI/SameCharacterSelect.cpp", "Dolphin/DolphinIOS.cpp")):
             continue
         obj = BUILD / "PulsarEngine" / src.relative_to(engine).with_suffix(".o")
         objs.append(obj)

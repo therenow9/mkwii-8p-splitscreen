@@ -8,6 +8,18 @@ wait 400
 press 1 a        # license: lost in most runs (the page fades in later than RR's)
 wait 200
 press 1 a        # license
+# Japan's title takes A about 600 frames later
+J: wait 605
+J: press 1 a     # license
+# USA and Japan: slot 0's PAL license has a Mii this console lacks, so the game swaps in a guest Mii first
+EJ: wait 600
+EJ: press 1 a    # Choose a Mii: the selected one
+EJ: wait 535
+EJ: press 1 a    # OK
+EJ: wait 405
+EJ: press 1 a    # the Mii changed
+EJ: wait 405
+EJ: press 1 a    # license
 wait 600         # the game's main menu opens later than RR's
 press 1 right    # main menu: Multiplayer, 2 Players
 wait 60

@@ -4,7 +4,8 @@
 Usage:
   lane.py run VARIANT SCRIPT [SHOT ...] [--out DIR] [--total S] [--fast] [--wiimotes] [--no-build]
               [--keep-settings] [--past-race] [--res N] [--footage]
-  lane.py batch FILE [--out DIR] [--slots N]   one lane per line, each line run's arguments ('#' comments); one report.md
+  lane.py batch FILE [--out DIR] [--slots N] [--first-slot K]   one lane per line, each line run's arguments ('#'
+                                                                  comments); one report.md
 
 VARIANT is ss8-menu, ss8-debug8-menu, or vanilla-menu (Mario Kart Wii without Retro Rewind, on install_8p.py's
 --vanilla root and its slots); SCRIPT a tools/menu_scripts name or a path. Each variant is
@@ -15,7 +16,8 @@ Dolphin exiting, or --total. Players 5-8 press on Classic Controllers, so a scri
 with --wiimotes itself.
 
 --slots N runs the lanes on slots 0..N-1 (install_8p.py --slot K, each made by `prepare`), one lane per slot at a
-time, each slot's windows in its own column of the primary display.
+time, each slot's windows in its own column of the primary display; --first-slot K starts at slot K instead, as for a
+slot prepared from another disc (install_8p.py --slot K --disc FILE prepare).
 
 A lane refuses to install or start while a Dolphin the batch did not start runs (the owner's included), and puts
 its copy's RRGameSettings.pul (the vanilla game's save) back afterwards: RR saves its settings whole, and the vanilla
@@ -82,7 +84,7 @@ def lane(slot: int, tiled: bool, args, out: Path, shots: Path) -> dict:
     layout = install_8p.Layout(install_8p.slot_root(slot, vanilla), vanilla)
     on = ["tools/install_8p.py", "--slot", str(slot)] + (["--vanilla"] if vanilla else [])
     script = script_path(args.script)
-    parsed = install_8p.menu_script(script)
+    parsed = install_8p.menu_script(script, layout.region)
     presses_5_8 = any(port >= 4 for _, port, _, _ in parsed["steps"])
     result = row(out.name, slot)
     # Before anything is written into the slot: on slot 0 that would be under the owner's running 8P game.
@@ -112,7 +114,7 @@ def lane(slot: int, tiled: bool, args, out: Path, shots: Path) -> dict:
         pid = rec
         launched = time.monotonic()
         if tiled:
-            install_8p.place_windows(pid[0], slot)
+            install_8p.place_windows(pid[0], slot % install_8p.TILES)
         log = install_8p.LogTail(layout.dolphin_log)
 
         for n, spec in enumerate(args.shot, 1):
@@ -216,7 +218,9 @@ def main() -> None:
     ap.add_argument("--out", type=Path, help="output folder (default build/lanes/<time>)")
     ap.add_argument("--slots", type=int, default=1, choices=range(1, install_8p.TILES + 1),
                     help="lanes at once, on slots 0..N-1 (default 1)")
+    ap.add_argument("--first-slot", type=int, default=0, help="the slots start at K, not 0")
     known, rest = ap.parse_known_args()
+    slots = range(known.first_slot, known.first_slot + known.slots)
     stamp = time.strftime("%Y%m%d-%H%M%S")
     out = (known.out or ROOT / "build" / "lanes" / stamp).resolve()
     if known.mode == "run":
@@ -230,13 +234,13 @@ def main() -> None:
     for args in lanes:
         install_8p.menu_script(script_path(args.script))
     kinds = sorted({is_vanilla(a.variant) for a in lanes})
-    layouts = {v: [install_8p.Layout(install_8p.slot_root(k, v), v) for k in range(known.slots)] for v in kinds}
-    for layout in (layout for v in kinds for layout in layouts[v]):
+    layouts = {v: {k: install_8p.Layout(install_8p.slot_root(k, v), v) for k in slots} for v in kinds}
+    for layout in (layout for v in kinds for layout in layouts[v].values()):
         if not layout.launch.exists():
             sys.exit(f"[lane] {layout.root} is not prepared: install_8p.py --slot K prepare")
     if why := install_8p.foreign_dolphin():
         sys.exit(f"[lane] {why}")
-    locks = [install_8p.lock_slot(layout) for v in kinds for layout in layouts[v]]
+    locks = [install_8p.lock_slot(layout) for v in kinds for layout in layouts[v].values()]
     try:
         out.mkdir(parents=True, exist_ok=True)
         before = fingerprint()
@@ -271,7 +275,7 @@ def main() -> None:
                 print(report_line(r) + "".join(f"\n   shot {s}" for s in r["shots"]), flush=True)
 
         started = time.monotonic()
-        threads = [threading.Thread(target=worker, args=(k,)) for k in range(known.slots)]
+        threads = [threading.Thread(target=worker, args=(k,)) for k in slots]
         for t in threads:
             t.start()
         for t in threads:
@@ -284,7 +288,7 @@ def main() -> None:
         rows = [r or row(lanes[n].name or script_path(lanes[n].script).stem, -1, "ERROR: no result") for n, r in enumerate(rows)]
         report = ["| lane | slot | result | end | invalid | gpu | steps | s |", "|---|---|---|---|---|---|---|---|",
                   *map(report_line, rows), "", f"Lanes: {wall} s on {known.slots} slot(s)",
-                  *(f"Shots, slot {k}: {layout.root / 'shots' / 'lanes' / out.name}" for v in kinds for k, layout in enumerate(layouts[v])),
+                  *(f"Shots, slot {k}: {layout.root / 'shots' / 'lanes' / out.name}" for v in kinds for k, layout in layouts[v].items()),
                   f"Tree fingerprint before {before}, after {after}"
                   + ("" if before == after else " (CHANGED during the batch: the builds are the first tree's, the later "
                      "lanes' install_8p.py may not be)"),

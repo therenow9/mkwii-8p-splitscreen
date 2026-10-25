@@ -185,7 +185,7 @@ def game_window_open(shot_stdout: str) -> bool:
     repr; only a running game's render window names the game ID. The paths in the same lines hold
     the install root, which itself contains "Mario Kart Wii"."""
     titles = re.findall(r"""^\[shot\] .*  (['"])(.*)\1$""", shot_stdout, re.M)
-    return any("(RMCP01)" in title for _, title in titles)
+    return any(re.search(r"\(RMC[PEJ]01\)", title) for _, title in titles)
 
 
 # Cases share build/'s output directories, each with its own boot defines: a slot builds and installs under this

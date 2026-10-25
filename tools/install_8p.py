@@ -4,7 +4,7 @@
 Everything lives under one root (default: Documents/Modding/Mario Kart Wii  8 Player Splitscreen):
   Dolphin/                      a Dolphin user dir (-u): own NAND, own config, own Riivolution root
   Dolphin/Load/Riivolution/     the single RR copy (RetroRewind6/) and its XML; WiiCompiled uses it too
-  SplitScreen8.json             Dolphin launch descriptor (PAL disc + the copy's XML)
+  SplitScreen8.json             Dolphin launch descriptor (the disc + the copy's XML)
   pads/                         the owner's 8P pad mapping, saved before an unattended launch overrides it
   dolphin.pid                   the pid of the Dolphin that `dolphin` started; `stop` and `shot` use it
   shots/                        `shot`'s PNGs
@@ -177,7 +177,7 @@ class Layout:
         # WiiCompiled's one Pulsar profile reads only the pack's xml/RetroRewind6.xml and section "Retro Rewind"'s Pack
         # (projects/mkwii/recomp.yml), so the vanilla pack's XML is there, which Dolphin's descriptor names too.
         self.xml = self.rr / "xml" / "RetroRewind6.xml" if vanilla else self.riivo / "riivolution" / f"{pack}.xml"
-        self.save = self.riivo / "riivolution" / "save" / ("SplitScreen8" if vanilla else "RetroWFC") / "RMCP" / "rksys.dat"
+        self.save_root = self.riivo / "riivolution" / "save" / ("SplitScreen8" if vanilla else "RetroWFC")
         self.launch = self.root / "SplitScreen8.json"
         self.pid_file = self.root / "dolphin.pid"
         self.dolphin_log = self.dolphin / "Logs" / "dolphin.log"
@@ -188,6 +188,25 @@ class Layout:
         self.wc_runs = self.root / "wc-runs"
         self.backup = self.root / "backup"
         self.snapshot = self.root / "isolation.json"
+
+    @property
+    def disc(self) -> Path:
+        # The disc the copy launches (prepare's), else the chosen one.
+        return game_disc(json.loads(self.launch.read_text(encoding="utf-8"))["base-file"] if self.launch.exists() else None)
+
+    @property
+    def region(self) -> str:
+        return REGIONS[game_id(self.disc)]
+
+    @property
+    def save(self) -> Path:
+        # Riivolution's {$__gameid}{$__region}.
+        return self.save_root / f"RMC{self.region}" / "rksys.dat"
+
+    @property
+    def title(self) -> str:
+        # The disc's NAND title folder (00010004/524d43xx), where the game keeps rksys.dat.
+        return title_id(self.region)
 
 
 def fail(msg: str) -> None:
@@ -259,15 +278,24 @@ def dolphin_exe() -> Path | None:
     return Path(location) if location else None
 
 
-def pal_disc() -> Path:
-    location = DISC or ww_config().get("GameLocation")
+# The discs SplitScreen8 runs on, by game ID: Code.pul and WiiCompiled have no Korean (RMCK01) build.
+REGIONS = {"RMCP01": "P", "RMCE01": "E", "RMCJ01": "J"}
+
+
+def title_id(region: str) -> str:
+    return f"524d43{ord(region):02x}"
+
+
+def game_disc(location: str | None = None) -> Path:
+    location = location or DISC or ww_config().get("GameLocation")
     if not location:
-        fail("no disc image: pick your Mario Kart Wii (PAL), or set it in Wheel Wizard")
+        fail("no disc image: pick your Mario Kart Wii (PAL, USA or Japan), or set it in Wheel Wizard")
     disc = Path(location)
     if not disc.is_file():
         fail(f"the disc does not exist: {disc}")
-    if game_id(disc) != "RMCP01":
-        fail(f"{disc} is {game_id(disc)}, not the PAL RMCP01 this project targets")
+    if game_id(disc) not in REGIONS:
+        fail(f"{disc} is {game_id(disc)}, not a Mario Kart Wii this project runs on: PAL RMCP01, USA RMCE01 or "
+             f"Japan RMCJ01 (Retro Rewind and WiiCompiled have no Korean RMCK01 build)")
     return disc
 
 
@@ -325,8 +353,9 @@ def write_logger_ini(layout: Layout) -> None:
         out.write(f)
 
 
-# The vanilla pack's Riivolution file, from Pulsar's template (PulsarPackCreator/Resources/Base.xml): the PAL DOL and REL
-# hooks into Loader.pul, which loads /Binaries/Code.pul; the save redirected into this root.
+# The vanilla pack's Riivolution file, from Pulsar's template (PulsarPackCreator/Resources/Base.xml): each region's DOL and
+# REL hooks into Loader.pul, which loads /Binaries/Code.pul (another region's original bytes differ, so only the disc's
+# own apply); the save redirected into this root.
 VANILLA_XML = """<wiidisc version="1">
 	<id game="RMC"/>
 	<options>
@@ -341,6 +370,10 @@ VANILLA_XML = """<wiidisc version="1">
 	<patch id="SplitScreen8">
 		<memory offset="0x80242698" value="4BDC1968" original="4e800020"/>
 		<memory offset="0x8000A3F4" value="4bff9c0c" original="4e800020"/>
+		<memory offset="0x802417dc" value="4BDC2824" original="4e800020"/>
+		<memory offset="0x8000A3B4" value="4BFF9C4c" original="4e800020"/>
+		<memory offset="0x802425b8" value="4BDC1A48" original="4e800020"/>
+		<memory offset="0x8000A350" value="4BFF9CB0" original="4e800020"/>
 		<memory valuefile="/SplitScreen8/Binaries/Loader.pul" offset="0x80004000"/>
 		<savegame clone="true" external="/riivolution/save/SplitScreen8/{$__gameid}{$__region}"/>
 		<folder external="/SplitScreen8/Binaries" disc="/Binaries" create="true"/>
@@ -351,7 +384,7 @@ VANILLA_XML = """<wiidisc version="1">
 
 
 def cmd_prepare(layout: Layout, args) -> None:
-    disc = pal_disc()
+    disc = game_disc()
     if layout.vanilla:
         guard(layout, layout.xml).parent.mkdir(parents=True, exist_ok=True)
         layout.xml.write_text(VANILLA_XML, encoding="utf-8")
@@ -426,6 +459,9 @@ def cmd_prepare(layout: Layout, args) -> None:
         save = Path("riivolution") / "save"
         print(f"[prepare]   {sync_tree(layout, main.dolphin / 'Wii', layout.dolphin / 'Wii')} NAND files and "
               f"{sync_tree(layout, main.riivo / save, layout.riivo / save)} save files from slot 0")
+        if layout.save.parent.name != main.save.parent.name:  # a slot on another region's disc: slot 0's license there
+            print(f"[prepare]   {sync_tree(layout, main.save.parent, layout.save.parent)} save files from slot 0's "
+                  f"{main.save.parent.name} into {layout.save.parent.name}")
 
 
 GENERATOR = ROOT / "tools" / "assets" / "gen_charselect_multi.py"
@@ -445,7 +481,7 @@ def generate(gen: Path, argv: list[str]) -> None:
 
 def vanilla_menu_multi(layout: Layout) -> Path:
     """The disc's own Scene/UI/MenuMulti.szs with the generator's controls, cached by the disc's and the tools' identity."""
-    disc = pal_disc()
+    disc = layout.disc
     key = hashlib.sha256(f"{disc}|{disc.stat().st_size}|{disc.stat().st_mtime_ns}".encode())
     for f in [GENERATOR, *sorted((ROOT / "external" / "wuj5").glob("*.py"))]:
         key.update(sha256(f).encode())
@@ -524,9 +560,9 @@ def cmd_code(layout: Layout, args) -> None:
 
 
 WIT = ROOT / "build" / "wit" / "wit.exe"  # the setup's is its payload's (tools/ss8_setup.py)
-# Each build's Wii image: its game ID in USB Loader GX, its save's title, its name.
-WII_IMAGES = {False: ("RMCPS8", "RMS8", "Mario Kart Wii RR - 8 Player Splitscreen"),
-              True: ("RMCPV8", "RMV8", "Mario Kart Wii - 8 Player Splitscreen")}
+# Each build's Wii image: its game ID in USB Loader GX after "RMC" and the disc's region letter, its save's title, its name.
+WII_IMAGES = {False: ("S8", "RMS8", "Mario Kart Wii RR - 8 Player Splitscreen"),
+              True: ("V8", "RMV8", "Mario Kart Wii - 8 Player Splitscreen")}
 RIIVO_ATTRS = {"folder": {"external", "disc", "create", "recursive"}, "file": {"external", "disc", "create"},
                "memory": {"offset", "value", "valuefile", "original"}, "savegame": {"external", "clone"}}
 RIIVO_TRUE = ("true", "1", "yes")  # pugixml's as_bool, which Dolphin's Riivolution parser uses
@@ -534,7 +570,8 @@ RVZ_MAGIC = b"RVZ\x01"  # wit reads ISO, WBFS, WIA, CISO and GCZ, but not Dolphi
 
 
 def wii_image(layout: Layout) -> Path:
-    game, _, name = WII_IMAGES[layout.vanilla]
+    suffix, _, name = WII_IMAGES[layout.vanilla]
+    game = f"RMC{layout.region}{suffix}"
     folder = re.sub(r'[<>:"/\\|?*]', "", name)  # USB Loader GX's wbfs/<title> [<ID>]/<ID>.wbfs, minus what Windows forbids
     return layout.root / "Wii" / "wbfs" / f"{folder} [{game}]" / f"{game}.wbfs"
 
@@ -641,8 +678,9 @@ def bake_riivolution(layout: Layout, work: Path) -> None:
 def cmd_wii(layout: Layout, args) -> None:
     if not (layout.root / "code.json").exists():
         fail("no SplitScreen8 Code.pul in the copy yet; run code first")
-    disc = pal_disc()
-    game, title, name = WII_IMAGES[layout.vanilla]
+    disc = layout.disc
+    suffix, title, name = WII_IMAGES[layout.vanilla]
+    game = f"RMC{layout.region}{suffix}"
     cache = guard(layout, layout.root / "cache" / "wii")
     shutil.rmtree(cache, ignore_errors=True)
     cache.mkdir(parents=True)
@@ -658,9 +696,9 @@ def cmd_wii(layout: Layout, args) -> None:
     if disc.parent == cache:
         disc.unlink()
     bake_riivolution(layout, cache / "work")
-    # RR's own iso-patcher's form: its own disc, ticket and TMD IDs (its own save), boot.bin's region kept.
+    # RR's own iso-patcher's form: its own disc, ticket and TMD IDs (its own save), the disc's own boot ID.
     subprocess.run([str(WIT), "copy", "work", "--DEST", f"image/{game}.wbfs", "--wbfs", "--split", "-q",
-                    "--id", game, "--ticket-id", title, "--tmd-id", title, "--boot-id", "RMCP", "--name", name],
+                    "--id", game, "--ticket-id", title, "--tmd-id", title, "--boot-id", game[:4], "--name", name],
                    cwd=cache, check=True)
     out = guard(layout, wii_image(layout)).parent
     shutil.rmtree(out, ignore_errors=True)
@@ -699,7 +737,7 @@ def rr_enums() -> tuple[dict[str, int], dict[str, int]]:
     return ids, values
 
 
-def menu_script(path: Path) -> dict:
+def menu_script(path: Path, region: str = "P") -> dict:
     """A menu script (tools/menu_scripts/) as the presses, picks, settings and flags MenuScript.cpp reads, and the
     frame its clock ends on. Lines, after '#' comments: "wait FRAMES" moves the clock; "press PORT
     BUTTON[+BUTTON...] [HOLD]" presses on GC port 1-4, or on the Classic Controller of Wii channel 1-4 as port 5-8,
@@ -711,10 +749,15 @@ def menu_script(path: Path) -> dict:
     FRAMES" presses for 5 frames once a second for FRAMES frames and moves the clock past them. "autodrive" gives
     every local's kart to the AI a second into each race, so a lane reaches the results. "setting ID VALUE" sets an
     RR setting at each section load (RR's names: "setting SETTING_KOENABLED KOSETTING_ENABLED"); RR saves its
-    settings whole, so the value reaches the copy's RRGameSettings.pul at its next save."""
+    settings whole, so the value reaches the copy's RRGameSettings.pul at its next save. A line led by region letters
+    and a colon ("EJ: press 1 a") runs only on those discs (REGIONS' P, E, J), "P" when none is given."""
     steps, picks, settings, frame, flags, enums = [], [], [], 0, 0, None
     for n, line in enumerate(path.read_text().splitlines(), 1):
         words = line.split("#", 1)[0].split()
+        if words and words[0].endswith(":") and set(words[0][:-1]) <= set(REGIONS.values()):
+            if region not in words[0]:
+                continue
+            words = words[1:]
         if not words:
             continue
         try:
@@ -769,7 +812,7 @@ def menu_script(path: Path) -> dict:
 
 
 def cmd_script(layout: Layout, args) -> None:
-    s = menu_script(args.file)
+    s = menu_script(args.file, layout.region)
     data = struct.pack(">4I", len(s["steps"]), len(s["picks"]), len(s["settings"]), s["flags"])
     for rows, size, width in ((s["steps"], SCRIPT_STEPS, 4), (s["picks"], SCRIPT_PICKS, 3), (s["settings"], SCRIPT_SETTINGS, 2)):
         data += b"".join(struct.pack(f">{width}I", *row) for row in rows) + bytes(4 * width * (size - len(rows)))
@@ -812,9 +855,10 @@ ClientToScreen = _win(_u32, "ClientToScreen", wintypes.BOOL, wintypes.HWND, ctyp
 GetWindowTextLengthW = _win(_u32, "GetWindowTextLengthW", ctypes.c_int, wintypes.HWND)
 GetWindowTextW = _win(_u32, "GetWindowTextW", ctypes.c_int, wintypes.HWND, wintypes.LPWSTR, ctypes.c_int)
 PostMessageW = _win(_u32, "PostMessageW", wintypes.BOOL, wintypes.HWND, wintypes.UINT, wintypes.WPARAM, wintypes.LPARAM)
+SendMessageTimeoutW = _win(_u32, "SendMessageTimeoutW", wintypes.LPARAM, wintypes.HWND, wintypes.UINT, wintypes.WPARAM,
+                           wintypes.LPARAM, wintypes.UINT, wintypes.UINT, ctypes.POINTER(ctypes.c_size_t))
 EnumChildWindows = _win(_u32, "EnumChildWindows", wintypes.BOOL, wintypes.HWND, WNDENUMPROC, wintypes.LPARAM)
 GetClassNameW = _win(_u32, "GetClassNameW", ctypes.c_int, wintypes.HWND, wintypes.LPWSTR, ctypes.c_int)
-GetDlgCtrlID = _win(_u32, "GetDlgCtrlID", ctypes.c_int, wintypes.HWND)
 IsWindow = _win(_u32, "IsWindow", wintypes.BOOL, wintypes.HWND)
 GetDC = _win(_u32, "GetDC", wintypes.HDC, wintypes.HWND)
 ReleaseDC = _win(_u32, "ReleaseDC", ctypes.c_int, wintypes.HWND, wintypes.HDC)
@@ -851,9 +895,9 @@ SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SM_CXVIRTUALSCREEN, SM_CYVIRTUALSCREEN = 7
 SM_CXSCREEN, SM_CYSCREEN = 0, 1
 SWP_NOZORDER, SWP_NOACTIVATE = 0x4, 0x10
 TILES = 4  # slot windows side by side on the primary display
-WM_COMMAND = 0x0111
 WM_CLOSE = 0x0010
-BN_CLICKED = 0
+BM_CLICK = 0x00F5
+SMTO_ABORTIFHUNG = 2
 
 
 class BITMAPINFOHEADER(ctypes.Structure):
@@ -1008,7 +1052,7 @@ def cmd_dolphin(layout: Layout, args) -> None:
     cmd += ["-m", str(args.movie)] if args.movie else []
     if args.osd:
         cmd += ["-C", "Dolphin.General.ShowFrameCount=True", "-C", "Dolphin.Movie.ShowInputDisplay=True"]
-    cmd += ["-e", str(pal_disc() if args.plain else wii_image(layout) if args.image else layout.launch)]
+    cmd += ["-e", str(layout.disc if args.plain else wii_image(layout) if args.image else layout.launch)]
     proc = subprocess.Popen(cmd)
     created = process_created(proc.pid)
     if created is None:
@@ -1099,7 +1143,7 @@ def screen_copy_blocker(hwnd: int, x: int, y: int, w: int, h: int) -> str | None
         if IsWindowVisible(above) and not cloaked.value and not overlay and not IsIconic(above):
             rc = frame_rect(above)
             if rc.left < x + w and x < rc.right and rc.top < y + h and y < rc.bottom:
-                return f"covered by {window_title(above)!r}"
+                return f"covered by {window_title(above)!a}"
         above = GetWindow(above, GW_HWNDPREV)
     return None
 
@@ -1191,25 +1235,25 @@ def place_windows(pid: int, tile: int) -> None:
         SetWindowPos(hwnd, None, tile * w, 0 if hwnd in render else h, w, h, SWP_NOZORDER | SWP_NOACTIVATE)
 
 
-def save_shots(layout: Layout, pid: int, out: Path, stamp: str) -> tuple[int, int]:
-    """PNG of each visible window of pid into out; returns how many were written and how many refused.
+def save_shots(layout: Layout, pid: int, out: Path, stamp: str, windows: list[int] | None = None) -> tuple[int, int]:
+    """PNG of each visible window of pid (or of windows) into out; returns how many were written and how many refused.
     A window that cannot be captured gets a "[shot] refused" line with its title and no file, never a
     copy of something else."""
     dpi_aware()
     out = guard(layout, out)
     out.mkdir(parents=True, exist_ok=True)
     written = refused = 0
-    for n, hwnd in enumerate(process_windows(pid), 1):
+    for n, hwnd in enumerate(windows or process_windows(pid), 1):
         w, h, bgra, method = capture_window(hwnd)
         if bgra is None:
-            print(f"[shot] refused window {n}  {w}x{h}  {method}  {window_title(hwnd)!r}")
+            print(f"[shot] refused window {n}  {w}x{h}  {method}  {window_title(hwnd)!a}")
             refused += 1
             continue
         rgb = bytearray(w * h * 3)
         rgb[0::3], rgb[1::3], rgb[2::3] = bgra[2::4], bgra[1::4], bgra[0::4]
         path = out / f"{stamp}-{n}.png"
         path.write_bytes(png_bytes(w, h, bytes(rgb)))
-        print(f"[shot] {path}  {w}x{h}  {method}  {window_title(hwnd)!r}")
+        print(f"[shot] {path}  {w}x{h}  {method}  {window_title(hwnd)!a}")
         written += 1
     return written, refused
 
@@ -1424,7 +1468,7 @@ def install_wiicompiled(layout: Layout, installer: Path) -> int:
     backup_shortcuts(layout)
     try:
         return run_setup_exe(installer, ["--silent", "--portable", "--install-dir", str(layout.wc_install),
-                                         "--game", str(pal_disc()), "--retro-dir", str(layout.rr),
+                                         "--game", str(layout.disc), "--retro-dir", str(layout.rr),
                                          *WC_PAYLOAD_FLAGS, "--progress-json"], "setup")
     finally:
         restore_shortcuts(layout)
@@ -1452,7 +1496,7 @@ def upgrade_wiicompiled(layout: Layout, installer: Path) -> int:
         fail(f"{keep} exists: a previous upgrade's rollback copy; move it away first")
     if (layout.backup / "shortcuts.json").exists():
         fail(f"{layout.backup / 'shortcuts.json'} exists: run wiicompiled restore-shortcuts first")
-    pal_disc()  # fails here, before anything moves, rather than inside setup
+    layout.disc  # fails here, before anything moves, rather than inside setup
     stamp = time.strftime("%Y%m%d-%H%M%S")
     saved = guard(layout, layout.backup / f"wc-userdata-{stamp}")
     for f in layout.wc_userdata.iterdir():
@@ -1635,7 +1679,7 @@ def patched_exe(layout: Layout, installed_exe: Path) -> Path:
 
 
 def press_dialog_buttons(dialog: int) -> None:
-    """Sends the dialog the WM_COMMAND a click on each of its buttons would (an MB_OK box has one)."""
+    """Clicks each of the dialog's buttons (an MB_OK box has one)."""
     buttons = []
 
     def visit(hwnd, _lparam):
@@ -1647,7 +1691,7 @@ def press_dialog_buttons(dialog: int) -> None:
 
     EnumChildWindows(dialog, WNDENUMPROC(visit), 0)
     for button in buttons:
-        PostMessageW(dialog, WM_COMMAND, BN_CLICKED << 16 | GetDlgCtrlID(button) & 0xFFFF, button)
+        SendMessageTimeoutW(button, BM_CLICK, 0, 0, SMTO_ABORTIFHUNG, 3000, ctypes.byref(ctypes.c_size_t()))
 
 
 # Starts RetroRewind.exe as --launch-retro does (its own folder as the working directory) after the same
@@ -1685,7 +1729,8 @@ def run_wiicompiled(layout: Layout, installed_exe: Path, seconds: float, shot_ev
     exited = proc.poll()
     how = f"exited {exited}"
     if exited is None:
-        save_shots(layout, proc.pid, runs, f"{stamp}-{int(elapsed):04d}s-end")
+        # With the box up, only the box: v0.9.0's game window stops answering PrintWindow until it is closed.
+        save_shots(layout, proc.pid, runs, f"{stamp}-{int(elapsed):04d}s-end", [box] if box is not None else None)
         if box is not None:
             # The box (a MessageBox) blocks the abort handler before it writes crash_*.txt and the
             # memory dumps, so OK comes first and the dump gets time to finish.
@@ -1769,7 +1814,8 @@ def cmd_wiicompiled(layout: Layout, args) -> None:
 
 def owner_files() -> list[Path]:
     files = [RR_SRC / "Binaries" / "Code.pul", RR_SRC / "UI" / "MenuMulti.szs", RR_XML_SRC,
-             DOLPHIN_USER_SRC / "Wii" / "title" / "00010004" / "524d4350" / "data" / "rksys.dat",
+             *(DOLPHIN_USER_SRC / "Wii" / "title" / "00010004" / title_id(r) / "data" / "rksys.dat"
+               for r in REGIONS.values()),
              RECOMP_SRC / "UserData" / "Config.toml", RECOMP_SRC / "Install" / "install-state.json",
              *shortcut_paths()]
     files += sorted((DOLPHIN_USER_SRC / "Config").glob("*.ini"))
@@ -1802,6 +1848,7 @@ def main() -> None:
     ap.add_argument("--root", type=Path, help="the 8P install root (default: slot 0's)")
     ap.add_argument("--slot", type=int, default=0, help="slot K's root: 0 is the owner's 8P copy, 1+ unattended copies beside it")
     ap.add_argument("--vanilla", action="store_true", help="the root of Mario Kart Wii without Retro Rewind (and its slots)")
+    ap.add_argument("--disc", type=Path, help="a Mario Kart Wii disc image (PAL, USA or Japan) in place of Wheel Wizard's")
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("prepare").set_defaults(fn=cmd_prepare)
     p = sub.add_parser("code")
@@ -1857,6 +1904,8 @@ def main() -> None:
     p.add_argument("action", choices=["snapshot", "verify"])
     p.set_defaults(fn=cmd_isolation)
     args = ap.parse_args()
+    global DISC
+    DISC = args.disc.resolve() if args.disc else DISC
     if args.root is not None and args.slot:
         ap.error("--root and --slot both name the root; pick one")
     args.fn(Layout(args.root or slot_root(args.slot, args.vanilla), args.vanilla), args)

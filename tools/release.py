@@ -255,7 +255,7 @@ def main() -> int:
     work = OUT / "pyinstaller"
     shutil.rmtree(work, ignore_errors=True)
     data = [f"{install_8p.GENERATOR};tools/assets", f"{WUJ5 / 'LICENSE'};external/wuj5",
-            f"{DOCS / 'wii-wheel.ico'};tools/release_docs", f"{DOCS / 'wii-wheel.rgba'};tools/release_docs",
+            f"{DOCS / 'wii-wheel.ico'};tools/release_docs",
             *(f"{p};external/wuj5" for p in sorted(WUJ5.glob("*.py")))]
     subprocess.run([sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--onedir", "--noupx", "--console",
                     "--hide-console", "hide-early", "--icon", str(DOCS / "wii-wheel.ico"), "--name", "MKWii 8P Splitscreen Setup",
