@@ -1,0 +1,147 @@
+# Keep Last's record (Transmission Outside, Drift Keep Last). 2 Players VS: both pick on the drift page, their first
+# since the title; the cup page's B passes the drift page back to the kart page, both confirm and it passes again.
+# Out to the main menu (6 B's from the cup page) and in at 3 Players: the drift page shows, P3 has not chosen; all
+# three pick. Out to the title and in at 2 Players: the drift page shows again. GC ports 1-3.
+setting SETTING_SS8TRANSMISSION SS8TRANSMISSION_OUTSIDE
+setting SETTING_SS8DRIFT SS8DRIFT_KEEPLAST
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 a        # character select
+wait 30
+press 1 a
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 360
+press 1 a        # the drift page: the first pick since the title
+wait 30
+press 2 a
+wait 480         # the cup page
+press 1 b        # back: the drift page passes back to kart select
+wait 480
+press 1 a        # kart select
+wait 30
+press 2 a        # the drift page passes
+wait 480         # the cup page
+press 1 b        # back: the drift page passes back to kart select
+wait 480
+press 1 b
+wait 360
+press 1 b
+wait 360
+press 1 b
+wait 360
+press 1 b
+wait 360
+press 1 b        # the 6th B from the cup page: the main menu
+wait 600
+press 1 up       # Single Player
+wait 60
+press 1 down     # Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 a        # character select
+wait 30
+press 3 a
+wait 30
+press 1 a
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 360
+press 1 a        # the drift page shows: P3 has not chosen
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 480         # the cup page
+press 1 b        # back: the drift page passes back to kart select
+wait 480
+press 1 b
+wait 360
+press 1 b
+wait 360
+press 1 b
+wait 360
+press 1 b
+wait 360
+press 1 b        # the 6th B from the cup page: the main menu
+wait 600
+press 1 b        # back to license select
+wait 360
+press 1 b        # back to the title
+wait 600
+press 1 a        # title
+wait 300
+press 1 a        # license
+wait 300
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 a        # character select
+wait 30
+press 1 a
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 480         # the drift page shows again, held for its shot
+press 1 a        # the drift page: the first pick since the title
+wait 30
+press 2 a
+wait 600         # the cup page

@@ -1,4 +1,4 @@
-# Back from every step of a 5-8 Battle (M4 E4): RR's Battle Teams on, 8 Players, P2-8 join.
+# Back from every step of a 5-8 Battle: RR's Battle Teams on, 8 Players, P2-8 join.
 # BattleModeSelect's B back to the multiplayer menu, Battle again; its Rules page (0x77) and B; Balloon Battle; the character page's P1 B back to
 # BattleModeSelect (the log's "character page -> 0x75"), Balloon again. Team page: P2's B before choosing (nothing),
 # choose, B (unready); P1's B back to the character page. Then each page's P1 B in turn (kart to team, transmission to
@@ -11,19 +11,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

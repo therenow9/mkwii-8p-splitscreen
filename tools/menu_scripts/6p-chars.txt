@@ -1,4 +1,4 @@
-# M4 C4a's character page with 6 players: 6 Players, P2-6 join, VS. P7-8's
+# The character page with 6 players: 6 Players, P2-6 join, VS. P7-8's
 # plates and cursors are hidden; P5 moves right and everyone confirms, then the kart, transmission and drift pages,
 # cup select and a race whose players 0-5 are local and 6-7 CPUs.
 # Launch with install_8p.py dolphin --unattended --wiimotes.
@@ -7,15 +7,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360

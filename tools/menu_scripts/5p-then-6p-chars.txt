@@ -1,4 +1,4 @@
-# PD72's return visit: 5 Players with skins chosen (P5 on Baby Daisy's skins), a VS race quit from the pause menu,
+# A return visit: 5 Players with skins chosen (P5 on Baby Daisy's skins), a VS race quit from the pause menu,
 # then 6 Players and the character page, where every player cycles skins. The 6-player page's "ss8 preview" lines
 # should show P5 and P6 built and no "failed" or "not built". Launch with --wiimotes --past-race.
 wait 900
@@ -6,13 +6,7 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
-wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 180
 press 1 a        # 5 Players
 wait 360

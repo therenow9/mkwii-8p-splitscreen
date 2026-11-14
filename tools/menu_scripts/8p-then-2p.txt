@@ -1,4 +1,4 @@
-# Phase B's reset lane: 8 Players and all eight join, P1 presses OK, backs out of the multiplayer menu
+# A reset lane: 8 Players and all eight join, P1 presses OK, backs out of the multiplayer menu
 # to the join page (its OK/Change page opens again, as vanilla's does) and from it to the main menu;
 # then 2 Players registers as vanilla (P2 on GC port 2), Revise registers P1 and P2 again as vanilla's
 # does, and the multiplayer menu reads "(2P)" with Battle shown.
@@ -8,19 +8,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360
@@ -38,7 +32,7 @@ press 7 a
 wait 120
 press 8 a
 wait 240
-press 1 a        # ConfirmPads opens once all are in (D66): OK, selected first
+press 1 a        # ConfirmPads opens once all are in: OK, selected first
 wait 300
 press 1 b        # multiplayer menu: B back to the join page, all eight still in
 wait 300

@@ -1,4 +1,4 @@
-# RR's offline KO through a 4P series (M5, D201; the 1-4P reference for the pads following the player): KO on, 1
+# RR's offline KO through a 4P series (the 1-4P reference for the pads following the player): KO on, 1
 # out a race, 4 Players, Solo Race, P3 on a skin and another transmission, then autodrive and A on each port in
 # turn, 10 s in every 30 s, through every race, the awards and where the series lands. Each race's "ss8 race player"
 # lines give every local's hud, channel, character and skin, and "ss8 holder" each holder's pad and transmission.
@@ -12,11 +12,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
-wait 40
-press 1 right    # 3 Players
-wait 40
-press 1 right    # 4 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
 wait 40
 press 1 a
 wait 300

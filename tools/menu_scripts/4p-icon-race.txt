@@ -1,15 +1,13 @@
 # Name balloon icons in 4P: all four on Mario; the script steps P1 to skin 3, P2 to 4, P3 to 5 and P4 to 1. P3 and P4 do
-# not reach their skins today (issues inbox, 2026-10-11), so their balloons show Mario's portrait. GC ports 1-4.
+# not reach their skins, so their balloons show Mario's portrait. GC ports 1-4.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
-wait 40
-press 1 right    # 3 Players
-wait 40
-press 1 right    # 4 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
 wait 40
 press 1 a
 wait 300

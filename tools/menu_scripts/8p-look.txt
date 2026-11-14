@@ -1,4 +1,4 @@
-# M4 C4d's render pass for the owner's look at the whole 8-player page (launch with
+# Render pass for a look at the whole 8-player page (launch with
 # install_8p.py dolphin --unattended --wiimotes --gdb and run dolphin_gdb.py serve, so the game runs at about
 # 7 fps and the one-second roulette can be shot): the page as it opens, P2, P6 and P8 on Luigi, four skins on
 # the plates, P5-8 on the Mii row with their Mii previews, then P1's START and all 8 confirmed. Ends on the page.
@@ -7,19 +7,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360
@@ -48,7 +42,7 @@ press 6 down     # P6 from Dry Bowser to Daisy
 wait 30
 press 6 left     # Peach (P4's)
 wait 30
-press 6 left     # Luigi: P2, P6 and P8 on one button, its colours in turn (D79)
+press 6 left     # Luigi: P2, P6 and P8 on one button, its colours in turn
 wait 300
 press 1 r        # skins: P1, P3, P5 and P7 one slot on (RR's toggle), the plates naming them
 wait 20
@@ -82,5 +76,5 @@ press 8 up
 wait 30
 press 8 up
 wait 400
-press 1 start    # the roll: the roulette, then all 8 confirmed (D112)
+press 1 start    # the roll: the roulette, then all 8 confirmed
 wait 900

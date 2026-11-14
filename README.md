@@ -29,10 +29,10 @@ and troubleshooting to rule them out. This last WiiCompiled update was meant to 
 lightly test; it took more than 12.
 
 Unless one of those projects adopts the mod officially, which I doubt given how niche it is, I can't keep up with
-them alone. So the 8 player mod stays on Retro Rewind 6.13.4 and WiiCompiled v0.9.2. I'll still gladly put out a
+them alone. So the 8 player mod stays on Retro Rewind 6.13.5 and WiiCompiled v0.9.4. I'll still gladly put out a
 hotfix for any game-breaking bug or crash.
 
-And I believe it is complete as it is. Retro Rewind 6.13.4 is feature rich and mature: nearly every track from
+And I believe it is complete as it is. Retro Rewind 6.13.5 is feature rich and mature: nearly every track from
 every Mario Kart game, custom tracks, custom characters with their own voices, and many extra features and modes.
 The Mario Kart Wii build now runs at 60 fps in Dolphin too, and WiiCompiled runs both builds at a smooth 60 fps.
 Chasing every new version would risk more breakage than it would add.
@@ -45,7 +45,7 @@ Mario Kart 8 Deluxe's 8-player update. It plays in Dolphin, in
 [WiiCompiled](https://github.com/patchzyy/Wiicompiled), and on a real Wii through USB Loader GX.
 
 **To play, download the zip from the [Releases](../../releases) page** and follow its `README.txt`. You need your own
-Mario Kart Wii disc image, and Retro Rewind 6.13.4 for the Retro Rewind build, which the setup downloads if yours is
+Mario Kart Wii disc image, and Retro Rewind 6.13.5 for the Retro Rewind build, which the setup downloads if yours is
 missing or another version; Wheel Wizard is optional. The setup
 makes everything else from your files. The rest of this page is
 for building from source.
@@ -107,8 +107,8 @@ list.
 
 `SplitScreen8.hpp` holds the shared state and the game addresses two files use.
 
-**Outside the module**, the fork changes or adds 43 files (+759/−94 against upstream `52f23582`;
-`git -C external/rr-pulsar diff --stat 52f23582 HEAD -- . ':!PulsarEngine/SplitScreen8'` lists them): Retro Rewind's
+**Outside the module**, the fork changes or adds 50 files (+952/−104 against upstream `5211cdce`;
+`git -C external/rr-pulsar diff --stat 5211cdce HEAD -- . ':!PulsarEngine/SplitScreen8'` lists them): Retro Rewind's
 per-player arrays widened from 4 to 8, the same-character page, fixes to Retro Rewind's own modes for 5 to 8 players,
 and the symbols the module calls in `GameSource/symbols.txt`.
 
@@ -181,7 +181,7 @@ The Retro Rewind build's title shows its commit, `<rr-pulsar commit>-ss8`.
 ### A development copy
 
 `tools/install_8p.py` makes a separate copy to play and test in, under `Documents/Modding/` by default
-(`--root` moves it). It needs Wheel Wizard with Retro Rewind 6.13.4 (the fork's base) and a PAL, USA or
+(`--root` moves it). It needs Wheel Wizard with Retro Rewind 6.13.5 (the fork's base) and a PAL, USA or
 Japanese disc image (Wheel Wizard's, or `--disc`), and Dolphin for `dolphin`. It only reads those.
 
 ```
@@ -203,7 +203,7 @@ scripted games in Dolphin unattended, with screenshots and logs.
 setup (`tools/ss8_setup.py`) frozen by PyInstaller, WiiCompiled's installer, wit, `LICENSES/` and `SOURCE.txt`. It
 needs:
 - a second venv on a python.org-style CPython 3.12 (not Anaconda's) with `pip install pyinstaller`;
-- Wheel Wizard with Retro Rewind at the fork's base (6.13.4), and rr-pulsar's upstream as a remote, which it checks
+- Wheel Wizard with Retro Rewind at the fork's base (6.13.5), and rr-pulsar's upstream as a remote, which it checks
   against: `git -C external/rr-pulsar remote add upstream https://github.com/Retro-Rewind-Team/rr-pulsar.git`, then
   `git -C external/rr-pulsar fetch upstream`;
 - WiiCompiled's installer built in `external/Wiicompiled` at the commit this repository records: the .NET 8 SDK, then

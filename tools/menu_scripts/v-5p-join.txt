@@ -8,13 +8,7 @@ press 1 a        # license: lost in 4 of 4 runs (the page fades in later than RR
 wait 200
 press 1 a        # license
 wait 600         # the game's main menu opens later than RR's
-press 1 right    # main menu: Multiplayer, 2 Players
-wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 180
 press 1 a        # 5 Players
 wait 600         # the join page opens later than in RR, and an A in its fade-in is lost

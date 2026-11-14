@@ -1,6 +1,6 @@
-# Re-entering after a 5-8 Battle's Quit Game (the 2026-10-15 can't-rejoin line): 6p-battle-quit's team Coin
+# Re-entering after a 5-8 Battle's Quit Game: 6p-battle-quit's team Coin
 # Runners round, Quit Game on BattleEnd (0x23) and Yes (0x2C) to the main menu (section 0x41),
-# then 8 Players: P1-6 kept (D219) and P7-8 joining on Classics no holder has had since boot; OK, Battle and every
+# then 8 Players: P1-6 kept and P7-8 joining on Classics no holder has had since boot; OK, Battle and every
 # player's A on the character page
 # Launch with install_8p.py dolphin --unattended --wiimotes.
 autodrive
@@ -10,15 +10,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 60
 wait 120
 press 1 a        # 6 Players

@@ -1,4 +1,4 @@
-# M4 C4c's Mii row on the 8-player page: 8 Players, P2-8 join, VS, then P5 (Wii
+# The Mii row on the 8-player page: 8 Players, P2-8 join, VS, then P5 (Wii
 # channel 1's Classic) opens MiiSelect from Mii A through input slot 4 while P1 and P6 press (nothing moves),
 # picks the 2nd Mii and is confirmed on it; P6 picks on Mii B; P2 (a game slot) picks the 3rd Mii on Mii A;
 # P7 opens it and backs out with B, then confirms Baby Luigi; the rest confirm drivers, P1 last. Then the
@@ -9,19 +9,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

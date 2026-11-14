@@ -12,12 +12,13 @@ With none of --builds, --targets, --root and --yes the setup opens its window; w
 console, a flag left out taking its default.
 
 Usage:
-  "MKWii 8P Splitscreen Setup.exe" [--builds rr,mkw] [--targets dolphin,wiicompiled,wii] [--root DIR] [--rr DIR] [--fetch-rr] [--disc FILE] [--dolphin EXE] [--yes]
+  "MKWii 8P Splitscreen Setup.exe" [--builds rr,mkw] [--targets dolphin,wiicompiled,wii] [--root DIR] [--rr DIR] [--fetch-rr] [--disc FILE] [--dolphin EXE] [--game-list] [--yes]
   ss8_setup.py --payload DIR ...        from the source tree, with a release's payload/ (tools/release.py)
 """
 from __future__ import annotations
 
 import argparse
+import configparser
 import ctypes
 import functools
 import http.client
@@ -54,6 +55,23 @@ DEFAULT_ROOT = Path.home() / "Documents" / "MKWii 8 Player"
 WC_MARK = "ss8-installer.sha256"  # in a copy's WiiCompiled Install: the installer it came from, which WiiCompiled does not record
 MODS_NOTE = ("Custom characters or other mods were found in this Retro Rewind ({}). 5-8 players don't have the memory "
              "for them, so they won't be copied to the 8-player copy. Your own Retro Rewind keeps them.")
+LIST_NAND = "/SplitScreen8"  # the game list's NAND folder for RR's settings, apart from the player's own Retro Rewind's
+LIST_XML = """<wiidisc version="1">
+	<id game="RMC"/>
+	<options>
+		<section name="SplitScreen8">
+			<option name="Game list">
+				<choice name="Enabled">
+					<patch id="SS8GameList"/>
+				</choice>
+			</option>
+		</section>
+	</options>
+	<patch id="SS8GameList">
+		<file external="/SplitScreen8/ConfigRT.pul" disc="/Binaries/ConfigRT.pul"/>
+	</patch>
+</wiidisc>
+"""
 
 
 def picks(picked: str, allowed, flag: str) -> list[str]:
@@ -97,6 +115,19 @@ def dolphin_problem(dolphin: Path | None) -> str | None:
     if dolphin is None or not dolphin.is_file():
         return f"no Dolphin.exe{f' at {dolphin}' if dolphin else ''}: pick yours, or set Dolphin's location in Wheel Wizard"
     return None
+
+
+def game_folder(i8, disc: Path | None) -> Path | None:
+    """The folder of Dolphin's game list that holds the disc, else its first; None when it lists none."""
+    ini = configparser.ConfigParser(interpolation=None, strict=False)
+    try:
+        ini.read(i8.DOLPHIN_USER_SRC / "Config" / "Dolphin.ini", encoding="utf-8")
+        general = ini["General"] if ini.has_section("General") else {}
+        listed = [Path(general[f"ISOPath{n}"]) for n in range(int(general.get("ISOPaths", 0))) if general.get(f"ISOPath{n}")]
+    except (OSError, ValueError, configparser.Error):
+        return None
+    folders = [p.resolve() for p in listed if p.is_dir()]
+    return next((p for p in folders if disc and disc.resolve().is_relative_to(p)), folders[0] if folders else None)
 
 
 def rr_problem(i8, release: dict) -> str | None:
@@ -203,6 +234,33 @@ def drop_old_installs(i8, layout) -> None:
                 print(f"[setup] {old} was not deleted ({e}); delete it to free about 5 GB")
 
 
+def game_list_entry(i8, layout, name: str, folder: Path | None) -> None:
+    """Dolphin's game-list entry in `folder`, the one file the setup writes outside its root. The RR copy's files it
+    maps in are rewritten at every install, so an entry an earlier install left keeps up with the copy."""
+    descriptor = json.loads(layout.launch.read_text(encoding="utf-8"))
+    descriptor["display-name"] = f"{name} - 8 Player Splitscreen"
+    if not layout.vanilla:
+        # The game list runs in the player's own Dolphin, whose NAND holds their own Retro Rewind's files under the
+        # folder ConfigRT.pul names, so this launch's ConfigRT.pul names another.
+        patched = i8.guard(layout, layout.riivo / "SplitScreen8" / "ConfigRT.pul")
+        patched.parent.mkdir(parents=True, exist_ok=True)
+        patched.write_bytes(i8.config_rt_for(layout.rr / "Binaries" / "ConfigRT.pul", LIST_NAND))
+        xml = i8.guard(layout, layout.riivo / "riivolution" / "SplitScreen8-list.xml")
+        xml.write_text(LIST_XML, encoding="utf-8")
+        descriptor["riivolution"]["patches"].append({
+            "options": [{"choice": 1, "option-name": "Game list", "section-name": "SplitScreen8"}],
+            "root": str(layout.riivo), "xml": str(xml)})
+    if folder is None:
+        return
+    entry = folder / f"{descriptor['display-name']}.json"
+    try:
+        entry.write_text(json.dumps(descriptor, indent=2), encoding="utf-8")
+    except OSError as e:
+        print(f"[setup] {entry} was not written ({e}): start this copy from its Play (Dolphin).cmd")
+        return
+    print(f"[setup] wrote {entry}")
+
+
 @functools.cache
 def rr_size(src: Path, mods: tuple) -> int:
     return sum(f.stat().st_size for f in src.rglob("*")
@@ -263,6 +321,9 @@ def install(args: argparse.Namespace) -> int:
     print(f"disc: {i8.game_disc()}")
     if "dolphin" in targets and (problem := dolphin_problem(dolphin)):
         sys.exit(problem)
+    list_folder = game_folder(i8, i8.game_disc()) if args.game_list else None
+    if args.game_list and ("dolphin" not in targets or list_folder is None):
+        sys.exit("--game-list needs Dolphin, and a game folder in Dolphin's game list (Config > Paths)")
     if "rr" in builds and mine.parent != fetched and (root.is_relative_to(mine) or mine.is_relative_to(root)):
         sys.exit(f"{root} overlaps your Retro Rewind {mine}: install somewhere else")
     if "rr" in builds and not fetch and (problem := rr_problem(i8, release)):
@@ -294,6 +355,8 @@ def install(args: argparse.Namespace) -> int:
         fetch_rr(fetched, release["rr_version"])
         if problem := rr_problem(i8, release):
             sys.exit(f"Retro Rewind's download is not the version this setup needs: {problem}")
+    if "rr" in builds and "dolphin" in targets:
+        i8.config_rt_for(i8.RR_SRC / "Binaries" / "ConfigRT.pul", LIST_NAND)  # stops here, before any copy, if RR's differs
 
     for b in builds:
         folder, vanilla, variant = BUILDS[b]
@@ -305,7 +368,7 @@ def install(args: argparse.Namespace) -> int:
         plays = {}
         if "wiicompiled" in targets:
             print(f"[step] {folder}, WiiCompiled (it can take a while: hang tight)")
-            # WiiCompiled translates the pack's Code.pul; code then takes the vanilla MenuMulti.szs from the disc it extracted.
+            # WiiCompiled translates the pack's Code.pul; code then takes the vanilla MenuMulti.szs and MenuSingle.szs from the disc it extracted.
             for pul in ["Code.pul"] + (["Loader.pul"] if vanilla else []):
                 i8.copy_file(layout, step.src.with_name(pul), layout.rr / "Binaries" / pul)
             if (layout.backup / "shortcuts.json").exists():
@@ -338,9 +401,11 @@ def install(args: argparse.Namespace) -> int:
             line = f'@start "" {command}'.replace("%", "%%")
             play.write_bytes(f"@chcp 65001>nul\r\n{line}\r\n".encode("utf-8"))
             print(f"[setup] wrote {play}")
+        if "dolphin" in targets:
+            game_list_entry(i8, layout, folder, list_folder)
     print(f"\nDone in {root}.")
     if {"dolphin", "wiicompiled"} & set(targets):
-        print("Play from each copy's \"Play (...).cmd\".")
+        print("Play from each copy's \"Play (...).cmd\"" + (", or from Dolphin's game list." if list_folder else "."))
     if "wii" in targets:
         print("On a Wii: copy each copy's Wii/wbfs/ folders into the wbfs folder on USB Loader GX's drive.")
     return 0
@@ -469,8 +534,10 @@ def window(args: argparse.Namespace) -> int:
             checks[key] = tk.BooleanVar(win, value=on)
             boxes[key] = ttk.Checkbutton(frame, text=name, variable=checks[key], width=16, command=refresh)
             boxes[key].grid(row=i, column=0, sticky="w")
-            ttk.Label(frame, text=note, style="Sub.TLabel").grid(row=i, column=1, sticky="w")
+            if note:
+                ttk.Label(frame, text=note, style="Sub.TLabel").grid(row=i, column=1, sticky="w")
             controls.append(boxes[key])
+        return frame
 
     def fetching(builds) -> bool:
         return "rr" in builds and bool(probs.get("rr")) and fetch_rr.get()
@@ -478,6 +545,12 @@ def window(args: argparse.Namespace) -> int:
     def refresh() -> None:
         builds = [b for b in BUILDS if checks[b].get()]
         targets = [t for t in TARGETS if checks[t].get()]
+        folder = game_folder(i8, Path(field("disc")) if field("disc") else None) if "dolphin" in targets else None
+        listing["folder"] = folder
+        if (folder is not None) != listing["on"]:  # ticked each time it becomes available
+            listing["on"] = folder is not None
+            game_list.set(listing["on"])
+        list_box.state(["!disabled"] if listing["on"] else ["disabled"])
         ready = not probs.get("disc") and builds and targets and root_var.get().strip()
         go.state(["!disabled"] if ready else ["disabled"])
         space_note.configure(text="")
@@ -497,9 +570,39 @@ def window(args: argparse.Namespace) -> int:
 
     group(3, "Builds", [("rr", "Retro Rewind", f"Retro Rewind {release['rr_version']} with SplitScreen8, offline", True),
                         ("mkw", "Mario Kart Wii", "the original game, everything unlocked", True)])
-    group(4, "Play in", [("dolphin", "Dolphin", "", True),
-                         ("wiicompiled", "WiiCompiled", "the PC port, about 5 GB a copy", True),
-                         ("wii", "A real Wii", "images for USB Loader GX", False)])
+    play_in = group(4, "Play in", [("dolphin", "Dolphin", "", True),
+                                   ("wiicompiled", "WiiCompiled", "the PC port, about 5 GB a copy", True),
+                                   ("wii", "A real Wii", "images for USB Loader GX", False)])
+    game_list = tk.BooleanVar(win, value=False)
+    listing = {"on": False, "folder": None, "tip": None}
+    list_box = ttk.Checkbutton(play_in, text="Also add to Dolphin's game list", variable=game_list)
+    list_box.grid(row=0, column=1, sticky="w")
+    controls.append(list_box)
+
+    def list_tip_show(_) -> None:
+        list_tip_hide(None)
+        if listing["folder"]:
+            text = (f"Puts a shortcut for each copy in your Dolphin game folder ({listing['folder']}), so you can also "
+                    "start it from Dolphin's game list. Started from there it uses your Dolphin's controller and "
+                    "graphics settings. Retro Rewind keeps its settings in a folder of its own, apart from your own "
+                    "Retro Rewind's.")
+        elif checks["dolphin"].get():
+            text = "Your Dolphin has no game folder. Add one in Dolphin (Config > Paths), then open this setup again."
+        else:
+            text = "Only with Dolphin ticked."
+        tip = listing["tip"] = tk.Toplevel(win)
+        tip.wm_overrideredirect(True)
+        tip.wm_geometry(f"+{list_box.winfo_rootx() + 16}+{list_box.winfo_rooty() + list_box.winfo_height() + 4}")
+        tk.Label(tip, text=text, justify="left", wraplength=420, background="#ffffe1", relief="solid", borderwidth=1,
+                 padx=6, pady=4).pack()
+
+    def list_tip_hide(_) -> None:
+        if listing["tip"] is not None:
+            listing["tip"].destroy()
+            listing["tip"] = None
+
+    list_box.bind("<Enter>", list_tip_show)
+    list_box.bind("<Leave>", list_tip_hide)
     dest = ttk.LabelFrame(f, text="Install to", padding=(10, 6))
     dest.grid(row=5, column=0, sticky="ew", pady=(0, 8))
     root_var = tk.StringVar(win, value=str(DEFAULT_ROOT))
@@ -535,13 +638,13 @@ def window(args: argparse.Namespace) -> int:
         cmd += ["--builds", ",".join(builds), "--targets", ",".join(targets), "--root", str(root), "--yes"]
         cmd += [a for key in fields if field(key) for a in (f"--{key}", field(key))]
         fetch = fetching(builds)
-        cmd += ["--fetch-rr"] * fetch
+        cmd += ["--fetch-rr"] * fetch + ["--game-list"] * game_list.get()
         proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
                                 encoding="utf-8", errors="replace", creationflags=subprocess.CREATE_NO_WINDOW)
         for c in [*controls, go]:
             c.state(["disabled"])
         close.state(["disabled"])
-        state.update(proc=proc, root=root, targets=targets, last="", step=0, what="")
+        state.update(proc=proc, root=root, targets=targets, last="", step=0, what="", game_list=game_list.get())
         if "frame" in state:
             state["frame"].destroy()
         prog = state["frame"] = ttk.LabelFrame(f, text="Installing", padding=(10, 6))
@@ -615,6 +718,8 @@ def window(args: argparse.Namespace) -> int:
         done = [f"Your copies are in {state['root']}."]
         if plays:
             done.append(f"Open a copy's folder and double-click {plays}.")
+        if state["game_list"]:
+            done.append("Each copy is also in Dolphin's game list.")
         if "wii" in state["targets"]:
             done.append("On a Wii: copy each copy's Wii\\wbfs folders into the wbfs folder on your USB Loader GX drive.")
         state["status"].configure(text="\n".join(done))
@@ -650,6 +755,8 @@ if __name__ == "__main__":
                     help="when that Retro Rewind is missing or another version, download the right one into --root")
     ap.add_argument("--disc", type=Path, help="your Mario Kart Wii disc image (PAL, USA or Japan), in place of Wheel Wizard's")
     ap.add_argument("--dolphin", type=Path, help="your Dolphin.exe, in place of Wheel Wizard's")
+    ap.add_argument("--game-list", action="store_true",
+                    help="with dolphin, also put each copy in Dolphin's game list (a .json in its game folder)")
     ap.add_argument("--payload", type=Path, help="the release's payload/ (default: the one beside this setup)")
     ap.add_argument("--yes", action="store_true", help="install in the console with the defaults for what is not given")
     args = ap.parse_args()

@@ -1,4 +1,4 @@
-# M4 C4b's skin toggle for 8: 8 Players, P2-8 join, VS, then RR's L/R on every
+# The skin toggle for 8: 8 Players, P2-8 join, VS, then RR's L/R on every
 # player, the heaviest case for memory: P1-3 on Mario with three skins (RR's own previews for P2 and P3),
 # P4 on Peach, P5 and P6 on Daisy with two skins, P7 on Peach's 4th skin, P8 on Rosalina's last; then P7
 # holds right for 10 s (a model per move), and everyone confirms through to a race whose players 0-7 carry
@@ -8,19 +8,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

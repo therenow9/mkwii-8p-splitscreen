@@ -1,4 +1,4 @@
-# PD59: 8-player character page spam (seeded random): every player cycles skins (R/L), steps the D-pad, confirms
+# 8-player character page spam (seeded random): every player cycles skins (R/L), steps the D-pad, confirms
 # and takes it back in short bursts; whenever all confirm the page leaves and P1's B on the kart page brings
 # everyone back. Then everyone confirms and the game races.
 wait 900
@@ -6,19 +6,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right        # main menu: 2 Players
+press 1 down         # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right        # main menu: 3 Players
+press 1 right        # 6 Players
 wait 60
-press 1 right        # main menu: 4 Players
+press 1 right        # 7 Players
 wait 60
-press 1 right        # main menu: 5 Players
-wait 60
-press 1 right        # main menu: 6 Players
-wait 60
-press 1 right        # main menu: 7 Players
-wait 60
-press 1 right        # main menu: 8 Players
+press 1 right        # 8 Players
 wait 60
 wait 120
 press 1 a        # 8 Players

@@ -1,4 +1,4 @@
-# D72 in 2P: P1 and P2 both on Mario with their own skins, then into a race.
+# 2P: P1 and P2 both on Mario with their own skins, then into a race.
 # P2 joins P1's Mario (P2 gets its own preview model), P1 picks skin 1 on the shared model, P2 skin 2 on
 # its own; P2 confirms first, so only P2's preview takes the confirmed pose. GC ports 1-2.
 wait 900
@@ -6,7 +6,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
 wait 40
 press 1 a
 wait 300

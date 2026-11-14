@@ -1,0 +1,39 @@
+# Select Timer at 15 s, 2P Balloon Battle: the character page confirms both at zero; the game's team page (no clock)
+# and Check Teams are pressed through; then nobody presses, and the multiplayer kart page (0x81, Battle's at 2-4), RR's transmission
+# page and the drift page each confirm everyone's highlighted choice at zero, to the arena cup page. GC ports 1-2.
+setting SETTING_SS8SELECTTIMER SS8SELECTTIMER_15
+setting SETTING_BATTLETEAMS BATTLE_FFA_DISABLED  # RR's free-for-all, which still shows the 1-4 team page
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 120
+press 1 left
+wait 60
+press 1 left
+wait 60
+press 1 left     # 2 Players
+wait 60
+press 1 a
+wait 420
+press 2 a        # controller registration: P2
+wait 300
+press 1 a        # OK
+wait 360
+press 1 down     # multiplayer menu: Battle
+wait 60
+press 1 a
+wait 360
+press 1 a        # Balloon Battle
+wait 1500        # the character page confirms at zero
+press 2 right    # the team page: P2 to Blue
+wait 30
+press 1 a
+wait 20
+press 2 a
+wait 300
+press 1 a        # Check Teams
+wait 30
+wait 4000

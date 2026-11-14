@@ -1,4 +1,4 @@
-# D260 with 6 players and Battle Royale on: 6p-royale's route to the cup page, then 8p-royale-course's cups
+# With 6 players and Battle Royale on: 6p-royale's route to the cup page, then 8p-royale-course's cups
 # (archives above 9.0 MiB greyed: the same buttons there) and Wii U Ribbon Road's variant page, then a race.
 # Launch with install_8p.py dolphin --unattended --wiimotes.
 setting SETTING_KOROYALEENABLED KOROYALESETTING_ENABLED
@@ -8,15 +8,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360

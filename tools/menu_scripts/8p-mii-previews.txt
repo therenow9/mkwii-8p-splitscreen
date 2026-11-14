@@ -1,4 +1,4 @@
-# M4 C4c's P5-8 Mii previews: 8 Players, P2-8 join, VS, then P5-8 move onto the Mii row
+# P5-8 Mii previews: 8 Players, P2-8 join, VS, then P5-8 move onto the Mii row
 # (P5 and P7 Mii A, P6 Mii B, P8 Mii A) and P8 switches between Mii A and B eight times, each a new body with the
 # player's one head moved onto it: the ss8 preview lines give each load's kept bytes and the free MEM1 and MEM2
 # after it, so a leak shows as falling free memory. Ends on the character page.
@@ -8,19 +8,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

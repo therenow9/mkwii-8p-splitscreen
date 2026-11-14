@@ -1,0 +1,29 @@
+# Select Timer at 15 s, 4P VS: P1 confirms a character, P2-4 never press; the game's character, kart, Inside/Outside
+# and drift pages each confirm everyone's highlighted choice at zero, to the cup page. GC ports 1-4.
+setting SETTING_SS8SELECTTIMER SS8SELECTTIMER_15
+wait 900
+press 1 a
+wait 175
+press 1 a
+wait 240
+press 1 down
+wait 120
+press 1 left
+wait 60
+press 1 a
+wait 420
+press 2 a
+wait 150
+press 3 a
+wait 150
+press 4 a
+wait 300
+press 1 a
+wait 360
+press 1 a
+wait 360
+press 1 a
+wait 400
+press 1 a
+wait 30
+wait 4600

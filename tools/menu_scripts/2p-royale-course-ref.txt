@@ -1,4 +1,4 @@
-# The 1-4P reference for D260: 2P with Battle Royale on along 8p-royale-course's cups and variant page; nothing
+# The 1-4P reference for the course pages: 2P with Battle Royale on along 8p-royale-course's cups and variant page; nothing
 # greyed. GC ports 1-2.
 setting SETTING_KOROYALEENABLED KOROYALESETTING_ENABLED
 wait 900
@@ -6,7 +6,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
 wait 40
 press 1 a
 wait 300

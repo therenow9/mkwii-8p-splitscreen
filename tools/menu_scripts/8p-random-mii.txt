@@ -1,4 +1,4 @@
-# M4 C4d's Randomize Combo around MiiSelect: the script opens Mii C. 8 Players,
+# Randomize Combo around MiiSelect: the script opens Mii C. 8 Players,
 # P5 opens MiiSelect from Mii A and P1's START meanwhile does nothing; P5 backs out, then P1's START
 # rolls all 8, never onto Mii C. Launch with install_8p.py dolphin --unattended --wiimotes.
 open-mii-c
@@ -7,19 +7,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360
@@ -57,7 +51,7 @@ press 5 b        # P5 backs out, unconfirmed on Mii A
 wait 240
 press 1 start    # now everyone rolls
 wait 400
-wait 200         # the kart page's roulette confirms everyone (D151), then the transmission page
+wait 200         # the kart page's roulette confirms everyone, then the transmission page
 press 1 a        # transmission page
 wait 20
 press 2 a

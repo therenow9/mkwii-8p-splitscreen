@@ -1,4 +1,4 @@
-# VS settings 0x73 in a 6-player game (M4 D3): 6 Players, P2-6 join, VS, the Rules button
+# VS settings 0x73 in a 6-player game: 6 Players, P2-6 join, VS, the Rules button
 # to VS settings, held for a shot, B, then Solo Race and every page confirmed to the race, whose ss8 context line
 # gives vsRaceCount. Compare with 4p-vs-settings. Launch with install_8p.py dolphin --unattended --wiimotes.
 wait 900
@@ -6,15 +6,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360

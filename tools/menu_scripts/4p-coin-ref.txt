@@ -1,4 +1,4 @@
-# The vanilla reference for team Coin Runners (M4 E1, normal build): as 4p-battle-ref with Coin Runners. GC ports 1-4.
+# The vanilla reference for team Coin Runners (normal build): as 4p-battle-ref with Coin Runners. GC ports 1-4.
 autodrive
 setting SETTING_BATTLETEAMS BATTLE_FFA_ENABLED  # RR's teams: value 1 leaves PULSAR_FFA off (PulsarSystem.cpp)
 wait 900
@@ -6,11 +6,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
+press 1 left     # 4 Players
 wait 60
 wait 120
 press 1 a        # 4 Players

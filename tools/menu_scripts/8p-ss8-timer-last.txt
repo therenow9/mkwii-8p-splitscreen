@@ -1,0 +1,66 @@
+# Select Timer at 15 s, 8P VS: P1 confirms a character, the rest at the zeros, to the cup page; Back to the character
+# page, then P1 and P5 move off on every page and nobody confirms: each zero gives them their last picks.
+# GC ports 1-4, Wii channels 1-4's Classics as ports 5-8.
+setting SETTING_SS8SELECTTIMER SS8SELECTTIMER_15
+wait 900
+press 1 a
+wait 175
+press 1 a
+wait 240
+press 1 down
+wait 120
+press 1 right
+wait 60
+press 1 right
+wait 60
+press 1 right
+wait 60
+press 1 a        # 8 Players
+wait 420
+press 2 a        # registration
+wait 150
+press 3 a
+wait 150
+press 4 a
+wait 150
+press 5 a
+wait 150
+press 6 a
+wait 150
+press 7 a
+wait 150
+press 8 a
+wait 300
+press 1 a        # OK
+wait 360
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 400
+press 1 a        # character page: P1 confirms, the rest at zero
+wait 1000        # the vehicle, transmission and drift pages at their zeros
+wait 3300        # the cup page
+press 1 b        # back to the drift page
+wait 300
+press 1 b        # transmission
+wait 300
+press 1 b        # vehicles
+wait 300
+press 1 b        # characters
+wait 400
+press 1 down     # P1 and P5 off their last picks
+wait 30
+press 5 down
+wait 730         # the zero, then 3 s into the vehicle page: each page lasts 15-16 s
+press 1 right    # vehicle page
+wait 30
+press 5 right
+wait 920
+press 1 up       # transmission page: off the stored second button
+wait 30
+press 5 up
+wait 950
+press 1 up       # drift page
+wait 30
+press 5 up
+wait 1000        # the cup page

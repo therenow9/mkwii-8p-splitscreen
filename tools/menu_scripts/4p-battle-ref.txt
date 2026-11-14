@@ -1,4 +1,4 @@
-# The vanilla reference for team Balloon Battle (M4 E1, normal build): RR's Battle Teams setting on, 4 Players,
+# The vanilla reference for team Balloon Battle (normal build): RR's Battle Teams setting on, 4 Players,
 # Battle, Balloon Battle, every page confirmed (P3 and P4 to Blue), cup and arena, then every round to the last
 # one's landing. The race lines' "team", the "ss8 battle player" scores and the context line (ffa 0). GC ports 1-4.
 autodrive
@@ -8,11 +8,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
+press 1 left     # 4 Players
 wait 60
 wait 120
 press 1 a        # 4 Players

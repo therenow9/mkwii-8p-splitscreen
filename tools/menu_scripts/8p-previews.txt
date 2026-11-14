@@ -1,4 +1,4 @@
-# M4 C4b's previews on the 8-player character page: 8 Players, P2-8 join, VS,
+# The previews on the 8-player character page: 8 Players, P2-8 join, VS,
 # then eight previews; P5 moves onto P1's Mario and confirms (only P5's preview posed), P1 confirms (both),
 # both un-confirm (both idle), then P3 and P7 each hold a direction for 10 s (P7's: a model load per move).
 # Launch with install_8p.py dolphin --unattended --wiimotes. Logs "ss8 menu: step" lines to shoot by.
@@ -7,19 +7,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

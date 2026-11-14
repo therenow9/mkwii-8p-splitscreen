@@ -6,7 +6,7 @@
 
 Into build/release/mkwii-8p-splitscreen-<V>.zip (V defaults to dev-<root commit>):
   MKWii 8P Splitscreen Setup/  tools/ss8_setup.py frozen by PyInstaller (onedir, no UPX), with the menu generator and wuj5
-  payload/rr/Code.pul        the RR build, for the Retro Rewind release on the owner's Wheel Wizard (rr_version, rr_commit)
+  payload/rr/Code.pul        the RR build, for the Retro Rewind release on Wheel Wizard (rr_version, rr_commit)
   payload/mkw/Code.pul, Loader.pul   the --vanilla build and its loader
   payload/WiiCompiled-Setup.exe      WiiCompiled's installer, built in external/Wiicompiled at the root's gitlink
   payload/wit/               wit (Wiimms ISO Tools, GPLv2), which makes the Wii images: its exe, DLLs, licence, and
@@ -69,8 +69,8 @@ CYGWIN_SRC = ("http://ctm.crouchingtigerhiddenfruitbat.org/pub/cygwin/circa/64bi
 CYGWIN_SOURCE = CYGWIN_SRC[0].rsplit("/", 1)[1]
 DOCS = ROOT / "tools" / "release_docs"
 # rr-pulsar files under their own licence, each stated in the file's leading comment block.
-NOTICES = ["KamekInclude/kamek.hpp", "PulsarEngine/Extensions/Cosmos/WUP028.cpp", "PulsarEngine/IO/LooseArchiveOverrides.cpp",
-           "PulsarEngine/Sound/LooseBRSAROverrides.cpp", "PulsarEngine/Network/GPReport.cpp", "PulsarEngine/Network/WiiLink.cpp",
+NOTICES = ["KamekInclude/kamek.hpp", "PulsarEngine/Extensions/Cosmos/WUP028.cpp", "PulsarEngine/IO/Patches.cpp",
+           "PulsarEngine/Sound/BRSARPatches.cpp", "PulsarEngine/Network/GPReport.cpp", "PulsarEngine/Network/WiiLink.cpp",
            "PulsarEngine/Network/RSA.cpp", "PulsarEngine/Network/SHA256.cpp", "PulsarEngine/Network/Ranking.hpp",
            "PulsarEngine/UI/CtrlRaceBase/InputViewer.cpp"]
 
@@ -254,7 +254,7 @@ def main() -> int:
 
     work = OUT / "pyinstaller"
     shutil.rmtree(work, ignore_errors=True)
-    data = [f"{install_8p.GENERATOR};tools/assets", f"{WUJ5 / 'LICENSE'};external/wuj5",
+    data = [f"{install_8p.GENERATOR};tools/assets", f"{install_8p.SAME_GENERATOR};tools/assets", f"{WUJ5 / 'LICENSE'};external/wuj5",
             f"{DOCS / 'wii-wheel.ico'};tools/release_docs",
             *(f"{p};external/wuj5" for p in sorted(WUJ5.glob("*.py")))]
     subprocess.run([sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--onedir", "--noupx", "--console",

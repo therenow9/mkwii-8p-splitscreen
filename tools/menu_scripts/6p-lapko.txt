@@ -1,4 +1,4 @@
-# RR's LapKO in a 6-player VS race (M5, D198): LapKO on (a setting line), then 6 Players, P2-6 join, Solo Race and
+# RR's LapKO in a 6-player VS race: LapKO on (a setting line), then 6 Players, P2-6 join, Solo Race and
 # every page confirmed, then every local's kart to the AI for 3 minutes of the race: the "ss8 context" line reads
 # lapko 1, and the lane's shots catch an elimination. Launch with install_8p.py dolphin --unattended --wiimotes.
 setting SETTING_KOENABLED KOSETTING_LAPBASED
@@ -8,15 +8,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360

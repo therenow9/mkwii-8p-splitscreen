@@ -1,4 +1,4 @@
-# RR's KO through an 8-player series (M5, D198): KO on, 2 out a race, 8 Players, P2-8 join, Solo Race, every page
+# RR's KO through an 8-player series: KO on, 2 out a race, 8 Players, P2-8 join, Solo Race, every page
 # confirmed, cup and course, then autodrive and A on each port in turn, 2 s in every 10 s, through every race, the
 # awards and where the series lands. Each race's "ss8 race player" lines give the locals left and their slots, and
 # "ss8 holder" each holder's pad. Launch with install_8p.py dolphin --unattended --wiimotes.
@@ -11,19 +11,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

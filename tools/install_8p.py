@@ -5,14 +5,14 @@ Everything lives under one root (default: Documents/Modding/Mario Kart Wii  8 Pl
   Dolphin/                      a Dolphin user dir (-u): own NAND, own config, own Riivolution root
   Dolphin/Load/Riivolution/     the single RR copy (RetroRewind6/) and its XML; WiiCompiled uses it too
   SplitScreen8.json             Dolphin launch descriptor (the disc + the copy's XML)
-  pads/                         the owner's 8P pad mapping, saved before an unattended launch overrides it
+  pads/                         the 8P copy's pad mapping and window layout, saved before an unattended launch overrides it
   dolphin.pid                   the pid of the Dolphin that `dolphin` started; `stop` and `shot` use it
   shots/                        `shot`'s PNGs
-  cache/                        `code`'s generated MenuMulti.szs, by a hash of its inputs (the newest 4)
+  cache/                        `code`'s generated MenuMulti.szs and MenuSingle.szs, by a hash of their inputs (the newest 4)
   WiiCompiled/                  a portable WiiCompiled install (portable.txt, Install/, UserData/)
   wc-runs/                      `wiicompiled run`'s stdout/stderr captures and PNGs
 
-The owner's own Retro Rewind, Dolphin and WiiCompiled are only ever read. RR's save lives at the
+The real Retro Rewind, Dolphin and WiiCompiled installs are only ever read. RR's save lives at the
 XML's <savegame external="/riivolution/save/RetroWFC/..."> redirect, which Dolphin resolves against
 the launch descriptor's Riivolution root (WiiCompiled: next to retro_rewind_root), so the save stays
 in this root only because that root is ours. Config files that carry absolute paths (Dolphin.ini's
@@ -20,15 +20,15 @@ NANDRootPath, WiiCompiled's Config.toml) are never copied.
 
 Usage:
   install_8p.py prepare                        copy RR, write the Dolphin user dir and launch file
-  install_8p.py code release|stock|ss8[-debug6|-debug8][-boot]|ss8[-menu]  put that Code.pul (+ MenuMulti.szs) into the copy
+  install_8p.py code release|stock|ss8[-debug6|-debug8][-boot]|ss8[-menu]  put that Code.pul (+ MenuMulti.szs, MenuSingle.szs) into the copy
   install_8p.py script FILE                    pack a menu script into the copy's NAND, where a -menu build reads it at boot
   install_8p.py dolphin [--debugger] [--gdb [PORT]] [--pause-on-panic] [--unattended [--wiimotes] [--res N] [--fast]]
-                [--dump [--footage]]
+                [--dump [--footage]] [--aspect 4:3|16:9]
                                                launch the copy in Dolphin (GDB stub on PORT, default 2345;
                                                --unattended keeps GC ports 1-4 plugged in with no host pad;
                                                --wiimotes also connects Wii Remotes 1-4 with a Classic Controller;
                                                --res sets its internal resolution; --fast runs it at unlimited
-                                               emulation speed, for menu-script lanes, D114)
+                                               emulation speed, for menu-script lanes)
   install_8p.py stop [--timeout S]             force that Dolphin closed by pid (with S: try a graceful close for S seconds first)
   install_8p.py shot [--out DIR]               PNG of each visible window of that Dolphin (default shots/)
   install_8p.py log [--tail N] [--grep REGEX]  print Dolphin/Logs/dolphin.log (earlier runs: dolphin.<time>.log)
@@ -40,18 +40,19 @@ Usage:
                                                (its runtime/ and aurora-main/ changes over the install's commit) into
                                                WiiCompiled/Patched/RetroRewind (after every repair); launch/run --patched
   install_8p.py wii                            the copy as one WBFS for USB Loader GX, in Wii/wbfs/ (dolphin --image boots it)
-  install_8p.py isolation snapshot|verify      hash the owner's real files before / after a run
+  install_8p.py isolation snapshot|verify      hash the real installs' files before / after a run
 
 --vanilla works on a second root beside it (".../Mario Kart Wii  8 Player Splitscreen vanilla", and its slots):
 plain Mario Kart Wii with SplitScreen8 and no Retro Rewind. Its Riivolution pack is SplitScreen8/ (Binaries/ with
-Loader.pul, Code.pul and ss8-menu.bin, UI/MenuMulti.szs generated from the disc's own, and xml/RetroRewind6.xml);
+Loader.pul, Code.pul and ss8-menu.bin, UI/MenuMulti.szs and MenuSingle.szs generated from the disc's own, and
+xml/RetroRewind6.xml);
 its save is seeded once from the 8P copy's. It never reads the RR folder:
   install_8p.py --vanilla prepare | code vanilla[-menu|-boot|-debug6-boot|-debug8-boot] | script FILE | dolphin ... | stop | shot | log
   install_8p.py --vanilla dolphin --plain [--movie FILE.dtm] ...   the plain disc, no pack, its NAND save (tools/dtm.py)
   install_8p.py --vanilla wiicompiled setup|upgrade|repair|run|patch|launch ...   its own portable WiiCompiled, on the pack
 
 Remove the 8P WiiCompiled by deleting this root, never with its --uninstall: that deletes the
-shared desktop and Start menu shortcuts of the owner's own install.
+shared desktop and Start menu shortcuts of the real WiiCompiled install.
 """
 from __future__ import annotations
 
@@ -76,6 +77,8 @@ import xml.etree.ElementTree as ET
 import zlib
 from ctypes import wintypes
 from pathlib import Path
+
+import build_code
 
 # A frozen setup (tools/ss8_setup.py) unpacks the generator and wuj5 under _MEIPASS, at their paths in the tree.
 ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parent.parent))
@@ -133,8 +136,8 @@ PR_TREES = {"pr-a-menu": ROOT / "build" / "rr-pr-a", "pr-menu": ROOT / "build" /
 # Pad, graphics and controller-profile settings only: these hold no paths.
 KEEP_LOGS = 10
 DOLPHIN_CONFIG_COPIES = ["GCPadNew.ini", "WiimoteNew.ini", "GFX.ini", "Profiles"]
-# The owner maps the 8P copy's pads apart from their own Dolphin (owner, 2026-10-07): once the copy
-# has these, prepare seeds only what is missing and keeps the copy's values.
+# The 8P copy maps its pads apart from the main Dolphin: once the copy has these, prepare seeds
+# only what is missing and keeps the copy's values.
 PAD_COPIES = frozenset({"GCPadNew.ini", "WiimoteNew.ini", "Profiles"})
 DOLPHIN_INI_KEEP = {
     "Core": ["SIDevice0", "SIDevice1", "SIDevice2", "SIDevice3", "GFXBackend", "CPUCore", "CPUThread", "DSPHLE"],
@@ -146,7 +149,7 @@ DOLPHIN_INI_PADS = {
              "WiimoteContinuousScanning", "WiimoteControllerInterface", "WiimoteEnableSpeaker"],
     "BluetoothPassthrough": None,
     "Input": ["BackgroundInput"],
-    "SDL_Hints": None,  # which host-pad backends list the owner's controllers
+    "SDL_Hints": None,  # which host-pad backends list the controllers
 }
 SHORTCUT_NAME = "wiicompiled (base) (beta).lnk"
 INVALID = re.compile(r"Invalid (?:read|write) .*?PC = (0x[0-9a-f]+)")
@@ -155,7 +158,7 @@ GPU_FIFO = re.compile(r"GFX FIFO: Unknown Opcode \((0x[0-9a-f]+)")
 
 
 def slot_root(slot: int, vanilla: bool = False) -> Path:
-    """Slot 0 is the owner's 8P copy; slot K a full copy beside it for parallel unattended lanes, made by prepare."""
+    """Slot 0 is the main 8P copy; slot K a full copy beside it for parallel unattended lanes, made by prepare."""
     base = DEFAULT_INSTALL_ROOT.with_name(DEFAULT_INSTALL_ROOT.name + (" vanilla" if vanilla else ""))
     return base if slot == 0 else base.with_name(f"{base.name} slot {slot}")
 
@@ -164,11 +167,11 @@ class Layout:
     def __init__(self, root: Path, vanilla: bool = False):
         self.root = root.resolve()
         self.vanilla = vanilla
-        # guard() trusts the root, so a root inside or around the owner's folders would let every
+        # guard() trusts the root, so a root inside or around the real install folders would let every
         # write through.
         for owner in (DOLPHIN_USER_SRC.resolve(), CT_MKWII.resolve()):
             if self.root.is_relative_to(owner) or owner.is_relative_to(self.root):
-                fail(f"--root {self.root} overlaps the owner's {owner}")
+                fail(f"--root {self.root} overlaps the real install {owner}")
         self.dolphin = self.root / "Dolphin"
         self.riivo = self.dolphin / "Load" / "Riivolution"
         # The Riivolution pack: the RR copy, or the vanilla build's own.
@@ -378,6 +381,7 @@ VANILLA_XML = """<wiidisc version="1">
 		<savegame clone="true" external="/riivolution/save/SplitScreen8/{$__gameid}{$__region}"/>
 		<folder external="/SplitScreen8/Binaries" disc="/Binaries" create="true"/>
 		<file external="/SplitScreen8/UI/MenuMulti.szs" disc="/Scene/UI/MenuMulti.szs"/>
+		<file external="/SplitScreen8/UI/MenuSingle.szs" disc="/Scene/UI/MenuSingle.szs"/>
 	</patch>
 </wiidisc>
 """
@@ -391,7 +395,7 @@ def cmd_prepare(layout: Layout, args) -> None:
     else:
         print(f"[prepare] RR copy {RR_SRC} -> {layout.rr}")
         # `code` owns these two once it has run; re-copying them would put release code under its label.
-        owned = frozenset({"Binaries/Code.pul", "UI/MenuMulti.szs"})
+        owned = frozenset({"Binaries/Code.pul", "UI/MenuMulti.szs", "UI/MenuSingle.szs"})
         print(f"[prepare]   {sync_tree(layout, RR_SRC, layout.rr, owned, RR_MODS)} files copied")
         for name in RR_MODS:
             if (layout.rr / name).exists():
@@ -465,11 +469,15 @@ def cmd_prepare(layout: Layout, args) -> None:
 
 
 GENERATOR = ROOT / "tools" / "assets" / "gen_charselect_multi.py"
+SAME_GENERATOR = ROOT / "tools" / "assets" / "gen_same_button.py"
+# Each menu archive's generators, run in turn; MenuSingle.szs holds the 1P menus' buttons. The second imports helpers
+# from the first, so a cache key hashes both.
+SS8_CHAINS = {"MenuMulti.szs": [GENERATOR, SAME_GENERATOR], "MenuSingle.szs": [SAME_GENERATOR]}
 
 
 def generate(gen: Path, argv: list[str]) -> None:
     # Ours runs in process, since a frozen setup's sys.executable is the setup; a PR tree's in this Python, as RR runs it.
-    if gen != GENERATOR:
+    if gen not in (GENERATOR, SAME_GENERATOR):
         subprocess.run([sys.executable, str(gen), *argv], check=True)
         return
     spec = importlib.util.spec_from_file_location(gen.stem, gen)
@@ -479,25 +487,28 @@ def generate(gen: Path, argv: list[str]) -> None:
         fail(f"{gen.name} {' '.join(argv)} failed")
 
 
-def vanilla_menu_multi(layout: Layout) -> Path:
-    """The disc's own Scene/UI/MenuMulti.szs with the generator's controls, cached by the disc's and the tools' identity."""
+def vanilla_menu(layout: Layout, name: str) -> Path:
+    """The disc's own Scene/UI/<name> with its generators' members, cached by the disc's and the tools' identity."""
     disc = layout.disc
     key = hashlib.sha256(f"{disc}|{disc.stat().st_size}|{disc.stat().st_mtime_ns}".encode())
-    for f in [GENERATOR, *sorted((ROOT / "external" / "wuj5").glob("*.py"))]:
+    for f in [*SS8_CHAINS[name], GENERATOR, *sorted((ROOT / "external" / "wuj5").glob("*.py"))]:
         key.update(sha256(f).encode())
-    cached = guard(layout, layout.root / "cache" / f"MenuMulti-{key.hexdigest()[:16]}.szs")
+    cached = guard(layout, layout.root / "cache" / f"{Path(name).stem}-{key.hexdigest()[:16]}.szs")
     if not cached.exists():
         # WiiCompiled's setup extracts the whole disc into its install; without it, DolphinTool takes the one file.
-        menu = layout.wc_install / "GameAssets" / "DATA" / "files" / "Scene" / "UI" / "MenuMulti.szs"
+        menu = layout.wc_install / "GameAssets" / "DATA" / "files" / "Scene" / "UI" / name
         work = guard(layout, layout.root / "cache" / "disc")
         shutil.rmtree(work, ignore_errors=True)
         cached.parent.mkdir(exist_ok=True)
         if not menu.exists():
             tool = dolphin_exe().with_name("DolphinTool.exe")
-            subprocess.run([str(tool), "extract", "-i", str(disc), "-g", "-s", "Scene/UI/MenuMulti.szs", "-o", str(work), "-q"], check=True)
-            menu = work / "DATA" / "files" / "Scene" / "UI" / "MenuMulti.szs"
+            subprocess.run([str(tool), "extract", "-i", str(disc), "-g", "-s", f"Scene/UI/{name}", "-o", str(work), "-q"], check=True)
+            menu = work / "DATA" / "files" / "Scene" / "UI" / name
         partial = cached.with_name(cached.stem + ".partial.szs")
-        generate(GENERATOR, [str(menu), str(partial)])
+        source = menu
+        for gen in SS8_CHAINS[name]:
+            generate(gen, [str(source), str(partial)])
+            source = partial
         shutil.rmtree(work, ignore_errors=True)
         os.replace(partial, cached)
     return cached
@@ -513,47 +524,57 @@ def cmd_code(layout: Layout, args) -> None:
         fail("no copy yet; run prepare first")
     copy_file(layout, src, layout.rr / "Binaries" / "Code.pul")
     if layout.vanilla:
+        if "/Scene/UI/MenuSingle.szs" not in layout.xml.read_text(encoding="utf-8"):
+            fail(f"{layout.xml} predates its MenuSingle.szs line, which the character page's hint needs; run prepare again")
         copy_file(layout, src.with_name("Loader.pul"), layout.rr / "Binaries" / "Loader.pul")
-        cached = vanilla_menu_multi(layout)
-        print(f"[code] MenuMulti.szs from {cached.name}")
-        copy_file(layout, cached, layout.rr / "UI" / "MenuMulti.szs")
-        state = {"variant": args.variant, "Code.pul": sha256(layout.rr / "Binaries" / "Code.pul"),
-                 "MenuMulti.szs": sha256(cached)}
+        state = {"variant": args.variant, "Code.pul": sha256(layout.rr / "Binaries" / "Code.pul")}
+        for name in SS8_CHAINS:
+            cached = vanilla_menu(layout, name)
+            print(f"[code] {name} from {cached.name}")
+            copy_file(layout, cached, layout.rr / "UI" / name)
+            state[name] = sha256(cached)
         guard(layout, layout.root / "code.json").write_text(json.dumps(state, indent=2), encoding="utf-8")
         for k, v in state.items():
             print(f"[code] {k}: {v}")
         return
 
-    menu_src = RR_SRC / "UI" / "MenuMulti.szs"
-    menu_dst = guard(layout, layout.rr / "UI" / "MenuMulti.szs")
     replaced = layout.rr / "Assets" / "ReplacedAssets.szs"  # the overlay the 8P game mounts
     wuj5 = ROOT / "external" / "wuj5"
     if args.variant.startswith("ss8"):
-        gen, extra = GENERATOR, []
+        chains = {name: [(gen, []) for gen in gens] for name, gens in SS8_CHAINS.items()}
     elif args.variant in PR_TREES:
-        gen, extra = PR_TREES[args.variant] / "scripts" / "gen_charselect_multi.py", ["--wuj5", str(wuj5)]
+        pr = PR_TREES[args.variant] / "scripts" / "gen_charselect_multi.py"
+        chains = {"MenuMulti.szs": [(pr, ["--wuj5", str(wuj5)])], "MenuSingle.szs": []}
     else:
-        gen = None
-    if gen is None:
-        copy_file(layout, menu_src, menu_dst)
-    else:
-        # The generator is most of a lane's install, and its output depends only on these files.
+        chains = {"MenuMulti.szs": [], "MenuSingle.szs": []}
+    state = {"variant": args.variant, "Code.pul": sha256(layout.rr / "Binaries" / "Code.pul")}
+    for name, chain in chains.items():
+        menu_src = RR_SRC / "UI" / name
+        menu_dst = guard(layout, layout.rr / "UI" / name)
+        if not chain:
+            copy_file(layout, menu_src, menu_dst)
+            state[name] = sha256(menu_dst)
+            continue
+        # The generators are most of a lane's install, and their output depends only on these files.
         key = hashlib.sha256()
-        for f in [gen, menu_src, replaced, *sorted(wuj5.glob("*.py"))]:
+        for f in [*(gen for gen, _ in chain), GENERATOR, menu_src, replaced, *sorted(wuj5.glob("*.py"))]:
             key.update(sha256(f).encode())
-        cached = guard(layout, layout.root / "cache" / f"MenuMulti-{key.hexdigest()[:16]}.szs")
+        stem = Path(name).stem
+        cached = guard(layout, layout.root / "cache" / f"{stem}-{key.hexdigest()[:16]}.szs")
         if not cached.exists():
             cached.parent.mkdir(exist_ok=True)
             partial = cached.with_name(cached.stem + ".partial.szs")
-            generate(gen, [*extra, str(menu_src), str(replaced), str(partial)])
+            source = menu_src
+            for gen, extra in chain:
+                generate(gen, [*extra, str(source), str(replaced), str(partial)])
+                source = partial
             os.replace(partial, cached)
-            for old in sorted(cached.parent.glob("MenuMulti-*.szs"), key=lambda p: p.stat().st_mtime)[:-4]:
+            for old in sorted(cached.parent.glob(f"{stem}-*.szs"), key=lambda p: p.stat().st_mtime)[:-4]:
                 guard(layout, old).unlink()
-        print(f"[code] MenuMulti.szs from {cached.name}")
+        print(f"[code] {name} from {cached.name}")
         copy_file(layout, cached, menu_dst)
+        state[name] = sha256(menu_dst)
 
-    state = {"variant": args.variant, "Code.pul": sha256(layout.rr / "Binaries" / "Code.pul"),
-             "MenuMulti.szs": sha256(menu_dst)}
     guard(layout, layout.root / "code.json").write_text(json.dumps(state, indent=2), encoding="utf-8")
     for k, v in state.items():
         print(f"[code] {k}: {v}")
@@ -663,16 +684,22 @@ def bake_riivolution(layout: Layout, work: Path) -> None:
         struct.pack_into(">I", dol, 0x48 + 4 * slot, 0x800017D8)
         struct.pack_into(">I", dol, 0x90 + 4 * slot, 4)
         dol += struct.pack(">I", 1)
-        # ConfigRT.pul's header names the NAND folder Pulsar keeps those settings in, apart from RR's image's.
+        # The NAND folder for those settings, apart from RR's image's.
         conf = files / "Binaries" / "ConfigRT.pul"
-        data = bytearray(conf.read_bytes())
-        if data[0x14:0x22].rstrip(b"\0") != b"/RetroRewind6":
-            fail(f"{conf}'s mod folder is {data[0x14:0x22]!r}, not /RetroRewind6")
-        data[0x14:0x22] = b"/SS8RR".ljust(14, b"\0")
+        data = config_rt_for(conf, "/SS8RR")
         conf.unlink()
         conf.write_bytes(data)
     dol_path.write_bytes(dol)
     print(f"[wii] {linked} files placed, {missing} of the XML's paths absent from the copy")
+
+
+def config_rt_for(conf: Path, folder: str) -> bytes:
+    """RR's ConfigRT.pul naming another NAND folder (13 characters at most) for Pulsar's settings, trophies and ghosts."""
+    data = bytearray(conf.read_bytes())
+    if data[0x14:0x22].rstrip(b"\0") != b"/RetroRewind6":
+        fail(f"{conf}'s mod folder is {data[0x14:0x22]!r}, not /RetroRewind6")
+    data[0x14:0x22] = folder.encode("ascii").ljust(14, b"\0")
+    return bytes(data)
 
 
 def cmd_wii(layout: Layout, args) -> None:
@@ -749,9 +776,10 @@ def menu_script(path: Path, region: str = "P") -> dict:
     FRAMES" presses for 5 frames once a second for FRAMES frames and moves the clock past them. "autodrive" gives
     every local's kart to the AI a second into each race, so a lane reaches the results. "setting ID VALUE" sets an
     RR setting at each section load (RR's names: "setting SETTING_KOENABLED KOSETTING_ENABLED"); RR saves its
-    settings whole, so the value reaches the copy's RRGameSettings.pul at its next save. A line led by region letters
+    settings whole, so the value reaches the copy's RRGameSettings.pul at its next save. "saved-rows" leaves the 8 Players
+    page's five rows as saved, which cmd_script otherwise puts on Choose, Choose, Off, Screen Labels On and Same as Last Time On where a script does not set them. A line led by region letters
     and a colon ("EJ: press 1 a") runs only on those discs (REGIONS' P, E, J), "P" when none is given."""
-    steps, picks, settings, frame, flags, enums = [], [], [], 0, 0, None
+    steps, picks, settings, frame, flags, enums, saved_rows = [], [], [], 0, 0, None, False
     for n, line in enumerate(path.read_text().splitlines(), 1):
         words = line.split("#", 1)[0].split()
         if words and words[0].endswith(":") and set(words[0][:-1]) <= set(REGIONS.values()):
@@ -789,6 +817,9 @@ def menu_script(path: Path, region: str = "P") -> dict:
             if words == ["autodrive"]:
                 flags |= SCRIPT_AUTODRIVE
                 continue
+            if words == ["saved-rows"]:
+                saved_rows = True
+                continue
             if words[0] == "setting" and len(words) == 3:
                 ids, values = enums = enums or rr_enums()
                 settings.append((ids[words[1]], values[words[2]]))
@@ -802,17 +833,27 @@ def menu_script(path: Path, region: str = "P") -> dict:
         except (ValueError, KeyError):
             pass
         sys.exit(f"{path}:{n}: expected 'wait FRAMES', 'press PORT BUTTON[+BUTTON] [HOLD]', 'unplug PORT FRAMES', "
-                 f"'mash PORT BUTTON FRAMES', 'pick PLAYER CHARACTER KART', 'open-mii-c', 'autodrive' or "
+                 f"'mash PORT BUTTON FRAMES', 'pick PLAYER CHARACTER KART', 'open-mii-c', 'autodrive', 'saved-rows' or "
                  f"'setting ID VALUE' (RR's names): {line!r}")
     if not steps:
         sys.exit(f"{path}: no press lines")
     if len(steps) > SCRIPT_STEPS or len(picks) > SCRIPT_PICKS or len(settings) > SCRIPT_SETTINGS:
         sys.exit(f"{path}: over MenuScript.cpp's {SCRIPT_STEPS} steps, {SCRIPT_PICKS} picks or {SCRIPT_SETTINGS} settings")
-    return {"steps": steps, "picks": picks, "settings": settings, "flags": flags, "end": frame}
+    return {"steps": steps, "picks": picks, "settings": settings, "flags": flags, "end": frame, "saved_rows": saved_rows}
 
 
 def cmd_script(layout: Layout, args) -> None:
     s = menu_script(args.file, layout.region)
+    # Every script before the 8 Players page walks the transmission and drift pages, untimed, with screen labels and
+    # Same as Last Time.
+    ids, values = rr_enums()
+    for name, value in (("SETTING_SS8TRANSMISSION", "SS8TRANSMISSION_CHOOSE"), ("SETTING_SS8DRIFT", "SS8DRIFT_CHOOSE"),
+                        ("SETTING_SS8SELECTTIMER", "SS8SELECTTIMER_OFF"), ("SETTING_SS8SCREENLABELS", "SS8SCREENLABELS_ON"),
+                        ("SETTING_SS8SAMELAST", "SS8SAMELAST_ON")):
+        if not s["saved_rows"] and all(setting != ids[name] for setting, _ in s["settings"]):
+            s["settings"].append((ids[name], values[value]))
+    if len(s["settings"]) > SCRIPT_SETTINGS:
+        sys.exit(f"{args.file}: over MenuScript.cpp's {SCRIPT_SETTINGS} settings with the 8 Players rows")
     data = struct.pack(">4I", len(s["steps"]), len(s["picks"]), len(s["settings"]), s["flags"])
     for rows, size, width in ((s["steps"], SCRIPT_STEPS, 4), (s["picks"], SCRIPT_PICKS, 3), (s["settings"], SCRIPT_SETTINGS, 2)):
         data += b"".join(struct.pack(f">{width}I", *row) for row in rows) + bytes(4 * width * (size - len(rows)))
@@ -875,6 +916,23 @@ GetWindowRect = _win(_u32, "GetWindowRect", wintypes.BOOL, wintypes.HWND, ctypes
 GetWindowLongW = _win(_u32, "GetWindowLongW", wintypes.LONG, wintypes.HWND, ctypes.c_int)
 IsIconic = _win(_u32, "IsIconic", wintypes.BOOL, wintypes.HWND)
 GetSystemMetrics = _win(_u32, "GetSystemMetrics", ctypes.c_int, ctypes.c_int)
+
+
+class MONITORINFO(ctypes.Structure):
+    _fields_ = [("cbSize", wintypes.DWORD), ("rcMonitor", wintypes.RECT), ("rcWork", wintypes.RECT),
+                ("dwFlags", wintypes.DWORD)]
+
+
+MonitorFromPoint = _win(_u32, "MonitorFromPoint", wintypes.HMONITOR, wintypes.POINT, wintypes.DWORD)
+GetMonitorInfoW = _win(_u32, "GetMonitorInfoW", wintypes.BOOL, wintypes.HMONITOR, ctypes.POINTER(MONITORINFO))
+MONITOR_DEFAULTTOPRIMARY = 1
+MONITORINFOF_PRIMARY = 1
+MONITORENUMPROC = ctypes.WINFUNCTYPE(wintypes.BOOL, wintypes.HMONITOR, wintypes.HDC, ctypes.POINTER(wintypes.RECT),
+                                     wintypes.LPARAM)
+EnumDisplayMonitors = _win(_u32, "EnumDisplayMonitors", wintypes.BOOL, wintypes.HDC, ctypes.POINTER(wintypes.RECT),
+                           MONITORENUMPROC, wintypes.LPARAM)
+GetDpiForMonitor = _win(ctypes.WinDLL("shcore", use_last_error=True), "GetDpiForMonitor", ctypes.c_long,
+                        wintypes.HMONITOR, ctypes.c_int, ctypes.POINTER(wintypes.UINT), ctypes.POINTER(wintypes.UINT))
 SetWindowPos = _win(_u32, "SetWindowPos", wintypes.BOOL, wintypes.HWND, wintypes.HWND, ctypes.c_int, ctypes.c_int,
                     ctypes.c_int, ctypes.c_int, wintypes.UINT)
 DwmGetWindowAttribute = _win(ctypes.WinDLL("dwmapi", use_last_error=True), "DwmGetWindowAttribute", ctypes.c_long,
@@ -892,9 +950,8 @@ WS_EX_LAYERED = 0x80000
 DWMWA_EXTENDED_FRAME_BOUNDS = 9
 DWMWA_CLOAKED = 14
 SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SM_CXVIRTUALSCREEN, SM_CYVIRTUALSCREEN = 76, 77, 78, 79
-SM_CXSCREEN, SM_CYSCREEN = 0, 1
 SWP_NOZORDER, SWP_NOACTIVATE = 0x4, 0x10
-TILES = 4  # slot windows side by side on the primary display
+TILES = 4  # slot windows side by side on the test display (place_windows)
 WM_CLOSE = 0x0010
 BM_CLICK = 0x00F5
 SMTO_ABORTIFHUNG = 2
@@ -929,7 +986,7 @@ def process_created(pid: int) -> int | None:
 
 
 def dolphin_alive(pid: int, created: int) -> bool:
-    """True only for the very process `dolphin` started: the owner's own Dolphin is the same exe,
+    """True only for the very process `dolphin` started: any other Dolphin runs the same exe,
     and Windows reuses pids, so the creation time is what tells them apart."""
     h = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
     if not h:
@@ -956,22 +1013,26 @@ def recorded_pid(layout: Layout) -> tuple[int, int] | None:
         return None
 
 
-def unattended_ini(layout: Layout, name: str, marker_name: str, active: bool, values: dict) -> None:
-    """Puts the owner's 8P pad config back from pads/ if a marker says an earlier launch changed it,
-    else saves the copy's file there as the owner's; with `active`, writes `values` over it for this
-    launch and leaves the marker."""
+def unattended_ini(layout: Layout, name: str, marker_name: str, active: bool, values: dict, spaced: bool = True) -> None:
+    """Puts the saved 8P config file back from pads/ if a marker says an earlier launch changed it,
+    else saves the copy's file there; with `active`, writes `values` over it for this
+    launch and leaves the marker. Qt.ini is written unspaced, as Qt writes it."""
     path = layout.dolphin / "Config" / name
     saved = layout.root / "pads" / name
     marker = layout.root / marker_name
     if marker.exists():
-        # The main Dolphin's file is never a fallback: it is a different mapping (D45).
+        # The main Dolphin's file is never a fallback: it is a different mapping.
         if not saved.exists():
             fail(f"{marker} says {path} holds an unattended override, but {saved} is missing; "
-                 f"put the owner's 8P {name} back, then delete the marker")
+                 f"put the saved 8P {name} back, then delete the marker")
         copy_file(layout, saved, path)
         guard(layout, marker).unlink()
     elif path.exists():
         copy_file(layout, path, saved)
+    elif active and not saved.exists():
+        # prepare seeds no Qt.ini: an absent file is saved empty, which Dolphin reads as none.
+        guard(layout, saved).parent.mkdir(parents=True, exist_ok=True)
+        guard(layout, saved).write_text("", encoding="utf-8")
     if not active:
         return
     ini = configparser.ConfigParser(interpolation=None, strict=False)
@@ -980,10 +1041,10 @@ def unattended_ini(layout: Layout, name: str, marker_name: str, active: bool, va
     for section, keys in values.items():
         ini.setdefault(section, {})
         ini[section].update(keys)
-    # The marker goes first: a launch killed mid-write must restore, never save the override as the owner's.
+    # The marker goes first: a launch killed mid-write must restore, never save the override as the user's mapping.
     guard(layout, marker).write_text(f"{name} has {sorted(values)} set by an unattended dolphin launch\n", encoding="utf-8")
     with guard(layout, path).open("w", encoding="utf-8") as f:
-        ini.write(f)
+        ini.write(f, space_around_delimiters=spaced)
 
 
 def cmd_dolphin(layout: Layout, args) -> None:
@@ -991,12 +1052,12 @@ def cmd_dolphin(layout: Layout, args) -> None:
     if rec is not None and dolphin_alive(*rec):
         fail(f"Dolphin is already running, pid {rec[0]}; install_8p.py stop")
     if args.wiimotes and not args.unattended:
-        fail("--wiimotes is for unattended launches; the owner's launches keep the owner's Wii Remote mapping")
+        fail("--wiimotes is for unattended launches; a launch you play keeps your Wii Remote mapping")
     if args.fast and not args.unattended:
-        fail("--fast is for unattended lanes; the owner plays at the game's own speed")
+        fail("--fast is for unattended lanes; a launch you play runs at the game's own speed")
     if args.plain and not layout.vanilla:
         fail("--plain launches the plain disc from the --vanilla root")
-    # Each run's log is kept under its last-write time, so a relaunch never loses the owner's
+    # Each run's log is kept under its last-write time, so a relaunch never loses the earlier
     # session; the newest KEEP_LOGS stay (one 8-view session logged 43 MB).
     if layout.dolphin_log.exists():
         stamp = time.strftime("%Y%m%d-%H%M%S", time.localtime(layout.dolphin_log.stat().st_mtime))
@@ -1010,12 +1071,16 @@ def cmd_dolphin(layout: Layout, args) -> None:
     # Dolphin reports a GC port as unplugged while its mapped host pad is absent, and the race then
     # waits on "controller interrupted". An unattended launch keeps ports 1-4 plugged in, one per
     # local player a debug boot can race, and --wiimotes connects Wii Remotes 1-4 with a Classic
-    # Controller for players 5-8 (D24); the launch after it puts the owner's 8P mapping back from
+    # Controller for players 5-8; the launch after it puts the 8P mapping back from
     # pads/; a launch with no marker saves the mapping there first.
     unattended_ini(layout, "GCPadNew.ini", "pads.unattended", args.unattended,
                    {f"GCPad{n}": {"Options/Always Connected": "True"} for n in range(1, 5)})
     unattended_ini(layout, "WiimoteNew.ini", "wiimotes.unattended", args.wiimotes,
                    {f"Wiimote{n}": {"Source": "1", "Extension": "Classic"} for n in range(1, 5)})
+    # Dolphin's windows open where Qt.ini last saved them, the middle of the primary for a copy with none, before
+    # place_windows can move them: an unattended launch opens them on its slot's column of the test display.
+    unattended_ini(layout, "Qt.ini", "windows.unattended", args.unattended,
+                   window_geometry(args.slot % TILES) if args.unattended else {}, spaced=False)
 
     exe = dolphin_exe()
     cmd = [str(exe), "-u", str(layout.dolphin)]
@@ -1027,11 +1092,14 @@ def cmd_dolphin(layout: Layout, args) -> None:
         cmd += ["-C", f"Dolphin.General.GDBPort={args.gdb}"]
     if args.pause_on_panic:
         cmd += ["-C", "Dolphin.Core.PauseOnPanic=True"]
+    # The game lays out by the console's Widescreen setting. Dolphin writes this override into the NAND's SYSCONF at boot
+    # (an edit to the file is undone), where a killed run leaves it, so every launch sets it.
+    cmd += ["-C", f"SYSCONF.IPL.AR={args.aspect == '16:9'}"]
     # Unattended runs render at native resolution with no anisotropy, so 8 views keep a smoke case
-    # inside its timeouts; the owner's launches keep the owner's GFX.ini (owner, 2026-10-05).
+    # inside its timeouts; a launch you play keeps your GFX.ini.
     if args.unattended:
         cmd += ["-C", f"GFX.Settings.InternalResolution={args.res}", "-C", "GFX.Enhancements.MaxAnisotropy=0"]
-    # D114: a menu script counts game frames, so unlimited speed changes no lane's timing. Not for a lane that
+    # A menu script counts game frames, so unlimited speed changes no lane's timing. Not for a lane that
     # checks sound or shoots at a wall-clock time.
     if args.fast:
         cmd += ["-C", "Dolphin.Core.EmulationSpeed=0"]
@@ -1215,11 +1283,55 @@ def dpi_aware() -> None:
         ctypes.WinDLL("user32").SetProcessDPIAware()
 
 
-def place_windows(pid: int, tile: int) -> None:
-    """Puts Dolphin's render window in column `tile` of the primary display's top half and its main window below
-    it, so parallel slots never cover each other's render window, which a shot's screen copy needs."""
+def test_display() -> tuple[wintypes.RECT, wintypes.RECT, float, int]:
+    """The primary, or with TEST_DISPLAY=left in .env the display directly left of it (the primary when there is none):
+    its monitor and work areas in physical pixels, its scale, and its index in Qt's screen list (the primary first)."""
     dpi_aware()
-    w, h = GetSystemMetrics(SM_CXSCREEN) // TILES, GetSystemMetrics(SM_CYSCREEN) // 2
+    left = build_code.load_env().get("TEST_DISPLAY") == "left"
+    target = MonitorFromPoint(wintypes.POINT(-1 if left else 0, 0), MONITOR_DEFAULTTOPRIMARY)
+    info = MONITORINFO(cbSize=ctypes.sizeof(MONITORINFO))
+    GetMonitorInfoW(target, ctypes.byref(info))
+    monitors = []
+
+    def visit(hmon, _dc, _rect, _lparam):
+        each = MONITORINFO(cbSize=ctypes.sizeof(MONITORINFO))
+        GetMonitorInfoW(hmon, ctypes.byref(each))
+        monitors.insert(0, hmon) if each.dwFlags & MONITORINFOF_PRIMARY else monitors.append(hmon)
+        return True
+
+    EnumDisplayMonitors(None, None, MONITORENUMPROC(visit), 0)
+    dpi_x, dpi_y = wintypes.UINT(), wintypes.UINT()
+    GetDpiForMonitor(target, 0, ctypes.byref(dpi_x), ctypes.byref(dpi_y))
+    return info.rcMonitor, info.rcWork, dpi_x.value / 96, monitors.index(target)
+
+
+def tile_rects(work: wintypes.RECT, tile: int) -> tuple[tuple[int, int, int, int], tuple[int, int, int, int]]:
+    """Column `tile` of the test display: the render window's top half and the main window's bottom half, x, y, w, h."""
+    w, h = (work.right - work.left) // TILES, (work.bottom - work.top) // 2
+    x = work.left + tile * w
+    return (x, work.top, w, h), (x, work.top + h, w, h)
+
+
+def window_geometry(tile: int) -> dict:
+    """Qt.ini's QWidget::saveGeometry (format 3.0) for Dolphin's two windows at column `tile`, restored at first show.
+    Qt's pixels are logical: a screen keeps its physical top-left, positions within it scale down; client a title bar in."""
+    monitor, work, scale, screen = test_display()
+
+    def blob(x: int, y: int, w: int, h: int) -> str:
+        left, top = monitor.left + round((x - monitor.left) / scale), monitor.top + round((y - monitor.top) / scale)
+        right, bottom = left + round(w / scale) - 1, top + round(h / scale) - 1
+        data = struct.pack(">IHH4i4iiBBi4i", 0x1D9D0CB, 3, 0, left, top, right, bottom, left, top + 30, right, bottom,
+                           screen, 0, 0, round((monitor.right - monitor.left) / scale), left, top + 30, right, bottom)
+        return "@ByteArray(" + "".join(f"\\x{b:x}" for b in data) + ")"
+
+    render, main = tile_rects(work, tile)
+    return {"mainwindow": {"geometry": blob(*main)}, "renderwidget": {"geometry": blob(*render)}}
+
+
+def place_windows(pid: int, tile: int) -> None:
+    """Puts Dolphin's render window in column `tile` of the test display's top half and its main window below it, so
+    parallel slots never cover each other's render window, which a shot's screen copy needs."""
+    render_rect, main_rect = tile_rects(test_display()[1], tile)
     deadline = time.monotonic() + 60
     while time.monotonic() < deadline:
         windows = process_windows(pid)
@@ -1231,8 +1343,13 @@ def place_windows(pid: int, tile: int) -> None:
     else:
         print(f"[dolphin] no render window within 60 s; windows left where Dolphin put them")
         return
-    for hwnd in windows:
-        SetWindowPos(hwnd, None, tile * w, 0 if hwnd in render else h, w, h, SWP_NOZORDER | SWP_NOACTIVATE)
+    # Qt rescales a window that lands on a display of another scale after the move, so the second pass sets the size
+    # again on the test display.
+    for attempt in range(2):
+        if attempt:
+            time.sleep(1)
+        for hwnd in windows:
+            SetWindowPos(hwnd, None, *(render_rect if hwnd in render else main_rect), SWP_NOZORDER | SWP_NOACTIVATE)
 
 
 def save_shots(layout: Layout, pid: int, out: Path, stamp: str, windows: list[int] | None = None) -> tuple[int, int]:
@@ -1308,8 +1425,8 @@ def _foreign() -> str | None:
 
 
 def foreign_dolphin() -> str | None:
-    """Why nothing may be installed or launched now: a Dolphin this process did not start runs (the owner's own, or
-    their 8P copy's), or None. Under the launch lock, so another slot's launch, running but not yet recorded, never
+    """Why nothing may be installed or launched now: a Dolphin this process did not start runs (the main Dolphin, or
+    another copy's), or None. Under the launch lock, so another slot's launch, running but not yet recorded, never
     counts."""
     with launching:
         return _foreign()
@@ -1411,18 +1528,19 @@ def run_setup_exe(exe: Path, argv: list[str], log_name: str) -> int:
 
 
 # A first install rewrites the shared desktop / Start menu shortcuts to point at the new install
-# (ShellIntegration.CreateShortcuts). These save the owner's and put them back byte for byte; the two
+# (ShellIntegration.CreateShortcuts). These save the existing shortcuts and put them back byte for byte; the two
 # shortcut paths are the only writes outside the root.
 def backup_shortcuts(layout: Layout) -> None:
     manifest = layout.backup / "shortcuts.json"
     if manifest.exists():
-        fail(f"{manifest} exists: a setup did not restore the owner's shortcuts; run wiicompiled restore-shortcuts")
+        fail(f"{manifest} exists: a setup did not restore the shortcuts; run wiicompiled restore-shortcuts")
     existed = {}
     for i, lnk in enumerate(shortcut_paths()):
         existed[str(lnk)] = lnk.exists()
         if lnk.exists():
             copy_file(layout, lnk, layout.backup / f"shortcut{i}.lnk")
-    guard(layout, manifest).write_text(json.dumps(existed, indent=2), encoding="utf-8")
+    guard(layout, manifest).parent.mkdir(parents=True, exist_ok=True)  # with no shortcut to copy, nothing made it
+    manifest.write_text(json.dumps(existed, indent=2), encoding="utf-8")
 
 
 def restore_shortcuts(layout: Layout) -> None:
@@ -1444,9 +1562,9 @@ def restore_shortcuts(layout: Layout) -> None:
         except OSError as e:
             errors.append(f"{lnk}: {e}")
     if errors:
-        fail("could not restore the owner's shortcuts (backup kept in backup/): " + "; ".join(errors))
+        fail("could not restore the original shortcuts (backup kept in backup/): " + "; ".join(errors))
     guard(layout, manifest).unlink()
-    print("[wiicompiled] owner's shortcuts restored")
+    print("[wiicompiled] original shortcuts restored")
 
 
 WC_PAYLOAD_FLAGS = ["--skip-retro-wfc-payload"]
@@ -1697,7 +1815,7 @@ def press_dialog_buttons(dialog: int) -> None:
 # Starts RetroRewind.exe as --launch-retro does (its own folder as the working directory) after the same
 # currency check, so its stderr, where Aurora's fatal messages go, lands in wc-runs/. A crash shows
 # WiiCompiled's "Fatal Error" box, which run answers, then leaves crash_*.txt in the run's log folder;
-# the process is ended through its own handle, never by image name: the owner's runs the same exe.
+# the process is ended through its own handle, never by image name: another WiiCompiled install runs the same exe.
 def run_wiicompiled(layout: Layout, installed_exe: Path, seconds: float, shot_every: float, patched: bool) -> int:
     if patched:
         exe = patched_exe(layout, installed_exe)
@@ -1813,13 +1931,13 @@ def cmd_wiicompiled(layout: Layout, args) -> None:
 
 
 def owner_files() -> list[Path]:
-    files = [RR_SRC / "Binaries" / "Code.pul", RR_SRC / "UI" / "MenuMulti.szs", RR_XML_SRC,
+    files = [RR_SRC / "Binaries" / "Code.pul", RR_SRC / "UI" / "MenuMulti.szs", RR_SRC / "UI" / "MenuSingle.szs", RR_XML_SRC,
              *(DOLPHIN_USER_SRC / "Wii" / "title" / "00010004" / title_id(r) / "data" / "rksys.dat"
                for r in REGIONS.values()),
              RECOMP_SRC / "UserData" / "Config.toml", RECOMP_SRC / "Install" / "install-state.json",
              *shortcut_paths()]
     files += sorted((DOLPHIN_USER_SRC / "Config").glob("*.ini"))
-    # The owner's RR saves: the XML's <savegame> redirect under Wheel Wizard's Riivolution root.
+    # Retro Rewind's own saves: the XML's <savegame> redirect under Wheel Wizard's Riivolution root.
     files += sorted(p for p in (WW_RIIVO / "riivolution" / "save").rglob("*") if p.is_file())
     return files
 
@@ -1839,14 +1957,14 @@ def cmd_isolation(layout: Layout, args) -> None:
                if (before.get(f) or {}).get("sha256") != (current.get(f) or {}).get("sha256")]
     for f in changed:
         print(f"[isolation] CHANGED {f}")
-    print(f"[isolation] {len(changed)} of {len(current)} owner files changed since the snapshot")
+    print(f"[isolation] {len(changed)} of {len(current)} watched files changed since the snapshot")
     sys.exit(1 if changed else 0)
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--root", type=Path, help="the 8P install root (default: slot 0's)")
-    ap.add_argument("--slot", type=int, default=0, help="slot K's root: 0 is the owner's 8P copy, 1+ unattended copies beside it")
+    ap.add_argument("--slot", type=int, default=0, help="slot K's root: 0 is the main 8P copy, 1+ unattended copies beside it")
     ap.add_argument("--vanilla", action="store_true", help="the root of Mario Kart Wii without Retro Rewind (and its slots)")
     ap.add_argument("--disc", type=Path, help="a Mario Kart Wii disc image (PAL, USA or Japan) in place of Wheel Wizard's")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -1863,6 +1981,7 @@ def main() -> None:
     p.add_argument("--gdb", type=int, nargs="?", const=2345, metavar="PORT",
                    help="enable the GDB stub on PORT (default 2345); emulation waits for a client")
     p.add_argument("--pause-on-panic", action="store_true", help="pause emulation at a panic alert")
+    p.add_argument("--aspect", choices=["4:3", "16:9"], default="16:9", help="the console's Widescreen setting for this launch (default 16:9)")
     p.add_argument("--unattended", action="store_true",
                    help="keep GC ports 1-4 plugged in with no host pad (for the debug boot)")
     p.add_argument("--wiimotes", action="store_true",
@@ -1870,7 +1989,7 @@ def main() -> None:
     p.add_argument("--res", type=int, default=1, choices=range(1, 9),
                    help="with --unattended: internal resolution, a multiple of native (default 1)")
     p.add_argument("--fast", action="store_true",
-                   help="with --unattended: unlimited emulation speed (menu-script lanes, D114)")
+                   help="with --unattended: unlimited emulation speed (menu-script lanes)")
     p.add_argument("--dump", action="store_true",
                    help="record the launch's video and audio to Dolphin/Dump/Frames and Dump/Audio (real speed)")
     p.add_argument("--footage", action="store_true",

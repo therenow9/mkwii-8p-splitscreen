@@ -1,26 +1,20 @@
-# M4 C4d's Randomize Combo and Back: 8 Players, P1's START rolls all 8, the kart
+# The Randomize Combo and Back: 8 Players, P1's START rolls all 8, the kart
 # page's roulette confirms everyone, B on the transmission page and then the kart page returns to the character page (nobody confirmed, the cursors on the rolls), and START rolls
-# again, four rolls in all; the race has the fourth roll. PD14's repro: until C4e, P5-8 previews fail to
-# load by the later rolls and a late Mii head can crash the page (D117).
+# again, four rolls in all; the race has the fourth roll. It checks that every roll loads its
+# P5-8 previews and Mii heads without crashing the page.
 # Launch with install_8p.py dolphin --unattended --wiimotes.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360
@@ -62,9 +56,9 @@ press 1 b        # transmission page: back to the kart page
 wait 240
 press 1 b        # kart page: back to the character page
 wait 360
-press 1 start    # the fourth roll (D115: four rolls in a row, every skin loading)
+press 1 start    # the fourth roll (four rolls in a row, every skin loading)
 wait 400
-wait 200         # the kart page's roulette confirms everyone (D151), then the transmission page
+wait 200         # the kart page's roulette confirms everyone, then the transmission page
 press 1 a        # transmission page
 wait 20
 press 2 a

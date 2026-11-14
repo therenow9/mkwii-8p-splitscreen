@@ -41,10 +41,10 @@ WHAT YOU NEED
 - Windows.
 - Your own Mario Kart Wii disc image: PAL, USA or Japan (see WHICH DISC above).
   No game files come in this zip; the setup makes everything from yours.
-- For the Retro Rewind build: Retro Rewind 6.13.4, its RetroRewind6 folder with the
+- For the Retro Rewind build: Retro Rewind 6.13.5, its RetroRewind6 folder with the
   riivolution folder beside it, as Wheel Wizard or Retro Rewind's own download
-  puts them. If you have none, or yours is another version (6.13.5, say), leave
-  "Download Retro Rewind 6.13.4 for me" ticked: the setup downloads it (about 2 GB)
+  puts them. If you have none, or yours is another version (6.13.4, say), leave
+  "Download Retro Rewind 6.13.5 for me" ticked: the setup downloads it (about 2 GB)
   into the install folder, and your own Retro Rewind stays as it is.
 - To play in Dolphin: Dolphin.
 - Wheel Wizard is optional. With it, the setup fills in your disc, Retro Rewind and
@@ -100,6 +100,12 @@ Open a build's folder and run:
   "Play (Dolphin).cmd"       to play in Dolphin
   "Play (WiiCompiled).cmd"   to play in WiiCompiled
 
+With "Also add to Dolphin's game list" ticked (it is by default, when your Dolphin
+has a game folder), each build is also in Dolphin's own game list: a .json in that
+folder, which you delete to remove it. Started from there, the game uses your
+Dolphin's controllers, and the Retro Rewind build keeps its settings apart from
+your own Retro Rewind's and from "Play (Dolphin).cmd"'s.
+
 From the main menu, pick Multiplayer, then 2 to 8 Players.
 
 Above 60 fps in WiiCompiled: press F10, and under Graphics set "Race frame
@@ -122,13 +128,19 @@ as on a Wii, so any player can use either kind.
 A GameCube adapter shows up as four controllers with the same name. To find yours,
 hold a button on it while the row's list is open: its entry says "pressing".
 
-A pad on a Wii Remote row plays as a Wii Remote with a Classic Controller, with
-buttons by position unless you change them: on a GameCube controller, that makes X
-the A button.
+A pad on a Wii Remote row plays as a Wii Remote with a Classic Controller.
 
-Each row has its own buttons: pick the row, then "Customize buttons", a GameCube
-layout on the GameCube rows and a Classic Controller layout on the Wii Remote rows.
-A Wii U Pro Controller keeps its own fixed layout.
+Each row has a Preset. On Auto, which every row starts on, it follows the
+controller's type: Xbox, PlayStation, Nintendo (a Switch Pro Controller) or
+GameCube. With each one the buttons do the same thing on any row: A (Cross)
+accelerates, B (Circle) brakes, the right trigger (ZR, or R on a GameCube
+controller) drifts, the left trigger uses an item, and X or the right bumper (Z)
+looks back. To use another layout, pick it from the row's Preset list; "Classic
+Controller Pro" and "PlayStation (L1/R1)" drift on the bumpers instead.
+"Customize buttons" changes single buttons, and Auto in the list goes back to the
+controller's own preset. An 8BitDo pad in XInput mode counts as an Xbox
+controller: pick Nintendo for its printed A to accelerate, or switch it to Switch
+mode. A Wii U Pro Controller keeps its own fixed layout.
 
 A real Wii Remote works too, held sideways or with a Nunchuk or a Classic
 Controller. To pair one, press F10, open "Wii Remote setup (Bluetooth)",
@@ -180,8 +192,10 @@ install (see INSTALL).
    your USB Loader GX drive.
 2. Start USB Loader GX from its channel on the Wii Menu, not from the Homebrew
    Channel, which leaves the game too little memory.
-3. In USB Loader GX, set each game's Aspect Ratio to Force 16:9, and put your TV
-   on its Full, Wide or Stretch mode. At 4:3 the 8 player pages are too crowded.
+3. Set the Wii's Widescreen setting (Wii Settings, Screen) to match your TV: the
+   menus lay themselves out for 16:9 or 4:3, as Mario Kart Wii's do. In USB Loader
+   GX leave each game's Aspect Ratio on System Default, or set it to your TV's
+   shape. On a 16:9 TV, put the TV on its Full, Wide or Stretch mode.
 
 Each image has its own save, apart from your own Retro Rewind's.
 
@@ -192,8 +206,8 @@ can use either kind.
 GOOD TO KNOW
 ------------
 
-- This release is built on Retro Rewind 6.13.4, and later Retro Rewind versions may
-  not get a release of their own. The setup makes its copy from 6.13.4, downloading
+- This release is built on Retro Rewind 6.13.5, and later Retro Rewind versions may
+  not get a release of their own. The setup makes its copy from 6.13.5, downloading
   it when yours is another version, so your own Retro Rewind can keep updating.
 - The Retro Rewind build is offline only. Play online from your own Retro Rewind.
 - In the Retro Rewind build with 5 to 8 players, some tracks need more memory than
@@ -242,10 +256,10 @@ bring in and lightly test; it took more than 12.
 
 Unless one of those projects adopts the mod officially, which I doubt given how
 niche it is, I can't keep up with them alone. So the 8 player mod stays on Retro
-Rewind 6.13.4 and WiiCompiled v0.9.2. I'll still gladly put out a hotfix for any
+Rewind 6.13.5 and WiiCompiled v0.9.4. I'll still gladly put out a hotfix for any
 game-breaking bug or crash.
 
-And I believe it is complete as it is. Retro Rewind 6.13.4 is feature rich and
+And I believe it is complete as it is. Retro Rewind 6.13.5 is feature rich and
 mature: nearly every track from every Mario Kart game, custom tracks, custom
 characters with their own voices, and many extra features and modes. The Mario
 Kart Wii build now runs at 60 fps in Dolphin too, and WiiCompiled runs both builds

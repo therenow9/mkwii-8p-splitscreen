@@ -1,4 +1,4 @@
-# RR's settings in a 6-player game (M4 D3; every row open since M5, D198): 6 Players, P2-6 join, the multiplayer
+# RR's settings in a 6-player game: 6 Players, P2-6 join, the multiplayer
 # menu's Settings button to RR's page select (a shot: Knockout open), Race -> Menu -> Sound -> Down (a shot: the
 # cursor on Knockout), back to Race, then Battle -> Royale and its page (a shot: the Battle Royale rows open),
 # Up from Save (a shot: the cursor on Starting Lives), Back, Battle's page (a shot: Elimination open),
@@ -8,15 +8,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360

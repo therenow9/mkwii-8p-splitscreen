@@ -1,4 +1,4 @@
-# M4 C4c's Mii C: the script opens Mii C whatever the license's VR (the 8P copy's is
+# Mii C: the script opens Mii C whatever the license's VR (the 8P copy's is
 # under RR's 300). 8 Players, P2-8 join, VS, then P5, P7 and P2 (a game slot) move onto Mii C, each preview an
 # outfit C body through RR's loader with the player's head on it; each picks the Mii it starts on in MiiSelect,
 # the rest confirm drivers, and the race has three outfit C Miis.
@@ -9,19 +9,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

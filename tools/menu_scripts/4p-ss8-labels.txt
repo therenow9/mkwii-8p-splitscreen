@@ -1,0 +1,19 @@
+# Screen Labels, 4P: a plate on each box's bottom edge of the game's 2x2 page, Top left to Bottom right.
+# GC ports 1-4.
+wait 900
+press 1 a   # title
+wait 175
+press 1 a   # license
+wait 240
+press 1 down   # 5 Players
+wait 120
+press 1 left
+wait 60
+press 1 a   # 4 Players
+wait 420
+press 2 a   # P2 joins
+wait 150
+press 3 a   # P3 joins
+wait 150
+press 4 a   # P4 joins
+wait 420

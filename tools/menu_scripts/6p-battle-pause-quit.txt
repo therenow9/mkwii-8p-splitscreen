@@ -1,4 +1,4 @@
-# Quit from a 5-8 Battle's pause menu (M4 E4): RR's Battle Teams on, a 6-player team Coin
+# Quit from a 5-8 Battle's pause menu: RR's Battle Teams on, a 6-player team Coin
 # Runners round, P1 pauses 25 s in and quits (section 0x41, locals 0 after), then 2 Players and a team Balloon
 # Battle to its round. Launch with install_8p.py dolphin --unattended --wiimotes.
 autodrive
@@ -8,15 +8,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 60
 wait 120
 press 1 a        # 6 Players

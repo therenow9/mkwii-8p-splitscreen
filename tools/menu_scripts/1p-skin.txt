@@ -1,5 +1,5 @@
 # 1P stays Retro Rewind's: P1 picks Mario skin 1 at the Grand Prix character select, through kart and drift
-# select to the cup screen. Both cup presses are ignored there (session 27), so it does not reach the race.
+# select to the cup screen. Both cup presses are ignored there, so it does not reach the race.
 # GC port 1.
 wait 900
 press 1 a        # title
