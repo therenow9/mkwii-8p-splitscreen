@@ -1,4 +1,4 @@
-# The vanilla reference for Team VS (M4 D1, normal build): 4 Players, Team Race, everyone confirms, team select
+# The vanilla reference for Team VS (normal build): 4 Players, Team Race, everyone confirms, team select
 # with P3 and P4 pressing toward Blue (each player starts on their last team, so the race lines' "team" is what was
 # picked), the teams page, then kart, transmission and drift, cup and course, and the series as 4p-vs-series-ref
 # runs it. The race lines' "team" and "ext" show whether RR's offline teams keep the picks. GC ports 1-4.
@@ -8,11 +8,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
-wait 40
-press 1 right    # 3 Players
-wait 40
-press 1 right    # 4 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
 wait 40
 press 1 a
 wait 300

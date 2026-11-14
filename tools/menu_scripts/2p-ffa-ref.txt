@@ -1,4 +1,4 @@
-# RR's FFA Balloon Battle (M4 E1, normal build): RR's settings as they ship (Battle Teams off: ffa 1), 2 Players,
+# RR's FFA Balloon Battle (normal build): RR's settings as they ship (Battle Teams off: ffa 1), 2 Players,
 # Battle, Balloon Battle, every page confirmed, cup and arena, the rounds. RR races FFA in VS's sections. GC ports 1-2.
 autodrive
 wait 900
@@ -6,7 +6,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
 wait 60
 wait 120
 press 1 a        # 2 Players

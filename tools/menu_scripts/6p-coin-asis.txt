@@ -1,4 +1,4 @@
-# Team Coin Runners with 6 players as it is (M4 E1): as 8p-battle-asis at 6 with Coin
+# Team Coin Runners with 6 players as it is: as 8p-battle-asis at 6 with Coin
 # Runners. Launch with install_8p.py dolphin --unattended --wiimotes.
 autodrive
 setting SETTING_BATTLETEAMS BATTLE_FFA_ENABLED  # RR's teams: value 1 leaves PULSAR_FFA off (PulsarSystem.cpp)
@@ -7,15 +7,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 60
 wait 120
 press 1 a        # 6 Players

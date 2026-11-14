@@ -1,13 +1,15 @@
-# D77 in 3P: P1 on Mario skin 4, P2 and P3 on Mario skin 5, into a race. P1 keeps Mario's PC voice group;
+# 3P: P1 on Mario skin 4, P2 and P3 on Mario skin 5, into a race. P1 keeps Mario's PC voice group;
 # P2 and P3 share one lent group with skin 5's voices. GC ports 1-3.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
-wait 40
-press 1 right    # 3 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
 wait 40
 press 1 a
 wait 300

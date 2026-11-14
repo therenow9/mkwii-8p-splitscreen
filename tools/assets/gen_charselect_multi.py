@@ -13,7 +13,7 @@ IO/Misc.cpp, LoadAssetsFile), and its ctrl/ copies of these controls win at runt
 the MenuMulti.szs members they shadow are stale. So the sources are MenuMulti's
 controls overlaid by ReplacedAssets'.
 
-Each OK marker takes a share of the button by the player count (D80, D95): a button
+Each OK marker takes a share of the button by the player count: a button
 loads "CharacterSelect%d_%d_Multi<N>", the _Multi control on a copy of its layout
 named <layout>_ss8_<N>, whose markers sit in a grid of N cells filled row by row:
 2 for 2 players (2 x 1), 4 for 3-4 (2 x 2), 6 for 5-6 (3 x 2), 8 for 7-8 (4 x 2).
@@ -55,7 +55,7 @@ MULTI_LAYOUTS = {
 }
 CTRL_RE = re.compile(r"^CharacterSelect(\d+)_(\d+)(_Mii)?\.brctr$")
 SS8_SUFFIX = "_ss8"
-# The marker grids by the cells they hold, (columns, rows) (D95).
+# The marker grids by the cells they hold, (columns, rows).
 MARKER_GRIDS = {2: (2, 1), 4: (2, 2), 6: (3, 2), 8: (4, 2)}
 
 
@@ -109,9 +109,9 @@ def rename_pane(pane: dict, old: str, new: str, materials: list) -> None:
 
 
 def sized_markers(content: bytes, name: str, cells: int) -> bytes:
-    """The layout with its OK markers in a grid of `cells` over black_base, filled row by row (D95).
+    """The layout with its OK markers in a grid of `cells` over black_base, filled row by row.
 
-    The 8-cell grid is the one picked from real renders (D80): each marker at half the vanilla
+    The 8-cell grid is the one picked from real renders: each marker at half the vanilla
     marker's width and 0.55 of its height. The other grids scale that evenly, as far as their
     cells allow, so every marker keeps its shape.
     """
@@ -224,7 +224,7 @@ def main(argv: list[str] | None = None) -> int:
                 raise SystemExit(f"{sized_name} already in {args.input}")
             ctrl_dir["children"].append({"is_dir": False, "name": sized_name, "content": pack_brctr(sized)})
             added.append(sized_name)
-    # The sized copies start from MenuMulti's layouts; one the overlay shadows would be stale (PD2's trap).
+    # The sized copies start from MenuMulti's layouts; one the overlay shadows would be stale.
     shadowed = sorted(f"{layout}.brlyt" for layout in sized_layouts if f"{layout}.brlyt" in overlay_layouts)
     if shadowed:
         raise SystemExit(f"{args.replaced_assets.name} shadows {', '.join(shadowed)}; copy the overlay's layout instead")

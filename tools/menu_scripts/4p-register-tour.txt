@@ -1,4 +1,4 @@
-# The vanilla 2-4P entry and registration, for phase B's join-page artifact: the main menu's Multiplayer
+# The vanilla 2-4P entry and registration, for a look at the join page: the main menu's Multiplayer
 # sub-buttons, then 4 Players registering P2 and P3 on GC ports 2-3 and P4 on Wii channel 1's Classic
 # (port 5), the confirm page and the multiplayer menu. Launch with install_8p.py dolphin --unattended --wiimotes.
 wait 900
@@ -6,11 +6,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
-wait 180
-press 1 right    # 3 Players
-wait 180
-press 1 right    # 4 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
 wait 180
 press 1 a
 wait 360

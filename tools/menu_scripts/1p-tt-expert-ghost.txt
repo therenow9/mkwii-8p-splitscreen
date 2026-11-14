@@ -1,0 +1,29 @@
+# RR 1P Time Trial against Big Shell Bay's expert ghost: RR's two patches inside RacedataScenario::InitScreens
+# (GhostManager.cpp, 0x8052F5C8 and 0x8052F5E4) run only for a ghost racer, so this race shows them reached. GC port 1.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 a        # main menu: Single Player
+wait 400
+press 1 down     # Grand Prix -> 150cc TTs
+wait 60
+press 1 a
+wait 400
+press 1 a        # character
+wait 240
+press 1 a        # vehicle
+wait 240
+press 1 a        # transmission
+wait 240
+press 1 a        # drift
+wait 240
+press 1 a        # cup
+wait 240
+press 1 a        # course: Big Shell Bay
+wait 240
+press 1 a        # Ghosts page: Ghost Race
+wait 240
+press 1 a        # the same, if the page opened late
+wait 2400

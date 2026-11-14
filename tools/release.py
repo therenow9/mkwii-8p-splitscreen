@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Build a SplitScreen8 release zip: both Code.pul builds from a clean tree, the frozen player setup, and the payload.
 
-  release.py [--version V] [--dirty-root]
+  release.py [--version V] [--dirty-root] [--linux build/linux]
   release.py --fetch-wit      only fetch wit into build/wit/, where install_8p.py wii takes it
+  release.py --freeze DIR     only freeze the setup into DIR (tools/build_linux.sh runs it on Linux)
 
 Into build/release/mkwii-8p-splitscreen-<V>.zip (V defaults to dev-<root commit>):
   MKWii 8P Splitscreen Setup/  tools/ss8_setup.py frozen by PyInstaller (onedir, no UPX), with the menu generator and wuj5
-  payload/rr/Code.pul        the RR build, for the Retro Rewind release on the owner's Wheel Wizard (rr_version, rr_commit)
+  payload/rr/Code.pul        the RR build, for the Retro Rewind release on Wheel Wizard (rr_version, rr_commit)
   payload/mkw/Code.pul, Loader.pul   the --vanilla build and its loader
   payload/WiiCompiled-Setup.exe      WiiCompiled's installer, built in external/Wiicompiled at the root's gitlink
   payload/wit/               wit (Wiimms ISO Tools, GPLv2), which makes the Wii images: its exe, DLLs, licence, and
@@ -15,6 +16,8 @@ Into build/release/mkwii-8p-splitscreen-<V>.zip (V defaults to dev-<root commit>
   README.txt                 tools/release_docs/README.txt
   LICENSES/                  every shipped component's licence, copied from where it lives
   SOURCE.txt                 each component's public repository at the commit built
+With --linux, also mkwii-8p-splitscreen-<V>-linux-x86_64.tar.gz: the same Code.pul and Loader.pul, and in place of the
+Windows files tools/build_linux.sh's WiiCompiled-Setup.AppImage and frozen setup, and wit's own Linux build.
 
 Run it with a Python that has PyInstaller (README.md, The release zip). It refuses a dirty rr-pulsar, wuj5 or Wiicompiled, a
 submodule not at the commit the root records, a repository that is not public or lacks the commit, a missing README.txt,
@@ -67,10 +70,14 @@ WIT_SOURCE = "wiimms-iso-tools-v3.05a-source.tar.gz"
 CYGWIN_SRC = ("http://ctm.crouchingtigerhiddenfruitbat.org/pub/cygwin/circa/64bit/2021/03/28/092633/x86_64/release/cygwin/cygwin-3.1.7-1-src.tar.xz",
               "17bf431941b454d6c338cd1673c9c7d90964f84552c11bb9ddc86afadc50ea18")
 CYGWIN_SOURCE = CYGWIN_SRC[0].rsplit("/", 1)[1]
+# wit 3.05a's own Linux build of the same release: one static binary, its licence beside it.
+WIT_LINUX = ("https://wit.wiimm.de/download/wit-v3.05a-r8638-x86_64.tar.gz",
+             "df95a14f1b4b2bd95d3111b70c6304e91d4ed3e4c7f72b1ad5306c3616d8933f")
+SETUP_NAME = "MKWii 8P Splitscreen Setup"
 DOCS = ROOT / "tools" / "release_docs"
 # rr-pulsar files under their own licence, each stated in the file's leading comment block.
-NOTICES = ["KamekInclude/kamek.hpp", "PulsarEngine/Extensions/Cosmos/WUP028.cpp", "PulsarEngine/IO/LooseArchiveOverrides.cpp",
-           "PulsarEngine/Sound/LooseBRSAROverrides.cpp", "PulsarEngine/Network/GPReport.cpp", "PulsarEngine/Network/WiiLink.cpp",
+NOTICES = ["KamekInclude/kamek.hpp", "PulsarEngine/Extensions/Cosmos/WUP028.cpp", "PulsarEngine/IO/Patches.cpp",
+           "PulsarEngine/Sound/BRSARPatches.cpp", "PulsarEngine/Network/GPReport.cpp", "PulsarEngine/Network/WiiLink.cpp",
            "PulsarEngine/Network/RSA.cpp", "PulsarEngine/Network/SHA256.cpp", "PulsarEngine/Network/Ranking.hpp",
            "PulsarEngine/UI/CtrlRaceBase/InputViewer.cpp"]
 
@@ -79,17 +86,18 @@ def git(repo: Path, *argv: str) -> str:
     return subprocess.run(["git", "-C", str(repo), *argv], capture_output=True, text=True, check=True).stdout.strip()
 
 
+def fetch(url: str, digest: str) -> Path:
+    dst = WIT_DIR / "download" / url.rsplit("/", 1)[1]
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if not dst.exists() or install_8p.sha256(dst) != digest:
+        urllib.request.urlretrieve(url, dst)
+    if install_8p.sha256(dst) != digest:
+        install_8p.fail(f"{url} is not the file pinned ({digest}); a new wit means new pins")
+    return dst
+
+
 def fetch_wit() -> None:
-    download = WIT_DIR / "download"
-    download.mkdir(parents=True, exist_ok=True)
-    got = []
-    for url, digest in (WIT_ZIP, WIT_SRC, CYGWIN_SRC):
-        dst = download / url.rsplit("/", 1)[1]
-        if not dst.exists() or install_8p.sha256(dst) != digest:
-            urllib.request.urlretrieve(url, dst)
-        if install_8p.sha256(dst) != digest:
-            install_8p.fail(f"{url} is not the file pinned ({digest}); a new wit means new pins")
-        got.append(dst)
+    got = [fetch(*pin) for pin in (WIT_ZIP, WIT_SRC, CYGWIN_SRC)]
     with zipfile.ZipFile(got[0]) as z:
         top = z.namelist()[0].split("/")[0]
         for name in WIT_FILES:
@@ -99,19 +107,57 @@ def fetch_wit() -> None:
     print(f"[release] wit in {WIT_DIR}")
 
 
-def write_docs(stage: Path, release: dict, urls: dict) -> None:
-    shutil.copy2(DOCS / "README.txt", stage / "README.txt")
+def freeze(dist: Path, work: Path) -> None:
+    """tools/ss8_setup.py frozen by PyInstaller into dist/SETUP_NAME, with what it reads at run time; a Linux freeze
+    also writes its Python's and PyInstaller's licences and versions into dist/, where release.py --linux takes them."""
+    shutil.rmtree(work, ignore_errors=True)
+    data = [install_8p.GENERATOR, install_8p.SAME_GENERATOR, WUJ5 / "LICENSE", DOCS / "wii-wheel.ico", *sorted(WUJ5.glob("*.py"))]
+    windows = ["--hide-console", "hide-early", "--icon", str(DOCS / "wii-wheel.ico")] if install_8p.WINDOWS else []
+    subprocess.run([sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--onedir", "--noupx", "--console",
+                    *windows, "--name", SETUP_NAME, "--distpath", str(dist), "--workpath", str(work / "work"),
+                    "--specpath", str(work), "--paths", str(ROOT / "tools"), "--paths", str(WUJ5),
+                    *(a for m in WUJ5_MODULES for a in ("--hidden-import", m)),
+                    *(a for f in data for a in ("--add-data", f"{f}{os.pathsep}{f.parent.relative_to(ROOT).as_posix()}")),
+                    str(ROOT / "tools" / "ss8_setup.py")], check=True)
+    if not install_8p.WINDOWS:
+        (dist / "licenses").mkdir()
+        shutil.copy2(python_licence(), dist / "licenses" / "Python LICENSE.txt")
+        shutil.copy2(pyinstaller_licence(), dist / "licenses" / "PyInstaller COPYING.txt")
+        (dist / "versions.json").write_text(json.dumps({"python": platform.python_version(),
+                                                        "pyinstaller": distribution("pyinstaller").version}), encoding="utf-8")
+
+
+def python_licence() -> Path:
+    # python.org's Windows layout keeps it at the top; a Linux one under lib/.
+    return next(p for p in (Path(sys.base_prefix) / "LICENSE.txt",
+                            Path(sys.base_prefix) / "lib" / f"python{sys.version_info[0]}.{sys.version_info[1]}" / "LICENSE.txt")
+                if p.exists())
+
+
+def pyinstaller_licence() -> Path:
     pyinstaller = distribution("pyinstaller")
-    rr, wit, py = Path("Retro Rewind (rr-pulsar)"), Path("wit and Cygwin"), Path("Python and PyInstaller")
+    return Path(pyinstaller.locate_file(next(f for f in pyinstaller.files if f.name == "COPYING.txt")))
+
+
+def write_docs(stage: Path, release: dict, urls: dict, linux: Path | None = None) -> None:
+    shutil.copy2(DOCS / "README.txt", stage / "README.txt")
+    rr, wit, py = Path("Retro Rewind (rr-pulsar)"), Path("wit" if linux else "wit and Cygwin"), Path("Python and PyInstaller")
+    versions = json.loads((linux / "setup" / "versions.json").read_text(encoding="utf-8")) if linux else \
+        {"python": platform.python_version(), "pyinstaller": distribution("pyinstaller").version}
     copies = {Path("SplitScreen8/LICENSE.txt"): ROOT / "LICENSE",
               rr / "LICENSE.txt": PULSAR / "LICENSE", rr / "LICENSE_mkw-sp.txt": PULSAR / "LICENSE_mkw-sp",
               rr / "LICENSE_pulsar.txt": PULSAR / "LICENSE_pulsar", rr / "Kamek LICENSE.txt": DOCS / "licenses" / "Kamek LICENSE.txt",
               Path("wuj5/LICENSE.txt"): WUJ5 / "LICENSE",
               Path("WiiCompiled/LICENSE.txt"): WC / "LICENSE", Path("WiiCompiled/THIRD-PARTY-NOTICES.md"): WC / "THIRD-PARTY-NOTICES.md",
-              wit / "wit gpl-2.0.txt": WIT_DIR / "gpl-2.0.txt",
-              **{wit / f: DOCS / "licenses" / f for f in ("OpenSSL 1.1.1f LICENSE.txt", "ncurses 6.1 COPYING.txt", "zlib 1.2.11 LICENSE.txt")},
-              py / "Python LICENSE.txt": Path(sys.base_prefix) / "LICENSE.txt",
-              py / "PyInstaller COPYING.txt": Path(pyinstaller.locate_file(next(f for f in pyinstaller.files if f.name == "COPYING.txt")))}
+              wit / "wit gpl-2.0.txt": WIT_DIR / ("linux" if linux else "") / "gpl-2.0.txt"}
+    if linux:
+        copies |= {wit / "glibc COPYING.LIB.txt": DOCS / "licenses" / "glibc COPYING.LIB.txt",
+                   Path("WiiCompiled/AppImage toolchain.txt"): linux / "WiiCompiled-Setup.AppImage.toolchain.txt",
+                   py / "Python LICENSE.txt": linux / "setup" / "licenses" / "Python LICENSE.txt",
+                   py / "PyInstaller COPYING.txt": linux / "setup" / "licenses" / "PyInstaller COPYING.txt"}
+    else:
+        copies |= {**{wit / f: DOCS / "licenses" / f for f in ("OpenSSL 1.1.1f LICENSE.txt", "ncurses 6.1 COPYING.txt", "zlib 1.2.11 LICENSE.txt")},
+                   py / "Python LICENSE.txt": python_licence(), py / "PyInstaller COPYING.txt": pyinstaller_licence()}
     lic = stage / "LICENSES"
     for dst, src in copies.items():
         (lic / dst).parent.mkdir(parents=True, exist_ok=True)
@@ -124,15 +170,46 @@ def write_docs(stage: Path, release: dict, urls: dict) -> None:
         notices.append(f"== {f}\n\n" + "\n".join(lines[:end]) + "\n\n")
     (lic / rr / "File notices.txt").write_text("".join(notices), encoding="utf-8")
     # cygwin1.dll's terms are in the newlib-cygwin tarball inside Cygwin's source package: winsup/'s, and newlib's.
-    with tarfile.open(WIT_DIR / CYGWIN_SOURCE) as outer:
-        inner = next(m for m in outer.getmembers() if m.name.endswith(".tar.bz2"))
-        with tarfile.open(fileobj=outer.extractfile(inner), mode="r|bz2") as t:
-            for m in t:
-                if m.name.partition("/")[2] in ("winsup/CYGWIN_LICENSE", "winsup/COPYING.LIB", "winsup/COPYING", "COPYING.NEWLIB"):
-                    (lic / wit / f"Cygwin {Path(m.name).name}.txt").write_bytes(t.extractfile(m).read())
+    if not linux:
+        with tarfile.open(WIT_DIR / CYGWIN_SOURCE) as outer:
+            inner = next(m for m in outer.getmembers() if m.name.endswith(".tar.bz2"))
+            with tarfile.open(fileobj=outer.extractfile(inner), mode="r|bz2") as t:
+                for m in t:
+                    if m.name.partition("/")[2] in ("winsup/CYGWIN_LICENSE", "winsup/COPYING.LIB", "winsup/COPYING", "COPYING.NEWLIB"):
+                        (lic / wit / f"Cygwin {Path(m.name).name}.txt").write_bytes(t.extractfile(m).read())
 
+    if linux:
+        wc_text = """WiiCompiled (payload/WiiCompiled-Setup.AppImage):
+  {url}  commit {commit}
+  Its third-party components and their sources: LICENSES/WiiCompiled/THIRD-PARTY-NOTICES.md. The AppImage also
+  carries the compiler that builds the game on your PC, LLVM's clang and lld with CMake and Ninja (their versions,
+  licences and sources: LICENSES/WiiCompiled/AppImage toolchain.txt); the .NET runtime of its setup and translator
+  (MIT, https://github.com/dotnet/runtime); nodtool (MIT or Apache-2.0, https://github.com/encounter/nod); and
+  AppImage's type-2 runtime (MIT, https://github.com/AppImage/type2-runtime), statically linked with musl, squashfuse
+  and libfuse (LGPL-2.1), whose sources that repository's build scripts name.
+
+wit 3.05a (payload/wit/wit, Wiimm's own Linux build): payload/wit/{src},
+  from https://github.com/Wiimm/wiimms-iso-tools commit {wit}
+  It is statically linked with the GNU C Library (LGPL-2.1+, LICENSES/wit/), whose source is at
+  https://sourceware.org/glibc/. For three years from this release, the source of the GNU C Library as linked
+  into payload/wit/wit is available on request through this project's GitHub issues.
+"""
+    else:
+        wc_text = """WiiCompiled (payload/WiiCompiled-Setup.exe):
+  {url}  commit {commit}
+  Its third-party components and their sources: LICENSES/WiiCompiled/THIRD-PARTY-NOTICES.md. The GNU utilities in its
+  llvm-mingw toolkit are GPL: their source is at https://github.com/mstorsjo/llvm-mingw, at the version that
+  WiiCompiled's Launcher/Prepare-PortableTools.ps1 pins, and WiiCompiled's offer to supply it is passed on here.
+
+wit 3.05a (payload/wit/wit.exe): payload/wit/{src},
+  from https://github.com/Wiimm/wiimms-iso-tools commit {wit}
+
+Cygwin 3.1.7-1 (payload/wit/cygwin1.dll): payload/wit/{cygwin}, Cygwin's own source package.
+  Its terms, newlib's notices among them, are in LICENSES/wit and Cygwin/. The other DLLs beside it are Cygwin's
+  builds of OpenSSL 1.1.1f, ncurses 6.1 and zlib 1.2.11, under the permissive licences there.
+"""
     wit_commit = WIT_SRC[0].rsplit("/", 1)[1].split(".")[0]
-    (stage / "SOURCE.txt").write_text(f"""SplitScreen8 {release['version']}: where the source of everything in this zip is
+    (stage / "SOURCE.txt").write_text(f"""SplitScreen8 {release['version']}: where the source of everything in this {"archive" if linux else "zip"} is
 
 Each repository below holds the exact commit this release was built from.
 
@@ -147,20 +224,8 @@ with SS8_VANILLA):
 wuj5, the menu file formats inside the setup:
   {urls['wuj5']}  commit {release['wuj5']}
 
-WiiCompiled (payload/WiiCompiled-Setup.exe):
-  {urls['Wiicompiled']}  commit {release['Wiicompiled']}
-  Its third-party components and their sources: LICENSES/WiiCompiled/THIRD-PARTY-NOTICES.md. The GNU utilities in its
-  llvm-mingw toolkit are GPL: their source is at https://github.com/mstorsjo/llvm-mingw, at the version that
-  WiiCompiled's Launcher/Prepare-PortableTools.ps1 pins, and WiiCompiled's offer to supply it is passed on here.
-
-wit 3.05a (payload/wit/wit.exe): payload/wit/{WIT_SOURCE},
-  from https://github.com/Wiimm/wiimms-iso-tools commit {wit_commit}
-
-Cygwin 3.1.7-1 (payload/wit/cygwin1.dll): payload/wit/{CYGWIN_SOURCE}, Cygwin's own source package.
-  Its terms, newlib's notices among them, are in LICENSES/wit and Cygwin/. The other DLLs beside it are Cygwin's
-  builds of OpenSSL 1.1.1f, ncurses 6.1 and zlib 1.2.11, under the permissive licences there.
-
-Python {platform.python_version()} and PyInstaller {pyinstaller.version}, the setup's runtime:
+{wc_text.format(url=urls['Wiicompiled'], commit=release['Wiicompiled'], src=WIT_SOURCE, wit=wit_commit, cygwin=CYGWIN_SOURCE)}
+Python {versions['python']} and PyInstaller {versions['pyinstaller']}, the setup's runtime:
   https://www.python.org/ and https://github.com/pyinstaller/pyinstaller
 """, encoding="utf-8")
 
@@ -185,9 +250,14 @@ def main() -> int:
     ap.add_argument("--version", help="the release's name (default dev-<root commit>)")
     ap.add_argument("--dirty-root", action="store_true", help="allow uncommitted root files (a candidate); marks the version")
     ap.add_argument("--fetch-wit", action="store_true", help="only fetch wit into build/wit/")
+    ap.add_argument("--freeze", type=Path, help="only freeze the setup into this folder (tools/build_linux.sh)")
+    ap.add_argument("--linux", type=Path, help="also the Linux archive, from tools/build_linux.sh's output (build/linux)")
     args = ap.parse_args()
     if args.fetch_wit:
         fetch_wit()
+        return 0
+    if args.freeze:
+        freeze(args.freeze, args.freeze.parent / "pyinstaller")
         return 0
 
     for repo in (PULSAR, WUJ5, WC, *(() if args.dirty_root else (ROOT,))):
@@ -210,6 +280,20 @@ def main() -> int:
     sources = [WC / f for f in git(WC, "ls-files", "-z").split("\0") if f]
     if INSTALLER.stat().st_mtime < max(f.stat().st_mtime for f in sources):
         install_8p.fail(f"{INSTALLER} is older than its sources in {WC}: build it again")
+    if args.linux:
+        # Built in a container, which has no git: build_linux.sh records the commit it archived.
+        built = (args.linux / "WiiCompiled-Setup.AppImage.commit").read_text(encoding="utf-8").strip()
+        if built != git(WC, "rev-parse", "HEAD"):
+            install_8p.fail(f"{args.linux / 'WiiCompiled-Setup.AppImage'} was built from {built[:9]}, not {WC}'s HEAD: "
+                            "run tools/build_linux.sh again")
+        frozen = args.linux / "setup" / "commit.txt"
+        if not frozen.is_file():
+            install_8p.fail(f"no frozen Linux setup in {args.linux / 'setup'}: run tools/build_linux.sh")
+        # The Windows setup is frozen here from the tree released; the Linux one earlier, from what tools/ held then.
+        head, (commit, _, dirty) = git(ROOT, "rev-parse", "HEAD"), frozen.read_text(encoding="utf-8").strip().partition("-")
+        if commit != head or (dirty and not args.dirty_root):
+            install_8p.fail(f"the Linux setup was frozen at {commit[:9]}{'-' + dirty if dirty else ''}, not {head[:9]}: "
+                            "run tools/build_linux.sh --only setup again")
     if build_code.load_env().get("EXTRA_CFLAGS"):
         install_8p.fail("EXTRA_CFLAGS is set (.env or the environment); a release builds with none")
     try:
@@ -252,17 +336,7 @@ def main() -> int:
         shutil.copy2(WIT_DIR / name, stage / "payload" / "wit" / name)
         files[f"wit/{name}"] = install_8p.sha256(stage / "payload" / "wit" / name)
 
-    work = OUT / "pyinstaller"
-    shutil.rmtree(work, ignore_errors=True)
-    data = [f"{install_8p.GENERATOR};tools/assets", f"{WUJ5 / 'LICENSE'};external/wuj5",
-            f"{DOCS / 'wii-wheel.ico'};tools/release_docs",
-            *(f"{p};external/wuj5" for p in sorted(WUJ5.glob("*.py")))]
-    subprocess.run([sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--onedir", "--noupx", "--console",
-                    "--hide-console", "hide-early", "--icon", str(DOCS / "wii-wheel.ico"), "--name", "MKWii 8P Splitscreen Setup",
-                    "--distpath", str(stage), "--workpath", str(work / "work"),
-                    "--specpath", str(work), "--paths", str(ROOT / "tools"), "--paths", str(WUJ5),
-                    *(a for m in WUJ5_MODULES for a in ("--hidden-import", m)),
-                    *(a for d in data for a in ("--add-data", d)), str(ROOT / "tools" / "ss8_setup.py")], check=True)
+    freeze(stage, OUT / "pyinstaller")
 
     release = {"version": version, "root": git(ROOT, "rev-parse", "HEAD"), "rr-pulsar": git(PULSAR, "rev-parse", "HEAD"),
                "wuj5": git(WUJ5, "rev-parse", "HEAD"), "Wiicompiled": git(WC, "rev-parse", "HEAD"),
@@ -276,7 +350,47 @@ def main() -> int:
                 z.write(f, f.relative_to(OUT))
     print(f"[release] {archive}: {archive.stat().st_size >> 20} MB, sha256 {install_8p.sha256(archive)}")
     print(json.dumps(release, indent=2))
+    if args.linux:
+        linux_archive(args.linux, stage, release, urls)
     return 0
+
+
+def linux_archive(built: Path, windows: Path, release: dict, urls: dict) -> None:
+    """The Linux archive beside the zip: the zip's Code.pul and Loader.pul, tools/build_linux.sh's AppImage and setup,
+    wit's Linux build. A tar keeps what the zip cannot: the executables' mode bits."""
+    stage = OUT / f"{windows.name}-linux-x86_64"
+    shutil.rmtree(stage, ignore_errors=True)
+    with tarfile.open(fetch(*WIT_LINUX)) as t:
+        for name in ("bin/wit", "gpl-2.0.txt"):
+            member = next(m for m in t.getmembers() if m.name.endswith(f"/{name}"))
+            (WIT_DIR / "linux").mkdir(exist_ok=True)
+            (WIT_DIR / "linux" / Path(name).name).write_bytes(t.extractfile(member).read())
+    files = {name: digest for name, digest in release["files"].items() if name.endswith(".pul")}
+    for build in BUILDS:
+        shutil.copytree(windows / "payload" / build, stage / "payload" / build)
+    shutil.copy2(built / "WiiCompiled-Setup.AppImage", stage / "payload" / "WiiCompiled-Setup.AppImage")
+    (stage / "payload" / "wit").mkdir()
+    for src, name in ((WIT_DIR / "linux" / "wit", "wit"), (WIT_DIR / "linux" / "gpl-2.0.txt", "gpl-2.0.txt"), (WIT_DIR / WIT_SOURCE, WIT_SOURCE)):
+        shutil.copy2(src, stage / "payload" / "wit" / name)
+    for f in ("WiiCompiled-Setup.AppImage", "wit/wit", "wit/gpl-2.0.txt", f"wit/{WIT_SOURCE}"):
+        files[f] = install_8p.sha256(stage / "payload" / f)
+    shutil.copytree(built / "setup" / SETUP_NAME, stage / SETUP_NAME)
+    linux = {**release, "files": files}
+    (stage / "payload" / "release.json").write_text(json.dumps(linux, indent=2) + "\n", encoding="utf-8")
+    write_docs(stage, linux, urls, built)
+    archive = OUT / f"{stage.name}.tar.gz"
+    executables = {stage / SETUP_NAME / SETUP_NAME, stage / "payload" / "WiiCompiled-Setup.AppImage", stage / "payload" / "wit" / "wit"}
+
+    def mode(info: tarfile.TarInfo) -> tarfile.TarInfo:
+        path = OUT / info.name
+        info.mode = 0o755 if info.isdir() or path in executables or path.suffix == ".so" or ".so." in path.name else 0o644
+        info.uid = info.gid = 0
+        info.uname = info.gname = ""
+        return info
+
+    with tarfile.open(archive, "w:gz") as t:
+        t.add(stage, stage.relative_to(OUT).as_posix(), filter=mode)
+    print(f"[release] {archive}: {archive.stat().st_size >> 20} MB, sha256 {install_8p.sha256(archive)}")
 
 
 if __name__ == "__main__":

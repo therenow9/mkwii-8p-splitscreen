@@ -1,23 +1,19 @@
-# Main-menu navigation without Retro WFC: down cannot select its old buttons.
-# Visit Single Player, return, traverse all seven Multiplayer entries, and return from 2P registration.
+# Main-menu navigation: Single Player centred on top, the seven Multiplayer buttons in the row below, no Retro WFC.
+# Down to 5 Players and Up back, visit Single Player, traverse all seven, Down below the row, and 2P registration.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 down     # Single Player remains selected; WFC is absent
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 240
+press 1 up       # back to Single Player
 wait 240
 press 1 a        # Single Player
 wait 240
 press 1 b        # return to the main menu
 wait 240
-press 1 right    # 2 Players
-wait 60
-press 1 right    # 3 Players
-wait 60
-press 1 right    # 4 Players
-wait 60
-press 1 right    # 5 Players
+press 1 down     # 5 Players
 wait 60
 press 1 right    # 6 Players
 wait 60
@@ -25,7 +21,7 @@ press 1 right    # 7 Players
 wait 60
 press 1 right    # 8 Players
 wait 240
-press 1 down     # WFC cannot receive focus below Multiplayer
+press 1 down     # nothing below the row: 8 Players stays selected
 wait 240
 press 1 left     # 7 Players
 wait 60

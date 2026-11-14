@@ -1,0 +1,32 @@
+# Same as Last Time, 1P Grand Prix (the 8 Players rows on Choose): the hint is hidden on the first visit; P1 picks
+# through the character, vehicle, transmission and drift pages to the cup page, B's back to the character page, where
+# the hint shows, and holds Z for 3 s: every page passes on the last picks to the cup page. GC port 1.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 a        # Single Player
+wait 240
+press 1 a        # Grand Prix
+wait 240
+press 1 a        # 150cc
+wait 400
+press 1 a        # character page: no hint, nobody has picked since the title
+wait 360
+press 1 a        # vehicle page
+wait 360
+press 1 a        # transmission page
+wait 360
+press 1 a        # drift page
+wait 480         # cup page
+press 1 b        # back to the drift page
+wait 360
+press 1 b        # the transmission page
+wait 360
+press 1 b        # the vehicle page
+wait 360
+press 1 b        # the character page: the hint shows
+wait 360
+press 1 z 200    # held 3 s
+wait 900         # the cup page

@@ -1,8 +1,8 @@
-# D69: a 5-8 player game's P5-8 get the reconnect box on the 8-player pages. 8 Players,
+# A 5-8 player game's P5-8 get the reconnect box on the 8-player pages. 8 Players,
 # P2-8 join, VS. Character page: P5's Classic is unplugged for 10 s; P1's and P6's Right do nothing under the box;
 # P5's A closes it. Then P8's for 5 s and P2's GC pad for 5 s; P6's on the kart page and P7's on the drift page, each
 # closed by its A. Each box shows its player's colour and the lamp of the controller's channel or port.
-# Everyone confirms each page, then cup select and a race (D153): P6's Classic out for 5 s pauses it under P6's box,
+# Everyone confirms each page, then cup select and a race: P6's Classic out for 5 s pauses it under P6's box,
 # P6's A closes it and P6 drives on; then P2's GC pad, vanilla's box. Launch with install_8p.py dolphin --unattended
 # --wiimotes.
 wait 900
@@ -10,19 +10,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

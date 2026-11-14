@@ -3,7 +3,7 @@
 
 Usage:
   lane.py run VARIANT SCRIPT [SHOT ...] [--out DIR] [--total S] [--fast] [--wiimotes] [--no-build]
-              [--keep-settings] [--past-race] [--res N] [--footage]
+              [--keep-settings] [--past-race] [--res N] [--footage] [--aspect 4:3|16:9]
   lane.py batch FILE [--out DIR] [--slots N] [--first-slot K]   one lane per line, each line run's arguments ('#'
                                                                   comments); one report.md
 
@@ -16,10 +16,10 @@ Dolphin exiting, or --total. Players 5-8 press on Classic Controllers, so a scri
 with --wiimotes itself.
 
 --slots N runs the lanes on slots 0..N-1 (install_8p.py --slot K, each made by `prepare`), one lane per slot at a
-time, each slot's windows in its own column of the primary display; --first-slot K starts at slot K instead, as for a
-slot prepared from another disc (install_8p.py --slot K --disc FILE prepare).
+time, each slot's windows in its own column of the primary display (TEST_DISPLAY in .env); --first-slot K
+starts at slot K instead, as for a slot prepared from another disc (install_8p.py --slot K --disc FILE prepare).
 
-A lane refuses to install or start while a Dolphin the batch did not start runs (the owner's included), and puts
+A lane refuses to install or start while a Dolphin the batch did not start runs (your own included), and puts
 its copy's RRGameSettings.pul (the vanilla game's save) back afterwards: RR saves its settings whole, and the vanilla
 game its licenses' rules, so a script's "setting" line or rules page would reach every later run.
 """
@@ -87,7 +87,7 @@ def lane(slot: int, tiled: bool, args, out: Path, shots: Path) -> dict:
     parsed = install_8p.menu_script(script, layout.region)
     presses_5_8 = any(port >= 4 for _, port, _, _ in parsed["steps"])
     result = row(out.name, slot)
-    # Before anything is written into the slot: on slot 0 that would be under the owner's running 8P game.
+    # Before anything is written into the slot: on slot 0 that would be under the running 8P game.
     if why := install_8p.foreign_dolphin():
         result["result"] = why
         return result
@@ -107,6 +107,7 @@ def lane(slot: int, tiled: bool, args, out: Path, shots: Path) -> dict:
         launch += ["--wiimotes"] if args.wiimotes or presses_5_8 else []
         launch += ["--fast"] if args.fast else []
         launch += ["--res", str(args.res)] + (["--dump", "--footage"] if args.footage else [])
+        launch += ["--aspect", args.aspect]
         rec = install_8p.guarded_launch(layout, lambda: run(launch, out / "dolphin.log") == 0)
         if isinstance(rec, str):
             result["result"] = rec
@@ -198,13 +199,14 @@ def lane_parser() -> argparse.ArgumentParser:
     p.add_argument("shot", nargs="*", help='"REGEX@DELAY" or "@time@N"')
     p.add_argument("--name", help="the lane's folder in a batch (default: the script's name)")
     p.add_argument("--total", type=float, default=420, help="end the lane this many seconds after launch")
-    p.add_argument("--fast", action="store_true", help="unlimited emulation speed (D114; not for sound or @time shots)")
+    p.add_argument("--fast", action="store_true", help="unlimited emulation speed (not for sound or @time shots)")
     p.add_argument("--wiimotes", action="store_true", help="connect Classic Controllers though no press is on ports 5-8")
     p.add_argument("--no-build", action="store_true", help="install the variant's last build as it is")
     p.add_argument("--keep-settings", action="store_true", help="leave RR's settings (the vanilla save) as the lane saved them")
     p.add_argument("--past-race", action="store_true", help="keep running after the race starts")
     p.add_argument("--res", type=int, default=1, help="Dolphin's internal resolution, a multiple of native")
     p.add_argument("--footage", action="store_true", help="record video (lossless) and sound into the lane's dump/ (real speed)")
+    p.add_argument("--aspect", choices=["4:3", "16:9"], default="16:9", help="the console's Widescreen setting (default 16:9)")
     return p
 
 
@@ -282,7 +284,7 @@ def main() -> None:
             t.join()
         wall = round(time.monotonic() - started)
         after = fingerprint()
-        # The owner's files are the same for every slot: slot 0's snapshot checks them.
+        # The watched files are the same for every slot: slot 0's snapshot checks them.
         isolation = subprocess.run([PY, "tools/install_8p.py", *(["--vanilla"] if kinds == [True] else []), "isolation", "verify"],
                                    cwd=ROOT, capture_output=True, text=True).stdout.strip().splitlines()
         rows = [r or row(lanes[n].name or script_path(lanes[n].script).stem, -1, "ERROR: no result") for n, r in enumerate(rows)]

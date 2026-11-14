@@ -1,0 +1,97 @@
+# The drift page's pass on the 1-4 Battle route (Transmission Outside, Drift Keep Last), from 4p-battle-ref: 4 Players,
+# Balloon Battle with RR's teams, every page confirmed; the transmission page is skipped, everyone picks on the game's drift
+# page (their first since the title), the arena cup page; B passes the drift page back to the kart page, everyone
+# confirms again and the drift page passes to the arena cup page, then cup, arena and Start: a round whose holders log transmission 3. GC ports 1-4.
+setting SETTING_BATTLETEAMS BATTLE_FFA_ENABLED  # RR's teams, as 4p-battle-ref
+setting SETTING_SS8TRANSMISSION SS8TRANSMISSION_OUTSIDE
+setting SETTING_SS8DRIFT SS8DRIFT_KEEPLAST
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+wait 120
+press 1 a        # 4 Players
+wait 360
+press 2 a        # controller registration: P2
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+wait 120
+press 1 a        # OK
+wait 300
+press 1 down     # multiplayer menu: Battle
+wait 60
+press 1 a
+wait 360
+press 1 a        # Balloon Battle
+wait 360
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+wait 300
+wait 240         # the team page
+press 3 right
+wait 30
+press 4 right
+wait 30
+wait 120
+press 1 a        # every team confirmed
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+wait 300
+press 1 a        # the teams page (Check Teams)
+wait 360
+press 1 a        # kart page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+wait 360
+press 1 a        # the drift page: everyone's first pick since the title
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 390         # the arena cup page
+press 1 b        # back: the drift page passes back to the kart page
+wait 480
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+wait 300
+wait 300         # the drift page passes to the arena cup page
+wait 60
+press 1 a        # cup
+wait 240
+press 1 a        # arena
+wait 240
+press 1 a        # Start: OK
+wait 240
+wait 600

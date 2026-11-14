@@ -1,4 +1,4 @@
-# PD66: P5-8's karts on RR's version page (a Pages::CourseSelect of its own), on opening it, after Back to the course
+# P5-8's karts on RR's version page (a Pages::CourseSelect of its own), on opening it, after Back to the course
 # page, and on opening it again. 8p-vs-course's route, onto GCN Peach Beach. Shots on steps 66-68.
 autodrive
 wait 900
@@ -6,19 +6,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

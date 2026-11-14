@@ -1,4 +1,4 @@
-# RR's settings in a 2-player game, the 1-4P reference for 6p-royale-settings (M4 D3): 2 Players, the multiplayer
+# RR's settings in a 2-player game, the 1-4P reference for 6p-royale-settings: 2 Players, the multiplayer
 # menu's Settings button to RR's page select (a shot), Race -> Menu -> Sound -> Down (a shot: Knockout), back to Race,
 # then Battle -> Royale and its page (a shot), Up from Save (a shot), Back, Battle's page (a shot) and Back twice:
 # every button and row as RR draws them. GC ports 1-2.
@@ -7,7 +7,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
 wait 40
 press 1 a
 wait 300

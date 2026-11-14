@@ -1,0 +1,119 @@
+# 8p-ss8-same with P1's and P5's cursors moved off their last picks before P1 holds Z: the hold still confirms them on
+# their last picks. GC ports 1-4, Wii channels 1-4's Classics as ports 5-8.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 right    # 6 Players
+wait 60
+press 1 right    # 7 Players
+wait 60
+press 1 right    # 8 Players
+wait 180
+press 1 a        # 8 Players
+wait 360
+press 2 a        # join page: P2
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 120
+press 6 a
+wait 120
+press 7 a
+wait 120
+press 8 a
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page, no hint
+wait 300
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 360         # the kart page
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 360         # the transmission page
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 360         # the drift page
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 480         # the cup page
+press 1 b        # back to the drift page
+wait 360
+press 1 b        # the transmission page
+wait 360
+press 1 b        # the kart page
+wait 360
+press 1 b        # the character page: the hint shows
+wait 360
+press 1 down     # P1 and P5 off their last picks
+wait 30
+press 5 down
+wait 60
+press 1 z 200    # held 3 s
+wait 1200        # the cup page

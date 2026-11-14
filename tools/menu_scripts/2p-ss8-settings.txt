@@ -1,0 +1,56 @@
+# The 8 Players settings page in a 2-player game: the multiplayer menu's Settings button to RR's page select (a shot),
+# Race -> Down x3 -> Right onto 8 Players (a shot: its name and description), its page (a shot), then Drift on Keep
+# Last and Transmission on Outside (a shot), B saves and goes back. Run with --keep-settings to read the save after.
+setting SETTING_SS8TRANSMISSION SS8TRANSMISSION_VANILLA
+setting SETTING_SS8DRIFT SS8DRIFT_CHOOSE
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 480
+press 1 up       # multiplayer menu: VS -> the Settings button (top right)
+wait 120
+press 1 a        # Settings
+wait 600         # page select, held for its shot
+press 1 down     # Race -> Battle
+wait 60
+press 1 down     # -> Royale
+wait 60
+press 1 down     # -> Items
+wait 60
+press 1 right    # -> 8 Players
+wait 300         # held for its shot
+press 1 a        # the 8 Players page, on Save
+wait 600         # held for its shot
+press 1 up       # Drift Select, on Choose
+wait 60
+press 1 right    # Keep Last
+wait 60
+press 1 a
+wait 60
+press 1 up       # Transmission Select, on Vanilla
+wait 60
+press 1 right    # Choose
+wait 60
+press 1 right    # Outside
+wait 60
+press 1 a
+wait 300         # held for its shot
+press 1 b        # saves, back to page select
+wait 300
+press 1 b        # back to the multiplayer menu
+wait 300

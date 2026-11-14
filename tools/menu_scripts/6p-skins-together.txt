@@ -1,4 +1,4 @@
-# PD72 and the 2026-10-20 inbox line: on a fresh 6-player character page every player presses R one frame apart, as
+# On a fresh 6-player character page every player presses R one frame apart, as
 # controllers linked together would, eight times, then L eight times. Every "skin" line should load, none "failed".
 # Launch with --wiimotes.
 wait 900
@@ -6,15 +6,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360

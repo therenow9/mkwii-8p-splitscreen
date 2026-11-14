@@ -1,0 +1,26 @@
+# The 8 Players page's skips at 1P (Transmission Vanilla, Drift Keep Last): Grand Prix, Mario, the first kart; the
+# transmission page is skipped and the drift page shows (P1's first pick since the title), then the cup page. B there
+# passes the drift page back to the kart page; A passes it again to the cup page. GC port 1.
+setting SETTING_SS8TRANSMISSION SS8TRANSMISSION_VANILLA
+setting SETTING_SS8DRIFT SS8DRIFT_KEEPLAST
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 a        # main menu: Single Player
+wait 240
+press 1 a        # Grand Prix
+wait 240
+press 1 a        # 50cc
+wait 300
+press 1 a        # Mario
+wait 300
+press 1 a        # kart select
+wait 300
+press 1 a        # the drift page: P1's first pick since the title
+wait 480         # the cup page, held for its shot
+press 1 b        # back: the drift page passes back to kart select
+wait 480         # kart select, held for its shot
+press 1 a        # the drift page passes again
+wait 600         # the cup page

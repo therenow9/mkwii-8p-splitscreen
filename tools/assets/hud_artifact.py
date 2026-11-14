@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print the geometry of the 4P race HUD, for M3 phase B's layout decision page.
+"""Print the geometry of the 4P race HUD, for a layout decision.
 
 Reads the user's own Scene/UI/Race.szs (controls) and Race_<lang>.szs (the localized game_image_*
 layouts) in memory and writes JSON: for each HUD control, its 4P variants' 16:9 and 4:3 translation
@@ -9,7 +9,7 @@ The rectangle is an estimate: it unions picture and text panes through their par
 and scale and their base position, and ignores rotation and animation. Panes named *null* are
 frames, used only when nothing else is visible (the map draws inside one); a pane stored above 4x
 is an animation's start and is skipped. Text boxes count whole, so a short text over-reports.
-Nothing read here is stored in the repository; write the output outside it (D41).
+Nothing read here is stored in the repository; write the output outside it.
 
 Usage:
   hud_artifact.py <files/Scene/UI> [--lang E] [--out geometry.json]

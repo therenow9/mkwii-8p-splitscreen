@@ -1,0 +1,52 @@
+# Same as Last Time Off, 2P VS: 2p-ss8-same with the 8 Players page's Same as Last Time row Off. Back on the
+# character page no hint shows and P1's 3 s hold of Z passes nothing. GC ports 1-2.
+setting SETTING_SS8SAMELAST SS8SAMELAST_OFF
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 a        # character page: no hint, nobody has picked since the title
+wait 30
+press 1 a
+wait 360
+press 1 a        # vehicle page
+wait 30
+press 2 a
+wait 360
+press 1 a        # transmission page
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift page
+wait 30
+press 2 a
+wait 480         # cup page
+press 1 b        # back to the drift page
+wait 360
+press 1 b        # the transmission page
+wait 360
+press 1 b        # the vehicle page
+wait 360
+press 1 b        # the character page: no hint
+wait 360
+press 1 z 200    # held 3 s
+wait 900         # still the character page

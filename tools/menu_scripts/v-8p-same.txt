@@ -1,0 +1,111 @@
+# Same as Last Time without Retro Rewind (vanilla-menu), 8P VS: everyone picks a character, kart and drift to the cup
+# page, P1 B's back to the character page, where the hint shows, and holds Z for 3 s: our pages confirm everyone on
+# their last picks to the cup page. GC ports 1-4, Wii channels 1-4's Classics as ports 5-8.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+# Japan's title takes A about 600 frames later
+J: wait 605
+J: press 1 a     # license
+# USA and Japan: slot 0's PAL license has a Mii this console lacks, so the game swaps in a guest Mii first
+EJ: wait 600
+EJ: press 1 a    # Choose a Mii: the selected one
+EJ: wait 535
+EJ: press 1 a    # OK
+EJ: wait 405
+EJ: press 1 a    # the Mii changed
+EJ: wait 405
+EJ: press 1 a    # license
+wait 600         # the game's main menu opens later than RR's
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 right    # 6 Players
+wait 60
+press 1 right    # 7 Players
+wait 60
+press 1 right    # 8 Players
+wait 180
+press 1 a        # 8 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 120
+press 6 a        # P6
+wait 120
+press 7 a        # P7
+wait 120
+press 8 a        # P8; ConfirmPads opens, OK selected
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page
+wait 300         # the character page, no hint
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 360         # the kart page
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 360         # the drift page
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 20
+press 6 a
+wait 20
+press 7 a
+wait 20
+press 8 a
+wait 20
+wait 480         # the cup page
+press 1 b        # back to the drift page
+wait 360
+press 1 b        # the kart page
+wait 360
+press 1 b        # the character page: the hint shows
+wait 360
+press 1 z 200    # held 3 s
+wait 1200        # the cup page

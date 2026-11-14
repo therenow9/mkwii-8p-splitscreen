@@ -1,5 +1,5 @@
-# Leaving a 5-8 player game for a 1-4 player one (M4 D1): KO on (a setting line), a 6-player VS race with KO on
-# (M5, D198), P1 quits it from the pause menu, then 2 Players and a Solo Race to its start; the 2P race's "ss8 context"
+# Leaving a 5-8 player game for a 1-4 player one: KO on (a setting line), a 6-player VS race with KO on
+# P1 quits it from the pause menu, then 2 Players and a Solo Race to its start; the 2P race's "ss8 context"
 # line should read as 2p-ko-ref's (ko 1, vsRaceCount 255), with two locals. Launch with --wiimotes.
 setting SETTING_KOENABLED KOSETTING_ENABLED
 wait 900
@@ -7,15 +7,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360

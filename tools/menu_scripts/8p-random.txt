@@ -1,26 +1,20 @@
-# M4 C4d's Randomize Combo for 8: 8 Players, P2-8 join, VS, P2 and P5 confirm,
-# then P1's START rolls a character, skin and kart for all 8 (D108) with RR's 60-frame roulette, P1's B
-# and P3's A during it doing nothing; all 8 confirm at its end (D112). Then the kart page's roulette (D151),
-# the transmission and drift pages, cup select and a race whose players 0-7 have the rolled characters and karts (D110).
+# Randomize Combo for 8: 8 Players, P2-8 join, VS, P2 and P5 confirm,
+# then P1's START rolls a character, skin and kart for all 8 with RR's 60-frame roulette, P1's B
+# and P3's A during it doing nothing; all 8 confirm at its end. Then the kart page's roulette,
+# the transmission and drift pages, cup select and a race whose players 0-7 have the rolled characters and karts.
 # Launch with install_8p.py dolphin --unattended --wiimotes.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

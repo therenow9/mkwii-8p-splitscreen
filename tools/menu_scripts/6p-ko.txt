@@ -1,4 +1,4 @@
-# RR's KO in a 6-player VS race (M5, D198): KO on (a setting line), then 6 Players, P2-6 join, Solo Race and every
+# RR's KO in a 6-player VS race: KO on (a setting line), then 6 Players, P2-6 join, Solo Race and every
 # page confirmed to the race's start; the race's "ss8 context" line reads ko 1 and vsRaceCount 255, as 2p-ko-ref's.
 # Launch with install_8p.py dolphin --unattended --wiimotes.
 setting SETTING_KOENABLED KOSETTING_ENABLED
@@ -7,15 +7,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360

@@ -1,0 +1,60 @@
+# Fast Menus with 4 players, the reference for 8p-fastmenus: 4 Players, VS, Solo Race and every page confirmed, held
+# on the cup page; the game's pages leave on their last confirm. Needs Fast Menus saved on before boot, as
+# 8p-fastmenus does. GC ports 1-4.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 480
+press 1 a        # Solo Race
+wait 360
+press 2 a        # character select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 360
+press 2 a        # kart select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 300
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 360
+press 1 a        # cup
+wait 300

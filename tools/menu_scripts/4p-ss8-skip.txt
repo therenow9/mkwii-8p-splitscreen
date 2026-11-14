@@ -1,0 +1,68 @@
+# The 8 Players page's skips at 4P (Transmission Outside, Drift Keep Last), as 2p-ss8-skip: VS, everyone confirms a
+# character and a kart, everyone picks on the drift page (their first since the title), the cup page, P1's B passes it back to kart select, everyone confirms
+# again, then cup, course and a race whose holders log transmission 3. GC ports 1-4.
+setting SETTING_SS8TRANSMISSION SS8TRANSMISSION_OUTSIDE
+setting SETTING_SS8DRIFT SS8DRIFT_KEEPLAST
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 90
+press 3 a
+wait 90
+press 4 a
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 a        # character select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 360
+press 2 a        # kart select
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a
+wait 360
+press 1 a        # the drift page: everyone's first pick since the title
+wait 30
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 480         # the cup page, held for its shot
+press 1 b        # back: the drift page passes back to kart select
+wait 480         # kart select, held for its shot
+press 2 a
+wait 30
+press 3 a
+wait 30
+press 4 a
+wait 30
+press 1 a        # the drift page passes again
+wait 480
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 1500

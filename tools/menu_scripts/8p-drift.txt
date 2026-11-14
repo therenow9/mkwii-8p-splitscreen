@@ -1,4 +1,4 @@
-# M4 C5c's transmission and drift pages: 8 Players, P2-8 join, VS, everyone confirms their
+# The transmission and drift pages: 8 Players, P2-8 join, VS, everyone confirms their
 # first character and kart. Transmission: P1, P5 and P8 move Up to Outside, the rest keep Inside; P4 chooses and
 # takes it back. Drift: P1 and P8 move Down to Manual, P5 Up to Automatic; P1's B with nobody ready goes back to
 # the transmission page, where everyone chooses again, then the drift page, cup select and a race whose holders log
@@ -8,19 +8,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

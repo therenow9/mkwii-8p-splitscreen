@@ -1,4 +1,4 @@
-# VS settings 0x73 in a 4-player game, the reference for 6p-vs-settings (M4 D3, normal build): 4 Players, VS, the
+# VS settings 0x73 in a 4-player game, the reference for 6p-vs-settings (normal build): 4 Players, VS, the
 # Rules button to VS settings, held for a shot, B, then Solo Race and every page confirmed to the race, whose ss8
 # context line gives vsRaceCount. GC ports 1-4.
 wait 900
@@ -6,11 +6,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
-wait 40
-press 1 right    # 3 Players
-wait 40
-press 1 right    # 4 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
 wait 40
 press 1 a
 wait 300

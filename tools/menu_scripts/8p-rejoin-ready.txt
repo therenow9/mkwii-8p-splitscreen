@@ -1,4 +1,4 @@
-# Re-entering 8 Players after a game (M5a, the owner's ready-up item): 8 Players, P2-8 join, a Solo Race, P1 quits it
+# Re-entering 8 Players after a game: 8 Players, P2-8 join, a Solo Race, P1 quits it
 # from the pause menu (main menu, section 0x41), then 8 Players again: the join page as it opens, P1-8 still
 # registered as 4p-rejoin-ref's P1-4 are (step 62's shot); then OK, Solo Race and every player's A on the character
 # page, P5-8's on their kept Classics. Launch with install_8p.py dolphin --unattended --wiimotes.
@@ -7,19 +7,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

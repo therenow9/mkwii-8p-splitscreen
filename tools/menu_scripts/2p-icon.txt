@@ -1,11 +1,17 @@
 # The character button's icon with two skins on one driver in 2P: P2 (on Luigi) joins P1's Mario, P1 cycles to
-# Mario skin 4, then P2 to skin 5. The icon follows P1's skin (D84); each preview and name plate shows its own.
+# Mario skin 4, then P2 to skin 5. The icon follows P1's skin; each preview and name plate shows its own.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
 wait 40
 press 1 a
 wait 300

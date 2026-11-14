@@ -1,4 +1,4 @@
-# D260's course and variant pages with 8 players and Battle Royale on: 8p-royale's route to the cup page, then
+# The course and variant pages with 8 players and Battle Royale on: 8p-royale's route to the cup page, then
 # Dreamer's cup and the next (archives above 8.3 MiB greyed), Wii U Ribbon Road's variant page (its second variant
 # greyed, the first selected) and a race on the first. Launch with install_8p.py dolphin --unattended --wiimotes.
 setting SETTING_KOROYALEENABLED KOROYALESETTING_ENABLED
@@ -8,19 +8,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

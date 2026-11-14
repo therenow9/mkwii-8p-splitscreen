@@ -1,4 +1,4 @@
-# PD59: the playtest log's pattern on the 5-player Balloon Battle character page, RR's settings as they ship: P1-4
+# A burst of presses seen in play on the 5-player Balloon Battle character page, RR's settings as they ship: P1-4
 # confirm, unconfirm and change skin every few frames, interleaved, so confirms restart voices still playing and
 # skin changes reload them; P5 only cycles skins, so the page never leaves. Ends on the page.
 wait 900
@@ -6,13 +6,7 @@ press 1 a 5        # title
 wait 175
 press 1 a 5        # license
 wait 240
-press 1 right 5        # main menu: 2 Players
-wait 60
-press 1 right 5        # main menu: 3 Players
-wait 60
-press 1 right 5        # main menu: 4 Players
-wait 60
-press 1 right 5        # main menu: 5 Players
+press 1 down 5         # main menu: Multiplayer, 5 Players
 wait 60
 wait 120
 press 1 a 5        # 5 Players

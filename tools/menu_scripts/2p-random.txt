@@ -1,12 +1,18 @@
 # Retro Rewind's Randomize Combo in 2P: P1's START at the character select rolls a character, kart and
-# skin for each player; each player's own preview must reload (D72), not P1's. Then 25 s on whatever
-# the page does after its roulette (D113). GC ports 1-2.
+# skin for each player; each player's own preview must reload, not P1's. Then 25 s on whatever
+# the page does after its roulette. GC ports 1-2.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
 wait 40
 press 1 a
 wait 300
@@ -19,4 +25,4 @@ wait 360
 press 1 a        # Solo Race
 wait 240
 press 1 start    # character select, step 8: Randomize Combo
-wait 1500         # D113: what the page does after the roulette
+wait 1500         # what the page does after the roulette

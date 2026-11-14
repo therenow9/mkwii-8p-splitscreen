@@ -1,25 +1,19 @@
-# M4 C4e's stress case: 8p-random-back with ten rolls in a row, each followed by B on the
+# Stress case: 8p-random-back with ten rolls in a row, each followed by B on the
 # transmission page and the kart page, back to the character page; the race has the tenth roll. Every P5-8 load must find its arena
-# (D118) and every head was built as the page opened (D119); P1-4's skin models are flushed before each roll's loads (D122).
+# and every head was built as the page opened; P1-4's skin models are flushed before each roll's loads.
 # Launch with install_8p.py dolphin --unattended --wiimotes.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360
@@ -100,7 +94,7 @@ wait 360
 press 1 start    # roll 10
 wait 400
 wait 400
-wait 200         # the kart page's roulette confirms everyone (D151), then the transmission page
+wait 200         # the kart page's roulette confirms everyone, then the transmission page
 press 1 a        # transmission page
 wait 20
 press 2 a

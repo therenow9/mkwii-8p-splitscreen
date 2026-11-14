@@ -1,5 +1,5 @@
 # RR's full menu-script set: lane.py batch tools/lane_sets/rr.txt --slots 4, on the 8P root and slots 1-3. The batch
-# builds ss8-menu once. Session 63's set (build/s63/full2.txt) and the lanes added since; --fast except the sound lanes,
+# builds ss8-menu once. Every RR lane; --fast except the sound lanes,
 # 4p-team-back-ref and the re-entry lanes, which shoot at real speed. The boot cases are smoke_8p.py --slots 4 --fast.
 # Long lanes first
 ss8-menu 8p-ko-series --past-race --total 2400 --fast
@@ -40,11 +40,26 @@ ss8-menu 4p-unplug --past-race --fast
 # Real speed: the sound lanes, and the re-entry and team-Back shots on the page as it opens
 ss8-menu 1p-skin-voice-birdo
 ss8-menu 2p-same-voice-race
-ss8-menu 4p-team-back-ref "ss8 menu: step 17 frame@2" "ss8 menu: step 19 frame@2" "ss8 menu: step 21 frame@4" "ss8 menu: step 26 frame@1" "ss8 menu: step 30 frame@4" "ss8 menu: step 31 frame@4"
-ss8-menu 8p-rejoin-ready --past-race --total 480 "step 62 frame@9" "step 73 frame@3"
-ss8-menu 8p-rejoin-back "step 18 frame@5" "step 18 frame@9"
-ss8-menu 4p-rejoin-ref --past-race --total 420 "step 38 frame@5" "step 38 frame@9"
-ss8-menu 4p-rejoin-back-ref "step 10 frame@5" "step 10 frame@9"
+ss8-menu 4p-team-back-ref "ss8 menu: step 16 frame@2" "ss8 menu: step 18 frame@2" "ss8 menu: step 20 frame@4" "ss8 menu: step 25 frame@1" "ss8 menu: step 29 frame@4" "ss8 menu: step 30 frame@4"
+ss8-menu 8p-rejoin-ready --past-race --total 480 "step 59 frame@9" "step 70 frame@3"
+ss8-menu 8p-rejoin-back "step 15 frame@5" "step 15 frame@9"
+ss8-menu 4p-rejoin-ref --past-race --total 420 "step 37 frame@5" "step 37 frame@9"
+ss8-menu 4p-rejoin-back-ref "step 9 frame@5" "step 9 frame@9"
+ss8-menu 2p-ss8-labels-toggle --total 140 "step 7 frame@4" "step 22 frame@8"
+ss8-menu 2p-ss8-labels-toggle-on --total 140 "step 7 frame@4" "step 22 frame@8"
+ss8-menu 2p-ss8-same --total 200 "step 22 frame@5" "step 23 frame@6"
+ss8-menu 2p-ss8-same-off --total 200 "step 22 frame@5" "step 23 frame@6"
+ss8-menu 8p-ss8-same --total 260 "step 52 frame@5" "step 53 frame@6"
+ss8-menu 8p-ss8-same-off --total 260 "step 52 frame@5" "step 53 frame@6"
+# Cursors moved off the last picks: the hold and each clock's zero put them back (the game's pages log "back on the last pick")
+ss8-menu 2p-ss8-same-moved --past-race --total 320 "step 38 frame@1" "step 42 frame@12"
+ss8-menu 8p-ss8-same-moved --total 270 "step 55 frame@1" "step 55 frame@6"
+ss8-menu 2p-ss8-timer-last --past-race --total 420 "step 38 frame@16" "step 45 frame@12"
+ss8-menu 1p-ss8-timer-last --total 270 "step 5 frame@16" "step 14 frame@16"
+ss8-menu 8p-ss8-timer-last --total 290 "step 23 frame@16" "step 25 frame@16"
+# RR's speedometer on at 2-4 screens: one a local, in its own place
+ss8-menu 2p-speedo "step 30 frame@22"
+ss8-menu 3p-speedo "step 41 frame@22"
 # To a page or a race's start
 ss8-menu 8p-team-back --fast
 ss8-menu 1p-kart-voice --fast

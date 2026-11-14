@@ -1,0 +1,42 @@
+# RR's Randomize Combo in 2P with the 8 Players page's skips (Transmission Vanilla, Drift Keep Last): P1's START rolls
+# both players' combos; RR's 2P roll confirms only P1, so P2 confirms the character and both the kart; the
+# transmission page is skipped and the drift page passes to the cup page (a shot), then cup, course and a race. GC 1-2.
+setting SETTING_SS8TRANSMISSION SS8TRANSMISSION_VANILLA
+setting SETTING_SS8DRIFT SS8DRIFT_KEEPLAST
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 240
+press 1 start    # character select: Randomize Combo
+wait 900         # the roulette
+press 2 a        # P2 confirms
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a        # the drift page passes
+wait 480         # the cup page
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 1500

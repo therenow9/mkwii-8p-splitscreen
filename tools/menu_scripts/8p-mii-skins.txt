@@ -1,4 +1,4 @@
-# M4 C4c's memory case: P1-4 on 8p-skins' heavy skins (P1-3 three Mario skins, P4
+# Memory case: P1-4 on 8p-skins' heavy skins (P1-3 three Mario skins, P4
 # Peach's first) while P5-8 stand on the Mii row with their own Mii bodies and heads (P5, P7 and P8 Mii A,
 # P6 Mii B); P7 holds right for 10 s along the Mii row, a new Mii body per move with its one head moved onto it;
 # P5 and P6 then pick other Miis in MiiSelect, P7 and P8 pick theirs, and everyone confirms through to a race
@@ -9,19 +9,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

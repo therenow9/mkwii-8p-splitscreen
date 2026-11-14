@@ -1,4 +1,4 @@
-# D77 in 2P: P1 on Mario skin 4 and P2 on Mario skin 5, each with their own loose voices, into a race.
+# 2P: P1 on Mario skin 4 and P2 on Mario skin 5, each with their own loose voices, into a race.
 # P1 keeps Mario's PC voice group with skin 4's voices; P2 takes a lent group with skin 5's (the
 # "ss8 race player" line's voice field names the character lending it). GC ports 1-2.
 wait 900
@@ -6,7 +6,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
 wait 40
 press 1 a
 wait 300

@@ -1,6 +1,6 @@
-# M4 C5a's kart page: 8 Players, P2-8 join, VS, everyone confirms their first
+# The kart page: 8 Players, P2-8 join, VS, everyone confirms their first
 # character, then on the kart page P1, P3 and P5-8 change karts (P5-8's previews unpack one archive at a
-# time, D126), P2 and P6 press the skin toggle buttons, which leave the kart (D149), P4 chooses and takes it back, before
+# time), P2 and P6 press the skin toggle buttons, which leave the kart, P4 chooses and takes it back, before
 # everyone readies, then the transmission page, the drift page, cup select and a race whose players 0-7 carry those karts.
 # Launch with install_8p.py dolphin --unattended --wiimotes.
 wait 900
@@ -8,19 +8,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360
@@ -81,7 +75,7 @@ press 3 left
 wait 30
 press 5 right
 wait 30
-press 2 r        # the skin toggle buttons do nothing on the kart page (D149): R on GC, L on Classic
+press 2 r        # the skin toggle buttons do nothing on the kart page: R on GC, L on Classic
 wait 30
 press 6 l
 wait 30

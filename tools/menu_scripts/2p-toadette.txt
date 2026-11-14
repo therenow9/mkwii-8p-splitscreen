@@ -1,4 +1,4 @@
-# D72 in 2P on Toadette, whose preview carries a separate hair model: P1 takes Toadette's shared model,
+# 2P on Toadette, whose preview carries a separate hair model: P1 takes Toadette's shared model,
 # P2 joins it on its own stock preview (slot 0, the menu archive's BRRES), then P2 and P1 each pick
 # skin 1. Ends at the character select; shoot after steps 9, 10 and 11. GC ports 1-2.
 wait 900
@@ -6,7 +6,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 175
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
 wait 40
 press 1 a
 wait 300

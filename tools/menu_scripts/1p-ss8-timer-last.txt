@@ -1,0 +1,41 @@
+# Select Timer at 15 s, 1P Grand Prix: P1 moves off the opening choice on every page and never confirms, so with no
+# pick yet each zero takes what P1 hovers; from the cup page Back to the character page, P1 moves off again, and each
+# zero now takes P1's last pick. GC port 1.
+setting SETTING_SS8SELECTTIMER SS8SELECTTIMER_15
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 a        # Single Player
+wait 240
+press 1 a        # Grand Prix
+wait 240
+press 1 a        # 50cc
+wait 400
+press 1 down     # character page: off the opening choice
+wait 1100        # the zero: the hovered one
+press 1 down     # vehicle page
+wait 1100
+press 1 down     # transmission page
+wait 1100
+press 1 down     # drift page
+wait 1100        # the cup page
+press 1 b        # back to the drift page
+wait 300
+press 1 b        # transmission
+wait 300
+press 1 b        # vehicles
+wait 300
+press 1 b        # characters
+wait 400
+press 1 right    # off the last pick
+wait 60
+press 1 right
+wait 1100        # the zero: the last pick
+press 1 up       # vehicle page
+wait 1100
+press 1 up       # transmission page
+wait 1100
+press 1 up       # drift page
+wait 1100        # the cup page

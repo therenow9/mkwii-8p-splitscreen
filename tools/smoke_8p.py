@@ -203,7 +203,7 @@ def run_case(case: Case, slot: int, out: Path, tiled: bool = False) -> dict:
               "load_s": None, "first_invalid": "", "pc": "", "fn": ""}
     layout = install_8p.Layout(install_8p.slot_root(slot, vanilla), vanilla)
     on = ["tools/install_8p.py", "--slot", str(slot)] + (["--vanilla"] if vanilla else [])
-    # Nothing is installed or stopped under a Dolphin this run did not start: on slot 0 it can be the owner's game.
+    # Nothing is installed or stopped under a Dolphin this run did not start: on slot 0 it can be a game someone is playing.
     if why := install_8p.foreign_dolphin():
         result["detail"] = why
         return result
@@ -224,7 +224,7 @@ def run_case(case: Case, slot: int, out: Path, tiled: bool = False) -> dict:
     settings_before = settings.read_bytes() if case.locals and settings.exists() else None
 
     def start() -> bool:
-        # Players 5-8 hold Wii Remote channels 1-4 (D24).
+        # Players 5-8 hold Wii Remote channels 1-4.
         launch = run([*on, "dolphin", "--unattended"] + (["--wiimotes"] if case.locals > 4 else []) +
                      # The title case has no boot to count frames: its 40 s is the wall clock's.
                      (["--fast"] if fast and case.locals else []), timeout=60)
@@ -695,7 +695,7 @@ def main() -> int:
                          "with --vanilla: VS (the 32 courses), BT (the 10 arenas) or all")
     ap.add_argument("--slots", type=int, default=1, choices=range(1, install_8p.TILES + 1),
                     help="cases or sweep tracks at once, on slots 0..N-1")
-    ap.add_argument("--fast", action="store_true", help="unlimited emulation speed (D171)")
+    ap.add_argument("--fast", action="store_true", help="unlimited emulation speed")
     ap.add_argument("--child", action="store_true", help=argparse.SUPPRESS)
     ap.add_argument("--vanilla", action="store_true", help="the vanilla build on install_8p.py's --vanilla root and slots")
     args = ap.parse_args()
@@ -782,7 +782,7 @@ def main() -> int:
 
     lines = ["| case | slot | result | detail | invalid accesses, GPU opcodes | screenshot |", "|---|---|---|---|---|---|"]
     lines += [f"| {r['case']} | {r['slot']} | {r['status']} | {r['detail']} | {r['invalid']} | {r['shot']} |" for r in results]
-    # The owner's files are the same for every slot: slot 0's snapshot checks them.
+    # The watched files are the same for every slot: slot 0's snapshot checks them.
     iso = run(["tools/install_8p.py"] + (["--vanilla"] if vanilla else []) + ["isolation", "verify"], timeout=120)
     lines += ["", f"Cases: {wall} s on {args.slots} slot(s)" + (", --fast" if fast else ""), (iso.stdout.strip().splitlines() or ["[isolation] no output"])[-1]]
     report = "\n".join(lines)

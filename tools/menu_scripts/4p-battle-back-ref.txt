@@ -1,4 +1,4 @@
-# The vanilla reference for Back through a Battle (M4 E4, normal build): RR's Battle Teams on, 4 Players.
+# The vanilla reference for Back through a Battle (normal build): RR's Battle Teams on, 4 Players.
 # BattleModeSelect's B back to the multiplayer menu, Battle again; Balloon Battle; the character page's P1 B back to
 # BattleModeSelect, Balloon again. Team page: P2's B before choosing, choose, B; P1's B back to the character page.
 # Check Teams' B back to the team page; then each page's P1 B in turn (kart, transmission, drift, cup, arena), every
@@ -10,11 +10,9 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
+press 1 left     # 4 Players
 wait 180
 press 1 a        # 4 Players
 wait 360
@@ -91,7 +89,7 @@ press 4 a
 wait 300
 press 1 a        # Check Teams
 wait 360
-press 1 b        # kart page: P1's B, back to Check Teams (as Team VS's, D5)
+press 1 b        # kart page: P1's B, back to Check Teams (as Team VS's)
 wait 360
 press 1 a        # Check Teams
 wait 360

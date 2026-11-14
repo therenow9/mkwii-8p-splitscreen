@@ -28,6 +28,6 @@ vanilla-menu v-8p-coin --past-race --fast --total 1200
 vanilla-menu v-8p-team --past-race --fast --total 1200
 vanilla-menu v-8p-back-every --fast --total 600
 vanilla-menu v-8p-moonview-quit --past-race --fast --total 500
-# Real-speed renders: the kart and drift rows clear the bottom bar (D252), eight karts on the Battle cup and arena pages (D253)
+# Real-speed renders: the kart and drift rows clear the bottom bar, eight karts on the Battle cup and arena pages
 vanilla-menu v-8p-chars "ss8 select: kart page, 8 players@2" "ss8 select: drift page, 8 players@2" --name v-8p-chars-shots --total 400
-vanilla-menu v-8p-battle "drift page -> 0x78@2" "ss8 menu: step 54 @3" --name v-8p-battle-shots --total 400
+vanilla-menu v-8p-battle "drift page -> 0x78@2" "ss8 menu: step 51 @3" --name v-8p-battle-shots --total 400

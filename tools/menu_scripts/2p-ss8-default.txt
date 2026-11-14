@@ -1,0 +1,49 @@
+# The 8 Players page's rows as the save holds them (saved-rows, no setting line): a save from before the page reads
+# Transmission Choose and Drift Choose. 2P VS: both confirm a character and a kart, then RR's transmission page (a
+# shot) and the drift page, then cup, course and a race whose holders log RR's page's transmission. GC ports 1-2.
+saved-rows
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration
+wait 150
+press 1 a        # OK
+wait 175
+press 1 a        # VS
+wait 360
+press 1 a        # Solo Race
+wait 360
+press 2 a        # character select
+wait 30
+press 1 a
+wait 360
+press 1 a        # kart select
+wait 30
+press 2 a
+wait 480         # the transmission page, held for its shot
+press 1 a        # transmission select
+wait 30
+press 2 a
+wait 360
+press 1 a        # drift select
+wait 30
+press 2 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 1500

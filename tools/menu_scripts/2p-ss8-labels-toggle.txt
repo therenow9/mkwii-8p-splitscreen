@@ -1,0 +1,50 @@
+# Screen Labels turned Off from the multiplayer menu's Settings in a 2-player game, then Back to Controller
+# Registration: its plates go with the row, the page unrebuilt. Starts On. GC ports 1-2.
+setting SETTING_SS8SCREENLABELS SS8SCREENLABELS_ON
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 175
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 60
+press 1 left     # 4 Players
+wait 60
+press 1 left     # 3 Players
+wait 60
+press 1 left     # 2 Players
+wait 40
+press 1 a
+wait 300
+press 2 a        # controller registration: P2
+wait 300         # the page with its plates, held for a shot
+press 1 a        # OK
+wait 480
+press 1 up       # multiplayer menu: VS -> the Settings button (top right)
+wait 120
+press 1 a        # Settings
+wait 600
+press 1 down     # page select: Race -> Battle
+wait 60
+press 1 down     # -> Royale
+wait 60
+press 1 down     # -> Items
+wait 60
+press 1 right    # -> 8 Players
+wait 300
+press 1 a        # the 8 Players page, on Save
+wait 600         # held for a shot
+press 1 up       # the last row, Same as Last Time
+wait 60
+press 1 up       # Screen Labels, on On
+wait 60
+press 1 left     # Off
+wait 60
+press 1 a
+wait 300         # held for a shot
+press 1 b        # saves, back to page select
+wait 300
+press 1 b        # back to the multiplayer menu
+wait 300
+press 1 b        # back to Controller Registration
+wait 600         # held for a shot: no plates

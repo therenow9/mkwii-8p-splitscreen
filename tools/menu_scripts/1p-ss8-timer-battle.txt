@@ -1,0 +1,24 @@
+# Select Timer at 15 s, 1P Balloon Battle: nobody presses after Balloon Battle but Check Teams' OK, so the character
+# page, the vehicle page (0x6C, RR's in Battle too), RR's transmission page and the drift page each confirm P1's
+# highlighted choice at zero, to the arena cup page. GC port 1.
+setting SETTING_SS8SELECTTIMER SS8SELECTTIMER_15
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 a        # main menu: Single Player
+wait 400
+press 1 down     # Grand Prix -> Time Trials
+wait 60
+press 1 down     # VS Race
+wait 60
+press 1 down     # Battle
+wait 60
+press 1 a
+wait 400
+press 1 a        # Balloon Battle
+wait 1500        # the character page confirms at zero
+press 1 a        # Check Teams (no clock)
+wait 30
+wait 4000

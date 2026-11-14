@@ -1,4 +1,4 @@
-# Team Balloon Battle with 8 players as it is (M4 E1): RR's Battle Teams on, 8 Players,
+# Team Balloon Battle with 8 players as it is: RR's Battle Teams on, 8 Players,
 # P2-8 join, Battle, Balloon Battle, the 8-player pages (odd players start Red; P3 to Blue, P4 to Red: 4 a side),
 # cup and arena, then as far as it gets. Launch with install_8p.py dolphin --unattended --wiimotes.
 autodrive
@@ -8,19 +8,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 60
 wait 120
 press 1 a        # 8 Players

@@ -1,4 +1,4 @@
-# Plain VS with 8 players to the race (M4 D2): 8 Players, P2-8 join, Solo Race, every page
+# Plain VS with 8 players to the race: 8 Players, P2-8 join, Solo Race, every page
 # confirmed, cup and course, then the race with every local's kart to the AI. The join-to-race lane, and the plain
 # 8P reference for the race heap (the "ss8 heap" section lines). Launch with install_8p.py dolphin --unattended --wiimotes.
 autodrive
@@ -7,19 +7,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

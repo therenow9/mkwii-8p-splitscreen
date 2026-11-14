@@ -8,19 +8,13 @@ press 1 a        # license: lost in most runs
 wait 200
 press 1 a        # license
 wait 600
-press 1 right    # main menu: 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # main menu: 3 Players
+press 1 right    # 6 Players
 wait 60
-press 1 right    # main menu: 4 Players
+press 1 right    # 7 Players
 wait 60
-press 1 right    # main menu: 5 Players
-wait 60
-press 1 right    # main menu: 6 Players
-wait 60
-press 1 right    # main menu: 7 Players
-wait 60
-press 1 right    # main menu: 8 Players
+press 1 right    # 8 Players
 wait 60
 wait 120
 press 1 a        # 8 Players

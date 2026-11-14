@@ -1,20 +1,14 @@
-# M4 C4d's Randomize Combo with 6 players: 6 Players, P2-6 join, VS, P2 and P5
+# The Randomize Combo with 6 players: 6 Players, P2-6 join, VS, P2 and P5
 # confirm, P1's START rolls all 6; the race's players 0-5 have the rolls and slots 6-11 are CPUs on
-# characters no local has (D98). Launch with install_8p.py dolphin --unattended --wiimotes.
+# characters no local has. Launch with install_8p.py dolphin --unattended --wiimotes.
 wait 900
 press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
-wait 60
-press 1 right    # 4
-wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
+press 1 right    # 6 Players
 wait 180
 press 1 a        # 6 Players
 wait 360
@@ -44,7 +38,7 @@ press 1 b        # mid-roulette: P1's B and P3's A do nothing
 wait 5
 press 3 a
 wait 400        # the roulette, every player confirmed at its end, the OK wait, then the kart page
-wait 200         # the kart page's roulette confirms everyone (D151), then the transmission page
+wait 200         # the kart page's roulette confirms everyone, then the transmission page
 press 1 a        # transmission page
 wait 20
 press 2 a

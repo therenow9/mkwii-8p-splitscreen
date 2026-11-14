@@ -1,4 +1,4 @@
-# M4 C4c's Mii picks across Back: 8 Players, P2-8 join, VS; P5 picks the 2nd Mii on
+# Mii picks across Back: 8 Players, P2-8 join, VS; P5 picks the 2nd Mii on
 # Mii A and P2 (a game slot) the 3rd on Mii A; P1's B goes back to VS, and Solo Race reopens the page with P2 and
 # P5 unconfirmed on Mii A and their plates naming their Miis; both pick again in MiiSelect, the rest confirm,
 # and the race has P2 and P5 as Miis. Launch with install_8p.py dolphin --unattended --wiimotes.
@@ -7,19 +7,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

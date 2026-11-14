@@ -1,4 +1,4 @@
-# Team VS with 8 players through the team page (M4 D2): 8 Players, P2-8 join, Team Race,
+# Team VS with 8 players through the team page: 8 Players, P2-8 join, Team Race,
 # the character page, then the team page: P3, P4, P7 and P8 to Blue, P1, P2, P5 on Red and P3 on Blue confirmed,
 # then P3, P4 and P6 to Red so Red holds six and P7's and P8's Red fades; P7 and P8 confirm Blue. Every later page
 # confirmed, cup and course, then every local's kart to the AI and port 1's A once a second through the series.
@@ -9,19 +9,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

@@ -1,4 +1,4 @@
-# P5-8's karts on 0x4B's Next Race course page held (PD26): 8 Players, P2-8 join, Solo Race, every page confirmed,
+# P5-8's karts on 0x4B's Next Race course page held: 8 Players, P2-8 join, Solo Race, every page confirmed,
 # cup and course, the race on autodrive, port 2's A through its results and on 0x4B, then P1's A. Each
 # "ss8 preview: unpack" pair gives an unpack's start and length. Launch with install_8p.py dolphin --unattended --wiimotes.
 autodrive
@@ -7,19 +7,13 @@ press 1 a        # title
 wait 175
 press 1 a        # license
 wait 240
-press 1 right    # main menu: Multiplayer, 2 Players
+press 1 down     # main menu: Multiplayer, 5 Players
 wait 60
-press 1 right    # 3
+press 1 right    # 6 Players
 wait 60
-press 1 right    # 4
+press 1 right    # 7 Players
 wait 60
-press 1 right    # 5
-wait 60
-press 1 right    # 6
-wait 60
-press 1 right    # 7
-wait 60
-press 1 right    # 8
+press 1 right    # 8 Players
 wait 180
 press 1 a        # 8 Players
 wait 360

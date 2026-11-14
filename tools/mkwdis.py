@@ -14,7 +14,7 @@ Usage:
   mkwdis.py xref <addr>                   find bl/b instructions targeting <addr>
   mkwdis.py imm <value>                   find instructions using an immediate or displacement (cmpwi rX, 4; lwz 0x1c(rY))
   mkwdis.py dref <addr> [--span N]        find data references: lis-based loads/stores/addresses, r2/r13, data words
-  mkwdis.py bits --field 4 --width 32 --bits 28-31    every test, set and clear of a field's bits, typed by owner
+  mkwdis.py bits --field 4 --width 32 --bits 28-31    every test, set and clear of a field's bits, typed by the owning class
   mkwdis.py bits --field 0x48:4 --width 16            the same through a pointer field ([+0x48]+4)
   mkwdis.py bits --ctors --bits 28-31                 the bitfield argument of every ModelDirector constructor call
 """
