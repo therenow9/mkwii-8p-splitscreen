@@ -54,6 +54,8 @@ ss8-menu 8p-ss8-same-off --total 260 "step 52 frame@5" "step 53 frame@6"
 # Cursors moved off the last picks: the hold and each clock's zero put them back (the game's pages log "back on the last pick")
 ss8-menu 2p-ss8-same-moved --past-race --total 320 "step 38 frame@1" "step 42 frame@12"
 ss8-menu 8p-ss8-same-moved --total 270 "step 55 frame@1" "step 55 frame@6"
+# After the main menu: P5's character, skin and vehicle come back as P1-4's do, not P5's default (Baby Daisy)
+ss8-menu 5p-ss8-same-return --past-race --total 420 "same as last time by@1" "same as last time by@26"
 ss8-menu 2p-ss8-timer-last --past-race --total 420 "step 38 frame@16" "step 45 frame@12"
 ss8-menu 1p-ss8-timer-last --total 270 "step 5 frame@16" "step 14 frame@16"
 ss8-menu 8p-ss8-timer-last --total 290 "step 23 frame@16" "step 25 frame@16"

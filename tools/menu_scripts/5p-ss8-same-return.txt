@@ -1,0 +1,125 @@
+# Same as Last Time after the main menu, 5P VS (the 8 Players rows on Choose): P5 picks off every default (a driver
+# with a skin, the next vehicle, the other transmission and drift), a race quit from the pause menu, 5 Players again,
+# and P1 holds Z on the character page: P5's picks come back as P1-4's do. GC ports 1-4, Wii channel 1's Classic as
+# port 5. Launch with --past-race.
+wait 900
+press 1 a        # title
+wait 175
+press 1 a        # license
+wait 240
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 180
+press 1 a        # 5 Players
+wait 360
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page for 5, no hint
+wait 300
+press 5 up       # P5 off Baby Daisy
+wait 30
+press 5 r        # its skins 1, 2
+wait 30
+press 5 r
+wait 300
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 360
+press 5 right    # vehicle page: P5 off the first vehicle
+wait 60
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 360
+press 5 up       # transmission page: P5 off the stored button
+wait 60
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 360
+press 5 up       # drift page: P5 off the stored button
+wait 60
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 480
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 1500
+press 1 start    # the race's pause menu
+wait 60
+press 1 down
+wait 60
+press 1 down     # Quit
+wait 60
+press 1 a
+wait 60
+press 1 up       # "Are you sure?" starts on No
+wait 60
+press 1 a
+wait 900
+press 1 a        # main menu, back on 5 Players
+wait 360
+press 2 a        # join page
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 240
+press 1 a        # ConfirmPads: OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page, the hint shown
+wait 360
+press 1 z 200    # held 3 s: every page confirms on last picks
+wait 1500        # the cup page
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a
+wait 900         # the race, each racer's character and skin in the log

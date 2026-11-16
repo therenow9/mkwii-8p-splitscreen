@@ -1,0 +1,122 @@
+# Same as Last Time after the main menu without Retro Rewind (vanilla-menu), 5P VS: P5 picks off the default driver,
+# vehicle and drift, a race quit from the pause menu, 5 Players again, and P1 holds Z on the character page: P5's
+# picks come back as P1-4's do. GC ports 1-4, Wii channel 1's Classic as port 5. Launch with --past-race.
+wait 900
+press 1 a        # title
+wait 400
+press 1 a        # license: lost in most runs (the page fades in later than RR's)
+wait 200
+press 1 a        # license
+# Japan's title takes A about 600 frames later
+J: wait 605
+J: press 1 a     # license
+# USA and Japan: slot 0's PAL license has a Mii this console lacks, so the game swaps in a guest Mii first
+EJ: wait 600
+EJ: press 1 a    # Choose a Mii: the selected one
+EJ: wait 535
+EJ: press 1 a    # OK
+EJ: wait 405
+EJ: press 1 a    # the Mii changed
+EJ: wait 405
+EJ: press 1 a    # license
+wait 600         # the game's main menu opens later than RR's
+press 1 down     # main menu: Multiplayer, 5 Players
+wait 180
+press 1 a        # 5 Players
+wait 600         # the join page opens later than in RR, and an A in its fade-in is lost
+press 2 a        # join page: P2 on GC port 2
+wait 120
+press 3 a        # P3
+wait 120
+press 4 a        # P4
+wait 120
+press 5 a        # P5 on Wii channel 1's Classic; ConfirmPads opens, OK selected
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the 8-player character page, no hint
+wait 300
+press 5 left     # P5 off Baby Daisy (up wraps to the Mii row)
+wait 60
+press 1 a        # character page
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 300
+press 5 right    # kart page: P5 off the first vehicle
+wait 60
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 300
+press 5 up       # drift page: P5 off the stored button
+wait 60
+press 1 a
+wait 20
+press 2 a
+wait 20
+press 3 a
+wait 20
+press 4 a
+wait 20
+press 5 a
+wait 360
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a        # again, if the first landed in the screen's fade-in
+wait 1500
+press 1 start    # the race's pause menu
+wait 60
+press 1 down
+wait 60
+press 1 down     # Quit
+wait 60
+press 1 a
+wait 60
+press 1 up       # "Are you sure?" starts on No
+wait 60
+press 1 a
+wait 1500        # the main menu
+press 1 a        # back on 5 Players
+wait 600
+press 2 a        # join page
+wait 120
+press 3 a
+wait 120
+press 4 a
+wait 120
+press 5 a
+wait 240
+press 1 a        # OK
+wait 300
+press 1 a        # multiplayer menu: VS
+wait 360
+press 1 a        # VS: Solo Race -> the character page, the hint shown
+wait 360
+press 1 z 200    # held 3 s: every page confirms on last picks
+wait 1500        # the cup page
+press 1 a        # cup
+wait 240
+press 1 a        # course
+wait 240
+press 1 a        # Start Race: OK
+wait 240
+press 1 a
+wait 900         # the race, each racer's character in the log
